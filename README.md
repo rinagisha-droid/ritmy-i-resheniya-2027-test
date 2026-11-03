@@ -1,0 +1,1 @@
+# ritmy-i-resheniya-2027-test
