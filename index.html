@@ -584,6 +584,136 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
   .triptych .feature.feature-moon{height:325px}
   .triptych .feature.feature-moon .moon-description p{font-size:11px}
 }
+
+/* Zodiac art card — consistent visual for all 12 astrological signs */
+.triptych .feature.feature-zodiac{
+  position:relative;
+  isolation:isolate;
+  height:326px;
+  min-width:0;
+  padding:8px 7px 9px;
+  overflow:hidden;
+  border:1.5px solid #d8b770;
+  border-radius:15px;
+  background:#041e28 url("assets/moon-botanical-bg.webp") center center / 100% 100% no-repeat !important;
+  box-shadow:inset 0 0 0 1px rgba(255,234,179,.13),
+             inset 0 0 26px rgba(0,0,0,.11),
+             0 4px 14px rgba(0,0,0,.2);
+}
+.triptych .feature.feature-zodiac::before,
+.triptych .feature.feature-zodiac::after{
+  display:none!important;content:none!important;
+}
+.triptych .feature.feature-zodiac h3{
+  position:relative;z-index:5;
+  flex:0 0 auto;
+  width:100%;max-width:100%;
+  min-height:33px;
+  margin:0 auto 0;padding:1px 0 0;
+  color:#fff6e6;
+  font:normal clamp(17px,1.5vw,24px)/1.08 Georgia,'Times New Roman',serif;
+  text-shadow:0 2px 5px rgba(0,0,0,.95),0 0 13px rgba(0,0,0,.7);
+  text-align:center;
+  overflow-wrap:normal;
+}
+.triptych .feature.feature-zodiac .zodiac-subtitle{display:none!important}
+.triptych .feature.feature-zodiac .zodiac-glyph{
+  position:absolute;
+  top:48px;right:8px;z-index:5;
+  display:grid;place-items:center;
+  width:44px;height:44px;
+  border:2px solid #e8c477;
+  border-radius:50%;
+  outline:1px solid #74542b;
+  outline-offset:3px;
+  color:#ffdb89;
+  background:radial-gradient(circle at 30% 22%,#245341 0%,#0c332e 65%,#041c21 100%);
+  box-shadow:0 0 0 5px rgba(6,30,29,.62),inset 0 0 0 2px rgba(233,190,103,.22),
+             inset 0 0 12px rgba(255,229,147,.12),0 3px 10px rgba(0,0,0,.7);
+  text-shadow:0 0 7px rgba(252,205,108,.55);
+  font:normal 29px/1 Georgia,'Times New Roman',serif;
+  pointer-events:none;
+}
+.triptych .feature.feature-zodiac .zodiac-visual{
+  position:relative;
+  z-index:2;
+  flex:1 1 auto;
+  width:100%;
+  min-height:0;
+  padding:0;
+  overflow:visible;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.triptych .feature.feature-zodiac .zodiac-art{
+  width:100%;
+  height:100%;
+  min-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.triptych .feature.feature-zodiac .zodiac-sprite{
+  display:block;
+  width:min(100%,226px);
+  height:auto;
+  max-height:100%;
+  aspect-ratio:1;
+  flex:0 1 auto;
+  border:0;
+  border-radius:0;
+  background-image:url('assets/zodiac-atlas-v1.webp');
+  background-size:400% 300%;
+  background-repeat:no-repeat;
+  mix-blend-mode:screen;
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 60%,rgba(0,0,0,.98) 73%,transparent 100%);
+  mask-image:radial-gradient(ellipse at center,#000 60%,rgba(0,0,0,.98) 73%,transparent 100%);
+  filter:brightness(1.12) saturate(1.18) contrast(1.05);
+}
+.triptych .feature.feature-zodiac .zodiac-quality{
+  position:relative;z-index:5;
+  flex:0 0 auto;
+  display:block;
+  width:max-content;
+  max-width:100%;
+  min-height:27px;
+  margin:0 auto 9px;
+  padding:6px 10px;
+  border:1px solid rgba(234,200,130,.82);
+  border-radius:25px;
+  color:#fff4df;
+  background:rgba(2,39,39,.86);
+  box-shadow:0 2px 9px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.13);
+  text-align:center;
+  text-shadow:0 1px 3px rgba(0,0,0,.7);
+  font:11px/1.2 Arial,sans-serif;
+  cursor:pointer;
+}
+.triptych .feature.feature-zodiac .zodiac-quality:hover{
+  background:rgba(17,71,57,.95);
+  border-color:#f8d995;
+}
+@media(max-width:1250px){
+  .triptych .feature.feature-zodiac{height:308px;padding:7px 5px 8px}
+  .triptych .feature.feature-zodiac h3{font-size:clamp(16px,1.45vw,21px);min-height:30px}
+  .triptych .feature.feature-zodiac .zodiac-glyph{
+    top:47px;right:7px;width:37px;height:37px;font-size:25px;
+  }
+  .triptych .feature.feature-zodiac .zodiac-quality{
+    font-size:10px;min-height:25px;padding:5px 7px;margin-bottom:7px;
+  }
+}
+@media(max-width:840px){
+  .triptych .feature.feature-zodiac{height:326px}
+  .triptych .feature.feature-zodiac h3{font-size:21px}
+}
+@media(max-width:570px){
+  .triptych .feature.feature-zodiac{height:325px}
+  .triptych .feature.feature-zodiac h3{font-size:20px}
+  .triptych .feature.feature-zodiac .zodiac-glyph{top:50px;right:7px;width:39px;height:39px;font-size:26px}
+}
+
 </style></head><body><div class="site"><header class="hero"><div><h1>Ритмы и решения ✦</h1><p>Волшебство каждого дня</p><em>Осень — зима 2026 · весь 2027</em></div><div class="hero-quote">Больше, чем календарь — это время для себя ♡<p><button class="hero-link" data-action="access">✦ Получить доступ →</button></p></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
