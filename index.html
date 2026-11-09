@@ -154,6 +154,61 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
 .modal input[type="checkbox"]{width:auto;margin-right:8px;accent-color:#0b503e}
 .settings-check{display:flex!important;align-items:center;gap:5px}
 .reduced-motion-ui .topnav-card,.reduced-motion-ui .side-btn{transition:none!important}
+
+/* Seamless lantern illustration below the sidebar menu.
+   The decoration blends into the panel instead of appearing as an inset photo. */
+@media(min-width:841px){
+  .sidebar{padding-bottom:0}
+  .sidebar .side-deco{
+    position:relative;
+    isolation:isolate;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    flex:0 0 auto;
+    min-height:250px;
+    margin:12px -10px 0;
+    padding:14px 6px 0;
+    overflow:hidden;
+    border:0;
+    border-radius:0 0 15px 15px;
+    background:transparent!important;
+    text-align:center;
+  }
+  .sidebar .side-deco::before{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    inset:0;
+    background:url('assets/lantern.webp') center bottom / cover no-repeat;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,transparent 7%,#000 35%,#000 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,transparent 7%,#000 35%,#000 100%);
+    pointer-events:none;
+  }
+  .sidebar .side-deco::after{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    inset:0;
+    background:linear-gradient(to bottom,rgba(2,26,25,.2) 0,transparent 37%,transparent 100%);
+    pointer-events:none;
+  }
+  .sidebar .side-deco div{
+    position:relative;
+    z-index:1;
+    margin:0;
+    padding:0;
+    color:#fff9ed;
+    text-shadow:0 2px 5px #041e1c,0 0 10px #041e1c;
+    font:italic 19px/1.12 Georgia,serif;
+    transform:rotate(-6deg);
+  }
+}
+@media(min-width:841px) and (max-width:1150px){
+  .sidebar .side-deco{margin-left:-7px;margin-right:-7px;min-height:218px}
+  .sidebar .side-deco div{font-size:17px}
+}
+@media(max-width:840px){.sidebar .side-deco{display:none}}
 </style></head><body><div class="site"><header class="hero"><div><h1>Ритмы и решения ✦</h1><p>Волшебство каждого дня</p><em>Осень — зима 2026 · весь 2027</em></div><div class="hero-quote">Больше, чем календарь — это время для себя ♡<p><button class="hero-link" data-action="access">✦ Получить доступ →</button></p></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
