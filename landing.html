@@ -450,6 +450,160 @@ section.faq.section{
   .last-banner p{font-size:14px}
   .last-banner .btn{display:flex;width:100%;margin:0 0 10px}
 }
+
+/* Free introduction: an airy cream explanation and a working calendar CTA. */
+.free-discovery.wrap{
+  margin-top:82px;
+  padding:clamp(25px,3.8vw,52px);
+  background:radial-gradient(ellipse at 92% 12%,#f5e8c5 0%,transparent 41%),#fffaf0;
+  border:1px solid #e2dfd1;
+  border-radius:28px;
+  box-shadow:0 14px 38px rgba(43,55,35,.085);
+}
+.free-discovery-main{
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(305px,.82fr);
+  gap:clamp(26px,3.5vw,55px);
+  align-items:center;
+}
+.free-discovery-copy{min-width:0}
+.free-discovery-kicker{
+  display:inline-flex;align-items:center;gap:7px;
+  border-radius:100px;padding:8px 13px;
+  background:#123d32;color:#fce2a6;
+  font:800 10px/1.3 Arial,sans-serif;letter-spacing:1.4px;
+}
+.free-discovery-kicker span{color:#f8d37b;font-size:13px}
+.free-discovery-copy h2{
+  margin:17px 0 22px;
+  font:700 clamp(37px,3.7vw,55px)/1.11 Georgia,"Times New Roman",serif;
+  letter-spacing:-.55px;color:#173c32;
+}
+.free-discovery-copy h2 em{font-style:normal;color:#9e7341}
+.free-discovery-lead{
+  margin:0 0 12px;color:#566b5f;
+  font:15px/1.7 Arial,sans-serif;
+}
+.free-discovery-lead-second{margin-bottom:24px}
+.free-discovery-copy h3{
+  font:700 23px/1.22 Georgia,serif;
+  color:#1e4339;margin:0 0 15px;
+}
+.free-discovery-list{
+  list-style:none;margin:0;padding:0;
+  display:flex;flex-direction:column;gap:13px;
+}
+.free-discovery-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font:13px/1.58 Arial,sans-serif;color:#536a5d;
+}
+.free-discovery-list li strong{color:#214d3e}
+.free-discovery-check{
+  width:22px;height:22px;flex:0 0 22px;
+  border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(135deg,#fdf0c6,#e9be6c);
+  box-shadow:inset 0 0 0 1px #d6a85a;
+  color:#5b4828;
+  margin-top:1px;
+}
+.free-discovery-check svg{width:15px;height:15px}
+.free-discovery-preview{
+  background:radial-gradient(circle at 50% 0%,rgba(62,120,87,.46),transparent 60%),linear-gradient(150deg,#07392f,#0d3b35 71%,#173e43);
+  border:1px solid #c79d53;
+  border-radius:25px;
+  padding:clamp(19px,2.5vw,30px);
+  box-shadow:0 14px 31px rgba(6,36,31,.2);
+  color:#ffedc8;
+  min-width:0;
+}
+.free-discovery-preview-kicker{
+  color:#f9d586;letter-spacing:1.5px;
+  font:800 10px/1.3 Arial,sans-serif;
+}
+.free-discovery-preview h3{
+  color:#fff1ce;font:700 27px/1.15 Georgia,serif;
+  margin:10px 0 7px;
+}
+.free-discovery-preview>p:not(.free-discovery-note){
+  margin:0 0 19px;color:#e2e9da;
+  font-size:12px;line-height:1.55;
+}
+.free-mini-calendar{
+  padding:12px;
+  border-radius:15px;
+  background:#faf5e9;
+  box-shadow:0 4px 16px #001c1b45;
+  color:#203d34;
+}
+.free-mini-title{
+  display:flex;justify-content:space-between;align-items:center;
+  font:700 20px Georgia,serif;margin:0 3px 9px;
+}
+.free-mini-moon{
+  font:normal 24px Georgia,serif;color:#b98838;
+}
+.free-mini-grid{
+  display:grid;grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:3px;
+}
+.free-mini-weekday{
+  text-align:center;font:700 10px Arial,sans-serif;
+  color:#62736c;padding:2px 0 5px;
+}
+.free-mini-day{
+  aspect-ratio:1;display:grid;place-items:center;
+  position:relative;border-radius:5px;
+  background:#fffdfa;
+  border:1px solid #e8e5d9;
+  color:#2e5146;
+  font:11px/1 Arial,sans-serif;
+}
+.free-mini-day.is-other{color:#b3b9af;background:#f5f3eb}
+.free-mini-day.is-selected{
+  background:#0c473b;color:#fff3c8;
+  border:1px solid #dfb465;
+  box-shadow:0 0 0 1px #e8c885;
+  font-weight:700;
+}
+.free-mini-day i{position:absolute;width:4px;height:4px;bottom:3px;right:4px;border-radius:50%}
+.free-mini-day .moon-dot{background:#d69e4f}
+.free-mini-day .special-dot{background:#459b7a}
+.free-mini-legend{
+  display:flex;gap:15px;flex-wrap:wrap;margin:9px 2px 0;
+  font:10px Arial,sans-serif;color:#5c7065;
+}
+.free-mini-legend span{display:flex;align-items:center;gap:6px}
+.free-mini-legend i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#459b7a}
+.free-mini-legend span+span i{background:#d69e4f}
+.free-discovery-preview .free-discovery-button{
+  display:flex;width:100%;margin-top:21px;
+  font-size:15px;min-height:52px;
+}
+.free-discovery-preview .free-discovery-note{
+  text-align:center;margin:11px 0 0;
+  font:11px/1.5 Arial,sans-serif;color:#e8e3cc;
+}
+.free-discovery-outro{
+  margin:23px 0 0;text-align:center;
+  font:italic 13px/1.5 Georgia,serif;color:#768477;
+}
+@media(max-width:900px){
+  .free-discovery-main{grid-template-columns:1fr;gap:28px}
+  .free-discovery-preview{max-width:500px;width:100%;justify-self:center}
+  .free-discovery-copy h2{max-width:700px}
+}
+@media(max-width:520px){
+  .free-discovery.wrap{margin-top:60px;padding:24px 17px 22px;border-radius:21px}
+  .free-discovery-copy h2{font-size:clamp(34px,9vw,44px)}
+  .free-discovery-lead{font-size:14px}
+  .free-discovery-list li{font-size:12px}
+  .free-discovery-preview{padding:20px 16px}
+  .free-discovery-preview h3{font-size:24px}
+  .free-mini-calendar{padding:9px}
+  .free-mini-grid{gap:2px}
+  .free-mini-day{font-size:10px}
+  .free-discovery-outro{font-size:12px}
+}
 </style>
 </head>
 <body>
@@ -683,14 +837,37 @@ section.faq.section{
   </div>
 </section>
 
-<div class="wrap">
-  <aside class="banner">
-    <div class="eyebrow">Попробуйте, прежде чем покупать</div>
-    <h2>Загляните внутрь календаря бесплатно</h2>
-    <p>Откройте рабочую демонстрацию, переключите даты, посмотрите Луну, карточки и практики. Вы сами решите, подходит ли вам такой формат.</p>
-    <a href="index.html" class="btn btn-gold">Забрать бесплатно <span aria-hidden="true">→</span></a>
-  </aside>
-</div>
+<section class="free-discovery wrap" id="free" aria-labelledby="freeDiscoveryTitle">
+  <div class="free-discovery-main">
+    <div class="free-discovery-copy">
+      <div class="free-discovery-kicker"><span aria-hidden="true">✦</span> БЕСПЛАТНОЕ ЗНАКОМСТВО</div>
+      <h2 id="freeDiscoveryTitle">Попробуйте «Ритмы и решения» <em>бесплатно</em></h2>
+      <p class="free-discovery-lead">Иногда хочется не просто посмотреть, какой сегодня день, а понять, на чём сосредоточиться, что важно именно сейчас и какой небольшой шаг можно сделать для себя.</p>
+      <p class="free-discovery-lead free-discovery-lead-second">Загляните внутрь календаря, выберите дату и посмотрите, как он помогает соединять повседневные дела, личные желания и время для себя.</p>
+      <h3>Что вас ждёт внутри</h3>
+      <ul class="free-discovery-list">
+          <li><span class="free-discovery-check" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4.5 12.3 9.6 17l9.9-10.5" fill="none" stroke="currentColor" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Мой день</strong> — Настроение, планы, маленькие победы и напоминания.</span></li>
+          <li><span class="free-discovery-check" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4.5 12.3 9.6 17l9.9-10.5" fill="none" stroke="currentColor" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Жизнь и вдохновение</strong> — Эмоции, отношения, красота, забота о себе и маленькие радости.</span></li>
+          <li><span class="free-discovery-check" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4.5 12.3 9.6 17l9.9-10.5" fill="none" stroke="currentColor" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Дело и возможности</strong> — Работа, финансы, важные решения и новые начинания.</span></li>
+          <li><span class="free-discovery-check" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4.5 12.3 9.6 17l9.9-10.5" fill="none" stroke="currentColor" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Лунные ритмы</strong> — Фазы Луны, знаки зодиака, фокус дня и небольшие практики.</span></li>
+          <li><span class="free-discovery-check" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4.5 12.3 9.6 17l9.9-10.5" fill="none" stroke="currentColor" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Удобный формат</strong> — Открывается на телефоне и компьютере без установки.</span></li>
+      </ul>
+    </div>
+    <aside class="free-discovery-preview" aria-label="Бесплатная демонстрация календаря">
+      <span class="free-discovery-preview-kicker">ПОСМОТРИТЕ САМИ</span>
+      <h3>Ваш день. Ваши решения.</h3>
+      <p>Выберите дату, изучите подсказки и решите, хотите ли провести с календарём весь 2027 год.</p>
+      <div class="free-mini-calendar" aria-hidden="true">
+        <div class="free-mini-title"><span>Ноябрь 2026</span><span class="free-mini-moon">☾</span></div>
+        <div class="free-mini-grid"><span class="free-mini-weekday">Пн</span><span class="free-mini-weekday">Вт</span><span class="free-mini-weekday">Ср</span><span class="free-mini-weekday">Чт</span><span class="free-mini-weekday">Пт</span><span class="free-mini-weekday">Сб</span><span class="free-mini-weekday">Вс</span><span class="free-mini-day is-other">26</span><span class="free-mini-day is-other">27</span><span class="free-mini-day is-other">28</span><span class="free-mini-day is-other">29</span><span class="free-mini-day is-other">30</span><span class="free-mini-day is-other">31</span><span class="free-mini-day">1</span><span class="free-mini-day">2</span><span class="free-mini-day">3</span><span class="free-mini-day">4</span><span class="free-mini-day">5</span><span class="free-mini-day">6</span><span class="free-mini-day">7<i class="moon-dot" aria-hidden="true"></i></span><span class="free-mini-day">8</span><span class="free-mini-day">9<i class="special-dot" aria-hidden="true"></i></span><span class="free-mini-day is-selected">10</span><span class="free-mini-day">11</span><span class="free-mini-day">12</span><span class="free-mini-day">13</span><span class="free-mini-day">14</span><span class="free-mini-day">15<i class="moon-dot" aria-hidden="true"></i></span><span class="free-mini-day">16</span><span class="free-mini-day">17</span><span class="free-mini-day">18</span><span class="free-mini-day">19<i class="special-dot" aria-hidden="true"></i></span><span class="free-mini-day">20</span><span class="free-mini-day">21</span><span class="free-mini-day">22<i class="moon-dot" aria-hidden="true"></i></span><span class="free-mini-day">23</span><span class="free-mini-day">24</span><span class="free-mini-day">25</span><span class="free-mini-day">26</span><span class="free-mini-day">27</span><span class="free-mini-day">28</span><span class="free-mini-day">29<i class="special-dot" aria-hidden="true"></i></span><span class="free-mini-day">30</span><span class="free-mini-day is-other">1</span><span class="free-mini-day is-other">2</span><span class="free-mini-day is-other">3</span><span class="free-mini-day is-other">4</span><span class="free-mini-day is-other">5</span><span class="free-mini-day is-other">6</span></div>
+        <div class="free-mini-legend"><span><i></i> Особенные даты</span><span><i></i> Лунные ритмы</span></div>
+      </div>
+      <a href="index.html" class="btn btn-gold free-discovery-button">Забрать бесплатно <span aria-hidden="true">→</span></a>
+      <p class="free-discovery-note">Без оплаты · открывается прямо в браузере</p>
+    </aside>
+  </div>
+  <p class="free-discovery-outro">Попробуйте календарь в действии и решите, подходит ли вам такой формат на весь 2027 год.</p>
+</section>
 
 <section class="section" id="days">
   <div class="wrap">
