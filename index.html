@@ -585,135 +585,114 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
   .triptych .feature.feature-moon .moon-description p{font-size:11px}
 }
 
-/* Zodiac art card — consistent visual for all 12 astrological signs */
+
+/* Premium zodiac cards, matched to Scorpio reference; applies dynamically to all 12 signs. */
 .triptych .feature.feature-zodiac{
-  position:relative;
-  isolation:isolate;
-  height:326px;
-  min-width:0;
-  padding:8px 7px 9px;
-  overflow:hidden;
-  border:1.5px solid #d8b770;
-  border-radius:15px;
-  background:#041e28 url("assets/moon-botanical-bg.webp") center center / 100% 100% no-repeat !important;
-  box-shadow:inset 0 0 0 1px rgba(255,234,179,.13),
-             inset 0 0 26px rgba(0,0,0,.11),
-             0 4px 14px rgba(0,0,0,.2);
+ position:relative;isolation:isolate;
+ height:326px;min-width:0;overflow:hidden;
+ padding:7px 7px 9px;
+ border:1.5px solid #e3c27c;
+ border-radius:15px;
+ background:#041d27 url('assets/zodiac-botanical-starry.webp') center 49% / 117% 110% no-repeat !important;
+ box-shadow:inset 0 0 0 1px rgba(255,236,178,.14),0 3px 14px rgba(1,9,11,.27);
 }
 .triptych .feature.feature-zodiac::before,
 .triptych .feature.feature-zodiac::after{
-  display:none!important;content:none!important;
+ content:none!important;display:none!important;
 }
 .triptych .feature.feature-zodiac h3{
-  position:relative;z-index:5;
-  flex:0 0 auto;
-  width:100%;max-width:100%;
-  min-height:33px;
-  margin:0 auto 0;padding:1px 0 0;
-  color:#fff6e6;
-  font:normal clamp(17px,1.5vw,24px)/1.08 Georgia,'Times New Roman',serif;
-  text-shadow:0 2px 5px rgba(0,0,0,.95),0 0 13px rgba(0,0,0,.7);
-  text-align:center;
-  overflow-wrap:normal;
+ z-index:5;position:relative;
+ flex:0 0 auto;align-self:center;
+ margin:0;padding:0 1px;
+ width:100%;min-height:32px;
+ color:#fff3dd;
+ font:normal clamp(18px,1.60vw,24px)/1.13 Georgia,'Times New Roman',serif;
+ text-align:center;
+ white-space:nowrap;
+ letter-spacing:-.35px;
+ text-shadow:0 2px 5px #010d12,0 0 9px #061d23;
 }
 .triptych .feature.feature-zodiac .zodiac-subtitle{display:none!important}
 .triptych .feature.feature-zodiac .zodiac-glyph{
-  position:absolute;
-  top:48px;right:8px;z-index:5;
-  display:grid;place-items:center;
-  width:44px;height:44px;
-  border:2px solid #e8c477;
-  border-radius:50%;
-  outline:1px solid #74542b;
-  outline-offset:3px;
-  color:#ffdb89;
-  background:radial-gradient(circle at 30% 22%,#245341 0%,#0c332e 65%,#041c21 100%);
-  box-shadow:0 0 0 5px rgba(6,30,29,.62),inset 0 0 0 2px rgba(233,190,103,.22),
-             inset 0 0 12px rgba(255,229,147,.12),0 3px 10px rgba(0,0,0,.7);
-  text-shadow:0 0 7px rgba(252,205,108,.55);
-  font:normal 29px/1 Georgia,'Times New Roman',serif;
-  pointer-events:none;
+ z-index:6;position:absolute;top:49px;right:11px;
+ width:46px;height:46px;
+ display:grid;place-items:center;
+ border:2px solid #e9bf63;border-radius:50%;
+ outline:1px solid #8c662f;outline-offset:2px;
+ background:radial-gradient(circle at 33% 27%,#1d5440,#082b2a 68%,#02181d);
+ color:#f8d67b;
+ font:normal 29px/1 'DejaVu Sans','Segoe UI Symbol','Noto Sans Symbols 2',serif;
+ font-variant-emoji:text;
+ text-shadow:0 0 5px #deb95a7d;
+ box-shadow:inset 0 0 0 2px #e4c07933,0 0 0 4px #051e21b3,0 4px 9px #0009;
+ pointer-events:none;
 }
 .triptych .feature.feature-zodiac .zodiac-visual{
-  position:relative;
-  z-index:2;
-  flex:1 1 auto;
-  width:100%;
-  min-height:0;
-  padding:0;
-  overflow:visible;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+ z-index:2;position:relative;
+ width:100%;min-height:0;flex:1 1 auto;
+ padding:0;overflow:hidden;
+ display:flex;align-items:center;justify-content:center;
 }
 .triptych .feature.feature-zodiac .zodiac-art{
-  width:100%;
-  height:100%;
-  min-height:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+ width:100%;height:100%;min-height:0;
+ display:flex;align-items:center;justify-content:center;
 }
 .triptych .feature.feature-zodiac .zodiac-sprite{
-  display:block;
-  width:min(100%,226px);
-  height:auto;
-  max-height:100%;
-  aspect-ratio:1;
-  flex:0 1 auto;
-  border:0;
-  border-radius:0;
-  background-image:url('assets/zodiac-atlas-v1.webp');
-  background-size:400% 300%;
-  background-repeat:no-repeat;
-  mix-blend-mode:screen;
-  -webkit-mask-image:radial-gradient(ellipse at center,#000 60%,rgba(0,0,0,.98) 73%,transparent 100%);
-  mask-image:radial-gradient(ellipse at center,#000 60%,rgba(0,0,0,.98) 73%,transparent 100%);
-  filter:brightness(1.12) saturate(1.18) contrast(1.05);
+ display:block;
+ width:calc(100% * var(--zodiac-scale, 1.27));
+ height:auto;
+ max-width:none;max-height:none;
+ flex:0 0 auto;
+ aspect-ratio:1;
+ border:0;border-radius:0;
+ background-image:url('assets/zodiac-atlas-v1.webp');
+ background-repeat:no-repeat;
+ background-size:400% 300%;
+ mix-blend-mode:screen;
+ -webkit-mask-image:radial-gradient(ellipse at center,#000 58%,#000 78%,transparent 99%);
+ mask-image:radial-gradient(ellipse at center,#000 58%,#000 78%,transparent 99%);
+ filter:brightness(1.24) saturate(1.38) contrast(1.06) drop-shadow(0 4px 7px #0b1218);
+ transform:translateY(var(--zodiac-y, 5px));
+ transform-origin:50% 50%;
 }
 .triptych .feature.feature-zodiac .zodiac-quality{
-  position:relative;z-index:5;
-  flex:0 0 auto;
-  display:block;
-  width:max-content;
-  max-width:100%;
-  min-height:27px;
-  margin:0 auto 9px;
-  padding:6px 10px;
-  border:1px solid rgba(234,200,130,.82);
-  border-radius:25px;
-  color:#fff4df;
-  background:rgba(2,39,39,.86);
-  box-shadow:0 2px 9px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.13);
-  text-align:center;
-  text-shadow:0 1px 3px rgba(0,0,0,.7);
-  font:11px/1.2 Arial,sans-serif;
-  cursor:pointer;
+ position:relative;z-index:6;
+ display:block;flex:0 0 auto;align-self:center;
+ margin:0 auto 8px;
+ width:max-content;max-width:100%;
+ min-height:27px;
+ padding:6px 10px;
+ border:1px solid #e1c07a;
+ border-radius:28px;
+ background:linear-gradient(180deg,#043830ec,#052b2bec);
+ color:#fff1d8;
+ box-shadow:inset 0 1px 0 #fff2,0 3px 10px #011a1abb;
+ font:11px/1.20 Arial,sans-serif;text-shadow:0 1px 3px #000b;
+ text-align:center;white-space:normal;
+ cursor:pointer;
 }
-.triptych .feature.feature-zodiac .zodiac-quality:hover{
-  background:rgba(17,71,57,.95);
-  border-color:#f8d995;
-}
+.triptych .feature.feature-zodiac .zodiac-quality:hover{background:#155044;border-color:#ffdb93}
 @media(max-width:1250px){
-  .triptych .feature.feature-zodiac{height:308px;padding:7px 5px 8px}
-  .triptych .feature.feature-zodiac h3{font-size:clamp(16px,1.45vw,21px);min-height:30px}
-  .triptych .feature.feature-zodiac .zodiac-glyph{
-    top:47px;right:7px;width:37px;height:37px;font-size:25px;
-  }
-  .triptych .feature.feature-zodiac .zodiac-quality{
-    font-size:10px;min-height:25px;padding:5px 7px;margin-bottom:7px;
-  }
+ .triptych .feature.feature-zodiac{height:308px;padding:7px 5px 8px}
+ .triptych .feature.feature-zodiac h3{font-size:clamp(16px,1.45vw,21px);min-height:30px}
+ .triptych .feature.feature-zodiac .zodiac-glyph{
+   top:46px;right:7px;width:38px;height:38px;font-size:25px;
+ }
+ .triptych .feature.feature-zodiac .zodiac-quality{
+   font-size:10px;min-height:24px;padding:5px 7px;margin-bottom:7px;
+ }
 }
 @media(max-width:840px){
-  .triptych .feature.feature-zodiac{height:326px}
-  .triptych .feature.feature-zodiac h3{font-size:21px}
+ .triptych .feature.feature-zodiac{height:326px}
+ .triptych .feature.feature-zodiac h3{font-size:21px}
 }
 @media(max-width:570px){
-  .triptych .feature.feature-zodiac{height:325px}
-  .triptych .feature.feature-zodiac h3{font-size:20px}
-  .triptych .feature.feature-zodiac .zodiac-glyph{top:50px;right:7px;width:39px;height:39px;font-size:26px}
+ .triptych .feature.feature-zodiac{height:325px}
+ .triptych .feature.feature-zodiac h3{font-size:19px}
+ .triptych .feature.feature-zodiac .zodiac-glyph{
+   top:47px;right:6px;width:39px;height:39px;font-size:26px;
+ }
 }
-
 </style></head><body><div class="site"><header class="hero"><div><h1>Ритмы и решения ✦</h1><p>Волшебство каждого дня</p><em>Осень — зима 2026 · весь 2027</em></div><div class="hero-quote">Больше, чем календарь — это время для себя ♡<p><button class="hero-link" data-action="access">✦ Получить доступ →</button></p></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
@@ -742,7 +721,7 @@ const suggestions={day:[['🌿','Забота о себе','emotion.webp','За�
 function phase(a){if(a<8||a>=352)return'Новолуние';if(a<82)return'Растущая Луна';if(a<98)return'Первая четверть';if(a<172)return'Растущая Луна';if(a<188)return'Полнолуние';if(a<262)return'Убывающая Луна';if(a<278)return'Последняя четверть';return'Убывающая Луна'}
 function phaseHint(a){if(a<8||a>=352)return'Намерения · передышка · новый цикл';if(a<82)return'Рост · движение · первые шаги';if(a<98)return'Выбор · действия · внутренняя опора';if(a<172)return'Развитие · укрепление · внимание';if(a<188)return'Итоги · ясность · завершение';if(a<262)return'Осмысление · благодарность · отпускание';if(a<278)return'Пересмотр · порядок · освобождение';return'Тишина · отдых · подготовка'}
 function drawMoon(){LunarView.draw($('moonDisc'),data())}
-function render(){const k=key(selected),d=data();$('dateTitle').textContent=selected.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});$('weekday').textContent=week[selected.getDay()];$('month').textContent=months[shown.getMonth()]+' '+shown.getFullYear();$('prev').disabled=key(shown)<='2026-11-01';$('next').disabled=key(shown)>='2027-12-01';$('phaseTitle').textContent=phase(d.a);$('phaseHint').textContent=phaseHint(d.a);drawMoon(d.a);$('signTitle').textContent=(d.z===4?'Луна во ':'Луна в ')+inSigns[d.z];$('zodiacGlyph').textContent=glyph[d.z];$('zodiacArt').innerHTML=`<div class="zodiac-sprite" role="img" aria-label="${signs[d.z]}" style="background-position:${(d.z%4)*100/3}% ${Math.floor(d.z/4)*50}%"></div>`;$('signFooter').textContent=qualities[d.z];$('signFooter').title=d.changes.length?'Подробнее о знаке Луны: переход в течение суток':'Подробнее о знаке Луны';const ff=focus();$('focusTitle').textContent=ff[0];$('focusText').textContent=ff[1];renderCal();renderCards();renderWidgets();document.querySelectorAll('[data-section]').forEach(b=>b.classList.toggle('active',b.dataset.section===section));}
+function render(){const k=key(selected),d=data();$('dateTitle').textContent=selected.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});$('weekday').textContent=week[selected.getDay()];$('month').textContent=months[shown.getMonth()]+' '+shown.getFullYear();$('prev').disabled=key(shown)<='2026-11-01';$('next').disabled=key(shown)>='2027-12-01';$('phaseTitle').textContent=phase(d.a);$('phaseHint').textContent=phaseHint(d.a);drawMoon(d.a);$('signTitle').textContent=(d.z===4?'Луна во ':'Луна в ')+inSigns[d.z];$('zodiacGlyph').textContent=glyph[d.z]+'\uFE0E';const zodiacScales=[1.22,1.20,1.25,1.22,1.24,1.23,1.31,1.26,1.27,1.23,1.40,1.25];$('zodiacArt').innerHTML=`<div class="zodiac-sprite" role="img" aria-label="${signs[d.z]}" style="--zodiac-scale:${zodiacScales[d.z]};background-position:${(d.z%4)*100/3}% ${Math.floor(d.z/4)*50}%"></div>`;$('signFooter').textContent=qualities[d.z];$('signFooter').title=d.changes.length?'Подробнее о знаке Луны: переход в течение суток':'Подробнее о знаке Луны';const ff=focus();$('focusTitle').textContent=ff[0];$('focusText').textContent=ff[1];renderCal();renderCards();renderWidgets();document.querySelectorAll('[data-section]').forEach(b=>b.classList.toggle('active',b.dataset.section===section));}
 function renderCal(){
   const first=new Date(shown.getFullYear(),shown.getMonth(),1);
   const offset=(first.getDay()+6)%7;
