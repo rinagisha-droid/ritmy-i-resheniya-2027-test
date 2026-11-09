@@ -509,6 +509,81 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
   .triptych .feature.feature-zodiac h3{font-size:22px}
   .triptych .feature.feature-moon .moon-description h3{font-size:24px}
 }
+
+/* Moon reference 2026-11-09 cinematic botanical card */
+.triptych .feature.feature-moon{
+  height:326px;
+  padding:8px 7px 9px;
+  border-radius:15px;
+  border:1.5px solid #d8b770;
+  background:#041e28 url("assets/moon-botanical-bg.webp") center center / 100% 100% no-repeat !important;
+  box-shadow:inset 0 0 0 1px rgba(255,234,179,.12),
+             inset 0 0 26px rgba(0,0,0,.12),
+             0 4px 14px rgba(0,0,0,.2);
+  isolation:isolate;
+}
+.triptych .feature.feature-moon::before,
+.triptych .feature.feature-moon::after{display:none!important;content:none!important}
+.triptych .feature.feature-moon .moon-info,
+.triptych .feature.feature-moon .moon-ornament{display:none!important}
+.triptych .feature.feature-moon .moon-visual{
+  position:relative;z-index:1;
+  width:100%;min-height:0;flex:1 1 auto;
+  padding:7px 0 0;
+  display:flex;align-items:center;justify-content:center;overflow:visible;
+}
+.triptych .feature.feature-moon .moon-disc{
+  width:min(86%,198px);
+  height:auto;max-height:100%;flex:0 1 auto;
+  aspect-ratio:1;
+  overflow:visible;background:transparent;border-radius:50%;
+  filter:drop-shadow(0 0 5px rgba(251,213,146,.30))
+         drop-shadow(0 0 15px rgba(196,212,224,.25));
+}
+.triptych .feature.feature-moon .moon-disc canvas{
+  display:block;width:100%;height:auto;aspect-ratio:1;
+  filter:brightness(1.11) contrast(1.07) drop-shadow(0 0 5px rgba(246,221,174,.34));
+}
+.triptych .feature.feature-moon .moon-description{
+  position:relative;z-index:3;
+  width:100%;min-height:86px;flex:0 0 auto;
+  margin:0 0 9px;padding:0 1px;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;align-items:center;gap:7px;
+}
+.triptych .feature.feature-moon .moon-description h3{
+  margin:0;padding:0;color:#f6d48d;
+  font:normal clamp(21px,1.8vw,26px)/1.1 Georgia,'Times New Roman',serif;
+  text-shadow:0 2px 5px rgba(0,0,0,.94),0 0 15px rgba(9,20,24,.85);
+}
+.triptych .feature.feature-moon .moon-description p{
+  display:inline-block;max-width:100%;
+  padding:6px 9px;
+  color:#fff4df;
+  font:11px/1.25 Arial,sans-serif;
+  border:1px solid rgba(234,200,130,.68);
+  border-radius:24px;
+  background:rgba(2,39,39,.79);
+  box-shadow:0 2px 9px #0008,inset 0 1px 0 #fff2;
+  text-shadow:0 1px 3px rgba(0,0,0,.65);
+  text-align:center;
+}
+@media(max-width:1250px){
+  .triptych .feature.feature-moon{height:308px;padding:7px 5px 8px}
+  .triptych .feature.feature-moon .moon-disc{width:min(88%,175px)}
+  .triptych .feature.feature-moon .moon-description{min-height:79px;margin-bottom:6px;gap:5px}
+  .triptych .feature.feature-moon .moon-description h3{font-size:21px}
+  .triptych .feature.feature-moon .moon-description p{font-size:10px;padding:5px 7px}
+}
+@media(max-width:840px){
+  .triptych .feature.feature-moon{height:326px}
+  .triptych .feature.feature-moon .moon-disc{width:min(82%,205px)}
+  .triptych .feature.feature-moon .moon-description h3{font-size:24px}
+}
+@media(max-width:570px){
+  .triptych .feature.feature-moon{height:325px}
+  .triptych .feature.feature-moon .moon-description p{font-size:11px}
+}
 </style></head><body><div class="site"><header class="hero"><div><h1>Ритмы и решения ✦</h1><p>Волшебство каждого дня</p><em>Осень — зима 2026 · весь 2027</em></div><div class="hero-quote">Больше, чем календарь — это время для себя ♡<p><button class="hero-link" data-action="access">✦ Получить доступ →</button></p></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
