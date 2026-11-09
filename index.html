@@ -693,6 +693,68 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
    top:47px;right:6px;width:39px;height:39px;font-size:26px;
  }
 }
+
+/* Translucent zodiac medallion and transparent figure over the botanical background. */
+.triptych .feature.feature-zodiac .zodiac-glyph{
+  background:rgba(7,39,36,.18)!important;
+  -webkit-backdrop-filter:blur(1.5px);
+  backdrop-filter:blur(1.5px);
+  border:1.5px solid rgba(232,192,108,.78);
+  outline-color:rgba(232,192,108,.38);
+  color:rgba(255,217,142,.88);
+  box-shadow:inset 0 0 0 1px rgba(255,230,176,.12),0 3px 9px rgba(0,0,0,.27);
+}
+.triptych .feature.feature-zodiac .zodiac-visual{overflow:hidden}
+.triptych .feature.feature-zodiac .zodiac-art{
+  width:100%;height:100%;min-height:0;
+  display:flex;justify-content:center;align-items:center;overflow:hidden;
+}
+.triptych .feature.feature-zodiac .zodiac-cutout,
+.triptych .feature.feature-zodiac .zodiac-fallback{
+  display:block;flex:0 0 auto;
+  width:var(--zodiac-width,132%);
+  height:auto;max-height:none;max-width:none;
+  aspect-ratio:1;object-fit:contain;
+  background:transparent;
+  mix-blend-mode:normal;
+  -webkit-mask-image:none;mask-image:none;
+  transform:translateY(2px);
+  filter:drop-shadow(0 5px 7px rgba(0,0,0,.25));
+}
+.triptych .feature.feature-zodiac .zodiac-fallback{
+  background-image:url('assets/zodiac-atlas-v1.webp');
+  background-size:400% 300%;background-repeat:no-repeat;
+  mix-blend-mode:screen;
+  -webkit-mask-image:radial-gradient(ellipse,#000 58%,transparent 99%);
+  mask-image:radial-gradient(ellipse,#000 58%,transparent 99%);
+}
+.triptych .feature.feature-moon>.moon-heading{
+  position:relative;z-index:5;align-self:center;flex:0 0 auto;width:100%;
+  margin:0;padding:0;color:#fff3de;
+  font:normal clamp(18px,1.55vw,24px)/1.13 Georgia,'Times New Roman',serif;
+  text-align:center;
+  text-shadow:0 2px 6px rgba(0,0,0,.88),0 0 8px rgba(1,20,24,.65);
+}
+.triptych .feature.feature-moon .moon-visual{
+  order:1;flex:1 1 auto;min-height:0;padding:0;
+  align-items:center;justify-content:center;
+}
+.triptych .feature.feature-moon .moon-description{
+  order:2;flex:0 0 auto;width:100%;min-height:0;
+  padding:0 2px;margin:0 0 11px;
+  display:flex;align-items:center;justify-content:center;
+}
+.triptych .feature.feature-moon .moon-description p{
+  max-width:100%;margin:0;border-color:rgba(233,193,118,.78);
+}
+@media(max-width:1250px){
+  .triptych .feature.feature-moon>.moon-heading{font-size:20px}
+  .triptych .feature.feature-moon .moon-description{margin-bottom:8px}
+  .triptych .feature.feature-moon .moon-disc{width:min(92%,186px)}
+}
+@media(max-width:570px){
+  .triptych .feature.feature-moon>.moon-heading{font-size:21px}
+}
 </style></head><body><div class="site"><header class="hero"><div><h1>Ритмы и решения ✦</h1><p>Волшебство каждого дня</p><em>Осень — зима 2026 · весь 2027</em></div><div class="hero-quote">Больше, чем календарь — это время для себя ♡<p><button class="hero-link" data-action="access">✦ Получить доступ →</button></p></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
@@ -709,7 +771,7 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
 <button type="button" class="side-btn " data-action="library"><span class="side-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6c-2-2-6-3-9-2v15c3-1 7 0 9 2 2-2 6-3 9-2V4c-3-1-7 0-9 2ZM12 6v15"/></svg></span><span class="side-label">Библиотека</span></button>
 <button type="button" class="side-btn " data-action="settings"><span class="side-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2h4l.6 2.4a8 8 0 0 1 1.7.7l2.2-1.2 2.8 2.8-1.2 2.2a8 8 0 0 1 .7 1.7L23 11v4l-2.4.6a8 8 0 0 1-.7 1.7l1.2 2.2-2.8 2.8-2.2-1.2a8 8 0 0 1-1.7.7L14 24h-4l-.6-2.4a8 8 0 0 1-1.7-.7l-2.2 1.2-2.8-2.8 1.2-2.2a8 8 0 0 1-.7-1.7L1 15v-4l2.4-.6a8 8 0 0 1 .7-1.7L2.9 6.5l2.8-2.8 2.2 1.2a8 8 0 0 1 1.7-.7Z" transform="translate(1 0) scale(.92)"/><circle cx="12" cy="12" r="3"/></svg></span><span class="side-label">Настройки</span></button>
 <div class="side-deco"><div class="side-deco-text">Гармония<br>в каждом дне ♡</div></div>
-</aside><section class="calendar"><div class="calhead"><button id="prev">❮</button><h2 id="month">Ноябрь 2026</h2><button id="next">❯</button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особые даты</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline"><div><h2 id="dateTitle"></h2><small id="weekday"></small></div><button class="goldbtn" data-action="special">✦ Важные даты</button></div><div class="triptych"><div class="feature feature-moon"><div class="imagearea moon-visual"><div class="moon-disc" id="moonDisc"></div></div><div class="moon-description"><h3 id="phaseTitle">Луна</h3><p id="phaseHint">Ритм · обновление · равновесие</p></div></div><div class="feature feature-zodiac"><h3 id="signTitle">Луна в знаке</h3><div class="zodiac-glyph" id="zodiacGlyph" aria-hidden="true">♏</div><div class="imagearea zodiac-visual"><div class="zodiac-art" id="zodiacArt"></div></div><button type="button" class="footer zodiac-quality" id="signFooter" data-action="sign" title="Подробнее о знаке Луны">Образ дня</button></div><div class="feature"><h3>◎ Фокус дня</h3><div class="subtitle" id="focusTitle"></div><div class="imagearea"><div class="focus-image"></div></div><div class="footer" id="focusText"></div><button class="smallbtn" data-action="focus">Практика дня →</button></div></div></div></main><div class="below"><div class="cards" id="cards"></div><div class="widgets"><div class="widget"><h4>📋 Мои планы <button data-action="plan">+</button></h4><div id="plans"></div></div><div class="widget"><h4>♧ Напоминания <button data-action="reminder">+</button></h4><div id="reminders"></div></div><div class="widget"><h4>★ Избранное <button data-action="fav">+</button></h4><div id="favorites"></div></div></div></div><div class="extra"><div><b>✨ Откройте полный календарь «Ритмы и решения»</b><p>Демо и полный доступ на 2027 год. Страницу покупки доработаем отдельно.</p></div><button class="goldbtn" data-action="access">Получить полный доступ →</button></div></div><div class="footerbar">Луна: Astronomy Engine · вид из Уфы (UTC+5). Поверхность: NASA SVS. Сегодня — текущее время, другие даты — 12:00. Символические рекомендации — не прогноз фактических событий.</div></div><div class="dialog" id="dialog" role="dialog" aria-modal="true"><div class="modal"><h3 id="modalTitle"></h3><div id="modalBody"></div><div class="modal-buttons" id="modalBtns"></div></div></div><script src="vendor/astronomy.browser.min.js"></script><script src="assets/moon-render.js"></script><script>
+</aside><section class="calendar"><div class="calhead"><button id="prev">❮</button><h2 id="month">Ноябрь 2026</h2><button id="next">❯</button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особые даты</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline"><div><h2 id="dateTitle"></h2><small id="weekday"></small></div><button class="goldbtn" data-action="special">✦ Важные даты</button></div><div class="triptych"><div class="feature feature-moon"><h3 id="phaseTitle" class="moon-heading">Луна</h3><div class="imagearea moon-visual"><div class="moon-disc" id="moonDisc"></div></div><div class="moon-description"><p id="phaseHint">Ритм · обновление · равновесие</p></div></div><div class="feature feature-zodiac"><h3 id="signTitle">Луна в знаке</h3><div class="zodiac-glyph" id="zodiacGlyph" aria-hidden="true">♏</div><div class="imagearea zodiac-visual"><div class="zodiac-art" id="zodiacArt"></div></div><button type="button" class="footer zodiac-quality" id="signFooter" data-action="sign" title="Подробнее о знаке Луны">Образ дня</button></div><div class="feature"><h3>◎ Фокус дня</h3><div class="subtitle" id="focusTitle"></div><div class="imagearea"><div class="focus-image"></div></div><div class="footer" id="focusText"></div><button class="smallbtn" data-action="focus">Практика дня →</button></div></div></div></main><div class="below"><div class="cards" id="cards"></div><div class="widgets"><div class="widget"><h4>📋 Мои планы <button data-action="plan">+</button></h4><div id="plans"></div></div><div class="widget"><h4>♧ Напоминания <button data-action="reminder">+</button></h4><div id="reminders"></div></div><div class="widget"><h4>★ Избранное <button data-action="fav">+</button></h4><div id="favorites"></div></div></div></div><div class="extra"><div><b>✨ Откройте полный календарь «Ритмы и решения»</b><p>Демо и полный доступ на 2027 год. Страницу покупки доработаем отдельно.</p></div><button class="goldbtn" data-action="access">Получить полный доступ →</button></div></div><div class="footerbar">Луна: Astronomy Engine · вид из Уфы (UTC+5). Поверхность: NASA SVS. Сегодня — текущее время, другие даты — 12:00. Символические рекомендации — не прогноз фактических событий.</div></div><div class="dialog" id="dialog" role="dialog" aria-modal="true"><div class="modal"><h3 id="modalTitle"></h3><div id="modalBody"></div><div class="modal-buttons" id="modalBtns"></div></div></div><script src="vendor/astronomy.browser.min.js"></script><script src="assets/moon-render.js"></script><script>
 const signs=['Овен','Телец','Близнецы','Рак','Лев','Дева','Весы','Скорпион','Стрелец','Козерог','Водолей','Рыбы'],inSigns=['Овне','Тельце','Близнецах','Раке','Льве','Деве','Весах','Скорпионе','Стрельце','Козероге','Водолее','Рыбах'],glyph=['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'],qualities=['Действие · смелость · импульс','Комфорт · устойчивость · забота','Общение · информация · движение','Дом · близость · безопасность','Творчество · радость · проявленность','Порядок · внимание · практичность','Баланс · красота · диалог','Глубина · честность · перемены','Смысл · обучение · горизонты','Структура · ответственность · цели','Свобода · идеи · общение','Тишина · вдохновение · чувствительность'];
 const months=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],week=['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];let sky={},selected=new Date(2026,10,3),shown=new Date(2026,10,1),section='life';const minDate='2026-11-01',maxDate='2027-12-31';const $=id=>document.getElementById(id),key=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');function parse(k){let [y,m,d]=k.split('-').map(Number);return new Date(y,m-1,d)};let store={};try{store=JSON.parse(localStorage.getItem('ritmy-v2'))||{}}catch{}store.plans??={};store.reminders??={};store.favorites??=[];function save(){localStorage.setItem('ritmy-v2',JSON.stringify(store))}function ufaToday(){return new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Yekaterinburg'})}
 function moonMoment(){return key(selected)===ufaToday()?new Date():new Date(key(selected)+'T12:00:00+05:00')}
@@ -721,7 +783,104 @@ const suggestions={day:[['🌿','Забота о себе','emotion.webp','За�
 function phase(a){if(a<8||a>=352)return'Новолуние';if(a<82)return'Растущая Луна';if(a<98)return'Первая четверть';if(a<172)return'Растущая Луна';if(a<188)return'Полнолуние';if(a<262)return'Убывающая Луна';if(a<278)return'Последняя четверть';return'Убывающая Луна'}
 function phaseHint(a){if(a<8||a>=352)return'Намерения · передышка · новый цикл';if(a<82)return'Рост · движение · первые шаги';if(a<98)return'Выбор · действия · внутренняя опора';if(a<172)return'Развитие · укрепление · внимание';if(a<188)return'Итоги · ясность · завершение';if(a<262)return'Осмысление · благодарность · отпускание';if(a<278)return'Пересмотр · порядок · освобождение';return'Тишина · отдых · подготовка'}
 function drawMoon(){LunarView.draw($('moonDisc'),data())}
-function render(){const k=key(selected),d=data();$('dateTitle').textContent=selected.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});$('weekday').textContent=week[selected.getDay()];$('month').textContent=months[shown.getMonth()]+' '+shown.getFullYear();$('prev').disabled=key(shown)<='2026-11-01';$('next').disabled=key(shown)>='2027-12-01';$('phaseTitle').textContent=phase(d.a);$('phaseHint').textContent=phaseHint(d.a);drawMoon(d.a);$('signTitle').textContent=(d.z===4?'Луна во ':'Луна в ')+inSigns[d.z];$('zodiacGlyph').textContent=glyph[d.z]+'\uFE0E';const zodiacScales=[1.22,1.20,1.25,1.22,1.24,1.23,1.31,1.26,1.27,1.23,1.40,1.25];$('zodiacArt').innerHTML=`<div class="zodiac-sprite" role="img" aria-label="${signs[d.z]}" style="--zodiac-width:${Math.round(zodiacScales[d.z]*100)}%;background-position:${(d.z%4)*100/3}% ${Math.floor(d.z/4)*50}%"></div>`;$('signFooter').textContent=qualities[d.z];$('signFooter').title=d.changes.length?'Подробнее о знаке Луны: переход в течение суток':'Подробнее о знаке Луны';const ff=focus();$('focusTitle').textContent=ff[0];$('focusText').textContent=ff[1];renderCal();renderCards();renderWidgets();document.querySelectorAll('[data-section]').forEach(b=>b.classList.toggle('active',b.dataset.section===section));}
+
+/* Transparent cutouts, computed once per sign from the existing 4x3 atlas.
+   The dark-green connected background becomes transparent, preserving
+   the original gold/blue sculptures. No image files are replaced. */
+const zodiacCutoutCache=new Map();
+const zodiacFigureSizes=[1.28,1.27,1.31,1.30,1.31,1.30,1.35,1.34,1.34,1.31,1.46,1.30];
+let zodiacAtlasLoading=null;
+function loadZodiacAtlas(){
+  if(!zodiacAtlasLoading){
+    zodiacAtlasLoading=new Promise(resolve=>{
+      const img=new Image();
+      img.onload=()=>resolve(img);
+      img.onerror=()=>resolve(null);
+      img.src='assets/zodiac-atlas-v1.webp';
+    });
+  }
+  return zodiacAtlasLoading;
+}
+function cutoutZodiac(index){
+  if(zodiacCutoutCache.has(index))return zodiacCutoutCache.get(index);
+  const work=loadZodiacAtlas().then(img=>{
+    if(!img)return null;
+    const w=Math.round(img.naturalWidth/4),h=Math.round(img.naturalHeight/3);
+    const cv=document.createElement('canvas');
+    cv.width=w;cv.height=h;
+    const ctx=cv.getContext('2d',{willReadFrequently:true});
+    if(!ctx)return null;
+    ctx.drawImage(img,(index%4)*w,Math.floor(index/4)*h,w,h,0,0,w,h);
+    const pixels=ctx.getImageData(0,0,w,h),rgba=pixels.data,total=w*h;
+    const samples=[[4,4],[w-5,4],[4,h-5],[w-5,h-5],[Math.floor(w/2),3],[Math.floor(w/2),h-4]];
+    const channels=[[],[],[]];
+    samples.forEach(pair=>{
+      const off=(pair[1]*w+pair[0])*4;
+      for(let k=0;k<3;k++)channels[k].push(rgba[off+k]);
+    });
+    const bg=channels.map(a=>a.sort((x,y)=>x-y)[Math.floor(a.length/2)]);
+    const seen=new Uint8Array(total),queue=new Int32Array(total);
+    let front=0,back=0;
+    function backgroundLike(i){
+      const off=i*4,r=rgba[off],g=rgba[off+1],b=rgba[off+2];
+      if(r>80||g>100||b>113||g<r-12||b<r-12||b>g+37)return false;
+      const dr=r-bg[0],dg=g-bg[1],db=b-bg[2];
+      return dr*dr*1.35+dg*dg+db*db<3600;
+    }
+    function enqueue(i){
+      if(seen[i])return;
+      if(!backgroundLike(i)){seen[i]=1;return;}
+      seen[i]=2;queue[back++]=i;
+    }
+    for(let x=0;x<w;x++){enqueue(x);enqueue((h-1)*w+x);}
+    for(let y=0;y<h;y++){enqueue(y*w);enqueue(y*w+w-1);}
+    while(front<back){
+      const i=queue[front++],x=i%w,y=Math.floor(i/w);
+      if(x>0)enqueue(i-1);
+      if(x<w-1)enqueue(i+1);
+      if(y>0)enqueue(i-w);
+      if(y<h-1)enqueue(i+w);
+    }
+    for(let i=0;i<total;i++){
+      if(seen[i]===2){rgba[i*4+3]=0;continue;}
+      const x=i%w,y=Math.floor(i/w);
+      const near=(x>0&&seen[i-1]===2)||(x<w-1&&seen[i+1]===2)||
+                 (y>0&&seen[i-w]===2)||(y<h-1&&seen[i+w]===2);
+      if(!near)continue;
+      const off=i*4,dr=rgba[off]-bg[0],dg=rgba[off+1]-bg[1],db=rgba[off+2]-bg[2];
+      const delta=Math.sqrt(dr*dr*1.35+dg*dg+db*db);
+      const opacity=Math.max(.12,Math.min(1,(delta-12)/46));
+      rgba[off+3]=Math.round(255*opacity);
+      if(opacity<1){
+        for(let k=0;k<3;k++){
+          rgba[off+k]=Math.max(0,Math.min(255,Math.round((rgba[off+k]-bg[k]*(1-opacity))/opacity)));
+        }
+      }
+    }
+    ctx.putImageData(pixels,0,0);
+    return cv.toDataURL('image/png');
+  }).catch(err=>{console.warn('Не удалось обработать знак:',err);return null;});
+  zodiacCutoutCache.set(index,work);
+  return work;
+}
+function renderZodiacCutout(index){
+  const host=$('zodiacArt');
+  host.dataset.zodiacIndex=String(index);
+  const width=Math.round(zodiacFigureSizes[index]*100)+'%';
+  host.innerHTML='<div class="zodiac-sprite zodiac-fallback" role="img" aria-label="'+signs[index]+'" style="--zodiac-width:'+width+';background-position:'+((index%4)*100/3)+'% '+(Math.floor(index/4)*50)+'%"></div>';
+  cutoutZodiac(index).then(url=>{
+    if(!url||host.dataset.zodiacIndex!==String(index))return;
+    const image=document.createElement('img');
+    image.className='zodiac-cutout';
+    image.alt=signs[index];
+    image.decoding='async';
+    image.style.setProperty('--zodiac-width',width);
+    image.src=url;
+    host.replaceChildren(image);
+  });
+}
+
+function render(){const k=key(selected),d=data();$('dateTitle').textContent=selected.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});$('weekday').textContent=week[selected.getDay()];$('month').textContent=months[shown.getMonth()]+' '+shown.getFullYear();$('prev').disabled=key(shown)<='2026-11-01';$('next').disabled=key(shown)>='2027-12-01';$('phaseTitle').textContent=phase(d.a);$('phaseHint').textContent=phaseHint(d.a);drawMoon(d.a);$('signTitle').textContent=(d.z===4?'Луна во ':'Луна в ')+inSigns[d.z];$('zodiacGlyph').textContent=glyph[d.z]+'\uFE0E';renderZodiacCutout(d.z);$('signFooter').textContent=qualities[d.z];$('signFooter').title=d.changes.length?'Подробнее о знаке Луны: переход в течение суток':'Подробнее о знаке Луны';const ff=focus();$('focusTitle').textContent=ff[0];$('focusText').textContent=ff[1];renderCal();renderCards();renderWidgets();document.querySelectorAll('[data-section]').forEach(b=>b.classList.toggle('active',b.dataset.section===section));}
 function renderCal(){
   const first=new Date(shown.getFullYear(),shown.getMonth(),1);
   const offset=(first.getDay()+6)%7;
