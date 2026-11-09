@@ -45,7 +45,7 @@
    const ti=4*(ty*t.w+tx),oi=4*(py*size+px),mu=dot(n,s.light);
    // Lunar diffuse reflection plus deliberately faint earthshine for a readable dark disc.
    const lit=Math.max(0,mu), surface=lit>0?(.5*lit+.5*lit/(lit+z+.00001)):0;
-   const brightness=.065+.935*Math.pow(surface,.65);
+   const brightness=.15+.85*Math.pow(surface,.65);
    for(let ch=0;ch<3;ch++)out.data[oi+ch]=Math.min(255,t.pixels[ti+ch]*brightness*1.32);
    out.data[oi+3]=Math.round(255*Math.min(1,(1-Math.sqrt(rr))*radius));
   }
