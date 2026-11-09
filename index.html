@@ -315,15 +315,41 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
  .calendar .legend{flex-wrap:wrap;justify-content:center;gap:7px 12px}
 }
 
-/* Daily phase marker and legible legend: every date carries a Moon symbol. */
-.calendar .cal-moon{font-size:15px;right:4px;top:4px;line-height:1;filter:saturate(.75) contrast(1.07);opacity:.95}
-.calendar .date.other .cal-moon{opacity:.35}
-.calendar .date.sel .cal-moon{filter:drop-shadow(0 0 2px rgba(255,219,130,.7))}
-.calendar .cal-marks{gap:3px;right:4px;bottom:4px}
-.calendar .legend{flex-wrap:wrap;justify-content:center;column-gap:11px;row-gap:5px;padding:11px 3px 2px}
-.calendar .legend .legend-favorite{color:#e1aa43;font-size:19px;font-weight:normal}
-@media(max-width:1200px){.calendar .cal-moon{font-size:13px;right:3px;top:3px}.calendar .legend{column-gap:8px;row-gap:5px}}
-@media(max-width:570px){.calendar .cal-moon{font-size:11px;right:2px;top:3px}.calendar .legend{column-gap:9px;row-gap:5px}}
+/* Restored elegant calendar reference: clean grid with sparse key-phase icons. */
+.calendar{border-radius:18px;background:#fff9ee;border-color:#dcb777;box-shadow:0 8px 24px #091e172e}
+.calendar .calgrid{margin:0 2px;border-radius:4px}
+.calendar .date{background:rgba(255,251,243,.64);border-color:#eadfd0}
+.calendar .date.other{background:#f8f4ed;color:#b7b9b0}
+.calendar .date:not(:disabled):hover{background:#f4e9d4}
+.calendar .date .date-number{font:normal clamp(18px,1.35vw,20px)/1 Georgia,serif}
+.calendar .date.sel .date-number{background:radial-gradient(circle at 28% 25%,#08674f,#054232 76%);border:2px solid #eec25a;box-shadow:0 0 0 2px #be8b30,0 3px 9px #a47f4080;color:#fff5d9}
+.calendar .cal-moon{position:absolute;z-index:2;right:5px;top:5px;font:18px/1 Georgia,serif;color:#102922;opacity:1;filter:none;pointer-events:none}
+.calendar .cal-moon.moon-new{font-size:14px;color:#172f2d}
+.calendar .cal-moon.moon-full{font-size:20px;color:#bb8424}
+.calendar .date.sel .cal-moon{color:#61796b}
+.calendar .cal-marks{right:5px;bottom:4px;gap:4px}
+.calendar .cal-special{color:#d79c2a}
+.calendar .cal-plan{background:#289d7b}
+.calendar .cal-reminder{color:#e66b7c}
+.calendar .legend{display:flex;flex-wrap:nowrap;justify-content:space-between;align-items:center;gap:4px;padding:11px 4px 2px;font:11px/1.2 Arial,sans-serif}
+.calendar .legend span{gap:5px;white-space:nowrap}
+.calendar .legend b{font-size:18px}
+.calendar .legend .legend-plan{width:13px;height:13px}
+@media(max-width:1200px){
+ .calendar .cal-moon{font-size:15px;right:3px;top:4px}
+ .calendar .cal-moon.moon-new{font-size:12px}
+ .calendar .cal-moon.moon-full{font-size:17px}
+ .calendar .legend{font-size:9.5px;gap:3px;padding:10px 1px 2px}
+ .calendar .legend span{gap:3px}
+ .calendar .legend b{font-size:16px}
+ .calendar .legend .legend-plan{width:11px;height:11px}
+}
+@media(max-width:570px){
+ .calendar .cal-moon{font-size:13px;right:2px;top:3px}
+ .calendar .cal-moon.moon-full{font-size:14px}
+ .calendar .cal-moon.moon-new{font-size:10px}
+ .calendar .legend{flex-wrap:wrap;justify-content:center;column-gap:13px;row-gap:5px}
+}
 </style></head><body><div class="site"><header class="hero"><div><h1>Ритмы и решения ✦</h1><p>Волшебство каждого дня</p><em>Осень — зима 2026 · весь 2027</em></div><div class="hero-quote">Больше, чем календарь — это время для себя ♡<p><button class="hero-link" data-action="access">✦ Получить доступ →</button></p></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
@@ -340,7 +366,7 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
 <button type="button" class="side-btn " data-action="library"><span class="side-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6c-2-2-6-3-9-2v15c3-1 7 0 9 2 2-2 6-3 9-2V4c-3-1-7 0-9 2ZM12 6v15"/></svg></span><span class="side-label">Библиотека</span></button>
 <button type="button" class="side-btn " data-action="settings"><span class="side-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2h4l.6 2.4a8 8 0 0 1 1.7.7l2.2-1.2 2.8 2.8-1.2 2.2a8 8 0 0 1 .7 1.7L23 11v4l-2.4.6a8 8 0 0 1-.7 1.7l1.2 2.2-2.8 2.8-2.2-1.2a8 8 0 0 1-1.7.7L14 24h-4l-.6-2.4a8 8 0 0 1-1.7-.7l-2.2 1.2-2.8-2.8 1.2-2.2a8 8 0 0 1-.7-1.7L1 15v-4l2.4-.6a8 8 0 0 1 .7-1.7L2.9 6.5l2.8-2.8 2.2 1.2a8 8 0 0 1 1.7-.7Z" transform="translate(1 0) scale(.92)"/><circle cx="12" cy="12" r="3"/></svg></span><span class="side-label">Настройки</span></button>
 <div class="side-deco"><div class="side-deco-text">Гармония<br>в каждом дне ♡</div></div>
-</aside><section class="calendar"><div class="calhead"><button id="prev">❮</button><h2 id="month">Ноябрь 2026</h2><button id="next">❯</button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особые даты</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span><span><b class="legend-favorite">☆</b> Избранное</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline"><div><h2 id="dateTitle"></h2><small id="weekday"></small></div><button class="goldbtn" data-action="special">✦ Важные даты</button></div><div class="triptych"><div class="feature"><h3 id="phaseTitle">Луна</h3><div class="imagearea"><div class="moon-disc" id="moonDisc"></div></div><button class="smallbtn" data-action="moon">Подробнее о Луне →</button></div><div class="feature"><h3 id="signTitle">Луна в знаке</h3><div class="imagearea"><div class="zodiac-art" id="zodiacArt"></div></div><div class="footer" id="signFooter"></div><button class="smallbtn" data-action="sign">Узнать о знаке →</button></div><div class="feature"><h3>◎ Фокус дня</h3><div class="subtitle" id="focusTitle"></div><div class="imagearea"><div class="focus-image"></div></div><div class="footer" id="focusText"></div><button class="smallbtn" data-action="focus">Практика дня →</button></div></div></div></main><div class="below"><div class="cards" id="cards"></div><div class="widgets"><div class="widget"><h4>📋 Мои планы <button data-action="plan">+</button></h4><div id="plans"></div></div><div class="widget"><h4>♧ Напоминания <button data-action="reminder">+</button></h4><div id="reminders"></div></div><div class="widget"><h4>★ Избранное <button data-action="fav">+</button></h4><div id="favorites"></div></div></div></div><div class="extra"><div><b>✨ Откройте полный календарь «Ритмы и решения»</b><p>Демо и полный доступ на 2027 год. Страницу покупки доработаем отдельно.</p></div><button class="goldbtn" data-action="access">Получить полный доступ →</button></div></div><div class="footerbar">Луна: Astronomy Engine · вид из Уфы (UTC+5). Поверхность: NASA SVS. Сегодня — текущее время, другие даты — 12:00. Символические рекомендации — не прогноз фактических событий.</div></div><div class="dialog" id="dialog" role="dialog" aria-modal="true"><div class="modal"><h3 id="modalTitle"></h3><div id="modalBody"></div><div class="modal-buttons" id="modalBtns"></div></div></div><script src="vendor/astronomy.browser.min.js"></script><script src="assets/moon-render.js"></script><script>
+</aside><section class="calendar"><div class="calhead"><button id="prev">❮</button><h2 id="month">Ноябрь 2026</h2><button id="next">❯</button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особые даты</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline"><div><h2 id="dateTitle"></h2><small id="weekday"></small></div><button class="goldbtn" data-action="special">✦ Важные даты</button></div><div class="triptych"><div class="feature"><h3 id="phaseTitle">Луна</h3><div class="imagearea"><div class="moon-disc" id="moonDisc"></div></div><button class="smallbtn" data-action="moon">Подробнее о Луне →</button></div><div class="feature"><h3 id="signTitle">Луна в знаке</h3><div class="imagearea"><div class="zodiac-art" id="zodiacArt"></div></div><div class="footer" id="signFooter"></div><button class="smallbtn" data-action="sign">Узнать о знаке →</button></div><div class="feature"><h3>◎ Фокус дня</h3><div class="subtitle" id="focusTitle"></div><div class="imagearea"><div class="focus-image"></div></div><div class="footer" id="focusText"></div><button class="smallbtn" data-action="focus">Практика дня →</button></div></div></div></main><div class="below"><div class="cards" id="cards"></div><div class="widgets"><div class="widget"><h4>📋 Мои планы <button data-action="plan">+</button></h4><div id="plans"></div></div><div class="widget"><h4>♧ Напоминания <button data-action="reminder">+</button></h4><div id="reminders"></div></div><div class="widget"><h4>★ Избранное <button data-action="fav">+</button></h4><div id="favorites"></div></div></div></div><div class="extra"><div><b>✨ Откройте полный календарь «Ритмы и решения»</b><p>Демо и полный доступ на 2027 год. Страницу покупки доработаем отдельно.</p></div><button class="goldbtn" data-action="access">Получить полный доступ →</button></div></div><div class="footerbar">Луна: Astronomy Engine · вид из Уфы (UTC+5). Поверхность: NASA SVS. Сегодня — текущее время, другие даты — 12:00. Символические рекомендации — не прогноз фактических событий.</div></div><div class="dialog" id="dialog" role="dialog" aria-modal="true"><div class="modal"><h3 id="modalTitle"></h3><div id="modalBody"></div><div class="modal-buttons" id="modalBtns"></div></div></div><script src="vendor/astronomy.browser.min.js"></script><script src="assets/moon-render.js"></script><script>
 const signs=['Овен','Телец','Близнецы','Рак','Лев','Дева','Весы','Скорпион','Стрелец','Козерог','Водолей','Рыбы'],inSigns=['Овне','Тельце','Близнецах','Раке','Льве','Деве','Весах','Скорпионе','Стрельце','Козероге','Водолее','Рыбах'],glyph=['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'],qualities=['Действие · смелость · импульс','Комфорт · устойчивость · забота','Общение · информация · движение','Дом · близость · безопасность','Творчество · радость · проявленность','Порядок · внимание · практичность','Баланс · красота · диалог','Глубина · честность · перемены','Смысл · обучение · горизонты','Структура · ответственность · цели','Свобода · идеи · общение','Тишина · вдохновение · чувствительность'];
 const months=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],week=['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];let sky={},selected=new Date(2026,10,3),shown=new Date(2026,10,1),section='life';const minDate='2026-11-01',maxDate='2027-12-31';const $=id=>document.getElementById(id),key=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');function parse(k){let [y,m,d]=k.split('-').map(Number);return new Date(y,m-1,d)};let store={};try{store=JSON.parse(localStorage.getItem('ritmy-v2'))||{}}catch{}store.plans??={};store.reminders??={};store.favorites??=[];function save(){localStorage.setItem('ritmy-v2',JSON.stringify(store))}function ufaToday(){return new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Yekaterinburg'})}
 function moonMoment(){return key(selected)===ufaToday()?new Date():new Date(key(selected)+'T12:00:00+05:00')}
@@ -356,32 +382,44 @@ function renderCal(){
   const first=new Date(shown.getFullYear(),shown.getMonth(),1);
   const offset=(first.getDay()+6)%7;
   const grid=$('grid');
-  const phaseGlyphs=['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'];
-  const phaseNames=['Новолуние','Растущий серп','Первая четверть','Растущая Луна','Полнолуние','Убывающая Луна','Последняя четверть','Убывающий серп'];
+  const phases=[
+    {angle:0,label:'Новолуние',glyph:'●',css:'new'},
+    {angle:90,label:'Первая четверть',glyph:'◐',css:'first'},
+    {angle:180,label:'Полнолуние',glyph:'○',css:'full'},
+    {angle:270,label:'Последняя четверть',glyph:'◑',css:'last'}
+  ];
+  const phaseCache=new Map();
+  const moonAngle=d=>{
+    const k=key(d);
+    if(!phaseCache.has(k)){
+      try{
+        const result=Astronomy.MoonPhase(new Date(k+'T12:00:00+05:00'));
+        phaseCache.set(k,Number.isFinite(result)?result:null);
+      }catch(e){phaseCache.set(k,null)}
+    }
+    return phaseCache.get(k);
+  };
+  const angularDifference=(a,b)=>Math.abs((a-b+540)%360-180);
   grid.innerHTML=['Пн','Вт','Ср','Чт','Пт','Сб','Вс']
     .map(w=>`<div class="week">${w}</div>`).join('');
   for(let i=0;i<42;i++){
     const d=new Date(first.getFullYear(),first.getMonth(),i-offset+1);
-    const k=key(d), out=d.getMonth()!==shown.getMonth();
-    const isSelected=k===key(selected);
+    const k=key(d),out=d.getMonth()!==shown.getMonth();
+    const selectedDay=k===key(selected);
     const allowed=!out&&k>=minDate&&k<=maxDate;
-
-    // Show the lunar phase on EVERY day, calculated at 12:00 Ufa time.
-    // MoonPhase returns the geocentric elongation angle in degrees (0..360).
-    let moon='',moonName='';
-    try{
-      const angle=Astronomy.MoonPhase(new Date(k+'T12:00:00+05:00'));
-      if(Number.isFinite(angle)){
-        const sector=Math.floor(((angle+22.5)%360)/45);
-        moon=phaseGlyphs[sector];
-        moonName=phaseNames[sector];
-      }
-    }catch(err){console.warn('Moon phase unavailable for',k,err)}
-
-    const special=Object.prototype.hasOwnProperty.call(events,k);
-    const hasPlan=(store.plans[k]||[]).length>0;
-    const hasReminder=(store.reminders[k]||[]).length>0;
-    const isFavorite=store.favorites.includes(k);
+    // Mark only the four key lunar phases, on the nearest calendar day.
+    const yesterday=new Date(d.getFullYear(),d.getMonth(),d.getDate()-1);
+    const tomorrow=new Date(d.getFullYear(),d.getMonth(),d.getDate()+1);
+    const a=moonAngle(d),prev=moonAngle(yesterday),next=moonAngle(tomorrow);
+    const lunarPhase=(a===null||prev===null||next===null)?null:
+      phases.find(p=>{
+        const here=angularDifference(a,p.angle);
+        return here<=angularDifference(prev,p.angle)&&here<angularDifference(next,p.angle);
+      })||null;
+    const special=!!events[k]&&allowed;
+    const hasPlan=(store.plans[k]||[]).length>0&&allowed;
+    const hasReminder=(store.reminders[k]||[]).length>0&&allowed;
+    const isFavorite=store.favorites.includes(k)&&allowed;
     const marks=[
       special?'<span class="cal-mark cal-special" title="Особая дата">★</span>':'',
       hasPlan?'<span class="cal-mark cal-plan" title="Есть планы"></span>':'',
@@ -390,12 +428,12 @@ function renderCal(){
     ].join('');
     const b=document.createElement('button');
     b.type='button';
-    b.className='date'+(out?' other':'')+(isSelected?' sel':'');
+    b.className='date'+(out?' other':'')+(selectedDay?' sel':'');
     b.disabled=!allowed;
     const description=[
       d.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'}),
-      moonName,
-      isSelected?'Выбранный день':'',
+      lunarPhase?.label||'',
+      selectedDay?'Выбранный день':'',
       special?events[k]:'',
       hasPlan?'Есть планы':'',
       hasReminder?'Есть напоминания':'',
@@ -403,8 +441,10 @@ function renderCal(){
     ].filter(Boolean).join(' · ');
     b.setAttribute('aria-label',description);
     b.title=description;
-    if(isSelected)b.setAttribute('aria-current','date');
-    b.innerHTML=`<span class="date-number">${d.getDate()}</span>${moon?'<span class="cal-moon" aria-hidden="true" title="'+moonName+'">'+moon+'</span>':''}${marks?'<span class="cal-marks" aria-hidden="true">'+marks+'</span>':''}`;
+    if(selectedDay)b.setAttribute('aria-current','date');
+    const moon=lunarPhase&&allowed?
+      '<span class="cal-moon moon-'+lunarPhase.css+'" aria-hidden="true">'+lunarPhase.glyph+'</span>':'';
+    b.innerHTML=`<span class="date-number">${d.getDate()}</span>${moon}${marks?'<span class="cal-marks" aria-hidden="true">'+marks+'</span>':''}`;
     b.onclick=()=>{selected=d;render()};
     grid.appendChild(b);
   }
