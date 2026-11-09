@@ -1004,6 +1004,77 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
  .hero .hero-profile-button{padding:1px}
  .hero .hero-chevron{display:none}
 }
+
+/* Header lettering: match the supplied screenshot. Text only.
+   No changes to the existing icon buttons, navigation or functionality. */
+@media(min-width:1201px){
+  .hero .hero-intro{
+    position:absolute;
+    top:8px;
+    left:24px;
+    width:auto;max-width:620px;
+    margin:0;
+  }
+  .hero .hero-intro h1{
+    margin:0;
+    font:normal clamp(37px,3.15vw,52px)/1.02 Georgia,'Times New Roman',serif;
+    letter-spacing:-.7px;
+    white-space:nowrap;
+    color:#f9e9be;
+    text-shadow:0 2px 7px rgba(2,17,16,.8);
+  }
+  .hero .hero-intro h1 span{
+    font-size:.68em;
+    vertical-align:6%;
+    color:#f3cc76;
+  }
+  .hero .hero-intro p{
+    margin:1px 0 0;
+    font:normal clamp(17px,1.29vw,22px)/1.14 Georgia,'Times New Roman',serif;
+    text-align:left;
+    color:#fff5df;
+  }
+  .hero .hero-quote{
+    position:absolute;
+    top:4px;
+    right:250px;
+    margin:0;
+    width:172px;max-width:none;
+    padding:0;
+    font:italic 18px/1.12 'Segoe Script','Monotype Corsiva','Brush Script MT',cursive;
+    text-align:center;
+    transform:rotate(-6deg);
+    color:#fff9ee;
+    text-shadow:0 2px 5px #020f14,0 0 9px #071b1d;
+  }
+}
+@media(min-width:841px) and (max-width:1200px){
+  .hero .hero-intro{
+    position:absolute;
+    top:10px;
+    left:18px;
+    width:auto;max-width:calc(100% - 360px);
+    margin:0;
+  }
+  .hero .hero-intro h1{
+    margin:0;
+    font:normal clamp(27px,3.25vw,39px)/1.05 Georgia,'Times New Roman',serif;
+    letter-spacing:-.5px;
+    white-space:nowrap;
+  }
+  .hero .hero-intro p{
+    margin:2px 0 0;
+    font:normal 17px/1.15 Georgia,'Times New Roman',serif;
+    text-align:left;
+  }
+  .hero .hero-quote{
+    position:absolute;top:4px;right:217px;
+    margin:0;padding:0;width:130px;max-width:none;
+    font:italic 14px/1.16 'Segoe Script','Monotype Corsiva','Brush Script MT',cursive;
+    text-align:center;
+    transform:rotate(-6deg);
+  }
+}
 </style></head><body><div class="site"><header class="hero" aria-label="Шапка календаря"><div class="hero-intro"><h1>Ритмы и решения <span aria-hidden="true">✦</span></h1><p>Маленькое волшебство<br>каждого дня</p></div><div class="hero-right"><div class="hero-quote">Больше,<br>чем календарь —<br>это время для себя ♡</div><div class="hero-controls"><button type="button" class="hero-icon-button hero-search-button" data-action="header-search" title="Поиск по моим записям" aria-label="Поиск по моим записям"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m16.1 16.1 4.7 4.7"/></svg></button><button type="button" class="hero-icon-button hero-bell-button" data-action="header-reminders" title="Мои напоминания" aria-label="Мои напоминания"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 6.5-3 7.8-3 9h18c0-1.2-3-2.5-3-9Z"/><path d="M10 21h4"/></svg><span class="hero-alert-dot" id="heroAlertDot" hidden></span></button><div class="hero-profile-wrap"><button type="button" class="hero-profile-button" data-action="header-menu" aria-label="Открыть меню календаря" title="Меню календаря" aria-expanded="false" aria-controls="heroProfileMenu"><span class="hero-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.3 21c.8-4.4 4.1-7 7.7-7s6.9 2.6 7.7 7"/></svg></span><span class="hero-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="hero-profile-menu" id="heroProfileMenu" role="menu" hidden><button type="button" role="menuitem" data-action="plan">Добавить план</button><button type="button" role="menuitem" data-action="favorites">Избранные даты</button><button type="button" role="menuitem" data-action="settings">Настройки</button><button type="button" role="menuitem" data-action="access">Получить доступ</button></div></div></div></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
