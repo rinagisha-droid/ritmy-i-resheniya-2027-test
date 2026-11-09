@@ -207,6 +207,25 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
 @media(max-width:1100px){.hero .preview{min-height:380px}.hero .preview-card{min-height:265px;padding:7px 5px}.hero .preview-card h3{font-size:14px;min-height:34px}.hero .preview-card img,.hero .preview-card.zodiac img,.hero .preview-card.focus img{height:150px}.hero .preview-card.soft img{width:130px;height:130px}.hero .preview-card .footer-pill{font-size:9px}}
 @media(max-width:840px){.hero .preview{width:100%;max-width:620px;min-height:390px}.hero .preview-card{min-height:290px}.hero .preview-card img,.hero .preview-card.zodiac img,.hero .preview-card.focus img{height:175px}.hero .preview-card.soft img{width:145px;height:145px}.hero .preview-card h3{font-size:16px}}
 @media(max-width:520px){.hero .preview{min-height:0;padding:13px 10px}.hero .preview-cards{gap:5px}.hero .preview-card{min-height:220px;padding:6px 3px 7px;border-radius:11px}.hero .preview-card h3{font-size:12px;min-height:33px}.hero .preview-card img,.hero .preview-card.zodiac img,.hero .preview-card.focus img{height:112px}.hero .preview-card.soft img{width:100px;height:100px}.hero .preview-card .focus-keyword{font-size:10px}.hero .preview-card .footer-pill{font-size:8px;min-height:28px;padding:4px 2px}.hero .preview-topline{flex-wrap:wrap}}
+
+/* Premium golden feature icons; replace flat emoji blocks, keep card layout. */
+.landing-gold-sprite{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+.feature-grid .feature-icon{
+ width:61px;height:61px;display:inline-flex;align-items:center;justify-content:center;
+ border:0;border-radius:0;
+ background:transparent;color:#ce994b;
+ font-size:0;line-height:0;
+}
+.feature-grid .gold-feature-icon{
+ display:block;width:60px;height:60px;
+ overflow:visible;
+ filter:drop-shadow(0 1px 1px rgba(116,72,20,.2)) drop-shadow(0 0 3px rgba(238,187,93,.25));
+}
+.feature-grid .feature-card h3{margin-top:10px}
+@media(max-width:520px){
+ .feature-grid .feature-icon{width:56px;height:56px}
+ .feature-grid .gold-feature-icon{width:55px;height:55px}
+}
 </style>
 </head>
 <body>
@@ -267,21 +286,118 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
   </div>
 </section>
 
+
+<!-- Gold feature-icon artwork: one consistent vector set for all nine landing cards. -->
+<svg class="landing-gold-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<defs>
+ <linearGradient id="landingGold" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0%" stop-color="#a76520"/>
+  <stop offset="23%" stop-color="#ffe7a1"/>
+  <stop offset="48%" stop-color="#fff8df"/>
+  <stop offset="70%" stop-color="#e9ac4d"/>
+  <stop offset="100%" stop-color="#995d1f"/>
+ </linearGradient>
+ <linearGradient id="landingGoldFill" x1="0" y1="0" x2=".7" y2="1">
+  <stop offset="0%" stop-color="#fff8dd"/>
+  <stop offset="54%" stop-color="#f4d48a"/>
+  <stop offset="100%" stop-color="#b8792e"/>
+ </linearGradient>
+ <radialGradient id="landingGoldShine">
+  <stop offset="0%" stop-color="#fffce9"/>
+  <stop offset="55%" stop-color="#ffe5a3"/>
+  <stop offset="100%" stop-color="#d99b47"/>
+ </radialGradient>
+</defs>
+<symbol id="landing-icon-moon" viewBox="0 0 64 64">
+ <g stroke="url(#landingGold)" stroke-width="1.6" fill="none">
+  <path d="M35 5A27 27 0 1 0 43 57" opacity=".5"/>
+  <path d="M47 12a27 27 0 0 1 7 37" opacity=".7"/>
+  <circle cx="51" cy="17" r="3.2" fill="url(#landingGoldFill)"/>
+  <circle cx="55" cy="41" r="3.8" fill="url(#landingGoldFill)"/>
+  <circle cx="43" cy="56" r="3.2" fill="url(#landingGoldFill)"/>
+ </g>
+ <path d="M37 9C26 10 17 20 17 33c0 11 7 20 18 23-5-7-8-14-8-23 0-10 4-18 10-24Z" fill="url(#landingGoldFill)" stroke="url(#landingGold)" stroke-width="1.6"/>
+ <path d="M12 6l1.3 3.3L17 10.6l-3.7 1.3L12 15.2l-1.3-3.3L7 10.6l3.7-1.3Z M47 49l1.1 2.7 2.8 1.1-2.8 1.1L47 56.6l-1.1-2.7-2.8-1.1 2.8-1.1Z" fill="url(#landingGoldShine)"/>
+</symbol>
+<symbol id="landing-icon-zodiac" viewBox="0 0 64 64">
+ <circle cx="32" cy="32" r="25" stroke="url(#landingGold)" stroke-width="2.5" fill="none"/>
+ <circle cx="32" cy="32" r="19.5" stroke="url(#landingGold)" stroke-width="1" fill="none" opacity=".75"/>
+ <g stroke="url(#landingGold)" stroke-linecap="round" stroke-width="1.8">
+  <path d="M32 8v5M32 51v5M8 32h5M51 32h5M15 15l4 4M45 45l4 4M49 15l-4 4M19 45l-4 4"/>
+ </g>
+ <path d="M19 22c0-7 5-10 13-10s13 3 13 10c0 5-3 8-7 9m-12 0c-4-1-7-4-7-9" fill="none" stroke="url(#landingGold)" stroke-width="3.3" stroke-linecap="round"/>
+ <circle cx="32" cy="38" r="9.5" stroke="url(#landingGold)" stroke-width="3.4" fill="url(#landingGoldFill)" fill-opacity=".12"/>
+ <path d="M51 6l1.5 3.5L56 11l-3.5 1.5L51 16l-1.5-3.5L46 11l3.5-1.5Z" fill="url(#landingGoldShine)"/>
+</symbol>
+<symbol id="landing-icon-focus" viewBox="0 0 64 64">
+ <circle cx="32" cy="32" r="25" stroke="url(#landingGold)" stroke-width="1.8" fill="none" opacity=".8"/>
+ <circle cx="32" cy="32" r="21" stroke="url(#landingGold)" stroke-width=".8" fill="none" opacity=".5"/>
+ <path d="M32 9 37.4 26.6 55 32l-17.6 5.4L32 55l-5.4-17.6L9 32l17.6-5.4Z" fill="url(#landingGoldFill)" stroke="url(#landingGold)" stroke-width="1.6"/>
+ <circle cx="32" cy="32" r="5" fill="#fff9d9" opacity=".8"/>
+ <g stroke="url(#landingGold)" stroke-width="1.7" stroke-linecap="round"><path d="M13 9v6m-3-3h6M54 49v6m-3-3h6"/></g>
+</symbol>
+<symbol id="landing-icon-plan" viewBox="0 0 64 64">
+ <rect x="11" y="11" width="42" height="42" rx="9" fill="url(#landingGoldFill)" fill-opacity=".13" stroke="url(#landingGold)" stroke-width="3"/>
+ <path d="m21 33 8 8 16-20" stroke="url(#landingGold)" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="m21 33 8 8 16-20" stroke="#fff7d8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M9 6v7M5.5 9.5h7M56 51v7M52.5 54.5h7" stroke="url(#landingGold)" stroke-width="1.8" stroke-linecap="round"/>
+</symbol>
+<symbol id="landing-icon-reminder" viewBox="0 0 64 64">
+ <path d="M16 44c5-6 6-11 6-21a10 10 0 0 1 20 0c0 10 1 15 6 21 2 2.3 1 5-2.5 5h-27c-3.5 0-4.5-2.7-2.5-5Z" fill="url(#landingGoldFill)" fill-opacity=".19" stroke="url(#landingGold)" stroke-width="2.5"/>
+ <path d="M27 50a5 5 0 0 0 10 0" fill="none" stroke="url(#landingGold)" stroke-width="2.8" stroke-linecap="round"/>
+ <path d="M32 12V7" fill="none" stroke="url(#landingGold)" stroke-width="2.5"/>
+ <path d="M52 7l1.7 4.3L58 13l-4.3 1.7L52 19l-1.7-4.3L46 13l4.3-1.7Z" fill="url(#landingGoldShine)"/>
+</symbol>
+<symbol id="landing-icon-beauty" viewBox="0 0 64 64">
+ <g fill="url(#landingGoldFill)" fill-opacity=".28" stroke="url(#landingGold)" stroke-width="1.9" stroke-linejoin="round">
+  <path d="M32 37C21 30 22 18 32 10c10 8 11 20 0 27Z"/>
+  <path d="M31 39c-15-2-23-11-24-24 15 2 24 11 24 24Z"/>
+  <path d="M33 39c15-2 23-11 24-24-15 2-24 11-24 24Z"/>
+  <path d="M32 42C19 43 9 37 6 28c12-3 22 2 26 14Z"/>
+  <path d="M32 42c13 1 23-5 26-14-12-3-22 2-26 14Z"/>
+ </g>
+ <path d="M32 39v16m0-8c-6-5-11-6-17-4 4 6 10 8 17 7m0-3c6-5 11-6 17-4-4 6-10 8-17 7" stroke="url(#landingGold)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+ <path d="m54 5 1.3 3.7L59 10l-3.7 1.3L54 15l-1.3-3.7L49 10l3.7-1.3Z" fill="url(#landingGoldShine)"/>
+</symbol>
+<symbol id="landing-icon-work" viewBox="0 0 64 64">
+ <circle cx="30" cy="31" r="25" stroke="url(#landingGold)" stroke-width="2.2" fill="none"/>
+ <circle cx="30" cy="31" r="18" stroke="url(#landingGold)" stroke-width="1" fill="none" opacity=".55"/>
+ <path d="M30 7 35 26l19 5-19 5-5 19-5-19-19-5 19-5Z" fill="url(#landingGoldFill)" stroke="url(#landingGold)" stroke-width="1.7"/>
+ <path d="m17 18 10 10m6 6 10 10m-26 0 10-10m6-6 10-10" stroke="url(#landingGold)" stroke-width="1" opacity=".8"/>
+ <circle cx="30" cy="31" r="5" fill="url(#landingGoldShine)" stroke="#bc8535"/>
+ <path d="M49 50h4v8h-4zm6-7h4v15h-4z" fill="url(#landingGoldFill)" stroke="url(#landingGold)" stroke-width=".8"/>
+</symbol>
+<symbol id="landing-icon-retro" viewBox="0 0 64 64">
+ <path d="M48 15a23 23 0 0 0-38 18c0 8 3 13 8 18" stroke="url(#landingGold)" stroke-width="4.3" stroke-linecap="round" fill="none"/>
+ <path d="M16 47 18 54 10 54" stroke="url(#landingGold)" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M17 50a23 23 0 0 0 37-19c0-8-3-13-8-18" stroke="url(#landingGold)" stroke-width="4.3" stroke-linecap="round" fill="none"/>
+ <path d="m47 17-2-7 8 0" stroke="url(#landingGold)" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+ <path d="M32 22c-5 4-6 13-2 20" stroke="url(#landingGold)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+ <circle cx="53" cy="55" r="3" fill="url(#landingGoldFill)"/>
+</symbol>
+<symbol id="landing-icon-search" viewBox="0 0 64 64">
+ <circle cx="27" cy="27" r="18" fill="url(#landingGoldFill)" fill-opacity=".14" stroke="url(#landingGold)" stroke-width="3.4"/>
+ <path d="M40 40 56 56" fill="none" stroke="url(#landingGold)" stroke-width="7" stroke-linecap="round"/>
+ <path d="M40 40 56 56" fill="none" stroke="#fff5d5" stroke-width="2.1" stroke-linecap="round"/>
+ <path d="M16 25c0-7 5-12 12-12" fill="none" stroke="#fff5d5" stroke-width="2.5" stroke-linecap="round"/>
+ <path d="M52 4l1.7 4.3L58 10l-4.3 1.7L52 16l-1.7-4.3L46 10l4.3-1.7Z" fill="url(#landingGoldShine)"/>
+</symbol>
+</svg>
 <section class="section" id="features">
   <div class="wrap">
     <p class="section-kicker">Всё необходимое рядом</p>
     <h2 class="section-title">Чтобы весь год помнить о себе<br>и о том, чего вы хотите</h2>
     <p class="section-lead">Не календарь приказов и «правильных» дат, а красивый помощник: ориентируйтесь на символические ритмы и принимайте решения самостоятельно.</p>
     <div class="feature-grid">
-      <article class="feature-card"><span class="feature-icon">☾</span><h3>Луна и её фазы</h3><p>Объёмная Луна, фазы и пояснения к выбранной дате.</p></article>
-      <article class="feature-card"><span class="feature-icon">♈</span><h3>Луна в знаках</h3><p>Красивые образы знаков и символические темы для саморазмышления.</p></article>
-      <article class="feature-card"><span class="feature-icon">✦</span><h3>Фокус и энергия дня</h3><p>Одно понятное слово, рекомендации и небольшое упражнение.</p></article>
-      <article class="feature-card"><span class="feature-icon">☑</span><h3>Мои планы</h3><p>Фиксируйте свои дела и важные шаги на выбранную дату.</p></article>
-      <article class="feature-card"><span class="feature-icon">♧</span><h3>Напоминания и избранное</h3><p>Сохраняйте то, к чему хотите вернуться, прямо в календаре.</p></article>
-      <article class="feature-card"><span class="feature-icon">✿</span><h3>Красота и маленькие радости</h3><p>Идеи для заботы о себе и приятных ритуалов без перегруза.</p></article>
-      <article class="feature-card"><span class="feature-icon">✧</span><h3>Дело и деньги</h3><p>Практические вопросы и ориентиры, помогающие не терять главное.</p></article>
-      <article class="feature-card"><span class="feature-icon">↻</span><h3>Ретроградные периоды</h3><p>Пояснения к астрологическим периодам в привычном языке.</p></article>
-      <article class="feature-card"><span class="feature-icon">⌕</span><h3>Поиск по записям</h3><p>Находите сохранённые планы и напоминания по словам или датам.</p></article>
+      <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-moon"></use></svg></span><h3>Луна и её фазы</h3><p>Объёмная Луна, фазы и пояснения к выбранной дате.</p></article>
+      <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-zodiac"></use></svg></span><h3>Луна в знаках</h3><p>Красивые образы знаков и символические темы для саморазмышления.</p></article>
+      <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-focus"></use></svg></span><h3>Фокус и энергия дня</h3><p>Одно понятное слово, рекомендации и небольшое упражнение.</p></article>
+      <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-plan"></use></svg></span><h3>Мои планы</h3><p>Фиксируйте свои дела и важные шаги на выбранную дату.</p></article>
+      <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-reminder"></use></svg></span><h3>Напоминания и избранное</h3><p>Сохраняйте то, к чему хотите вернуться, прямо в календаре.</p></article>
+      <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-beauty"></use></svg></span><h3>Красота и маленькие радости</h3><p>Идеи для заботы о себе и приятных ритуалов без перегруза.</p></article>
+      <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-work"></use></svg></span><h3>Дело и деньги</h3><p>Практические вопросы и ориентиры, помогающие не терять главное.</p></article>
+      <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-retro"></use></svg></span><h3>Ретроградные периоды</h3><p>Пояснения к астрологическим периодам в привычном языке.</p></article>
+      <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-search"></use></svg></span><h3>Поиск по записям</h3><p>Находите сохранённые планы и напоминания по словам или датам.</p></article>
     </div>
   </div>
 </section>
