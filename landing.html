@@ -767,6 +767,18 @@ button.showcase-date.hinted:after{
 .faq .faq-list details[open] p{color:#596e65}
 .faq .faq-list summary{line-height:1.45}
 @media(max-width:520px){.faq .faq-list summary{font-size:15px;padding:17px 26px 17px 0}.faq .faq-list details p{font-size:14px;line-height:1.65;padding-top:14px}}
+
+/* Checkout CTA: keep the amount and ₽ together even on a narrow mobile screen. */
+[data-current-price]{white-space:nowrap;display:inline-block;font-variant-numeric:tabular-nums}
+.last-banner .last-cta-buy{display:inline-flex;max-width:100%;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:10px;row-gap:3px;line-height:1.35;padding:13px 19px;text-align:center}
+.last-banner .last-cta-label{min-width:0}
+.last-banner .last-cta-price{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:5px;flex-shrink:0}
+.last-banner .last-cta-price .action-sparkle{width:16px;height:16px;flex:0 0 16px}
+@media(max-width:520px){
+ .last-banner .last-cta-buy{display:flex;width:100%;flex-direction:column;flex-wrap:nowrap;gap:5px;padding:15px 12px}
+ .last-banner .last-cta-label{font-size:clamp(14px,4.2vw,17px)}
+ .last-banner .last-cta-price{font-size:clamp(15px,4.5vw,18px)}
+}
 </style>
 </head>
 <body>
@@ -1157,7 +1169,7 @@ button.showcase-date.hinted:after{
   <div class="faq-list">
     <details><summary>Как посмотреть календарь бесплатно?</summary><p>Нажмите «Забрать бесплатно» на этой странице. Календарь «Ритмы и решения» откроется в браузере — без оплаты и регистрации.</p></details>
     <details><summary>Это приложение или сайт?</summary><p>Это интерактивный веб-календарь. Им можно пользоваться на телефоне, планшете или компьютере, ничего устанавливать не нужно.</p></details>
-    <details><summary>Нужно ли разбираться в астрологии?</summary><p>Нет. Вы просто выбираете дату и смотрите понятные подсказки, фазы Луны и фокус дня. Астрологические образы помогают размышлять и планировать, а не предсказывают события с гарантией.</p></details>
+    <details><summary>Подойдёт ли календарь, если я не увлекаюсь астрологией?</summary><p>Да. Вы можете пользоваться планами, напоминаниями и практиками без специальных знаний. Лунные ритмы и знаки зодиака — дополнительные символические ориентиры, а не обязательные правила или точные прогнозы.</p></details>
     <details><summary>Что я могу делать в календаре?</summary><p>Выбирать даты, смотреть лунные ритмы и ежедневные ориентиры, записывать планы, добавлять напоминания и сохранять интересные дни в избранное.</p></details>
     <details><summary>Сохранятся ли мои планы и напоминания?</summary><p>Да, в том браузере, где вы их добавили. При смене устройства или очистке данных браузера записи могут не сохраниться, поэтому важную информацию лучше дублировать у себя.</p></details>
     <details><summary>Сколько стоит календарь на 2027 год?</summary><p>До 20 ноября 2026 включительно — 990 ₽, с 21 по 30 ноября — 1 590 ₽, с 1 декабря — 1 990 ₽. Это цена доступа на весь 2027 год, а не ежемесячная подписка.</p></details>
@@ -1172,7 +1184,7 @@ button.showcase-date.hinted:after{
   <div class="eyebrow">Ваше время — ваш выбор</div>
   <h2>Пусть 2027 год станет историей,<br>которую вы напишете сами</h2>
   <p>Не нужно ждать идеального момента. Начните с маленького шага — и продолжайте в удобном для себя ритме.</p>
-  <button type="button" class="btn btn-gold" data-plan="year">Войти в мой волшебный 2027 за <span data-current-price>990 ₽</span> <svg class="action-sparkle" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-sparkle"></use></svg></button>
+  <button type="button" class="btn btn-gold last-cta-buy" data-plan="year"><span class="last-cta-label">Войти в мой волшебный 2027</span><span class="last-cta-price">за <span data-current-price>990 ₽</span> <svg class="action-sparkle" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-sparkle"></use></svg></span></button>
   <a href="index.html" class="btn btn-clear">Забрать бесплатно →</a>
 </section>
 </main>
