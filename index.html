@@ -797,6 +797,80 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
   flex:0 1 auto;
   transform:none;
 }
+
+/* Focus of the day: single illustrated card, no embedded image tile. */
+.triptych .feature.feature-focus{
+  position:relative;isolation:isolate;
+  height:326px;min-width:0;overflow:hidden;
+  padding:8px 8px 10px;
+  border:1.5px solid #dfbd74;border-radius:15px;
+  background:#041e29 url('assets/zodiac-botanical-starry.webp') center center / 100% 100% no-repeat !important;
+  box-shadow:inset 0 0 0 1px rgba(255,234,179,.13),0 4px 14px rgba(0,0,0,.19);
+}
+.triptych .feature.feature-focus::before{
+  content:"";position:absolute;z-index:1;pointer-events:none;
+  inset:43px 0 45px;
+  background:url('assets/focus.webp') 50% 50% / 112% auto no-repeat;
+  -webkit-mask-image:radial-gradient(ellipse 72% 45% at 50% 50%,#000 55%,rgba(0,0,0,.73) 75%,transparent 100%);
+  mask-image:radial-gradient(ellipse 72% 45% at 50% 50%,#000 55%,rgba(0,0,0,.73) 75%,transparent 100%);
+}
+.triptych .feature.feature-focus::after{
+  content:"";position:absolute;z-index:1;pointer-events:none;inset:0;
+  background:linear-gradient(to bottom,rgba(2,22,27,.47) 0%,transparent 31%,transparent 70%,rgba(2,23,25,.18) 100%);
+}
+.triptych .feature.feature-focus h3{
+  position:relative;z-index:3;
+  flex:0 0 auto;align-self:center;
+  margin:0;padding:0;
+  min-height:29px;width:100%;
+  font:normal clamp(19px,1.60vw,24px)/1.08 Georgia,'Times New Roman',serif;
+  color:#fff3df;text-align:center;
+  text-shadow:0 2px 6px rgba(0,0,0,.85),0 0 9px rgba(0,0,0,.55);
+}
+.triptych .feature.feature-focus .focus-word{
+  position:relative;z-index:3;
+  flex:0 0 auto;align-self:center;
+  margin:2px 0 0;
+  color:#fff2d9;
+  font:600 12px/1.2 Arial,sans-serif;
+  text-align:center;text-shadow:0 2px 5px rgba(0,0,0,.86);
+}
+.triptych .feature.feature-focus .focus-scene{
+  display:block;position:relative;z-index:0;
+  flex:1 1 auto;min-height:0;width:100%;
+  pointer-events:none;
+}
+.triptych .feature.feature-focus .focus-practice{
+  position:relative;z-index:4;
+  display:block;flex:0 0 auto;
+  align-self:center;width:100%;
+  max-width:100%;min-height:30px;
+  margin:0 0 7px;padding:6px 8px;
+  background:rgba(3,49,42,.91);
+  color:#f8e9bf;
+  border:1px solid #d7b066;border-radius:25px;
+  font:11px/1.2 Arial,sans-serif;
+  box-shadow:0 2px 8px rgba(0,0,0,.48);
+  cursor:pointer;
+}
+.triptych .feature.feature-focus .focus-practice:hover{
+  background:#155448;border-color:#f5d490;
+}
+@media(max-width:1250px){
+  .triptych .feature.feature-focus{height:308px;padding:7px 6px 8px}
+  .triptych .feature.feature-focus h3{font-size:20px;min-height:25px}
+  .triptych .feature.feature-focus .focus-word{font-size:11px}
+  .triptych .feature.feature-focus .focus-practice{font-size:10px;min-height:27px;margin-bottom:6px}
+  .triptych .feature.feature-focus::before{inset:39px 0 39px;background-size:116% auto}
+}
+@media(max-width:840px){
+  .triptych .feature.feature-focus{height:326px}
+  .triptych .feature.feature-focus h3{font-size:21px}
+}
+@media(max-width:570px){
+  .triptych .feature.feature-focus{height:325px}
+  .triptych .feature.feature-focus h3{font-size:20px}
+}
 </style></head><body><div class="site"><header class="hero"><div><h1>Ритмы и решения ✦</h1><p>Волшебство каждого дня</p><em>Осень — зима 2026 · весь 2027</em></div><div class="hero-quote">Больше, чем календарь — это время для себя ♡<p><button class="hero-link" data-action="access">✦ Получить доступ →</button></p></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
@@ -813,7 +887,7 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
 <button type="button" class="side-btn " data-action="library"><span class="side-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6c-2-2-6-3-9-2v15c3-1 7 0 9 2 2-2 6-3 9-2V4c-3-1-7 0-9 2ZM12 6v15"/></svg></span><span class="side-label">Библиотека</span></button>
 <button type="button" class="side-btn " data-action="settings"><span class="side-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2h4l.6 2.4a8 8 0 0 1 1.7.7l2.2-1.2 2.8 2.8-1.2 2.2a8 8 0 0 1 .7 1.7L23 11v4l-2.4.6a8 8 0 0 1-.7 1.7l1.2 2.2-2.8 2.8-2.2-1.2a8 8 0 0 1-1.7.7L14 24h-4l-.6-2.4a8 8 0 0 1-1.7-.7l-2.2 1.2-2.8-2.8 1.2-2.2a8 8 0 0 1-.7-1.7L1 15v-4l2.4-.6a8 8 0 0 1 .7-1.7L2.9 6.5l2.8-2.8 2.2 1.2a8 8 0 0 1 1.7-.7Z" transform="translate(1 0) scale(.92)"/><circle cx="12" cy="12" r="3"/></svg></span><span class="side-label">Настройки</span></button>
 <div class="side-deco"><div class="side-deco-text">Гармония<br>в каждом дне ♡</div></div>
-</aside><section class="calendar"><div class="calhead"><button id="prev">❮</button><h2 id="month">Ноябрь 2026</h2><button id="next">❯</button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особые даты</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline"><div><h2 id="dateTitle"></h2><small id="weekday"></small></div><button class="goldbtn" data-action="special">✦ Важные даты</button></div><div class="triptych"><div class="feature feature-moon"><h3 id="phaseTitle" class="moon-heading">Луна</h3><div class="imagearea moon-visual"><div class="moon-disc" id="moonDisc"></div></div><div class="moon-description"><p id="phaseHint">Ритм · обновление · равновесие</p></div></div><div class="feature feature-zodiac"><h3 id="signTitle">Луна в знаке</h3><div class="zodiac-glyph" id="zodiacGlyph" aria-hidden="true">♏</div><div class="imagearea zodiac-visual"><div class="zodiac-art" id="zodiacArt"></div></div><button type="button" class="footer zodiac-quality" id="signFooter" data-action="sign" title="Подробнее о знаке Луны">Образ дня</button></div><div class="feature"><h3>◎ Фокус дня</h3><div class="subtitle" id="focusTitle"></div><div class="imagearea"><div class="focus-image"></div></div><div class="footer" id="focusText"></div><button class="smallbtn" data-action="focus">Практика дня →</button></div></div></div></main><div class="below"><div class="cards" id="cards"></div><div class="widgets"><div class="widget"><h4>📋 Мои планы <button data-action="plan">+</button></h4><div id="plans"></div></div><div class="widget"><h4>♧ Напоминания <button data-action="reminder">+</button></h4><div id="reminders"></div></div><div class="widget"><h4>★ Избранное <button data-action="fav">+</button></h4><div id="favorites"></div></div></div></div><div class="extra"><div><b>✨ Откройте полный календарь «Ритмы и решения»</b><p>Демо и полный доступ на 2027 год. Страницу покупки доработаем отдельно.</p></div><button class="goldbtn" data-action="access">Получить полный доступ →</button></div></div><div class="footerbar">Луна: Astronomy Engine · вид из Уфы (UTC+5). Поверхность: NASA SVS. Сегодня — текущее время, другие даты — 12:00. Символические рекомендации — не прогноз фактических событий.</div></div><div class="dialog" id="dialog" role="dialog" aria-modal="true"><div class="modal"><h3 id="modalTitle"></h3><div id="modalBody"></div><div class="modal-buttons" id="modalBtns"></div></div></div><script src="vendor/astronomy.browser.min.js"></script><script src="assets/moon-render.js"></script><script>
+</aside><section class="calendar"><div class="calhead"><button id="prev">❮</button><h2 id="month">Ноябрь 2026</h2><button id="next">❯</button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особые даты</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline"><div><h2 id="dateTitle"></h2><small id="weekday"></small></div><button class="goldbtn" data-action="special">✦ Важные даты</button></div><div class="triptych"><div class="feature feature-moon"><h3 id="phaseTitle" class="moon-heading">Луна</h3><div class="imagearea moon-visual"><div class="moon-disc" id="moonDisc"></div></div><div class="moon-description"><p id="phaseHint">Ритм · обновление · равновесие</p></div></div><div class="feature feature-zodiac"><h3 id="signTitle">Луна в знаке</h3><div class="zodiac-glyph" id="zodiacGlyph" aria-hidden="true">♏</div><div class="imagearea zodiac-visual"><div class="zodiac-art" id="zodiacArt"></div></div><button type="button" class="footer zodiac-quality" id="signFooter" data-action="sign" title="Подробнее о знаке Луны">Образ дня</button></div><div class="feature feature-focus"><h3>Фокус дня</h3><div class="focus-word" id="focusTitle">Намерение</div><div class="focus-scene" aria-hidden="true"></div><button type="button" class="smallbtn focus-practice" data-action="focus">Практика дня →</button></div></div></div></main><div class="below"><div class="cards" id="cards"></div><div class="widgets"><div class="widget"><h4>📋 Мои планы <button data-action="plan">+</button></h4><div id="plans"></div></div><div class="widget"><h4>♧ Напоминания <button data-action="reminder">+</button></h4><div id="reminders"></div></div><div class="widget"><h4>★ Избранное <button data-action="fav">+</button></h4><div id="favorites"></div></div></div></div><div class="extra"><div><b>✨ Откройте полный календарь «Ритмы и решения»</b><p>Демо и полный доступ на 2027 год. Страницу покупки доработаем отдельно.</p></div><button class="goldbtn" data-action="access">Получить полный доступ →</button></div></div><div class="footerbar">Луна: Astronomy Engine · вид из Уфы (UTC+5). Поверхность: NASA SVS. Сегодня — текущее время, другие даты — 12:00. Символические рекомендации — не прогноз фактических событий.</div></div><div class="dialog" id="dialog" role="dialog" aria-modal="true"><div class="modal"><h3 id="modalTitle"></h3><div id="modalBody"></div><div class="modal-buttons" id="modalBtns"></div></div></div><script src="vendor/astronomy.browser.min.js"></script><script src="assets/moon-render.js"></script><script>
 const signs=['Овен','Телец','Близнецы','Рак','Лев','Дева','Весы','Скорпион','Стрелец','Козерог','Водолей','Рыбы'],inSigns=['Овне','Тельце','Близнецах','Раке','Льве','Деве','Весах','Скорпионе','Стрельце','Козероге','Водолее','Рыбах'],glyph=['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'],qualities=['Действие · смелость · импульс','Комфорт · устойчивость · забота','Общение · информация · движение','Дом · близость · безопасность','Творчество · радость · проявленность','Порядок · внимание · практичность','Баланс · красота · диалог','Глубина · честность · перемены','Смысл · обучение · горизонты','Структура · ответственность · цели','Свобода · идеи · общение','Тишина · вдохновение · чувствительность'];
 const months=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],week=['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];let sky={},selected=new Date(2026,10,3),shown=new Date(2026,10,1),section='life';const minDate='2026-11-01',maxDate='2027-12-31';const $=id=>document.getElementById(id),key=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');function parse(k){let [y,m,d]=k.split('-').map(Number);return new Date(y,m-1,d)};let store={};try{store=JSON.parse(localStorage.getItem('ritmy-v2'))||{}}catch{}store.plans??={};store.reminders??={};store.favorites??=[];function save(){localStorage.setItem('ritmy-v2',JSON.stringify(store))}function ufaToday(){return new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Yekaterinburg'})}
 function moonMoment(){return key(selected)===ufaToday()?new Date():new Date(key(selected)+'T12:00:00+05:00')}
@@ -821,7 +895,58 @@ function data(){return {...(sky[key(selected)]||{changes:[]}),...LunarView.state
 selected=parse(ufaToday()<minDate?minDate:ufaToday()>maxDate?maxDate:ufaToday());shown=new Date(selected.getFullYear(),selected.getMonth(),1);
 const events={'2026-11-09':'Новолуние','2026-11-24':'Полнолуние','2026-12-21':'Зимнее солнцестояние','2027-03-20':'Весеннее равноденствие','2027-06-21':'Летнее солнцестояние','2027-09-23':'Осеннее равноденствие','2027-12-22':'Зимнее солнцестояние'};
 const retroMerc=[['2026-10-24','2026-11-13'],['2027-02-09','2027-03-03'],['2027-06-10','2027-07-04'],['2027-10-07','2027-10-28']],retroVenus=[['2026-10-03','2026-11-13']];function between(k,r){return r.some(([a,b])=>k>=a&&k<=b)}function specialFor(k){const v=[];if(events[k])v.push(events[k]);if(between(k,retroMerc))v.push('Ретроградный Меркурий');if(between(k,retroVenus))v.push('Ретроградная Венера');return v}
-const suggestions={day:[['🌿','Забота о себе','emotion.webp','Заметьте, что вы чувствуете сейчас, и выделите себе короткую паузу.','Назовите три чувства. Спросите себя, какая потребность стоит за самым сильным из них.'],['☀️','Маленькая победа','joy.webp','Отметьте результат, который обычно считаете слишком незначительным.','Запишите одно действие, которое вы сделали сегодня для себя.'],['☕','Восстановление','focus.webp','Отдых — это часть устойчивого ритма, а не награда после истощения.','Выберите 15 минут без телефона и дел, отметьте, как меняется состояние.'],['✦','Мой ориентир','lantern.webp','День становится яснее, когда есть один важный приоритет.','Запишите главное дело и его первый выполнимый шаг.']],life:[['♥','Эмоции и состояние','emotion.webp','Прислушайтесь к себе: где сейчас напряжение, а где появляется облегчение?','Выпишите чувства, потребности и один бережный способ поддержать себя.'],['♡','Отношения и тепло','relations.webp','Близость укрепляют небольшие действия и честный диалог.','Спросите близкого человека, что было для него важным сегодня, и выслушайте без советов.'],['✿','Красота и обновление','beauty.webp','Создайте для себя небольшое пространство красоты и заботы.','Выберите одну простую процедуру ухода, ориентируясь на собственный комфорт.'],['✧','Маленькие радости','joy.webp','Замечать хорошее можно без требования быть счастливой постоянно.','Запишите три приятных эпизода дня, даже совсем маленьких.']],work:[['✦','Финансы и ясность','joy.webp','Ясность в цифрах помогает принимать решения без лишней тревоги.','Посмотрите план расходов на неделю и выберите одну реалистичную финансовую задачу.'],['♜','Переговоры','relations.webp','Чёткий запрос и понимание границ делают разговор предметным.','Запишите цель переговоров, аргументы и минимально приемлемый результат.'],['☼','Проявленность','emotion.webp','Не ждите идеальной уверенности, чтобы сделать полезный шаг.','Сформулируйте одно предложение о вашей работе и расскажите о нём аудитории.'],['◎','Планирование','focus.webp','Лучше завершить одно важное дело, чем открыть пять новых.','Определите приоритет на сегодня и ближайшее действие на 20 минут.']]};const foci=[['Ясность','Выберите одну задачу, на которую действительно хотите направить внимание.'],['Тепло','Найдите способ проявить заботу о себе или близком человеке.'],['Равновесие','Проверьте, не взяли ли вы сегодня больше обязательств, чем можете выполнить.'],['Намерение','Запишите то, на что готовы направить силы, и маленький первый шаг.'],['Восстановление','Заметьте признаки усталости и запланируйте время без задач.'],['Смелость','Попробуйте небольшой шаг в важную сторону, не требуя идеального результата.']];function focus(){return foci[(selected.getDate()+selected.getMonth()*3)%foci.length]}
+const suggestions={day:[['🌿','Забота о себе','emotion.webp','Заметьте, что вы чувствуете сейчас, и выделите себе короткую паузу.','Назовите три чувства. Спросите себя, какая потребность стоит за самым сильным из них.'],['☀️','Маленькая победа','joy.webp','Отметьте результат, который обычно считаете слишком незначительным.','Запишите одно действие, которое вы сделали сегодня для себя.'],['☕','Восстановление','focus.webp','Отдых — это часть устойчивого ритма, а не награда после истощения.','Выберите 15 минут без телефона и дел, отметьте, как меняется состояние.'],['✦','Мой ориентир','lantern.webp','День становится яснее, когда есть один важный приоритет.','Запишите главное дело и его первый выполнимый шаг.']],life:[['♥','Эмоции и состояние','emotion.webp','Прислушайтесь к себе: где сейчас напряжение, а где появляется облегчение?','Выпишите чувства, потребности и один бережный способ поддержать себя.'],['♡','Отношения и тепло','relations.webp','Близость укрепляют небольшие действия и честный диалог.','Спросите близкого человека, что было для него важным сегодня, и выслушайте без советов.'],['✿','Красота и обновление','beauty.webp','Создайте для себя небольшое пространство красоты и заботы.','Выберите одну простую процедуру ухода, ориентируясь на собственный комфорт.'],['✧','Маленькие радости','joy.webp','Замечать хорошее можно без требования быть счастливой постоянно.','Запишите три приятных эпизода дня, даже совсем маленьких.']],work:[['✦','Финансы и ясность','joy.webp','Ясность в цифрах помогает принимать решения без лишней тревоги.','Посмотрите план расходов на неделю и выберите одну реалистичную финансовую задачу.'],['♜','Переговоры','relations.webp','Чёткий запрос и понимание границ делают разговор предметным.','Запишите цель переговоров, аргументы и минимально приемлемый результат.'],['☼','Проявленность','emotion.webp','Не ждите идеальной уверенности, чтобы сделать полезный шаг.','Сформулируйте одно предложение о вашей работе и расскажите о нём аудитории.'],['◎','Планирование','focus.webp','Лучше завершить одно важное дело, чем открыть пять новых.','Определите приоритет на сегодня и ближайшее действие на 20 минут.']]};
+/* Symbolic focus comes from BOTH lunar phase and Moon zodiac sign.
+   Zodiac signs are grouped by element, so the chosen word changes as
+   either the Moon's phase or its zodiac sign changes. */
+const focusWords=[
+ ['Намерение','Опора','Идея','Чуткость'],
+ ['Импульс','Постоянство','Любознательность','Доверие'],
+ ['Решимость','Порядок','Диалог','Границы'],
+ ['Настойчивость','Качество','Ясность','Принятие'],
+ ['Смелость','Благодарность','Открытость','Чувства'],
+ ['Щедрость','Устойчивость','Осмысление','Теплота'],
+ ['Освобождение','Простота','Пересмотр','Прощение'],
+ ['Отдых','Восстановление','Тишина','Бережность']
+];
+const focusPhases=[
+ ['Новолуние','Это время символически связано с началом нового цикла. Полезно определить, чего вы хотите, не перегружая себя обязательствами.','Запишите одно намерение на ближайшую неделю. Рядом укажите самый маленький реальный шаг, который можно сделать сегодня.'],
+ ['Растущий серп','Символический акцент — первые движения после принятого решения. Лучше небольшое действие, чем безупречный план без продолжения.','Выберите одно дело, которое откладывали. Посвятите ему десять минут и отметьте, что получилось.'],
+ ['Первая четверть','Символически это момент выбора и усилий. Обратите внимание, что зависит от вас, а что пока невозможно контролировать.','Разделите лист на две части: «В моей власти» и «Не в моей власти». Сделайте одно действие из первой колонки.'],
+ ['Растущая Луна','Время символического укрепления уже начатого. Полезно проверить темп, скорректировать план и поддержать себя без перфекционизма.','Найдите одно незавершённое дело. Запишите, что мешает его завершить, и определите следующий понятный шаг.'],
+ ['Полнолуние','Символический ориентир — увидеть достигнутое и признать результат. Необязательно ждать идеальной победы.','Назовите три результата последних двух недель. За каждый отметьте конкретное действие, которое помогло вам продвинуться.'],
+ ['Убывающая Луна','Символический акцент — осмысление опыта, благодарность и разумное распределение сил.','Запишите, что оказалось полезным за последнее время, и чем вы можете поддержать себя или близкого человека сегодня.'],
+ ['Последняя четверть','Символический ориентир — пересмотр лишнего. Это не требование всё менять, а повод освободить место для важного.','Выберите одно обязательство, задачу или привычку, которые можно упростить. Решите, от чего разумно отказаться.'],
+ ['Убывающий серп','Символический акцент — завершение и восстановление перед новым циклом. Разрешите себе действовать в более мягком ритме.','Уберите одну необязательную задачу из сегодняшнего списка. Найдите 15 минут для спокойного отдыха без чувства долга.']
+];
+const focusElementNotes=[
+ 'Огненный знак предлагает символический акцент на инициативе и смелом, но посильном действии.',
+ 'Земной знак напоминает о практичности, устойчивости и внимании к собственным ресурсам.',
+ 'Воздушный знак приглашает прояснить мысли, информацию и договорённости.',
+ 'Водный знак побуждает прислушаться к чувствам, потребностям и отношениям.'
+];
+const focusElementSteps=[
+ 'Спросите себя: «Какое небольшое действие я решусь попробовать?»',
+ 'Спросите себя: «Как сделать этот шаг устойчивым и реалистичным?»',
+ 'Спросите себя: «Что мне стоит уточнить или обсудить?»',
+ 'Спросите себя: «Как я могу бережно учесть свои чувства?»'
+];
+const zodiacElements=[0,1,2,3,0,1,2,3,0,1,2,3];
+function focus(d){
+  const skyInfo=d||data();
+  const angle=Number.isFinite(skyInfo.a)?skyInfo.a:0;
+  const phaseIndex=Math.floor(((angle+22.5)%360)/45);
+  const zodiacIndex=Number.isInteger(skyInfo.z)&&skyInfo.z>=0&&skyInfo.z<12?skyInfo.z:0;
+  const element=zodiacElements[zodiacIndex];
+  const phaseInfo=focusPhases[phaseIndex];
+  return [
+    focusWords[phaseIndex][element],
+    phaseInfo[1]+' '+focusElementNotes[element],
+    phaseInfo[2]+' '+focusElementSteps[element],
+    phaseInfo[0],
+    (zodiacIndex===4?'во ':'в ')+inSigns[zodiacIndex]
+  ];
+}
 function phase(a){if(a<8||a>=352)return'Новолуние';if(a<82)return'Растущая Луна';if(a<98)return'Первая четверть';if(a<172)return'Растущая Луна';if(a<188)return'Полнолуние';if(a<262)return'Убывающая Луна';if(a<278)return'Последняя четверть';return'Убывающая Луна'}
 function phaseHint(a){if(a<8||a>=352)return'Намерения · передышка · новый цикл';if(a<82)return'Рост · движение · первые шаги';if(a<98)return'Выбор · действия · внутренняя опора';if(a<172)return'Развитие · укрепление · внимание';if(a<188)return'Итоги · ясность · завершение';if(a<262)return'Осмысление · благодарность · отпускание';if(a<278)return'Пересмотр · порядок · освобождение';return'Тишина · отдых · подготовка'}
 function drawMoon(){LunarView.draw($('moonDisc'),data())}
@@ -922,7 +1047,7 @@ function renderZodiacCutout(index){
   });
 }
 
-function render(){const k=key(selected),d=data();$('dateTitle').textContent=selected.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});$('weekday').textContent=week[selected.getDay()];$('month').textContent=months[shown.getMonth()]+' '+shown.getFullYear();$('prev').disabled=key(shown)<='2026-11-01';$('next').disabled=key(shown)>='2027-12-01';$('phaseTitle').textContent=phase(d.a);$('phaseHint').textContent=phaseHint(d.a);drawMoon(d.a);$('signTitle').textContent=(d.z===4?'Луна во ':'Луна в ')+inSigns[d.z];$('zodiacGlyph').textContent=glyph[d.z]+'\uFE0E';renderZodiacCutout(d.z);$('signFooter').textContent=qualities[d.z];$('signFooter').title=d.changes.length?'Подробнее о знаке Луны: переход в течение суток':'Подробнее о знаке Луны';const ff=focus();$('focusTitle').textContent=ff[0];$('focusText').textContent=ff[1];renderCal();renderCards();renderWidgets();document.querySelectorAll('[data-section]').forEach(b=>b.classList.toggle('active',b.dataset.section===section));}
+function render(){const k=key(selected),d=data();$('dateTitle').textContent=selected.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});$('weekday').textContent=week[selected.getDay()];$('month').textContent=months[shown.getMonth()]+' '+shown.getFullYear();$('prev').disabled=key(shown)<='2026-11-01';$('next').disabled=key(shown)>='2027-12-01';$('phaseTitle').textContent=phase(d.a);$('phaseHint').textContent=phaseHint(d.a);drawMoon(d.a);$('signTitle').textContent=(d.z===4?'Луна во ':'Луна в ')+inSigns[d.z];$('zodiacGlyph').textContent=glyph[d.z]+'\uFE0E';renderZodiacCutout(d.z);$('signFooter').textContent=qualities[d.z];$('signFooter').title=d.changes.length?'Подробнее о знаке Луны: переход в течение суток':'Подробнее о знаке Луны';const ff=focus(d);$('focusTitle').textContent=ff[0];renderCal();renderCards();renderWidgets();document.querySelectorAll('[data-section]').forEach(b=>b.classList.toggle('active',b.dataset.section===section));}
 function renderCal(){
   const first=new Date(shown.getFullYear(),shown.getMonth(),1);
   const offset=(first.getDay()+6)%7;
@@ -1003,7 +1128,7 @@ function specialModal(){const k=key(selected),sp=specialFor(k);modal('Особы
 document.body.classList.toggle('reduced-motion-ui',localStorage.getItem('ritmy-reduce-motion')==='1');
 function openAction(act){const d=data(),k=key(selected),f=focus();if(act==='plan'||act==='reminder'||act==='fav')return add(act);if(act==='favorites')return modal('Избранные даты',store.favorites.length?store.favorites.map(v=>`<p>★ ${v}</p>`).join(''):'<p>Выберите день и нажмите «+» в блоке «Избранное».</p>');if(act==='access')return modal('Получить полный доступ','<p>Кнопка перехода на продающий лендинг подготовлена. Сам лендинг и выдачу платного доступа подключим после проверки календаря.</p><p><b>Ноябрь–декабрь 2026:</b> 990 ₽<br><b>2027 год:</b> 2 990 ₽</p>');if(act==='library')return modal('Библиотека', '<p><b>Фазы Луны.</b> В календаре можно посмотреть фазу, освещённость и положение Луны на выбранную дату.</p><p><b>Важные даты.</b> Для новолуний, полнолуний, равноденствий и ретроградных периодов есть отдельные подсказки.</p><p><b>Практики для себя.</b> Открывайте карточки дня в разделах «Мой день» и «Жизнь и вдохновение». Выбирайте только те рекомендации, которые вам подходят.</p>');
 if(act==='settings')return modal('Настройки', '<label class="settings-check"><input id="reduceMotionSetting" type="checkbox" '+(localStorage.getItem('ritmy-reduce-motion')==='1'?'checked':'')+'> Уменьшить анимации интерфейса</label><p>Планы, напоминания и избранные даты сохраняются в этом браузере. При очистке данных сайта они могут исчезнуть.</p><p>Расчёт Луны настроен на Уфу (UTC+5).</p>', [['Отмена',closeModal],['Сохранить',()=>{const enabled=document.getElementById('reduceMotionSetting').checked;localStorage.setItem('ritmy-reduce-motion',enabled?'1':'0');document.body.classList.toggle('reduced-motion-ui',enabled);closeModal()}]]);
-if(act==='special')return specialModal();if(act==='moon'){modal('Луна · '+selected.toLocaleDateString('ru-RU'),`<div class="moon-large" id="moonLarge"></div><p><b>${phase(d.a)}</b> · освещено ${d.lit.toFixed(1)}%.</p><p>Уфа · ${d.date.toLocaleString('ru-RU',{timeZone:'Asia/Yekaterinburg'})} (UTC+5). Высота над горизонтом: ${d.alt.toFixed(1)}°, азимут: ${d.az.toFixed(1)}°.</p><p>Для сегодняшней даты фаза и наклон обновляются каждую минуту. Для других дат показан вид на 12:00. В другом городе наклон относительно горизонта будет отличаться.</p><p>Трёхмерная сферическая модель с расчётным освещением и ориентацией поверхности. Тёмная сторона слегка подсвечена для наглядности; атмосферные эффекты и затмения не моделируются.</p><p><small>Поверхность: <a href="https://svs.gsfc.nasa.gov/4720/" target="_blank" rel="noopener">NASA Scientific Visualization Studio</a>. Расчёты: Astronomy Engine.</small></p>`);LunarView.draw($('moonLarge'),d,560);return;}if(act==='sign')return modal((d.z===4?'Луна во ':'Луна в ')+inSigns[d.z],`<p><b>${qualities[d.z]}</b></p><p>Эти темы в астрологии символически связывают со знаком ${signs[d.z]}. Спросите себя: какая из тем сегодня для вас актуальна?</p>${d.changes.length?`<p>Переход в течение дня: ${d.changes.map(x=>signs[x.from]+' → '+signs[x.to]+' (около '+String(x.hour).padStart(2,'0')+':00 Уфа)').join(', ')}.</p>`:''}`);if(act==='focus')return modal('Фокус дня: '+f[0],`<p>${f[1]}</p><p><b>Практика:</b> Запишите одно действие, которое можете сделать сегодня, и вечером оцените свой результат без самокритики.</p>`)}
+if(act==='special')return specialModal();if(act==='moon'){modal('Луна · '+selected.toLocaleDateString('ru-RU'),`<div class="moon-large" id="moonLarge"></div><p><b>${phase(d.a)}</b> · освещено ${d.lit.toFixed(1)}%.</p><p>Уфа · ${d.date.toLocaleString('ru-RU',{timeZone:'Asia/Yekaterinburg'})} (UTC+5). Высота над горизонтом: ${d.alt.toFixed(1)}°, азимут: ${d.az.toFixed(1)}°.</p><p>Для сегодняшней даты фаза и наклон обновляются каждую минуту. Для других дат показан вид на 12:00. В другом городе наклон относительно горизонта будет отличаться.</p><p>Трёхмерная сферическая модель с расчётным освещением и ориентацией поверхности. Тёмная сторона слегка подсвечена для наглядности; атмосферные эффекты и затмения не моделируются.</p><p><small>Поверхность: <a href="https://svs.gsfc.nasa.gov/4720/" target="_blank" rel="noopener">NASA Scientific Visualization Studio</a>. Расчёты: Astronomy Engine.</small></p>`);LunarView.draw($('moonLarge'),d,560);return;}if(act==='sign')return modal((d.z===4?'Луна во ':'Луна в ')+inSigns[d.z],`<p><b>${qualities[d.z]}</b></p><p>Эти темы в астрологии символически связывают со знаком ${signs[d.z]}. Спросите себя: какая из тем сегодня для вас актуальна?</p>${d.changes.length?`<p>Переход в течение дня: ${d.changes.map(x=>signs[x.from]+' → '+signs[x.to]+' (около '+String(x.hour).padStart(2,'0')+':00 Уфа)').join(', ')}.</p>`:''}`);if(act==='focus')return modal('Практика дня · '+f[0],`<p><b>Луна:</b> ${f[3]}, ${f[4]}.</p><p>${f[1]}</p><p><b>Попробуйте сегодня:</b> ${f[2]}</p><p><small>Это символическая подсказка для саморазмышления, а не прогноз событий.</small></p>`)}
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.section){section=b.dataset.section;render()}if(b.dataset.action)openAction(b.dataset.action);if(b.dataset.card!==undefined){const a=suggestions[section==='home'||section==='calendar'?'life':section]||suggestions.life,c=a[Number(b.dataset.card)];modal(c[1],`<p>${c[3]}</p><p><b>Попробуйте:</b> ${c[4]}</p>`)}if(b.dataset.delete){const [type,index]=b.dataset.delete.split(':');(type==='plan'?store.plans:store.reminders)[key(selected)].splice(Number(index),1);save();renderWidgets()}if(b.dataset.unfav){store.favorites=store.favorites.filter(k=>k!==b.dataset.unfav);save();render()} });document.addEventListener('change',e=>{if(e.target.matches('input[data-check]')){const p=store.plans[key(selected)][Number(e.target.dataset.check)];if(p){p.done=e.target.checked;save();renderWidgets()}}});$('prev').onclick=()=>{shown=new Date(shown.getFullYear(),shown.getMonth()-1,1);selected=new Date(shown.getFullYear(),shown.getMonth(),1);render()};$('next').onclick=()=>{shown=new Date(shown.getFullYear(),shown.getMonth()+1,1);selected=new Date(shown.getFullYear(),shown.getMonth(),1);render()};$('today').onclick=()=>{const k=ufaToday();selected=parse(k<minDate?minDate:k>maxDate?maxDate:k);shown=new Date(selected.getFullYear(),selected.getMonth(),1);render()};$('dialog').onclick=e=>{if(e.target===$('dialog'))closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});setInterval(()=>{if(key(selected)===ufaToday()&&!$('dialog').classList.contains('open'))render()},60000);
 fetch('data/sky.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(v=>{sky=v;render()}).catch(()=>{modal('Не удалось загрузить данные Луны','<p>Откройте сайт через GitHub Pages или локальный веб-сервер. Для работы требуется файл <code>data/sky.json</code> рядом с календарём.</p>');render()});
 </script></body></html>
