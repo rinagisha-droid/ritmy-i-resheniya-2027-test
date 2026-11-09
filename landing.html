@@ -604,6 +604,163 @@ section.faq.section{
   .free-mini-day{font-size:10px}
   .free-discovery-outro{font-size:12px}
 }
+
+/* Separate feature demonstration: creamy month grid over festive emerald panel. */
+.monthly-showcase.wrap{
+  width:min(1170px,calc(100% - 42px));
+  max-width:none;
+  margin:84px auto 0;
+  padding:clamp(25px,4.4vw,56px);
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  color:#fff6df;
+  border-radius:30px;
+  border:1px solid rgba(234,190,113,.51);
+  background:
+    radial-gradient(ellipse at 80% 3%,rgba(54,131,93,.42),transparent 60%),
+    linear-gradient(118deg,#073a2e 0%,#0e4739 61%,#633046 112%);
+  box-shadow:0 18px 38px rgba(11,49,37,.13);
+}
+.monthly-showcase.wrap:before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.55;
+  background:
+    radial-gradient(circle at 6% 20%,#ffe9b7 0 1px,transparent 2px),
+    radial-gradient(circle at 40% 15%,#e8b65e 0 1px,transparent 2px),
+    radial-gradient(circle at 79% 83%,#ffeab2 0 1px,transparent 2px),
+    radial-gradient(circle at 32% 76%,#edd298 0 1px,transparent 2px);
+}
+.showcase-layout{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);align-items:center;gap:clamp(22px,3.3vw,46px)}
+.showcase-story{min-width:0}
+.showcase-kicker{
+  color:#ffd78d;font:800 11px/1.5 Arial,sans-serif;
+  letter-spacing:1.75px;margin:0 0 17px;
+}
+.showcase-story h2{
+  color:#fff8e8;
+  font:700 clamp(37px,4vw,58px)/1.06 Georgia,"Times New Roman",serif;
+  letter-spacing:-.7px;
+  margin:0 0 22px;
+  text-wrap:balance;
+}
+.showcase-story h2 em{font-style:normal;color:#ffe1a5}
+.showcase-description{
+  margin:0 0 20px;color:#e5ebe2;
+  font:15px/1.73 Arial,sans-serif;
+}
+.showcase-benefits{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:16px}
+.showcase-benefits li{display:flex;align-items:flex-start;gap:11px;color:#eef2e8;font:13px/1.6 Arial,sans-serif}
+.showcase-benefits li svg{width:23px;height:23px;flex:0 0 23px;display:block;margin-top:1px}
+.showcase-benefits li strong{color:#fff6d9}
+.showcase-link{
+  min-height:47px;
+  display:inline-flex;align-items:center;gap:10px;
+  text-decoration:none;padding:12px 17px;border:1px solid #f7dba2;
+  border-radius:13px;color:#293d31;background:linear-gradient(110deg,#fff1bc,#edbd6d);
+  font:700 13px/1.3 Arial,sans-serif;
+  box-shadow:0 5px 13px #002a2640;
+}
+.showcase-link:hover{background:linear-gradient(110deg,#fff7d3,#f5cc80)}
+.showcase-link:focus-visible{outline:3px solid #fff6df;outline-offset:4px}
+.showcase-shell{min-width:0}
+.showcase-calendar{
+  border-radius:23px;
+  padding:clamp(15px,2vw,25px);
+  border:1px solid rgba(231,207,151,.8);
+  background:#fcf8ef;
+  color:#213e34;
+  box-shadow:0 16px 31px #001c2238;
+  transform:rotate(1deg);
+  transform-origin:center;
+}
+.showcase-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:13px}
+.showcase-top h3{margin:0;font:700 clamp(23px,2.25vw,34px)/1.2 Georgia,serif;color:#17392f}
+.showcase-caption{font:800 9px/1.4 Arial,sans-serif;color:#856d41;letter-spacing:1.1px;text-align:right}
+.showcase-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 14px}
+.showcase-tabs button{
+  padding:7px 9px;min-height:32px;
+  background:#fffdf8;border:1px solid #d9e0d8;
+  color:#344a40;border-radius:100px;
+  font:700 10px/1.3 Arial,sans-serif;
+}
+.showcase-tabs button.selected{
+  background:#134b3c;border-color:#134b3c;
+  color:#fff2ce;box-shadow:0 2px 5px #143d2b2a;
+}
+.showcase-calendar-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}
+.showcase-calendar-nav span{font:600 12px/1.2 Arial,sans-serif;color:#61716a}
+.showcase-calendar-nav button{
+  display:grid;place-items:center;width:28px;height:28px;
+  background:#fffdf8;border:1px solid #e1d6bd;border-radius:9px;color:#375344;
+}
+.showcase-calendar-nav button:disabled{opacity:.35;cursor:default}
+.showcase-calendar-nav button svg{width:16px;height:16px}
+.showcase-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+.showcase-weekday{text-align:center;padding:3px 0 7px;color:#6d7970;font:700 11px/1.2 Arial,sans-serif}
+.showcase-date{
+  min-width:0;
+  position:relative;
+  aspect-ratio:1.08;
+  display:grid;place-items:center;
+  padding:0;
+  font:13px/1 Arial,sans-serif;
+  color:#355145;
+  border-radius:8px;
+  background:#fff;
+  border:1px solid #f1ede4;
+}
+button.showcase-date{cursor:pointer}
+.showcase-date.outside{background:#f1efe9;color:#bbc0b8}
+.showcase-date.picked{
+  background:linear-gradient(145deg,#0f483a,#176854);
+  border-color:#ddc58f;color:#fff6d8;
+  box-shadow:inset 0 0 0 1px #ebd5a1,0 3px 10px #153e3226;
+  font-weight:800;
+}
+button.showcase-date.hinted:not(.picked){background:#e9f1eb}
+button.showcase-date.hinted:after{
+  content:"";position:absolute;bottom:4px;
+  width:4px;height:4px;border-radius:50%;background:#bd775b;
+}
+.showcase-picked{
+  display:flex;align-items:flex-start;gap:11px;
+  margin-top:12px;padding:12px;
+  background:#fff;border:1px solid #e1e5dc;border-radius:13px;
+}
+.showcase-picked-icon{width:27px;height:27px;flex:0 0 27px;display:grid;place-items:center;border-radius:9px;background:#e3efe6;color:#2c8062}
+.showcase-picked-icon svg{width:17px;height:17px}
+.showcase-picked strong{display:block;font:700 12px/1.4 Arial,sans-serif}
+.showcase-picked p{margin:4px 0 0;color:#67766e;font:11px/1.5 Arial,sans-serif}
+.showcase-demo-note{text-align:center;margin:10px 3px 0;color:#697870;font:10px/1.5 Arial,sans-serif}
+@media(max-width:1050px){
+ .showcase-layout{grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);gap:22px}
+ .showcase-story h2{font-size:clamp(35px,4vw,47px)}
+ .showcase-description{font-size:14px}
+ .showcase-date{font-size:12px}
+}
+@media(max-width:840px){
+ .monthly-showcase.wrap{padding:34px 26px}
+ .showcase-layout{grid-template-columns:1fr}
+ .showcase-story h2{font-size:clamp(35px,6vw,51px);max-width:680px}
+ .showcase-shell{max-width:670px;width:100%;margin:0 auto}
+ .showcase-calendar{transform:none}
+}
+@media(max-width:520px){
+ .monthly-showcase.wrap{width:calc(100% - 28px);margin-top:60px;padding:26px 16px;border-radius:23px}
+ .showcase-story h2{font-size:clamp(33px,8.8vw,43px)}
+ .showcase-description{font-size:13px}
+ .showcase-benefits li{font-size:12px}
+ .showcase-link{width:100%;justify-content:center;text-align:center}
+ .showcase-calendar{padding:13px}
+ .showcase-top h3{font-size:24px}
+ .showcase-caption{font-size:8px}
+ .showcase-tabs{gap:4px}
+ .showcase-tabs button{font-size:9px;padding:6px 7px}
+ .showcase-date{font-size:11px;border-radius:6px}
+ .showcase-weekday{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.showcase-calendar{transform:none}}
+
 </style>
 </head>
 <body>
@@ -833,6 +990,50 @@ section.faq.section{
       <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-work"></use></svg></span><h3>Дело и деньги</h3><p>Практические вопросы и ориентиры, помогающие не терять главное.</p></article>
       <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-retro"></use></svg></span><h3>Ретроградные периоды</h3><p>Пояснения к астрологическим периодам в привычном языке.</p></article>
       <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg class="gold-feature-icon" viewBox="0 0 64 64" focusable="false"><use href="#landing-icon-search"></use></svg></span><h3>Поиск по записям</h3><p>Находите сохранённые планы и напоминания по словам или датам.</p></article>
+    </div>
+  </div>
+</section>
+
+
+<section class="monthly-showcase wrap" id="monthly-showcase" aria-labelledby="showcaseHeading">
+  <div class="showcase-layout">
+    <div class="showcase-story">
+      <p class="showcase-kicker">ПОСМОТРИТЕ, КАК ЭТО РАБОТАЕТ</p>
+      <h2 id="showcaseHeading">Откройте месяц — и найдите <em>свои ориентиры</em></h2>
+      <p class="showcase-description">Календарь помогает замечать важное без бесконечных прогнозов. Выбирайте дату, заглядывайте в подсказки и решайте, куда направить внимание: на себя, близких или дела.</p>
+      <ul class="showcase-benefits">
+        <li><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#f8e0a0"/><path d="m7 12 3.3 3.3L17.4 8" fill="none" stroke="#4b5138" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Выберите тему:</strong> планы на день, забота о себе или новые возможности.</span></li>
+        <li><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#f8e0a0"/><path d="m7 12 3.3 3.3L17.4 8" fill="none" stroke="#4b5138" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Откройте дату:</strong> посмотрите её ориентир и небольшую практику.</span></li>
+        <li><svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#f8e0a0"/><path d="m7 12 3.3 3.3L17.4 8" fill="none" stroke="#4b5138" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Сохраните важное:</strong> добавьте планы и напоминания в своём календаре.</span></li>
+      </ul>
+      <a href="index.html" class="showcase-link">Заглянуть в настоящий календарь <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="showcase-shell">
+      <div class="showcase-calendar" aria-label="Интерактивный пример выбора дат на 2027 год">
+        <div class="showcase-top">
+          <h3 id="showcaseMonth">Январь 2027</h3>
+          <span class="showcase-caption">ПРИМЕР ПРОСМОТРА</span>
+        </div>
+        <div class="showcase-tabs" role="group" aria-label="Темы примера">
+          <button type="button" data-demo-mode="my" class="selected" aria-pressed="true">Мой день</button>
+          <button type="button" data-demo-mode="life" aria-pressed="false">Жизнь и вдохновение</button>
+          <button type="button" data-demo-mode="work" aria-pressed="false">Дело и возможности</button>
+        </div>
+        <div class="showcase-calendar-nav">
+          <button type="button" id="showcasePrev" aria-label="Предыдущий месяц 2027"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <span>Выберите дату</span>
+          <button type="button" id="showcaseNext" aria-label="Следующий месяц 2027"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <div id="showcaseDays" class="showcase-days">
+          <span class="showcase-weekday">Пн</span><span class="showcase-weekday">Вт</span><span class="showcase-weekday">Ср</span><span class="showcase-weekday">Чт</span><span class="showcase-weekday">Пт</span><span class="showcase-weekday">Сб</span><span class="showcase-weekday">Вс</span>
+          <span class="showcase-date outside">28</span><span class="showcase-date outside">29</span><span class="showcase-date outside">30</span><span class="showcase-date outside">31</span><button type="button" class="showcase-date" data-demo-day="1" aria-pressed="false" aria-label="1 января 2027">1</button><button type="button" class="showcase-date" data-demo-day="2" aria-pressed="false" aria-label="2 января 2027">2</button><button type="button" class="showcase-date" data-demo-day="3" aria-pressed="false" aria-label="3 января 2027">3</button><button type="button" class="showcase-date" data-demo-day="4" aria-pressed="false" aria-label="4 января 2027">4</button><button type="button" class="showcase-date" data-demo-day="5" aria-pressed="false" aria-label="5 января 2027">5</button><button type="button" class="showcase-date" data-demo-day="6" aria-pressed="false" aria-label="6 января 2027">6</button><button type="button" class="showcase-date hinted" data-demo-day="7" aria-pressed="false" aria-label="7 января 2027">7</button><button type="button" class="showcase-date" data-demo-day="8" aria-pressed="false" aria-label="8 января 2027">8</button><button type="button" class="showcase-date hinted" data-demo-day="9" aria-pressed="false" aria-label="9 января 2027">9</button><button type="button" class="showcase-date" data-demo-day="10" aria-pressed="false" aria-label="10 января 2027">10</button><button type="button" class="showcase-date" data-demo-day="11" aria-pressed="false" aria-label="11 января 2027">11</button><button type="button" class="showcase-date" data-demo-day="12" aria-pressed="false" aria-label="12 января 2027">12</button><button type="button" class="showcase-date" data-demo-day="13" aria-pressed="false" aria-label="13 января 2027">13</button><button type="button" class="showcase-date picked" data-demo-day="14" aria-pressed="true" aria-label="14 января 2027">14</button><button type="button" class="showcase-date" data-demo-day="15" aria-pressed="false" aria-label="15 января 2027">15</button><button type="button" class="showcase-date" data-demo-day="16" aria-pressed="false" aria-label="16 января 2027">16</button><button type="button" class="showcase-date" data-demo-day="17" aria-pressed="false" aria-label="17 января 2027">17</button><button type="button" class="showcase-date" data-demo-day="18" aria-pressed="false" aria-label="18 января 2027">18</button><button type="button" class="showcase-date hinted" data-demo-day="19" aria-pressed="false" aria-label="19 января 2027">19</button><button type="button" class="showcase-date" data-demo-day="20" aria-pressed="false" aria-label="20 января 2027">20</button><button type="button" class="showcase-date" data-demo-day="21" aria-pressed="false" aria-label="21 января 2027">21</button><button type="button" class="showcase-date" data-demo-day="22" aria-pressed="false" aria-label="22 января 2027">22</button><button type="button" class="showcase-date hinted" data-demo-day="23" aria-pressed="false" aria-label="23 января 2027">23</button><button type="button" class="showcase-date" data-demo-day="24" aria-pressed="false" aria-label="24 января 2027">24</button><button type="button" class="showcase-date" data-demo-day="25" aria-pressed="false" aria-label="25 января 2027">25</button><button type="button" class="showcase-date" data-demo-day="26" aria-pressed="false" aria-label="26 января 2027">26</button><button type="button" class="showcase-date" data-demo-day="27" aria-pressed="false" aria-label="27 января 2027">27</button><button type="button" class="showcase-date hinted" data-demo-day="28" aria-pressed="false" aria-label="28 января 2027">28</button><button type="button" class="showcase-date" data-demo-day="29" aria-pressed="false" aria-label="29 января 2027">29</button><button type="button" class="showcase-date" data-demo-day="30" aria-pressed="false" aria-label="30 января 2027">30</button><button type="button" class="showcase-date" data-demo-day="31" aria-pressed="false" aria-label="31 января 2027">31</button><span class="showcase-date outside">1</span><span class="showcase-date outside">2</span><span class="showcase-date outside">3</span><span class="showcase-date outside">4</span><span class="showcase-date outside">5</span><span class="showcase-date outside">6</span><span class="showcase-date outside">7</span>
+        </div>
+        <div class="showcase-picked" aria-live="polite">
+          <div class="showcase-picked-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6Z" fill="currentColor"/></svg></div>
+          <div><strong id="showcaseSelectedTitle">14 января · Мой день</strong><p id="showcaseSelectedDescription">Выберите один небольшой, но важный шаг на сегодня.</p></div>
+        </div>
+        <p class="showcase-demo-note">Это интерактивный пример. Полные подсказки, Луна и ваши личные планы — внутри календаря.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1073,6 +1274,81 @@ section.faq.section{
     window.location.assign(rates[current].url);
   });
   reflectRate();
+})();
+</script>
+
+<script>
+/* Non-transactional interactive month preview; the full calendar remains in index.html. */
+(function(){
+  'use strict';
+  const root=document.getElementById('monthly-showcase');
+  if(!root)return;
+  const months=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+  const genitive=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+  const weekday=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+  const topics={
+    my:{title:'Мой день',texts:[
+      'Выберите один небольшой, но важный шаг на сегодня.',
+      'Что сегодня стоит вашего внимания больше всего?',
+      'Назовите одну маленькую победу, которую уже можете заметить.'
+    ]},
+    life:{title:'Жизнь и вдохновение',texts:[
+      'Оставьте немного времени для отдыха и заботы о себе.',
+      'Что сегодня поможет почувствовать больше тепла?',
+      'Найдите простой способ порадовать себя без спешки.'
+    ]},
+    work:{title:'Дело и возможности',texts:[
+      'Выберите одну рабочую задачу и определите следующий шаг.',
+      'Какой разговор или решение поможет вам двигаться вперёд?',
+      'Проверьте главный приоритет и выделите время для него.'
+    ]}
+  };
+  let month=0,day=14,mode='my';
+  const el=id=>document.getElementById(id);
+  function draw(){
+    const days=new Date(2027,month+1,0).getDate();
+    const offset=(new Date(2027,month,1).getDay()+6)%7;
+    const previous=new Date(2027,month,0).getDate();
+    const total=Math.ceil((offset+days)/7)*7;
+    const grid=el('showcaseDays');
+    const weekdayHtml=weekday.map(d=>'<span class="showcase-weekday">'+d+'</span>').join('');
+    let dayHtml='';
+    for(let i=0;i<total;i++){
+      const n=i-offset+1;
+      if(n<1||n>days){
+        const outside=n<1?previous+n:n-days;
+        dayHtml+='<span class="showcase-date outside" aria-hidden="true">'+outside+'</span>';
+      }else{
+        const selected=n===day;
+        const hint=[7,9,19,23,28].includes(n);
+        dayHtml+='<button type="button" data-demo-day="'+n+'" aria-label="'+n+' '+genitive[month]+' 2027" aria-pressed="'+selected+'" class="showcase-date'+(selected?' picked':'')+(hint?' hinted':'')+'">'+n+'</button>';
+      }
+    }
+    grid.innerHTML=weekdayHtml+dayHtml;
+    el('showcaseMonth').textContent=months[month]+' 2027';
+    el('showcasePrev').disabled=month===0;
+    el('showcaseNext').disabled=month===11;
+    root.querySelectorAll('[data-demo-mode]').forEach(b=>{
+      const active=b.dataset.demoMode===mode;
+      b.classList.toggle('selected',active);
+      b.setAttribute('aria-pressed',String(active));
+    });
+    el('showcaseSelectedTitle').textContent=day+' '+genitive[month]+' · '+topics[mode].title;
+    el('showcaseSelectedDescription').textContent=topics[mode].texts[(day+month)%3];
+  }
+  root.addEventListener('click',function(event){
+    const dayButton=event.target.closest('[data-demo-day]');
+    if(dayButton&&root.contains(dayButton)){day=Number(dayButton.dataset.demoDay);draw();return;}
+    const modeButton=event.target.closest('[data-demo-mode]');
+    if(modeButton&&root.contains(modeButton)){mode=modeButton.dataset.demoMode;draw();}
+  });
+  el('showcasePrev').addEventListener('click',function(){
+    if(month>0){month--;day=Math.min(day,new Date(2027,month+1,0).getDate());draw();}
+  });
+  el('showcaseNext').addEventListener('click',function(){
+    if(month<11){month++;day=Math.min(day,new Date(2027,month+1,0).getDate());draw();}
+  });
+  draw();
 })();
 </script>
 </body>
