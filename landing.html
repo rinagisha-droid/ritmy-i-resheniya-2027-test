@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#082f29">
+<meta name="description" content="Ритмы и решения — 2027: интерактивный календарь для планов, вдохновения, финансовых решений, заботы о себе и лунных ритмов. Попробуйте бесплатно или оформите доступ.">
+<title>Ритмы и решения ✦ Календарь 2026–2027</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%230b4035'/%3E%3Ctext x='50%25' y='74%25' text-anchor='middle' font-size='47'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<style>
+:root{--forest:#103d33;--deep:#062923;--night:#071f26;--ink:#18342c;--muted:#60716b;--paper:#f9f5eb;--ivory:#fffcf6;--gold:#f1c976;--warm:#ffe8ae;--line:#dedacd;--rose:#763248}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.57 Arial,"Segoe UI",sans-serif}
+button,a{touch-action:manipulation}
+button{font:inherit;cursor:pointer}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(1170px,calc(100% - 42px));margin-inline:auto}
+.skip{position:absolute;left:-1000px;top:0;background:white;padding:10px;z-index:500}
+.skip:focus{left:10px}
+.navbar{position:sticky;top:0;z-index:20;min-height:76px;background:rgba(7,38,34,.95);border-bottom:1px solid rgba(242,200,121,.35);color:#fff9e9;backdrop-filter:blur(12px)}
+.navbar-inner{display:flex;align-items:center;gap:25px;justify-content:space-between;min-height:76px}
+.brand{display:inline-flex;flex-direction:column;align-items:flex-start;text-decoration:none;line-height:1.12;flex-shrink:0}
+.brand strong{font:700 27px Georgia,serif;color:#ffedbd;white-space:nowrap}
+.brand span{font-size:11px;color:#f5dfb6;letter-spacing:1.8px;margin-top:6px;text-transform:uppercase}
+.navlinks{display:flex;gap:22px;align-items:center}
+.navlinks a{text-decoration:none;font-size:13px;color:#f6e9cf;white-space:nowrap}
+.navlinks a:hover{text-decoration:underline;text-underline-offset:5px}
+.navbar .nav-cta{color:#182f29;text-decoration:none;white-space:nowrap;font-weight:700;font-size:12px;background:linear-gradient(100deg,#fff0b4,#edbb63);padding:11px 16px;border-radius:100px;box-shadow:0 4px 12px #0003}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:11px;min-height:52px;border:1px solid transparent;padding:12px 22px;border-radius:14px;text-align:center;text-decoration:none;font-weight:700;line-height:1.3;transition:background .2s,transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #e7a22d;outline-offset:3px}
+.btn-gold{background:linear-gradient(115deg,#fff0b1,#ecb95b);color:#422d19;box-shadow:0 5px 14px rgba(0,0,0,.15)}
+.btn-gold:hover{background:linear-gradient(115deg,#fff7d5,#f3c776)}
+.btn-clear{border-color:rgba(249,219,157,.68);background:rgba(6,46,40,.45);color:#fff2cf}
+.btn-dark{background:#123e35;color:#fff0c7;border-color:#d1ac6d}
+.btn-small{min-height:43px;padding:10px 18px;font-size:13px}
+.hero{position:relative;isolation:isolate;min-height:670px;overflow:hidden;background:#061d20 url("assets/winter-banner.webp") top center/cover no-repeat;color:#fff3d6}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(1,23,25,.95) 0%,rgba(3,36,33,.91) 47%,rgba(5,28,31,.65) 100%)}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:125px;z-index:-1;background:linear-gradient(0deg,rgba(5,26,29,.98),transparent)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:44px;align-items:center;padding:80px 0 105px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:2.1px;text-transform:uppercase;color:#f7d48b}
+.eyebrow:before{content:"✦";font-size:15px}
+.hero h1{font:700 clamp(51px,6vw,87px)/.99 Georgia,"Times New Roman",serif;letter-spacing:-2px;margin:19px 0 24px;max-width:690px;text-shadow:0 5px 24px #001c1ba1}
+.hero h1 em{font-style:normal;color:#ffe1a1}
+.hero .lead{max-width:560px;color:#e9e9de;font-size:19px;line-height:1.65;margin:0 0 25px}
+.hero .mini-features{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 27px}
+.hero .mini-features span{border:1px solid #f4d99540;background:#e2d6ad13;border-radius:100px;padding:6px 11px;font-size:12px;color:#f8ebd2}
+.hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero-small{font-size:12px;color:#e5d9bd;margin:17px 0 0}
+.preview{position:relative;min-height:475px;padding:20px;border-radius:24px;border:1px solid rgba(239,193,111,.76);background:radial-gradient(circle at 42% 23%,rgba(54,100,80,.7),transparent 54%),rgba(1,29,35,.94);box-shadow:0 25px 55px #0008,inset 0 0 0 5px #072a2d}
+.preview:before{content:"";position:absolute;inset:0;border-radius:24px;pointer-events:none;opacity:.8;background:radial-gradient(circle at 5% 12%,#fff2ba 0 1px,transparent 2px),radial-gradient(circle at 77% 8%,#ffe0a2 0 1px,transparent 2px),radial-gradient(circle at 66% 58%,#fff7d6 0 1px,transparent 2px),radial-gradient(circle at 89% 72%,#d5b971 0 1px,transparent 2px)}
+.preview-label{position:relative;display:flex;justify-content:space-between;gap:10px;color:#f9e7b7;font:23px Georgia,serif}
+.preview-label small{font:12px Arial,sans-serif;color:#e5d6b0;padding-top:7px}
+.preview-topline{display:flex;align-items:center;gap:8px;margin:15px 0 16px;position:relative}
+.preview-topline span{padding:6px 10px;border-radius:100px;background:#d3bb8822;border:1px solid #bda47355;color:#ead8ad;font-size:11px}
+.preview-topline span:first-child{background:#f7dca8;color:#274436;border-color:transparent}
+.preview-cards{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.preview-card{min-width:0;border:1px solid #d7b87c;border-radius:14px;min-height:305px;overflow:hidden;background:#092e32 url("assets/zodiac-botanical-starry.webp") center/100% 100% no-repeat;text-align:center;padding:10px 8px 12px;display:flex;flex-direction:column;justify-content:space-between}
+.preview-card h3{font:20px Georgia,serif;color:#fff1d3;margin:0;position:relative;text-shadow:0 2px 8px #000a}
+.preview-card img{width:100%;height:193px;object-fit:contain;position:relative;filter:drop-shadow(0 8px 8px #0006)}
+.preview-card .footer-pill{font-size:10px;padding:7px 7px;border:1px solid #ddbb7d;border-radius:100px;color:#fff1ce;background:#063e35e6;position:relative}
+.preview-card.soft{background:#0a2932 url("assets/moon-botanical-bg.webp") center/100% 100% no-repeat}
+.preview-card.soft img{border-radius:50%;width:174px;height:174px;object-fit:cover;align-self:center;mix-blend-mode:screen}
+.preview-note{position:relative;margin-top:16px;display:flex;align-items:center;gap:9px;color:#e1d1ae;font-size:12px}
+.preview-note i{width:9px;height:9px;border-radius:50%;background:#f5ce78;box-shadow:0 0 14px #ffc95e}
+.rivet{position:absolute;width:80px;height:80px;border:1px solid #f5cb7d55;border-radius:50%;right:-25px;top:-25px;box-shadow:0 0 0 17px #f6d79b12;pointer-events:none}
+.stats{position:relative;margin-top:-54px;z-index:3}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #ddd9cb;background:rgba(255,252,245,.97);border-radius:20px;overflow:hidden;box-shadow:0 18px 28px #142b2517}
+.stat{text-align:center;padding:22px 12px;border-right:1px solid #e7e2d6}
+.stat:last-child{border:0}
+.stat b{display:block;color:#123f35;font:700 32px Georgia,serif}
+.stat span{display:block;font-size:12px;color:#6b7972;margin-top:2px}
+section.section{padding:94px 0 15px}
+.section-kicker{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#9c4056;margin:0 0 10px}
+.section-title{font:700 clamp(38px,4vw,59px)/1.08 Georgia,serif;letter-spacing:-1px;margin:0 0 18px;color:#15362e}
+.section-lead{font-size:18px;max-width:735px;color:#63736e;margin:0 0 33px;line-height:1.7}
+.theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.theme-card{padding:25px 24px 28px;min-height:260px;border:1px solid #d9dcd0;border-radius:23px;background:#fffdf8;box-shadow:0 9px 20px #1434260b}
+.theme-card.dark{background:linear-gradient(135deg,#0b3d33,#113a3a);border-color:#d4b56a;color:#fff4d8}
+.theme-card h3{font:700 29px/1.2 Georgia,serif;margin:12px 0 9px}
+.theme-card p{margin:0 0 16px;font-size:14px;color:#62746e}
+.theme-card.dark p{color:#e0e8d9}
+.theme-icon{width:55px;height:55px;display:grid;place-items:center;border-radius:15px;background:#e9efe5;color:#326c51;font:31px Georgia,serif}
+.theme-card.dark .theme-icon{background:#f8e1a121;color:#f5d695}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:11px;font-weight:700;padding:6px 10px;border-radius:100px;background:#eaf1ed;color:#36564d}
+.theme-card.dark .chips span{background:#ecf9e617;color:#fff0d4}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.feature-card{position:relative;padding:23px 22px 24px;min-height:205px;background:#fffdf9;border:1px solid #dce1d7;border-radius:21px;box-shadow:0 5px 16px #173c2c0a}
+.feature-card h3{font-size:17px;margin:13px 0 9px;color:#153a31}
+.feature-card p{font-size:13px;line-height:1.65;color:#67766f;margin:0}
+.feature-icon{display:inline-grid;place-items:center;width:45px;height:45px;border-radius:15px;background:#eaf1ec;color:#226449;font:26px Georgia,serif}
+.feature-card:after{content:"✦";font:28px Georgia,serif;position:absolute;right:23px;top:17px;color:#edd6ad;opacity:.65}
+.banner{margin-top:90px;padding:54px 55px;overflow:hidden;border-radius:30px;background:linear-gradient(112deg,#07352c 0%,#175747 65%,#64283b 130%);color:#fff6e4;position:relative}
+.banner:after{content:"✦";position:absolute;right:6%;top:-45px;font:290px Georgia,serif;color:#edca8133;pointer-events:none}
+.banner>*{position:relative;z-index:1}
+.banner h2{font:700 clamp(37px,4.1vw,61px)/1.05 Georgia,serif;max-width:810px;margin:12px 0 17px}
+.banner p{font-size:16px;max-width:620px;line-height:1.7;color:#e4e7d9;margin:0 0 26px}
+.date-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.date-card{display:flex;flex-direction:column;gap:8px;background:#fffdf9;border:1px solid #dcded7;border-radius:18px;padding:20px 18px;min-height:174px}
+.date-card strong{font:700 20px Georgia,serif}
+.date-card p{margin:0;color:#67766f;font-size:13px;line-height:1.5}
+.date-card .date-mark{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#ebf2e9;color:#28684e;font:24px Georgia,serif}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:29px}
+.how-item{padding:6px 12px 10px;border-top:1px solid #d0d5ce}
+.how-item b{display:block;color:#934057;font:700 32px Georgia,serif;margin:12px 0 10px}
+.how-item h3{font-size:18px;margin:0 0 7px}
+.how-item p{font-size:13px;color:#697872;margin:0}
+.plans{padding-top:95px}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.price-card{display:flex;flex-direction:column;position:relative;min-width:0;padding:29px 24px;border:1px solid #dedbd1;border-radius:25px;background:#fffdf9}
+.price-card.featured{border:1px solid #d5ad6f;background:linear-gradient(150deg,#0e4839,#092e31 70%);box-shadow:0 14px 30px #0b34212b;color:#fff6e6}
+.price-pill{font-size:11px;font-weight:800;letter-spacing:1px;color:#8e4660;text-transform:uppercase}
+.price-card.featured .price-pill{color:#f7d589}
+.price-card h3{font:700 28px Georgia,serif;margin:12px 0 4px}
+.price-card .amount{font:700 40px Georgia,serif;margin:6px 0 8px}
+.price-card.featured .amount{color:#ffdf94}
+.price-card p{font-size:13px;line-height:1.6;color:#60716b;min-height:63px}
+.price-card.featured p{color:#dce5d8}
+.price-card ul{list-style:none;padding:0;margin:4px 0 25px;flex:1}
+.price-card li{padding:6px 0 6px 23px;position:relative;font-size:13px}
+.price-card li:before{content:"✓";position:absolute;left:1px;color:#328f67;font-weight:900}
+.price-card.featured li:before{color:#f5ce83}
+.price-card .btn{width:100%;font-size:13px}
+.price-card .footnote{margin:11px 0 0;min-height:auto;font-size:11px;opacity:.8;line-height:1.5}
+.faq{display:grid;grid-template-columns:1fr 1.55fr;gap:50px;padding-bottom:100px!important}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq details{border:1px solid #dbe1d8;background:#fffdf9;border-radius:17px;padding:0 19px;overflow:hidden}
+.faq summary{cursor:pointer;position:relative;padding:19px 30px 19px 0;list-style:none;font-weight:700;font-size:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";position:absolute;right:0;top:15px;font-size:23px;color:#a5415d}
+.faq details[open] summary:after{content:"−"}
+.faq details p{border-top:1px solid #e7e7df;padding:14px 0 19px;margin:0;font-size:13px;color:#63746b}
+.last-banner{border-radius:30px;background:radial-gradient(circle at 50% 0%,#255e4b,transparent 50%),linear-gradient(118deg,#082d27,#1d4b3b 64%,#713045);text-align:center;color:#fffdf4;padding:75px 34px 72px;margin-bottom:68px}
+.last-banner h2{font:700 clamp(35px,4.6vw,66px)/1.1 Georgia,serif;max-width:940px;margin:0 auto 19px}
+.last-banner p{max-width:600px;margin:0 auto 28px;color:#e4e8dc}
+.last-banner .btn{margin:0 7px 10px}
+footer{border-top:1px solid #d9dfd5;color:#617269;padding:32px 0 45px}
+.footer-inner{display:flex;align-items:flex-start;gap:20px;justify-content:space-between}
+.footer-inner .brand strong{font-size:23px;color:#194537}
+.footer-inner .brand span{color:#728476}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end;font-size:12px}
+.footer-links a{text-decoration:underline;text-underline-offset:3px}
+.footer-note{font-size:11px;color:#87948a;margin:12px 0 0}
+dialog{width:min(520px,calc(100% - 26px));max-height:min(90vh,800px);padding:29px 29px 24px;border:1px solid #e2cfaa;border-radius:26px;background:#fffdf8;color:#1c3a31;box-shadow:0 24px 80px #021e2180;overflow-y:auto}
+dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
+.modal-top{display:flex;align-items:start;justify-content:space-between;gap:14px}
+.modal-top h2{font:700 29px/1.16 Georgia,serif;margin:0}
+.close{flex:0 0 32px;width:32px;height:32px;border:0;border-radius:50%;background:#eaf1ed;color:#1c4438;font-size:22px;line-height:1}
+.modal-lead{color:#5b7067;margin:9px 0 18px;font-size:14px}
+.modal-summary{padding:12px 16px;background:#f8edda;border:1px solid #edcd94;border-radius:14px;margin-bottom:19px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.modal-summary strong{font-size:14px}
+.modal-summary b{font:700 26px Georgia,serif;white-space:nowrap}
+.agreement{display:flex;align-items:flex-start;gap:10px;padding:14px 12px;border:1px solid #dfe5e0;border-radius:13px;margin-top:9px;background:#fff}
+.agreement input{accent-color:#135b48;width:18px;height:18px;flex:0 0 18px;margin:1px 0 0;cursor:pointer}
+.agreement span{font-size:12px;line-height:1.5;color:#4a6358}
+.agreement a{color:#8b324b;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.agreement:focus-within{border-color:#b18a43}
+.pay-now{width:100%;margin-top:22px}
+.pay-now:disabled{cursor:not-allowed;opacity:.53;filter:grayscale(.4);transform:none;box-shadow:none}
+.modal-footnote{text-align:center;font-size:11px;color:#7a8980;line-height:1.55;margin:12px 0 0}
+.modal-warning{font-size:12px;border-left:3px solid #ca9b54;background:#fdf4e8;color:#57685e;padding:10px 12px;margin:14px 0 0}
+@media(max-width:1100px){.navlinks{gap:11px}.hero-grid{gap:22px}.preview-card img{height:170px}.preview{min-height:445px}.preview-card{min-height:281px}.theme-card h3{font-size:24px}.date-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:840px){.navbar-inner{min-height:70px}.navbar{min-height:70px}.navlinks{display:none}.brand strong{font-size:23px}.hero-grid{grid-template-columns:1fr;padding:65px 0 90px}.hero{min-height:auto}.hero h1{font-size:clamp(43px,8vw,69px)}.preview{max-width:540px;min-height:420px}.stats-grid{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid #e7e2d6}.theme-grid,.feature-grid{grid-template-columns:repeat(2,1fr)}.price-grid{grid-template-columns:1fr;max-width:620px;margin-inline:auto}.price-card p{min-height:0}.faq{grid-template-columns:1fr;gap:14px}.footer-inner{display:block}.footer-links{justify-content:flex-start;margin-top:25px}.section{padding-top:78px!important}}
+@media(max-width:520px){.wrap{width:min(100% - 28px,1170px)}.navbar-inner{gap:10px}.brand strong{font-size:19px}.brand span{font-size:8px;letter-spacing:1.2px}.navbar .nav-cta{padding:9px 11px;font-size:11px}.hero-grid{padding:53px 0 80px}.hero h1{font-size:clamp(40px,10.5vw,56px);letter-spacing:-1px}.hero .lead{font-size:16px}.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions .btn{width:100%}.preview{padding:14px;min-height:375px}.preview-label{font-size:19px}.preview-card{min-height:250px}.preview-card h3{font-size:16px}.preview-card img{height:140px}.preview-card.soft img{height:135px;width:135px}.preview-card .footer-pill{font-size:9px}.stat{padding:16px 7px}.stat b{font-size:27px}.theme-grid,.feature-grid,.date-grid,.how-grid{grid-template-columns:1fr}.theme-card{min-height:0}.section-title{font-size:clamp(33px,9vw,46px)}.section-lead{font-size:16px}.banner{padding:35px 22px;margin-top:60px}.banner h2{font-size:37px}.faq{padding-bottom:75px!important}.last-banner{padding:45px 20px}.last-banner .btn{width:100%;margin:0 0 10px}dialog{padding:23px 18px 20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">К содержимому</a>
+<header class="navbar">
+  <div class="wrap navbar-inner">
+    <a class="brand" href="#top" aria-label="Ритмы и решения, наверх"><strong>Ритмы и решения ✦</strong><span>Волшебство повседневных решений</span></a>
+    <nav class="navlinks" aria-label="Разделы лендинга"><a href="#about">Возможности</a><a href="#days">Особенные даты</a><a href="#how">Как пользоваться</a><a href="#prices">Тарифы</a><a href="#faq">Вопросы</a></nav>
+    <a href="index.html" class="nav-cta">Забрать бесплатно ✦</a>
+  </div>
+</header>
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Ваш личный ориентир на 2027 год</div>
+      <h1>Ритмы и решения:<br><em>ваш 2027</em> под рукой</h1>
+      <p class="lead">Не просто красивые даты. Это пространство, где можно планировать дела, находить идеи для себя и замечать важные моменты — в собственном ритме.</p>
+      <div class="mini-features"><span>Луна и знаки</span><span>Дело и возможности</span><span>Жизнь и вдохновение</span><span>Мои планы</span></div>
+      <div class="hero-actions">
+        <button type="button" class="btn btn-gold" data-plan="year">Открыть мой волшебный 2027 <span aria-hidden="true">→</span></button>
+        <a href="index.html" class="btn btn-clear">Забрать бесплатно <span aria-hidden="true">✦</span></a>
+      </div>
+      <p class="hero-small">В браузере на телефоне и компьютере · без установки приложения</p>
+    </div>
+    <div class="preview" aria-label="Визуальное знакомство с календарём">
+      <span class="rivet" aria-hidden="true"></span>
+      <div class="preview-label"><span>Мой день</span><small>Внутри календаря</small></div>
+      <div class="preview-topline"><span>Луна</span><span>Знаки зодиака</span><span>Фокус дня</span></div>
+      <div class="preview-cards">
+        <div class="preview-card soft"><h3>Лунные ритмы</h3><img src="assets/moon-nasa.jpg" alt="Изображение поверхности Луны" loading="eager"><span class="footer-pill">Наблюдать · замечать · выбирать</span></div>
+        <div class="preview-card"><h3>Жизнь и вдохновение</h3><img src="assets/lantern.webp" alt="Зимний фонарь в новогоднем оформлении" loading="eager"><span class="footer-pill">Небольшие практики каждый день</span></div>
+      </div>
+      <div class="preview-note"><i aria-hidden="true"></i><span>Выберите дату и откройте свою подсказку</span></div>
+    </div>
+  </div>
+</section>
+<div class="wrap stats">
+  <div class="stats-grid">
+    <div class="stat"><b>12</b><span>месяцев в одном месте</span></div>
+    <div class="stat"><b>3</b><span>раздела для жизни и дел</span></div>
+    <div class="stat"><b>365</b><span>дней для ваших решений</span></div>
+    <div class="stat"><b>1 клик</b><span>до нужной даты</span></div>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <p class="section-kicker">Три стороны вашей жизни</p>
+    <h2 class="section-title">И для внутреннего мира,<br>и для настоящих дел</h2>
+    <p class="section-lead">Календарь не требует знать астрологию. Вы выбираете дату или тему и получаете идеи для размышления, планирования и небольших действий.</p>
+    <div class="theme-grid">
+      <article class="theme-card"><div class="theme-icon">☕</div><h3>Мой день</h3><p>Планы, маленькие победы, напоминания и практика, которая помогает увидеть главное.</p><div class="chips"><span>Приоритеты</span><span>Настрой</span><span>Итоги</span></div></article>
+      <article class="theme-card"><div class="theme-icon">✿</div><h3>Жизнь и вдохновение</h3><p>Эмоции, отношения, красота, забота о себе и радость обычных моментов.</p><div class="chips"><span>Для себя</span><span>Близость</span><span>Красота</span></div></article>
+      <article class="theme-card dark"><div class="theme-icon">✧</div><h3>Дело и возможности</h3><p>Финансовые шаги, переговоры, запуски, решения и движение к своим целям.</p><div class="chips"><span>Работа</span><span>Деньги</span><span>Развитие</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <p class="section-kicker">Всё необходимое рядом</p>
+    <h2 class="section-title">Чтобы весь год помнить о себе<br>и о том, чего вы хотите</h2>
+    <p class="section-lead">Не календарь приказов и «правильных» дат, а красивый помощник: ориентируйтесь на символические ритмы и принимайте решения самостоятельно.</p>
+    <div class="feature-grid">
+      <article class="feature-card"><span class="feature-icon">☾</span><h3>Луна и её фазы</h3><p>Объёмная Луна, фазы и пояснения к выбранной дате.</p></article>
+      <article class="feature-card"><span class="feature-icon">♈</span><h3>Луна в знаках</h3><p>Красивые образы знаков и символические темы для саморазмышления.</p></article>
+      <article class="feature-card"><span class="feature-icon">✦</span><h3>Фокус и энергия дня</h3><p>Одно понятное слово, рекомендации и небольшое упражнение.</p></article>
+      <article class="feature-card"><span class="feature-icon">☑</span><h3>Мои планы</h3><p>Фиксируйте свои дела и важные шаги на выбранную дату.</p></article>
+      <article class="feature-card"><span class="feature-icon">♧</span><h3>Напоминания и избранное</h3><p>Сохраняйте то, к чему хотите вернуться, прямо в календаре.</p></article>
+      <article class="feature-card"><span class="feature-icon">✿</span><h3>Красота и маленькие радости</h3><p>Идеи для заботы о себе и приятных ритуалов без перегруза.</p></article>
+      <article class="feature-card"><span class="feature-icon">✧</span><h3>Дело и деньги</h3><p>Практические вопросы и ориентиры, помогающие не терять главное.</p></article>
+      <article class="feature-card"><span class="feature-icon">↻</span><h3>Ретроградные периоды</h3><p>Пояснения к астрологическим периодам в привычном языке.</p></article>
+      <article class="feature-card"><span class="feature-icon">⌕</span><h3>Поиск по записям</h3><p>Находите сохранённые планы и напоминания по словам или датам.</p></article>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <aside class="banner">
+    <div class="eyebrow">Попробуйте, прежде чем покупать</div>
+    <h2>Загляните внутрь календаря бесплатно</h2>
+    <p>Откройте рабочую демонстрацию, переключите даты, посмотрите Луну, карточки и практики. Вы сами решите, подходит ли вам такой формат.</p>
+    <a href="index.html" class="btn btn-gold">Забрать бесплатно <span aria-hidden="true">→</span></a>
+  </aside>
+</div>
+
+<section class="section" id="days">
+  <div class="wrap">
+    <p class="section-kicker">Особенные точки года</p>
+    <h2 class="section-title">У каждого сезона — своё начало</h2>
+    <p class="section-lead">Равноденствия и солнцестояния оставляем важной частью концепции. Отдельные подробные карточки и практики для этих дат добавим в календарь следующим этапом.</p>
+    <div class="date-grid">
+      <article class="date-card"><span class="date-mark">✿</span><strong>Весеннее равноденствие</strong><p>Время символически подвести черту под зимой и наметить рост.</p></article>
+      <article class="date-card"><span class="date-mark">☼</span><strong>Летнее солнцестояние</strong><p>Повод заметить силу, энергию и то, что уже удалось создать.</p></article>
+      <article class="date-card"><span class="date-mark">❧</span><strong>Осеннее равноденствие</strong><p>Возможность оценить результаты и восстановить равновесие.</p></article>
+      <article class="date-card"><span class="date-mark">✧</span><strong>Зимнее солнцестояние</strong><p>Тихая точка года, где можно освободить место для нового.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <p class="section-kicker">Очень просто пользоваться</p>
+    <h2 class="section-title">Три шага к нужному дню</h2>
+    <div class="how-grid">
+      <div class="how-item"><b>01</b><h3>Выберите тему</h3><p>Себя и отношения, планы и деньги или обычный день.</p></div>
+      <div class="how-item"><b>02</b><h3>Откройте дату</h3><p>Посмотрите лунные ритмы, фокус дня и практическую подсказку.</p></div>
+      <div class="how-item"><b>03</b><h3>Сделайте своим</h3><p>Запишите план, добавьте напоминание или отметьте любимую дату.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section plans" id="prices">
+  <div class="wrap">
+    <p class="section-kicker">Ваш формат доступа</p>
+    <h2 class="section-title">Выберите свой ритм</h2>
+    <p class="section-lead">У нас своя система тарифов. Цены и условия этого календаря не связаны с предложениями других авторов.</p>
+    <div class="price-grid">
+      <article class="price-card">
+        <div class="price-pill">Знакомство</div><h3>Посмотреть бесплатно</h3><div class="amount">0 ₽</div>
+        <p>Откройте демонстрационную версию и оцените календарь в действии.</p>
+        <ul><li>Доступ по ссылке в браузере</li><li>Календарная сетка и визуальные карточки</li><li>Возможность попробовать функции</li></ul>
+        <a class="btn btn-dark" href="index.html">Забрать бесплатно →</a>
+        <p class="footnote">Демоверсия не равна полному платному доступу.</p>
+      </article>
+      <article class="price-card">
+        <div class="price-pill">Осень — зима 2026</div><h3>До конца 2026 года</h3><div class="amount">990 ₽</div>
+        <p>Тариф на ноябрь и декабрь 2026 года, до 31 декабря включительно.</p>
+        <ul><li>Ориентиры для дел и жизни</li><li>Лунные подсказки и практики</li><li>Планы и персональные заметки</li></ul>
+        <button type="button" class="btn btn-dark" data-plan="season">Оформить доступ за 990 ₽ →</button>
+        <p class="footnote">Не включает отдельный доступ на 2027 год.</p>
+      </article>
+      <article class="price-card featured">
+        <div class="price-pill">Новый год · 2027</div><h3>Весь 2027 год</h3><div class="amount">2 990 ₽</div>
+        <p>Отдельный доступ к календарю 2027 года. Новые материалы и возможности ещё дорабатываются.</p>
+        <ul><li>Планы, даты и подсказки на 2027 год</li><li>Все три раздела календаря</li><li>Знакомое новогоднее оформление</li></ul>
+        <button type="button" class="btn btn-gold" data-plan="year">Открыть мой 2027 →</button>
+        <p class="footnote">Автоматическая выдача доступа после оплаты пока настраивается.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" id="faq">
+  <div class="faq-heading">
+    <p class="section-kicker">Вопросы и ответы</p>
+    <h2 class="section-title">Всё, что важно знать</h2>
+    <p class="section-lead">Без запутанных условий и обещаний, что каждый день обязательно сложится идеально.</p>
+  </div>
+  <div class="faq-list">
+    <details><summary>Как забрать бесплатный календарь?</summary><p>Нажмите «Забрать бесплатно» на этой странице. Откроется действующий демонстрационный календарь «Ритмы и решения» в браузере. Оплачивать просмотр не нужно.</p></details>
+    <details><summary>Это приложение или сайт?</summary><p>Это интерактивный веб-календарь. Он открывается на телефоне или компьютере без установки отдельной программы.</p></details>
+    <details><summary>Нужно ли разбираться в астрологии?</summary><p>Нет. Подсказки написаны простым языком. Астрологические символы используются как повод для наблюдения и осмысленного выбора, а не как гарантия событий.</p></details>
+    <details><summary>Чем отличаются тарифы 990 ₽ и 2 990 ₽?</summary><p>990 ₽ — доступ на ноябрь–декабрь 2026. 2 990 ₽ — отдельное предложение на 2027 год. Покупка первого тарифа автоматически не продлевает его на 2027.</p></details>
+    <details><summary>Как происходит оплата?</summary><p>Перед переходом к Prodamus открывается окно с условиями и согласиями. После их подтверждения вы переходите на платёжную страницу выбранного тарифа.</p></details>
+    <details><summary>Когда откроется платный доступ после оплаты?</summary><p>Автоматическая проверка оплаты и выдача доступа ещё настраиваются. Перед оплатой это важно учитывать. Сохраните платёжный чек; информацию о предоставлении доступа можно уточнить у автора через его контакты.</p></details>
+    <details><summary>Будут ли равноденствия и солнцестояния?</summary><p>Да, они входят в концепцию. Специальные развёрнутые карточки этих дат запланированы для следующего этапа разработки.</p></details>
+    <details><summary>Гарантирует ли календарь результат?</summary><p>Нет. Он помогает замечать возможности, планировать и выбирать действия. Он не обещает финансового, медицинского или другого гарантированного результата.</p></details>
+  </div>
+</section>
+
+<section class="last-banner wrap" aria-label="Приглашение в календарь">
+  <div class="eyebrow">Ваше время — ваш выбор</div>
+  <h2>Пусть 2027 год станет историей,<br>которую вы напишете сами</h2>
+  <p>Не нужно ждать идеального момента. Начните с маленького шага — и продолжайте в удобном для себя ритме.</p>
+  <button type="button" class="btn btn-gold" data-plan="year">Войти в мой волшебный 2027 ✦</button>
+  <a href="index.html" class="btn btn-clear">Забрать бесплатно →</a>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div><a class="brand" href="#top"><strong>Ритмы и решения ✦</strong><span>Больше, чем календарь</span></a><p class="footer-note">© 2026 · Авторский интерактивный календарь</p></div>
+    <div><div class="footer-links"><a href="https://taplink.cc/reginaden.legal" target="_blank" rel="noopener noreferrer">Публичная оферта</a><a href="https://taplink.cc/reginaden.legal" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a><a href="https://taplink.cc/reginaden.legal" target="_blank" rel="noopener noreferrer">Согласие на обработку персональных данных</a><a href="index.html">Демоверсия</a></div><p class="footer-note">Юридические документы размещены на отдельной странице автора. Подсказки календаря не заменяют профессиональных рекомендаций.</p></div>
+  </div>
+</footer>
+
+<dialog id="payDialog" aria-labelledby="payTitle">
+  <div class="modal-top"><h2 id="payTitle">Перед оплатой</h2><button class="close" id="closePay" type="button" aria-label="Закрыть окно">×</button></div>
+  <p class="modal-lead">Пожалуйста, ознакомьтесь с документами и отметьте каждое согласие перед переходом к оплате.</p>
+  <div class="modal-summary"><strong id="planLabel">Весь 2027 год</strong><b id="planPrice">2 990 ₽</b></div>
+  <form id="payForm">
+    <label class="agreement"><input type="checkbox" name="offer" required><span>Я ознакомилась(-лся) и принимаю условия <a href="https://taplink.cc/reginaden.legal" target="_blank" rel="noopener noreferrer">публичной оферты</a>.</span></label>
+    <label class="agreement"><input type="checkbox" name="policy" required><span>Я ознакомилась(-лся) с <a href="https://taplink.cc/reginaden.legal" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a>.</span></label>
+    <label class="agreement"><input type="checkbox" name="personal" required><span>Я даю <a href="https://taplink.cc/reginaden.legal" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a> в рамках оформления доступа.</span></label>
+    <p class="modal-warning">Автоматическая выдача платного доступа после оплаты ещё настраивается. Перед оплатой учитывайте это и сохраняйте чек.</p>
+    <button type="submit" class="btn btn-gold pay-now" id="payNow" disabled>Перейти к оплате · <span id="payAmount">2 990 ₽</span> →</button>
+    <p class="modal-footnote">Откроется платёжная форма Prodamus. Три документа доступны по ссылкам выше на юридической странице автора.</p>
+  </form>
+</dialog>
+
+<script>
+(function(){
+  'use strict';
+  const plans={
+    season:{label:'Ноябрь–декабрь 2026',price:'990 ₽',url:'https://payform.ru/3ncUG4q/'},
+    year:{label:'Полный 2027 год',price:'2 990 ₽',url:'https://payform.ru/tlcVAdY/'}
+  };
+  const dialog=document.getElementById('payDialog');
+  const form=document.getElementById('payForm');
+  const button=document.getElementById('payNow');
+  const checkboxes=Array.from(form.querySelectorAll('input[type="checkbox"]'));
+  let selectedPlan=null;
+  function updateButton(){
+    button.disabled=!selectedPlan||!checkboxes.every(el=>el.checked);
+  }
+  function openPayment(planId){
+    const plan=plans[planId];
+    if(!plan)return;
+    selectedPlan=planId;
+    form.reset();
+    document.getElementById('planLabel').textContent=plan.label;
+    document.getElementById('planPrice').textContent=plan.price;
+    document.getElementById('payAmount').textContent=plan.price;
+    updateButton();
+    if(!dialog.open)dialog.showModal();
+  }
+  document.querySelectorAll('[data-plan]').forEach(node=>{
+    node.addEventListener('click',()=>openPayment(node.getAttribute('data-plan')));
+  });
+  checkboxes.forEach(node=>node.addEventListener('change',updateButton));
+  document.getElementById('closePay').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+  dialog.addEventListener('close',()=>{selectedPlan=null;form.reset();updateButton();});
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    if(!selectedPlan||!checkboxes.every(el=>el.checked))return;
+    const destination=plans[selectedPlan].url;
+    if(destination)window.location.assign(destination);
+  });
+})();
+</script>
+</body>
+</html>
