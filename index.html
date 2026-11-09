@@ -1335,7 +1335,8 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
   box-shadow:inset 0 1px 0 #fff2,0 2px 9px #0004;
   cursor:pointer;
 }
-.astro-panel .day-energy-button span{color:#f6c86c;font:normal 20px/1 Georgia,serif}
+.astro-panel .day-energy-button .day-energy-icon{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;flex:0 0 20px;color:#f6c86c}
+.astro-panel .day-energy-button .day-energy-icon svg{display:block;width:20px;height:20px;filter:drop-shadow(0 0 2px rgba(248,201,113,.22))}
 .astro-panel .day-energy-button:hover{background:#195c4c}
 .astro-panel .day-favorite-button{
   display:grid;place-items:center;flex:0 0 37px;
@@ -1402,7 +1403,7 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
   <div class="day-heading"><h2 id="dateTitle"></h2><small id="weekday"></small></div>
   <p class="day-motto">«Вдохновение живёт в моментах,<br>когда сердце чувствует тепло»</p>
   <div class="day-headline-actions">
-    <button type="button" class="day-energy-button" data-action="energy" title="Подробная подсказка на выбранный день"><span aria-hidden="true">ϟ</span> Энергия дня</button>
+    <button type="button" class="day-energy-button" data-action="energy" title="Подробная подсказка на выбранный день"><span class="day-energy-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 14.7 9.3 21.5 12l-6.8 2.7L12 21.5l-2.7-6.8L2.5 12l6.8-2.7Z"/><path d="M19 3.7v3.2m-1.6-1.6h3.2"/></svg></span> Энергия дня</button>
     <button type="button" class="day-favorite-button" id="energyFavorite" data-action="fav" title="Добавить выбранную дату в избранное" aria-label="Добавить выбранную дату в избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.6a5.4 5.4 0 0 0 0-7.6Z"/></svg></button>
   </div>
 </div><div class="triptych"><div class="feature feature-moon"><h3 id="phaseTitle" class="moon-heading">Луна</h3><div class="imagearea moon-visual"><div class="moon-disc" id="moonDisc"></div></div><div class="moon-description"><p id="phaseHint">Ритм · обновление · равновесие</p></div></div><div class="feature feature-zodiac"><h3 id="signTitle">Луна в знаке</h3><div class="zodiac-glyph" id="zodiacGlyph" aria-hidden="true">♏</div><div class="imagearea zodiac-visual"><div class="zodiac-art" id="zodiacArt"></div></div><button type="button" class="footer zodiac-quality" id="signFooter" data-action="sign" title="Подробнее о знаке Луны">Образ дня</button></div><div class="feature feature-focus"><h3>Фокус дня:</h3><div class="focus-word" id="focusTitle">Намерение</div><div class="focus-scene" aria-hidden="true"></div><button type="button" class="smallbtn focus-practice" data-action="focus">Практика дня →</button></div></div></div></main><div class="below"><div class="cards" id="cards"></div><div class="widgets"><div class="widget"><h4>📋 Мои планы <button data-action="plan">+</button></h4><div id="plans"></div></div><div class="widget"><h4>♧ Напоминания <button data-action="reminder">+</button></h4><div id="reminders"></div></div><div class="widget"><h4>★ Избранное <button data-action="fav">+</button></h4><div id="favorites"></div></div></div></div><section class="extra extra-full-year" aria-label="Полный календарь на 2027 год">
