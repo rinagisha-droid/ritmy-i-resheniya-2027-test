@@ -189,6 +189,24 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
 @media(max-width:1120px){.hero-grid{grid-template-columns:1fr;gap:29px}.hero h1{max-width:760px}.hero .lead{max-width:720px}.preview{width:min(100%,690px);margin-inline:auto}.preview-card h3{font-size:18px}.preview-card .footer-pill{font-size:11px}}
 @media(max-width:840px){.hero-grid{grid-template-columns:1fr}.preview{max-width:660px}}
 @media(max-width:520px){.hero-grid{grid-template-columns:1fr}.hero h1{font-size:clamp(40px,10vw,56px)}.preview{padding:13px;min-height:0}.preview-cards{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(175px,78%);gap:9px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;padding:3px 0 8px;scrollbar-width:thin}.preview-card{scroll-snap-align:start;min-height:280px;height:280px}.preview-card h3{font-size:17px}.preview-card img{height:150px;max-height:165px}.preview-card.soft img{height:150px}.preview-card .footer-pill{font-size:10px}.preview-note{font-size:11px;margin-top:8px}}
+
+/* Landing refinement: 3 consistent calendar cards and sharper full-resolution background. */
+.hero{background:#082a2a url("assets/winter-background-v2.webp") center/cover no-repeat!important}
+.hero:before{background:linear-gradient(90deg,rgba(2,24,25,.76),rgba(3,34,34,.60) 50%,rgba(5,27,31,.30))!important}
+.hero .preview{min-height:420px;padding:17px 16px 18px;background:rgba(3,35,36,.88);backdrop-filter:none;box-shadow:0 18px 34px #0006,inset 0 0 0 2px #dfb66820}
+.hero .preview-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:stretch}
+.hero .preview-card{min-height:310px;padding:9px 6px 10px;background:#082a33 url("assets/zodiac-botanical-starry.webp") center/100% 100% no-repeat}
+.hero .preview-card h3{min-height:40px;display:flex;align-items:center;justify-content:center;font:normal clamp(14px,1.17vw,18px)/1.12 Georgia,"Times New Roman",serif;text-wrap:balance}
+.hero .preview-card img{align-self:center;width:100%;max-width:100%;height:190px;min-height:0;object-fit:contain;object-position:center}
+.hero .preview-card.zodiac img{height:190px;object-fit:contain}
+.hero .preview-card.focus img{height:190px;object-fit:cover;-webkit-mask-image:radial-gradient(ellipse 68% 47% at 50% 50%,black 49%,transparent 100%);mask-image:radial-gradient(ellipse 68% 47% at 50% 50%,black 49%,transparent 100%)}
+.hero .preview-card.soft{background:#082a33 url("assets/moon-botanical-bg.webp") center/100% 100% no-repeat}
+.hero .preview-card.soft img{width:100%;max-width:170px;height:170px;object-fit:cover;border-radius:50%;mix-blend-mode:screen}
+.hero .preview-card .focus-keyword{font-size:12px;color:#ffedc4;text-shadow:0 1px 5px #000c}
+.hero .preview-card .footer-pill{width:100%;min-height:29px;padding:6px 4px;font-size:10px;line-height:1.15}
+@media(max-width:1100px){.hero .preview{min-height:380px}.hero .preview-card{min-height:265px;padding:7px 5px}.hero .preview-card h3{font-size:14px;min-height:34px}.hero .preview-card img,.hero .preview-card.zodiac img,.hero .preview-card.focus img{height:150px}.hero .preview-card.soft img{width:130px;height:130px}.hero .preview-card .footer-pill{font-size:9px}}
+@media(max-width:840px){.hero .preview{width:100%;max-width:620px;min-height:390px}.hero .preview-card{min-height:290px}.hero .preview-card img,.hero .preview-card.zodiac img,.hero .preview-card.focus img{height:175px}.hero .preview-card.soft img{width:145px;height:145px}.hero .preview-card h3{font-size:16px}}
+@media(max-width:520px){.hero .preview{min-height:0;padding:13px 10px}.hero .preview-cards{gap:5px}.hero .preview-card{min-height:220px;padding:6px 3px 7px;border-radius:11px}.hero .preview-card h3{font-size:12px;min-height:33px}.hero .preview-card img,.hero .preview-card.zodiac img,.hero .preview-card.focus img{height:112px}.hero .preview-card.soft img{width:100px;height:100px}.hero .preview-card .focus-keyword{font-size:10px}.hero .preview-card .footer-pill{font-size:8px;min-height:28px;padding:4px 2px}.hero .preview-topline{flex-wrap:wrap}}
 </style>
 </head>
 <body>
