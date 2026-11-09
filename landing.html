@@ -226,15 +226,62 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
  .feature-grid .feature-icon{width:56px;height:56px}
  .feature-grid .gold-feature-icon{width:55px;height:55px}
 }
+
+/* Consistent, purpose-specific gold icons — no system emoji in landing cards. */
+.theme-card .theme-icon,
+.theme-card.dark .theme-icon{
+ width:66px;height:66px;
+ padding:0;display:inline-grid;place-items:center;
+ background:transparent;border-radius:0;color:#d6a153;
+ font-size:0;
+}
+.theme-card .theme-gold-icon{width:62px;height:62px;display:block;filter:drop-shadow(0 2px 2px #98642032)}
+.date-card .date-mark{
+ width:60px;height:60px;border:0;border-radius:0;
+ display:inline-grid;place-items:center;
+ background:transparent;color:#c99c51;font-size:0;
+}
+.date-card .date-gold-icon{width:58px;height:58px;display:block;filter:drop-shadow(0 2px 1px #78501e22)}
+.brand-star{width:21px;height:21px;display:inline-block;vertical-align:baseline;overflow:visible}
+.action-sparkle{width:17px;height:17px;display:inline-block;vertical-align:-3px;flex-shrink:0;overflow:visible}
+.brand strong{display:inline-block}
+.eyebrow:before,
+.feature-card:after{
+ content:"";display:inline-block;
+ background:linear-gradient(120deg,#ffe5a2,#d99a3b);
+ -webkit-clip-path:polygon(50% 0,63% 37%,100% 50%,63% 63%,50% 100%,37% 63%,0 50%,37% 37%);
+ clip-path:polygon(50% 0,63% 37%,100% 50%,63% 63%,50% 100%,37% 63%,0 50%,37% 37%);
+}
+.eyebrow:before{width:12px;height:12px;vertical-align:middle;flex:0 0 12px}
+.feature-card:after{width:26px;height:26px;opacity:.55;top:20px;right:20px}
+.banner:after{
+ content:"";width:250px;height:250px;top:-42px;right:5%;
+ background:linear-gradient(135deg,#f9df9d55,#c58c3b33);
+ -webkit-clip-path:polygon(50% 0,63% 37%,100% 50%,63% 63%,50% 100%,37% 63%,0 50%,37% 37%);
+ clip-path:polygon(50% 0,63% 37%,100% 50%,63% 63%,50% 100%,37% 63%,0 50%,37% 37%);
+}
+.price-card li:before{
+ content:"";width:9px;height:15px;
+ left:4px;top:9px;position:absolute;
+ border:solid #cb994d;border-width:0 2px 2px 0;
+ transform:rotate(45deg);
+}
+.price-card.featured li:before{border-color:#f5ce83}
+@media(max-width:520px){
+ .theme-card .theme-icon{width:57px;height:57px}
+ .theme-card .theme-gold-icon{width:55px;height:55px}
+ .date-card .date-mark{width:55px;height:55px}
+ .date-card .date-gold-icon{width:53px;height:53px}
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">К содержимому</a>
 <header class="navbar">
   <div class="wrap navbar-inner">
-    <a class="brand" href="#top" aria-label="Ритмы и решения, наверх"><strong>Ритмы и решения ✦</strong><span>Волшебство повседневных решений</span></a>
+    <a class="brand" href="#top" aria-label="Ритмы и решения, наверх"><strong>Ритмы и решения <svg class="brand-star" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-sparkle"></use></svg></strong><span>Волшебство повседневных решений</span></a>
     <nav class="navlinks" aria-label="Разделы лендинга"><a href="#about">Возможности</a><a href="#days">Особенные даты</a><a href="#how">Как пользоваться</a><a href="#prices">Тарифы</a><a href="#faq">Вопросы</a></nav>
-    <a href="index.html" class="nav-cta">Забрать бесплатно ✦</a>
+    <a href="index.html" class="nav-cta">Забрать бесплатно <svg class="action-sparkle" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-sparkle"></use></svg></a>
   </div>
 </header>
 <main id="main">
@@ -247,7 +294,7 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
       <div class="mini-features"><span>Луна и знаки</span><span>Дело и возможности</span><span>Жизнь и вдохновение</span><span>Мои планы</span></div>
       <div class="hero-actions">
         <button type="button" class="btn btn-gold" data-plan="year">Открыть мой волшебный 2027 <span aria-hidden="true">→</span></button>
-        <a href="index.html" class="btn btn-clear">Забрать бесплатно <span aria-hidden="true">✦</span></a>
+        <a href="index.html" class="btn btn-clear">Забрать бесплатно <svg class="action-sparkle" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-sparkle"></use></svg></a>
       </div>
       <p class="hero-small">В браузере на телефоне и компьютере · без установки приложения</p>
     </div>
@@ -279,9 +326,9 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
     <h2 class="section-title">И для внутреннего мира,<br>и для настоящих дел</h2>
     <p class="section-lead">Календарь не требует знать астрологию. Вы выбираете дату или тему и получаете идеи для размышления, планирования и небольших действий.</p>
     <div class="theme-grid">
-      <article class="theme-card"><div class="theme-icon">☕</div><h3>Мой день</h3><p>Планы, маленькие победы, напоминания и практика, которая помогает увидеть главное.</p><div class="chips"><span>Приоритеты</span><span>Настрой</span><span>Итоги</span></div></article>
-      <article class="theme-card"><div class="theme-icon">✿</div><h3>Жизнь и вдохновение</h3><p>Эмоции, отношения, красота, забота о себе и радость обычных моментов.</p><div class="chips"><span>Для себя</span><span>Близость</span><span>Красота</span></div></article>
-      <article class="theme-card dark"><div class="theme-icon">✧</div><h3>Дело и возможности</h3><p>Финансовые шаги, переговоры, запуски, решения и движение к своим целям.</p><div class="chips"><span>Работа</span><span>Деньги</span><span>Развитие</span></div></article>
+      <article class="theme-card"><div class="theme-icon" aria-hidden="true"><svg class="theme-gold-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-coffee"></use></svg></div><h3>Мой день</h3><p>Планы, маленькие победы, напоминания и практика, которая помогает увидеть главное.</p><div class="chips"><span>Приоритеты</span><span>Настрой</span><span>Итоги</span></div></article>
+      <article class="theme-card"><div class="theme-icon" aria-hidden="true"><svg class="theme-gold-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-lantern"></use></svg></div><h3>Жизнь и вдохновение</h3><p>Эмоции, отношения, красота, забота о себе и радость обычных моментов.</p><div class="chips"><span>Для себя</span><span>Близость</span><span>Красота</span></div></article>
+      <article class="theme-card dark"><div class="theme-icon" aria-hidden="true"><svg class="theme-gold-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-compass"></use></svg></div><h3>Дело и возможности</h3><p>Финансовые шаги, переговоры, запуски, решения и движение к своим целям.</p><div class="chips"><span>Работа</span><span>Деньги</span><span>Развитие</span></div></article>
     </div>
   </div>
 </section>
@@ -382,6 +429,63 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
  <path d="M16 25c0-7 5-12 12-12" fill="none" stroke="#fff5d5" stroke-width="2.5" stroke-linecap="round"/>
  <path d="M52 4l1.7 4.3L58 10l-4.3 1.7L52 16l-1.7-4.3L46 10l4.3-1.7Z" fill="url(#landingGoldShine)"/>
 </symbol>
+
+<!-- Purpose-specific gold artwork for the three life sections and four seasons. -->
+<symbol id="landing-icon-coffee" viewBox="0 0 64 64">
+ <path d="M10 27h36v12c0 11-8 18-18 18S10 50 10 39Z" fill="url(#landingGoldFill)" fill-opacity=".24" stroke="url(#landingGold)" stroke-width="2.6"/>
+ <path d="M46 30h5c12 0 10 17-5 17" fill="none" stroke="url(#landingGold)" stroke-width="3.1" stroke-linecap="round"/>
+ <path d="M17 23c-6-7 7-9 0-16m11 16c-6-7 7-9 0-16m11 16c-6-7 7-9 0-16" fill="none" stroke="url(#landingGold)" stroke-width="2.8" stroke-linecap="round"/>
+ <path d="M7 57h48" stroke="url(#landingGold)" stroke-width="2.5" stroke-linecap="round"/>
+ <path d="m30 32 2 4 4 2-4 2-2 4-2-4-4-2 4-2Z" fill="#fff5ce"/>
+</symbol>
+<symbol id="landing-icon-lantern" viewBox="0 0 64 64">
+ <path d="M26 10v-2a6 6 0 0 1 12 0v2M20 17h24" fill="none" stroke="url(#landingGold)" stroke-width="3" stroke-linecap="round"/>
+ <path d="M20 20h24l3 33H17Z" fill="url(#landingGoldFill)" fill-opacity=".17" stroke="url(#landingGold)" stroke-width="2.6" stroke-linejoin="round"/>
+ <path d="M23 23v27M41 23v27M22 33h20M16 55h32M19 58h26" stroke="url(#landingGold)" stroke-width="1.5" stroke-linecap="round"/>
+ <path d="M32 46c-9-7-4-15 0-21 3 6 9 13 0 21Z" fill="url(#landingGoldShine)"/>
+ <path d="M32 44c-4-4-1-7 0-10 2 3 4 6 0 10Z" fill="#fffbd7"/>
+ <path d="m9 17 1.5 3.5L14 22l-3.5 1.5L9 27l-1.5-3.5L4 22l3.5-1.5Z" fill="url(#landingGoldFill)"/>
+</symbol>
+<symbol id="landing-icon-compass" viewBox="0 0 64 64">
+ <circle cx="32" cy="32" r="26" stroke="url(#landingGold)" stroke-width="3" fill="url(#landingGoldFill)" fill-opacity=".1"/>
+ <circle cx="32" cy="32" r="20" stroke="url(#landingGold)" stroke-width="1" fill="none"/>
+ <g stroke="url(#landingGold)" stroke-width="1.7" stroke-linecap="round">
+ <path d="M32 7v7M32 50v7M7 32h7M50 32h7M14 14l5 5M45 45l5 5M50 14l-5 5M19 45l-5 5"/>
+ </g>
+ <path d="m43 17-7 20-19 8 10-19Z" fill="url(#landingGoldFill)" stroke="url(#landingGold)" stroke-width="2"/>
+ <circle cx="32" cy="32" r="3.4" fill="#fff9e2"/>
+</symbol>
+<symbol id="landing-icon-spring" viewBox="0 0 64 64">
+ <g stroke="url(#landingGold)" stroke-width="1.7" fill="url(#landingGoldFill)" fill-opacity=".5">
+ <ellipse cx="32" cy="17" rx="8" ry="13"/><ellipse cx="32" cy="47" rx="8" ry="13"/>
+ <ellipse cx="17" cy="32" rx="13" ry="8"/><ellipse cx="47" cy="32" rx="13" ry="8"/>
+ <ellipse cx="21.5" cy="21.5" rx="8" ry="12" transform="rotate(-45 21.5 21.5)"/>
+ <ellipse cx="42.5" cy="42.5" rx="8" ry="12" transform="rotate(-45 42.5 42.5)"/>
+ <ellipse cx="42.5" cy="21.5" rx="8" ry="12" transform="rotate(45 42.5 21.5)"/>
+ <ellipse cx="21.5" cy="42.5" rx="8" ry="12" transform="rotate(45 21.5 42.5)"/>
+ </g><circle cx="32" cy="32" r="8" fill="url(#landingGoldShine)" stroke="#c3924d" stroke-width="1"/>
+</symbol>
+<symbol id="landing-icon-summer" viewBox="0 0 64 64">
+ <circle cx="32" cy="32" r="14" fill="url(#landingGoldShine)" stroke="url(#landingGold)" stroke-width="2.5"/>
+ <g stroke="url(#landingGold)" stroke-width="4" stroke-linecap="round">
+ <path d="M32 3v10M32 51v10M3 32h10M51 32h10M12 12l8 8m24 24 8 8m0-40-8 8M20 44l-8 8"/>
+ </g><circle cx="27" cy="28" r="5" fill="#fff5ce" opacity=".7"/>
+</symbol>
+<symbol id="landing-icon-autumn" viewBox="0 0 64 64">
+ <path d="M32 6c6 9 13 9 17 6-1 10 6 15 10 19-10 2-11 12-11 17-10-2-14 4-16 10-5-6-8-11-17-10-1-11-6-15-10-17 10-6 10-12 10-19 8 2 12 0 17-6Z" fill="url(#landingGoldFill)" fill-opacity=".3" stroke="url(#landingGold)" stroke-width="2.5" stroke-linejoin="round"/>
+ <path d="M32 10v47m0-25L16 20m16 20 17-16M32 47 16 39m16 0 17-3" stroke="url(#landingGold)" stroke-width="2" fill="none" stroke-linecap="round"/>
+</symbol>
+<symbol id="landing-icon-winter" viewBox="0 0 64 64">
+ <g stroke="url(#landingGold)" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round" fill="none">
+ <path d="M32 5v54M5 32h54M13 13l38 38m0-38L13 51"/>
+ <path d="m25 13 7 7 7-7m-14 38 7-7 7 7M13 25l7 7-7 7m38-14-7 7 7 7"/>
+ <path d="m14 7 2 9-9-2m43-7-2 9 9-2M7 50l9-2-2 9m43-7-9-2 2 9"/>
+ </g><circle cx="32" cy="32" r="5.5" fill="url(#landingGoldShine)"/>
+</symbol>
+<symbol id="landing-icon-sparkle" viewBox="0 0 64 64">
+ <path d="m32 5 7 20 20 7-20 7-7 20-7-20-20-7 20-7Z" fill="url(#landingGoldFill)" stroke="url(#landingGold)" stroke-width="2.2"/>
+ <circle cx="32" cy="32" r="5" fill="#fff9dc"/>
+</symbol>
 </svg>
 <section class="section" id="features">
   <div class="wrap">
@@ -417,10 +521,10 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
     <h2 class="section-title">У каждого сезона — своё начало</h2>
     <p class="section-lead">Равноденствия и солнцестояния оставляем важной частью концепции. Отдельные подробные карточки и практики для этих дат добавим в календарь следующим этапом.</p>
     <div class="date-grid">
-      <article class="date-card"><span class="date-mark">✿</span><strong>Весеннее равноденствие</strong><p>Время символически подвести черту под зимой и наметить рост.</p></article>
-      <article class="date-card"><span class="date-mark">☼</span><strong>Летнее солнцестояние</strong><p>Повод заметить силу, энергию и то, что уже удалось создать.</p></article>
-      <article class="date-card"><span class="date-mark">❧</span><strong>Осеннее равноденствие</strong><p>Возможность оценить результаты и восстановить равновесие.</p></article>
-      <article class="date-card"><span class="date-mark">✧</span><strong>Зимнее солнцестояние</strong><p>Тихая точка года, где можно освободить место для нового.</p></article>
+      <article class="date-card"><span class="date-mark" aria-hidden="true"><svg class="date-gold-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-spring"></use></svg></span><strong>Весеннее равноденствие</strong><p>Время символически подвести черту под зимой и наметить рост.</p></article>
+      <article class="date-card"><span class="date-mark" aria-hidden="true"><svg class="date-gold-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-summer"></use></svg></span><strong>Летнее солнцестояние</strong><p>Повод заметить силу, энергию и то, что уже удалось создать.</p></article>
+      <article class="date-card"><span class="date-mark" aria-hidden="true"><svg class="date-gold-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-autumn"></use></svg></span><strong>Осеннее равноденствие</strong><p>Возможность оценить результаты и восстановить равновесие.</p></article>
+      <article class="date-card"><span class="date-mark" aria-hidden="true"><svg class="date-gold-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-winter"></use></svg></span><strong>Зимнее солнцестояние</strong><p>Тихая точка года, где можно освободить место для нового.</p></article>
     </div>
   </div>
 </section>
@@ -490,14 +594,14 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
   <div class="eyebrow">Ваше время — ваш выбор</div>
   <h2>Пусть 2027 год станет историей,<br>которую вы напишете сами</h2>
   <p>Не нужно ждать идеального момента. Начните с маленького шага — и продолжайте в удобном для себя ритме.</p>
-  <button type="button" class="btn btn-gold" data-plan="year">Войти в мой волшебный 2027 ✦</button>
+  <button type="button" class="btn btn-gold" data-plan="year">Войти в мой волшебный 2027 <svg class="action-sparkle" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-sparkle"></use></svg></button>
   <a href="index.html" class="btn btn-clear">Забрать бесплатно →</a>
 </section>
 </main>
 
 <footer>
   <div class="wrap footer-inner">
-    <div><a class="brand" href="#top"><strong>Ритмы и решения ✦</strong><span>Больше, чем календарь</span></a><p class="footer-note">© 2026 · Авторский интерактивный календарь</p></div>
+    <div><a class="brand" href="#top"><strong>Ритмы и решения <svg class="brand-star" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-sparkle"></use></svg></strong><span>Больше, чем календарь</span></a><p class="footer-note">© 2026 · Авторский интерактивный календарь</p></div>
     <div><div class="footer-links"><a href="https://taplink.cc/reginaden.legal" target="_blank" rel="noopener noreferrer">Публичная оферта</a><a href="https://taplink.cc/reginaden.legal" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a><a href="https://taplink.cc/reginaden.legal" target="_blank" rel="noopener noreferrer">Согласие на обработку персональных данных</a><a href="index.html">Демоверсия</a></div><p class="footer-note">Юридические документы размещены на отдельной странице автора. Подсказки календаря не заменяют профессиональных рекомендаций.</p></div>
   </div>
 </footer>
