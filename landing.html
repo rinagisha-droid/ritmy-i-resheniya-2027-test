@@ -373,6 +373,83 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
   .pricing-free{flex-direction:column;align-items:stretch;padding:21px 18px}
   .pricing-free .btn{width:100%}
 }
+
+/* Final landing refinements: FAQ under its heading and a wider, calmer closing panel. */
+section.faq.section{
+  display:block;
+  width:100%;
+  grid-template-columns:none;
+  padding:78px 0 68px!important;
+}
+.faq .faq-inner{max-width:1020px}
+.faq .faq-heading{margin-bottom:24px}
+.faq .faq-heading .section-title{
+  max-width:900px;
+  margin-bottom:11px;
+  font-size:clamp(35px,3.45vw,52px);
+  line-height:1.12;
+}
+.faq .faq-heading .section-lead{
+  max-width:850px;
+  margin-bottom:0;
+  font-size:16px;
+  line-height:1.55;
+}
+.faq .faq-list{
+  width:100%;
+  max-width:none;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+.faq .faq-list details{width:100%}
+.last-banner.wrap{
+  width:min(1260px,calc(100% - 30px));
+  max-width:none;
+  padding:52px clamp(25px,4vw,58px) 48px;
+  margin:0 auto 62px;
+  border-radius:28px;
+}
+.last-banner h2{
+  max-width:1100px;
+  margin:14px auto 18px;
+  font-size:clamp(31px,3.05vw,47px);
+  line-height:1.13;
+  letter-spacing:-.35px;
+  text-wrap:balance;
+}
+.last-banner p{
+  max-width:740px;
+  font-size:15px;
+  line-height:1.6;
+  margin:0 auto 25px;
+}
+.last-banner .eyebrow{font-size:11px;letter-spacing:1.6px}
+.last-banner .btn{margin:0 6px 7px;min-height:47px}
+@media(max-width:840px){
+  section.faq.section{padding:66px 0 55px!important}
+  .faq .faq-inner{max-width:none}
+  .faq .faq-heading .section-title{font-size:clamp(33px,5.2vw,44px)}
+  .last-banner.wrap{
+    width:calc(100% - 28px);
+    padding:40px 24px 34px;
+    border-radius:22px;
+  }
+  .last-banner h2{font-size:clamp(28px,4.6vw,39px)}
+}
+@media(max-width:520px){
+  section.faq.section{padding:55px 0 44px!important}
+  .faq .faq-heading{margin-bottom:17px}
+  .faq .faq-heading .section-title{font-size:34px}
+  .faq .faq-heading .section-lead{font-size:14px}
+  .faq .faq-list{gap:9px}
+  .faq .faq-list details{padding:0 14px}
+  .last-banner.wrap{padding:34px 17px 30px}
+  .last-banner h2{font-size:clamp(27px,7.5vw,34px);line-height:1.17}
+  .last-banner p{font-size:14px}
+  .last-banner .btn{display:flex;width:100%;margin:0 0 10px}
+}
 </style>
 </head>
 <body>
@@ -687,7 +764,8 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
 </section>
 
 <section class="section faq" id="faq">
-  <div class="faq-heading">
+  <div class="wrap faq-inner">
+    <div class="faq-heading">
     <p class="section-kicker">Вопросы и ответы</p>
     <h2 class="section-title">Всё, что важно знать</h2>
     <p class="section-lead">Без запутанных условий и обещаний, что каждый день обязательно сложится идеально.</p>
@@ -701,6 +779,7 @@ dialog::backdrop{background:rgba(4,24,22,.8);backdrop-filter:blur(6px)}
     <details><summary>Когда откроется платный доступ после оплаты?</summary><p>Автоматическая проверка оплаты и выдача доступа ещё настраиваются. Перед оплатой это важно учитывать. Сохраните платёжный чек; информацию о предоставлении доступа можно уточнить у автора через его контакты.</p></details>
     <details><summary>Будут ли равноденствия и солнцестояния?</summary><p>Да, они входят в концепцию. Специальные развёрнутые карточки этих дат запланированы для следующего этапа разработки.</p></details>
     <details><summary>Гарантирует ли календарь результат?</summary><p>Нет. Он помогает замечать возможности, планировать и выбирать действия. Он не обещает финансового, медицинского или другого гарантированного результата.</p></details>
+  </div>
   </div>
 </section>
 
