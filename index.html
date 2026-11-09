@@ -1118,6 +1118,82 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
 .sidebar .side-btn .side-icon-favorites{background-position:50% 100%!important}
 .sidebar .side-btn .side-icon-library{background-position:75% 100%!important}
 .sidebar .side-btn .side-icon-settings{background-position:100% 100%!important}
+
+/* Lower cards styled as the user's reference: illustrated headings and leaf points */
+.cards .illustrated-contentcard{
+ min-width:0;min-height:295px;
+ background:#fff8ed;color:#242827;
+ border:1px solid #ddbd81;border-radius:14px;
+ display:flex;flex-direction:column;
+ box-shadow:0 2px 9px rgba(25,18,5,.12);
+ overflow:hidden;
+}
+.cards .illustrated-contentcard .card-heading{
+ display:flex;align-items:center;gap:7px;
+ min-height:39px;margin:0;padding:5px 9px 3px;
+ font:normal clamp(14px,1.18vw,19px)/1.16 Georgia,'Times New Roman',serif;
+ color:#232825;hyphens:none;overflow:visible;
+}
+.cards .illustrated-contentcard .card-emblem{
+ width:31px;height:31px;flex:0 0 31px;
+ display:flex;align-items:center;justify-content:center;
+}
+.cards .illustrated-contentcard .card-heading-svg{display:block;width:29px;height:29px}
+.cards .illustrated-contentcard .card-heading-text{flex:1;min-width:0;overflow-wrap:normal;word-break:normal}
+.cards .illustrated-contentcard .card-corner-star{
+ color:#f2dbb5;font:normal 21px/1 Georgia,serif;flex:0 0 auto;
+}
+.cards .illustrated-contentcard .card-photo{
+ width:calc(100% - 18px);
+ height:95px;min-height:95px;
+ margin:0 9px 6px;
+ border-radius:9px;
+ object-fit:cover;
+ object-position:center;
+}
+.cards .illustrated-contentcard .card-tips{
+ list-style:none;
+ display:flex;flex-direction:column;
+ gap:3px;flex:1 1 auto;
+ min-width:0;margin:0 10px 7px 11px;padding:0;
+}
+.cards .illustrated-contentcard .card-tip{
+ display:grid;grid-template-columns:16px minmax(0,1fr);
+ align-items:start;gap:5px;
+ margin:0;padding:0;
+ font:12px/1.2 Arial,sans-serif;
+ overflow-wrap:normal;word-break:normal;color:#2c3230;
+}
+.cards .illustrated-contentcard .card-leaf{
+ width:15px;height:15px;display:inline-flex;
+ align-items:center;justify-content:center;
+ color:#d88d25;
+}
+.cards .illustrated-contentcard .card-leaf.green{color:#619762}
+.cards .illustrated-contentcard .card-leaf-svg{width:14px;height:14px;display:block}
+.cards .illustrated-contentcard .card-practice-button{
+ flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:8px;
+ min-height:29px;
+ width:calc(100% - 18px);margin:2px 9px 9px;padding:5px 6px;
+ border:0;border-radius:20px;
+ background:#f9e3c0;color:#282823;
+ font:12px/1.3 Arial,sans-serif;cursor:pointer;
+}
+.cards .illustrated-contentcard .card-practice-button span{font-size:18px;line-height:.85}
+.cards .illustrated-contentcard .card-practice-button:hover{background:#f0cfa1}
+.cards .illustrated-contentcard .card-practice-button:focus-visible{outline:2px solid #ab782b;outline-offset:2px}
+@media(min-width:841px) and (max-width:1280px){
+ .cards .illustrated-contentcard .card-heading{font-size:14px;gap:5px;padding:5px 5px 3px}
+ .cards .illustrated-contentcard .card-emblem{width:27px;height:27px;flex-basis:27px}
+ .cards .illustrated-contentcard .card-heading-svg{width:26px;height:26px}
+ .cards .illustrated-contentcard .card-corner-star{font-size:16px}
+ .cards .illustrated-contentcard .card-tip{font-size:11px;line-height:1.22}
+}
+@media(max-width:840px){
+ .cards .illustrated-contentcard{min-height:290px}
+ .cards .illustrated-contentcard .card-heading{font-size:16px}
+ .cards .illustrated-contentcard .card-tip{font-size:12px}
+}
 </style></head><body><div class="site"><header class="hero" aria-label="Шапка календаря"><div class="hero-intro"><h1>Ритмы и решения <span aria-hidden="true">✦</span></h1><p>Маленькое волшебство<br>каждого дня</p></div><div class="hero-right"><div class="hero-quote">Больше,<br>чем календарь —<br>это время для себя ♡</div><div class="hero-controls"><button type="button" class="hero-icon-button hero-search-button" data-action="header-search" title="Поиск по моим записям" aria-label="Поиск по моим записям"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m16.1 16.1 4.7 4.7"/></svg></button><button type="button" class="hero-icon-button hero-bell-button" data-action="header-reminders" title="Мои напоминания" aria-label="Мои напоминания"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 6.5-3 7.8-3 9h18c0-1.2-3-2.5-3-9Z"/><path d="M10 21h4"/></svg><span class="hero-alert-dot" id="heroAlertDot" hidden></span></button><div class="hero-profile-wrap"><button type="button" class="hero-profile-button" data-action="header-menu" aria-label="Открыть меню календаря" title="Меню календаря" aria-expanded="false" aria-controls="heroProfileMenu"><span class="hero-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.3 21c.8-4.4 4.1-7 7.7-7s6.9 2.6 7.7 7"/></svg></span><span class="hero-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="hero-profile-menu" id="heroProfileMenu" role="menu" hidden><button type="button" role="menuitem" data-action="plan">Добавить план</button><button type="button" role="menuitem" data-action="favorites">Избранные даты</button><button type="button" role="menuitem" data-action="settings">Настройки</button><button type="button" role="menuitem" data-action="access">Получить доступ</button></div></div></div></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
@@ -1366,7 +1442,66 @@ function renderCal(){
     grid.appendChild(b);
   }
 }
-function renderCards(){const list=suggestions[section==='home'||section==='calendar'?'life':section]||suggestions.life;$('cards').innerHTML=list.map((x,i)=>`<div class="contentcard"><h4>${x[0]} ${x[1]}</h4><img src="assets/${x[2]}" alt=""><p>${x[3]}</p><button data-card="${i}">Открыть практику →</button></div>`).join('')}
+
+/* Lower illustrated cards: reference-style badges, gold/green leaves and four tips. */
+const cardLists={
+ life:[
+ ['Прислушайтесь к своим чувствам','Позвольте себе отдых и тишину','Отпустите то, что больше не вдохновляет','Вечером поблагодарите себя за этот день'],
+ ['Проведите время с близкими','Будьте честны в своих чувствах','Поддержите тех, кто вам дорог','Окружите себя тёплым общением'],
+ ['Уделите время себе и своей красоте','Небольшой ритуал ухода за собой','Вдохновляйтесь уютом вокруг','Обновите пространство, добавьте тёплые детали'],
+ ['Найдите сегодня хотя бы одну маленькую радость','Заметьте красоту в простом','Сделайте что-то, что поднимает настроение','Запишите приятные моменты дня']
+ ],
+ day:[
+ ['Прислушайтесь к своим чувствам','Устройте короткую паузу','Заметьте, чего хотите сейчас','Поддержите себя небольшим действием'],
+ ['Вспомните небольшой успех дня','Похвалите себя за старание','Отметьте, что у вас получилось','Сохраните чувство победы'],
+ ['Подарите себе немного тишины','Побудьте без телефона 15 минут','Восстановите силы без спешки','Позаботьтесь о своём комфорте'],
+ ['Выберите главное дело дня','Отделите важное от срочного','Начните с посильного шага','Вечером отметьте результат']
+ ],
+ work:[
+ ['Посмотрите на финансовые планы','Определите один конкретный шаг','Не торопитесь с решениями','Вспомните о своих ресурсах'],
+ ['Уточните цель разговора','Подготовьте свои аргументы','Говорите ясно и уважительно','Зафиксируйте договорённости'],
+ ['Заметьте свои сильные стороны','Поделитесь полезной идеей','Сделайте шаг к аудитории','Отметьте смелость проявиться'],
+ ['Выберите главный приоритет','Разбейте задачу на шаги','Выделите время без отвлечений','Подведите итог дня']
+ ]
+};
+const cardButtons={
+ life:['Практика дня','Советы и идеи','Ритуалы красоты','Идеи для вдохновения'],
+ day:['Практика дня','Маленькая победа','Время для себя','Мой ориентир'],
+ work:['Практика дня','Советы и идеи','Шаг к цели','Мои приоритеты']
+};
+function cardHeaderIcon(tab,index){
+  const svg=(shapes)=>'<svg class="card-heading-svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+shapes+'</svg>';
+  const life=[
+    '<path fill="#d9576e" d="M16 29 4.5 18.8C-.5 14 2 5.5 9.3 5.5c3 0 5.3 1.4 6.7 3.6 1.4-2.2 3.7-3.6 6.7-3.6C30 5.5 32.5 14 27.5 18.8Z"/><path stroke="#ffbfc0" stroke-width="1.8" stroke-linecap="round" fill="none" d="M7.5 9c2.1-1.2 4.6-.7 6 1.2"/>',
+    '<g fill="#e98b4b"><circle cx="10" cy="8.5" r="5"/><circle cx="23" cy="8.5" r="5"/><path d="M2 27v-6c0-5 3-7.6 8-7.6s8 2.6 8 7.6v6Zm17 0v-6.2a9.6 9.6 0 0 0-3-7c2-1.1 4.5-1.4 7-1.4 5 0 7 3 7 8v6.6Z"/></g><path stroke="#ffd7a7" fill="none" d="M5 21v5m17-5v5"/>',
+    '<g fill="#dc5774" stroke="#f6acbc" stroke-width=".5"><ellipse cx="16" cy="7" rx="4.2" ry="6"/><ellipse cx="16" cy="25" rx="4.2" ry="6"/><ellipse cx="7" cy="16" rx="6" ry="4.2"/><ellipse cx="25" cy="16" rx="6" ry="4.2"/><ellipse cx="9.7" cy="9.7" rx="4.2" ry="6" transform="rotate(-45 9.7 9.7)"/><ellipse cx="22.3" cy="22.3" rx="4.2" ry="6" transform="rotate(-45 22.3 22.3)"/><ellipse cx="22.3" cy="9.7" rx="4.2" ry="6" transform="rotate(45 22.3 9.7)"/><ellipse cx="9.7" cy="22.3" rx="4.2" ry="6" transform="rotate(45 9.7 22.3)"/></g><circle cx="16" cy="16" r="4" fill="#f0ca75"/>',
+    '<path d="m16 1.5 2.7 11.7L30.5 16l-11.8 2.7L16 30.5l-2.7-11.8L1.5 16l11.8-2.8Z" fill="#e79d35"/><circle cx="16" cy="16" r="3" fill="#ffe8af"/>'
+  ];
+  const day=[
+   '<path d="M27 3C12 4 4 12 7 26c13 1 20-8 20-23Z" fill="#6ca36e"/><path d="M7 26c7-11 11-14 18-19" fill="none" stroke="#e4eabc" stroke-width="1.6"/>',
+   '<circle cx="16" cy="16" r="8" fill="#ecb23c"/><g stroke="#e7a131" stroke-width="3"><path d="M16 1v5M16 26v5M1 16h5M26 16h5M5 5l4 4m14 14 4 4M27 5l-4 4M9 23l-4 4"/></g>',
+   '<path d="M5 11h19v9c0 12-19 12-19 0Z" fill="#e9d4ad" stroke="#ac7545"/><path d="M24 12h3a4 4 0 0 1 0 8h-3M11 7c-2-3 2-3 0-6m7 6c-2-3 2-3 0-6" fill="none" stroke="#b17d4c" stroke-width="1.5"/>',
+   '<path d="m16 2 3 10 10 4-10 3-3 11-3-11-10-3 10-4Z" fill="#e4b04f"/>'
+  ];
+  const work=[
+    '<circle cx="16" cy="16" r="13" fill="#d6a95d"/><path d="M10 12c0-5 12-5 12 0 0 4-12 1-12 7s12 5 12 0M16 5v22" fill="none" stroke="#fff0d1" stroke-width="2"/>',
+    '<path d="m3 17 9-8 6 7 9-6 3 7-11 11-5-5-6 2Z" fill="#e7b383" stroke="#a7784f" stroke-width="1.5"/><path d="m11 16 6 5 5-4" stroke="#fff0d5" stroke-width="2" fill="none"/>',
+    '<path d="m16 2 3 11 11 3-11 3-3 11-3-11-11-3 11-3Z" fill="#e8b049"/>',
+    '<rect x="6" y="4" width="20" height="25" rx="3" fill="#e5bd78"/><path d="M11 3h10v6H11Z" fill="#fff1c8" stroke="#bc9151"/><path d="M10 15h13m-13 5h13m-13 5h10" stroke="#fff4d9" stroke-width="2"/>'
+  ];
+  return svg((tab==='day'?day:tab==='work'?work:life)[index]||life[0]);
+}
+const cardLeafIcon='<svg class="card-leaf-svg" viewBox="0 0 17 17" aria-hidden="true"><path d="M14.8 1.5C7 1.5 2 5 2 10.3c0 3 1.9 4.4 4.6 4.4 5.7 0 8-5.2 8.2-13.2Z" fill="currentColor"/><path d="M3.9 13.5c2-3.8 5.3-7.1 8.5-9.6M6 9.4l-.3-3M9 6.8l2.8.3" fill="none" stroke="#fff1d3" stroke-width="1.2" stroke-linecap="round"/></svg>';
+function renderCards(){
+ const tab=section==='home'||section==='calendar'?'life':section;
+ const rows=suggestions[tab]||suggestions.life;
+ const lines=cardLists[tab]||cardLists.life;
+ const labels=cardButtons[tab]||cardButtons.life;
+ $('cards').innerHTML=rows.map((x,i)=>{
+   const tips=(lines[i]||[x[3]]).map((t,j)=>'<li class="card-tip"><span class="card-leaf '+(tab==='life'&&i>1&&j%2===0?'green':'gold')+'">'+cardLeafIcon+'</span><span>'+esc(t)+'</span></li>').join('');
+   return '<article class="contentcard illustrated-contentcard"><h4 class="card-heading"><span class="card-emblem">'+cardHeaderIcon(tab,i)+'</span><span class="card-heading-text">'+esc(x[1])+'</span><span class="card-corner-star" aria-hidden="true">✳</span></h4><img class="card-photo" src="assets/'+esc(x[2])+'" alt="" loading="lazy"><ul class="card-tips">'+tips+'</ul><button type="button" class="card-practice-button" data-card="'+i+'">'+esc(labels[i]||'Практика дня')+' <span aria-hidden="true">→</span></button></article>';
+ }).join('');
+}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function renderWidgets(){const k=key(selected);$('plans').innerHTML=(store.plans[k]||[]).map((v,i)=>`<div class="widgetline"><input type="checkbox" data-check="${i}" ${v.done?'checked':''}><span>${esc(v.text)}</span><button data-delete="plan:${i}">×</button></div>`).join('')||'<div class="widgetline">Планов пока нет. Нажмите +</div>';$('reminders').innerHTML=(store.reminders[k]||[]).map((v,i)=>`<div class="widgetline">♧ <span>${esc(v.time)} ${esc(v.text)}</span><button data-delete="reminder:${i}">×</button></div>`).join('')||'<div class="widgetline">Добавьте напоминание на день</div>';$('favorites').innerHTML=store.favorites.slice(-4).map(v=>`<div class="widgetline">★ <span>${v}</span><button data-unfav="${v}">×</button></div>`).join('')||'<div class="widgetline">Пока нет избранных дат</div>'}
 function modal(title,body,buttons){$('modalTitle').textContent=title;$('modalBody').innerHTML=body;$('modalBtns').replaceChildren();(buttons||[['Закрыть',closeModal]]).forEach(([t,fn])=>{const b=document.createElement('button');b.textContent=t;b.onclick=fn;$('modalBtns').appendChild(b)});$('dialog').classList.add('open')}function closeModal(){$('dialog').classList.remove('open')}
