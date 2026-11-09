@@ -755,6 +755,48 @@ body{min-height:100vh;background:#061923 url('assets/winter-background-v2.webp')
 @media(max-width:570px){
   .triptych .feature.feature-moon>.moon-heading{font-size:21px}
 }
+
+/* Never crop zodiac figures: both transparent cutouts and atlas fallbacks
+   are now fully contained inside the artwork area, including Aquarius,
+   Capricorn, Leo, Virgo and Gemini. Keep the botanical background visible. */
+.triptych .feature.feature-zodiac .zodiac-visual,
+.triptych .feature.feature-zodiac .zodiac-art{
+  min-width:0;
+  min-height:0;
+  overflow:hidden;
+}
+.triptych .feature.feature-zodiac .zodiac-art{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.triptych .feature.feature-zodiac img.zodiac-cutout{
+  display:block;
+  box-sizing:border-box;
+  width:var(--zodiac-width,100%);
+  max-width:100%;
+  height:100%;
+  max-height:100%;
+  aspect-ratio:auto;
+  object-fit:contain;
+  object-position:center center;
+  flex:0 1 auto;
+  transform:none;
+  background:transparent;
+  mix-blend-mode:normal;
+  -webkit-mask-image:none;
+  mask-image:none;
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.26));
+}
+.triptych .feature.feature-zodiac .zodiac-fallback{
+  box-sizing:border-box;
+  width:var(--zodiac-width,100%);
+  max-width:100%;
+  height:auto;
+  max-height:100%;
+  flex:0 1 auto;
+  transform:none;
+}
 </style></head><body><div class="site"><header class="hero"><div><h1>Ритмы и решения ✦</h1><p>Волшебство каждого дня</p><em>Осень — зима 2026 · весь 2027</em></div><div class="hero-quote">Больше, чем календарь — это время для себя ♡<p><button class="hero-link" data-action="access">✦ Получить доступ →</button></p></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
@@ -788,7 +830,7 @@ function drawMoon(){LunarView.draw($('moonDisc'),data())}
    The dark-green connected background becomes transparent, preserving
    the original gold/blue sculptures. No image files are replaced. */
 const zodiacCutoutCache=new Map();
-const zodiacFigureSizes=[1.28,1.27,1.31,1.30,1.31,1.30,1.35,1.34,1.34,1.31,1.46,1.30];
+const zodiacFigureSizes=[1,1,0.96,1,0.96,0.96,1,1,1,0.96,0.94,1];
 let zodiacAtlasLoading=null;
 function loadZodiacAtlas(){
   if(!zodiacAtlasLoading){
