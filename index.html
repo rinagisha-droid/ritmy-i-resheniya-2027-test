@@ -1520,40 +1520,105 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
 /* MOBILE_REFINEMENTS_2026_11_10: tidy illustrated tabs, day heading, and focus frame.
    Only small screens change; desktop design and JS actions remain intact. */
 @media (max-width:570px){
-  /* Compact illustrated icon tabs for all three sections. */
+  /* Keep the original three illustrated cards with their names and subtitles. */
   .topnav{
     display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:9px;
+    grid-template-columns:1fr;
+    gap:7px;
     margin:9px 0 11px;
   }
   .topnav .topnav-card,
   .topnav .topnav-work{
-    height:70px;min-height:70px;
-    padding:0!important;
-    justify-content:center;
-    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    height:auto;
+    min-height:104px;
+    padding:9px 10px 9px 100px!important;
+    border-radius:16px;
   }
   .topnav .topnav-art,
   .topnav .topnav-work .topnav-art{
-    position:absolute;inset:0;
-    width:100%;height:100%;
+    position:absolute;
+    inset:0 auto 0 0;
+    width:96px;
+    height:100%;
     background-position:center;
     background-size:cover;
   }
   .topnav .topnav-card .topnav-art::after{
-    background:linear-gradient(180deg,rgba(2,24,28,.04),rgba(2,27,27,.33));
+    background:linear-gradient(90deg,transparent 70%,#0a382fe6 100%);
   }
-  .topnav .topnav-work .topnav-art svg{
-    left:50%;top:50%;
-    transform:translate(-50%,-50%);
-    width:57px;height:57px;
+  .topnav .topnav-card.active .topnav-art::after{
+    background:linear-gradient(90deg,transparent 72%,#fae6c0ef);
   }
-  .topnav .topnav-card .topnav-copy,
-  .topnav .topnav-card .topnav-circle{display:none!important}
+  .topnav .topnav-card .topnav-copy{
+    display:block!important;
+    padding-right:4px;
+    min-width:0;
+  }
+  .topnav .topnav-card .topnav-circle{
+    display:grid!important;
+    width:32px;min-width:32px;height:32px;
+    margin-left:3px;
+    font-size:25px;
+  }
   .topnav .topnav-card.active{
-    box-shadow:0 0 0 2px #ffe0a0,0 5px 16px rgba(0,0,0,.34);
+    box-shadow:0 5px 18px #c9974575,inset 0 0 0 1px #fff1d8;
   }
+  /* Let the longest card grow naturally instead of cutting off "горизонты". */
+  .topnav .topnav-work{
+    min-height:112px;
+    padding-top:10px!important;
+    padding-bottom:10px!important;
+  }
+  .topnav .topnav-work .topnav-copy b{
+    font-size:clamp(16px,4.6vw,19px);
+    line-height:1.08;
+    margin-bottom:4px;
+    letter-spacing:-.35px;
+  }
+  .topnav .topnav-work .topnav-copy small{
+    font-size:10.5px;
+    line-height:1.2;
+    overflow-wrap:normal;
+  }
+
+  /* These are the small golden navigation icons requested in the first screenshot. */
+  .sidebar{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:7px;
+    min-height:0;
+    padding:7px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+    margin-bottom:10px;
+  }
+  .sidebar button.side-btn{
+    display:grid;
+    place-items:center;
+    flex:0 0 48px;
+    width:48px;min-width:48px;
+    height:48px;min-height:48px;
+    padding:7px;
+    margin:0;
+    border-radius:14px;
+    gap:0;
+  }
+  .sidebar button.side-btn .side-label{display:none!important}
+  .sidebar button.side-btn .side-icon{
+    display:inline-block!important;
+    width:32px!important;
+    min-width:32px!important;
+    height:32px!important;
+    flex:0 0 32px!important;
+    margin:0!important;
+  }
+  .sidebar button.side-btn:focus-visible{outline:2px solid #f8d688;outline-offset:2px}
 
   /* Date above, star–motto–heart controls in the second row. */
   .astro-panel .day-energy-headline{
@@ -1630,16 +1695,16 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
 <button type="button" class="topnav-card topnav-life active" data-section="life" aria-label="Жизнь и вдохновение" title="Жизнь и вдохновение"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-work" data-section="work" aria-label="Дело и возможности" title="Дело и возможности"><span class="topnav-art topnav-art-work" aria-hidden="true"></span><span class="topnav-copy"><b>Дело и возможности</b><small>Планы, финансы,<br>развитие и новые горизонты</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 </nav><div class="layout"><aside class="sidebar" aria-label="Боковое меню календаря">
-<button type="button" class="side-btn side-home" data-section="home"><span class="side-icon side-icon-home" aria-hidden="true"></span><span class="side-label">Главная</span></button>
-<button type="button" class="side-btn " data-section="calendar"><span class="side-icon side-icon-calendar" aria-hidden="true"></span><span class="side-label">Календарь</span></button>
-<button type="button" class="side-btn " data-section="day"><span class="side-icon side-icon-day" aria-hidden="true"></span><span class="side-label">Мой день</span></button>
-<button type="button" class="side-btn active" data-section="life"><span class="side-icon side-icon-life" aria-hidden="true"></span><span class="side-label">Жизнь и вдохновение</span></button>
-<button type="button" class="side-btn " data-section="work"><span class="side-icon side-icon-work" aria-hidden="true"></span><span class="side-label">Дело и возможности</span></button>
-<button type="button" class="side-btn " data-action="plan"><span class="side-icon side-icon-plan" aria-hidden="true"></span><span class="side-label">Мои планы</span></button>
-<button type="button" class="side-btn " data-action="reminder"><span class="side-icon side-icon-reminder" aria-hidden="true"></span><span class="side-label">Напоминания</span></button>
-<button type="button" class="side-btn " data-action="favorites"><span class="side-icon side-icon-favorites" aria-hidden="true"></span><span class="side-label">Избранные даты</span></button>
-<button type="button" class="side-btn " data-action="library"><span class="side-icon side-icon-library" aria-hidden="true"></span><span class="side-label">Библиотека</span></button>
-<button type="button" class="side-btn " data-action="settings"><span class="side-icon side-icon-settings" aria-hidden="true"></span><span class="side-label">Настройки</span></button>
+<button type="button" class="side-btn side-home" data-section="home" title="Главная" aria-label="Главная"><span class="side-icon side-icon-home" aria-hidden="true"></span><span class="side-label">Главная</span></button>
+<button type="button" class="side-btn " data-section="calendar" title="Календарь" aria-label="Календарь"><span class="side-icon side-icon-calendar" aria-hidden="true"></span><span class="side-label">Календарь</span></button>
+<button type="button" class="side-btn " data-section="day" title="Мой день" aria-label="Мой день"><span class="side-icon side-icon-day" aria-hidden="true"></span><span class="side-label">Мой день</span></button>
+<button type="button" class="side-btn active" data-section="life" title="Жизнь и вдохновение" aria-label="Жизнь и вдохновение"><span class="side-icon side-icon-life" aria-hidden="true"></span><span class="side-label">Жизнь и вдохновение</span></button>
+<button type="button" class="side-btn " data-section="work" title="Дело и возможности" aria-label="Дело и возможности"><span class="side-icon side-icon-work" aria-hidden="true"></span><span class="side-label">Дело и возможности</span></button>
+<button type="button" class="side-btn " data-action="plan" title="Мои планы" aria-label="Мои планы"><span class="side-icon side-icon-plan" aria-hidden="true"></span><span class="side-label">Мои планы</span></button>
+<button type="button" class="side-btn " data-action="reminder" title="Напоминания" aria-label="Напоминания"><span class="side-icon side-icon-reminder" aria-hidden="true"></span><span class="side-label">Напоминания</span></button>
+<button type="button" class="side-btn " data-action="favorites" title="Избранные даты" aria-label="Избранные даты"><span class="side-icon side-icon-favorites" aria-hidden="true"></span><span class="side-label">Избранные даты</span></button>
+<button type="button" class="side-btn " data-action="library" title="Библиотека" aria-label="Библиотека"><span class="side-icon side-icon-library" aria-hidden="true"></span><span class="side-label">Библиотека</span></button>
+<button type="button" class="side-btn " data-action="settings" title="Настройки" aria-label="Настройки"><span class="side-icon side-icon-settings" aria-hidden="true"></span><span class="side-label">Настройки</span></button>
 <div class="side-deco"><div class="side-deco-text">Гармония<br>в каждом дне ♡</div></div>
 </aside><section class="calendar"><div class="calhead"><button id="prev" aria-label="Предыдущий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14 5-7 7 7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><h2 id="month">Ноябрь 2026</h2><button id="next" aria-label="Следующий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 5 7 7-7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особые даты</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline day-energy-headline">
   <div class="day-heading"><h2 id="dateTitle"></h2><small id="weekday"></small></div>
