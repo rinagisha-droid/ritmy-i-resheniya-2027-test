@@ -1516,10 +1516,119 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
   }
 }
 
+
+/* MOBILE_REFINEMENTS_2026_11_10: tidy illustrated tabs, day heading, and focus frame.
+   Only small screens change; desktop design and JS actions remain intact. */
+@media (max-width:570px){
+  /* Compact illustrated icon tabs for all three sections. */
+  .topnav{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:9px;
+    margin:9px 0 11px;
+  }
+  .topnav .topnav-card,
+  .topnav .topnav-work{
+    height:70px;min-height:70px;
+    padding:0!important;
+    justify-content:center;
+    border-radius:15px;
+  }
+  .topnav .topnav-art,
+  .topnav .topnav-work .topnav-art{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    background-position:center;
+    background-size:cover;
+  }
+  .topnav .topnav-card .topnav-art::after{
+    background:linear-gradient(180deg,rgba(2,24,28,.04),rgba(2,27,27,.33));
+  }
+  .topnav .topnav-work .topnav-art svg{
+    left:50%;top:50%;
+    transform:translate(-50%,-50%);
+    width:57px;height:57px;
+  }
+  .topnav .topnav-card .topnav-copy,
+  .topnav .topnav-card .topnav-circle{display:none!important}
+  .topnav .topnav-card.active{
+    box-shadow:0 0 0 2px #ffe0a0,0 5px 16px rgba(0,0,0,.34);
+  }
+
+  /* Date above, star–motto–heart controls in the second row. */
+  .astro-panel .day-energy-headline{
+    display:grid;
+    grid-template-columns:44px minmax(0,1fr) 44px;
+    column-gap:9px;row-gap:13px;
+    align-items:center;
+    padding:13px 13px 16px;
+  }
+  .astro-panel .day-heading{
+    grid-column:1/-1;grid-row:1;
+    width:100%;min-width:0;
+    flex:none;
+  }
+  .astro-panel .day-heading h2{
+    font-size:clamp(23px,6.3vw,29px);
+    white-space:normal;
+  }
+  .astro-panel .day-heading small{font-size:13px}
+  .astro-panel .day-motto{
+    grid-column:2;grid-row:2;
+    order:unset;
+    align-self:center;
+    flex:none;
+    min-width:0;max-width:none;
+    margin:0;padding:0;
+    transform:none;
+    font:italic clamp(12px,3.45vw,15px)/1.33 Georgia,'Times New Roman',serif;
+    text-align:center;
+    text-wrap:balance;
+  }
+  .astro-panel .day-motto br{display:none}
+  .astro-panel .day-headline-actions{display:contents}
+  .astro-panel .day-energy-button{
+    grid-column:1;grid-row:2;
+    justify-self:start;
+    width:44px;min-width:44px;height:44px;min-height:44px;
+    padding:0;border-radius:50%;gap:0;
+    font-size:0;line-height:0;
+  }
+  .astro-panel .day-energy-button .day-energy-icon{
+    width:24px;height:24px;flex-basis:24px;
+  }
+  .astro-panel .day-energy-button .day-energy-icon svg{width:24px;height:24px}
+  .astro-panel .day-favorite-button{
+    grid-column:3;grid-row:2;
+    justify-self:end;
+    width:44px;height:44px;min-width:44px;min-height:44px;
+    flex-basis:auto;
+    padding:8px;
+  }
+  .astro-panel .day-favorite-button svg{width:23px;height:23px}
+
+  /* Zoom ornamental background slightly: hides its extra printed gold line.
+     Keep the outer frame like on the Moon and Zodiac cards. */
+  .triptych .feature.feature-focus{
+    background-size:113% 116%!important;
+  }
+  /* Bottom badge same height and footer spacing as the card above. */
+  .triptych .feature.feature-focus .focus-practice{
+    display:inline-flex;
+    align-items:center;justify-content:center;
+    width:auto;min-width:0;
+    max-width:calc(100% - 32px);
+    height:32px;min-height:32px;
+    margin:5px auto 10px;
+    padding:5px 17px;
+    font-size:12px;line-height:1.2;
+  }
+}
+
 </style></head><body><div class="site"><header class="hero" aria-label="Шапка календаря"><div class="hero-intro"><h1>Магия каждого дня. 2027 г. <span aria-hidden="true">✦</span></h1><p>Маленькое волшебство<br>каждого дня</p></div><div class="hero-right"><div class="hero-quote">Больше,<br>чем календарь —<br>это время для себя ♡</div><div class="hero-controls"><button type="button" class="hero-icon-button hero-search-button" data-action="header-search" title="Поиск по моим записям" aria-label="Поиск по моим записям"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m16.1 16.1 4.7 4.7"/></svg></button><button type="button" class="hero-icon-button hero-bell-button" data-action="header-reminders" title="Мои напоминания" aria-label="Мои напоминания"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 6.5-3 7.8-3 9h18c0-1.2-3-2.5-3-9Z"/><path d="M10 21h4"/></svg><span class="hero-alert-dot" id="heroAlertDot" hidden></span></button><div class="hero-profile-wrap"><button type="button" class="hero-profile-button" data-action="header-menu" aria-label="Открыть меню календаря" title="Меню календаря" aria-expanded="false" aria-controls="heroProfileMenu"><span class="hero-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.3 21c.8-4.4 4.1-7 7.7-7s6.9 2.6 7.7 7"/></svg></span><span class="hero-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="hero-profile-menu" id="heroProfileMenu" role="menu" hidden><button type="button" role="menuitem" data-action="plan">Добавить план</button><button type="button" role="menuitem" data-action="favorites">Избранные даты</button><button type="button" role="menuitem" data-action="settings">Настройки</button><button type="button" role="menuitem" data-action="access">Получить доступ</button></div></div></div></div></header><nav class="topnav" aria-label="Основные разделы календаря">
-<button type="button" class="topnav-card topnav-day" data-section="day"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
-<button type="button" class="topnav-card topnav-life active" data-section="life"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
-<button type="button" class="topnav-card topnav-work" data-section="work"><span class="topnav-art topnav-art-work" aria-hidden="true"></span><span class="topnav-copy"><b>Дело и возможности</b><small>Планы, финансы,<br>развитие и новые горизонты</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
+<button type="button" class="topnav-card topnav-day" data-section="day" aria-label="Мой день" title="Мой день"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
+<button type="button" class="topnav-card topnav-life active" data-section="life" aria-label="Жизнь и вдохновение" title="Жизнь и вдохновение"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
+<button type="button" class="topnav-card topnav-work" data-section="work" aria-label="Дело и возможности" title="Дело и возможности"><span class="topnav-art topnav-art-work" aria-hidden="true"></span><span class="topnav-copy"><b>Дело и возможности</b><small>Планы, финансы,<br>развитие и новые горизонты</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 </nav><div class="layout"><aside class="sidebar" aria-label="Боковое меню календаря">
 <button type="button" class="side-btn side-home" data-section="home"><span class="side-icon side-icon-home" aria-hidden="true"></span><span class="side-label">Главная</span></button>
 <button type="button" class="side-btn " data-section="calendar"><span class="side-icon side-icon-calendar" aria-hidden="true"></span><span class="side-label">Календарь</span></button>
@@ -1534,9 +1643,9 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
 <div class="side-deco"><div class="side-deco-text">Гармония<br>в каждом дне ♡</div></div>
 </aside><section class="calendar"><div class="calhead"><button id="prev" aria-label="Предыдущий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14 5-7 7 7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><h2 id="month">Ноябрь 2026</h2><button id="next" aria-label="Следующий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 5 7 7-7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особые даты</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline day-energy-headline">
   <div class="day-heading"><h2 id="dateTitle"></h2><small id="weekday"></small></div>
-  <p class="day-motto">«Вдохновение живёт в моментах,<br>когда сердце чувствует тепло»</p>
+  <p class="day-motto">«Вдохновение живёт в моментах,<br> когда сердце чувствует тепло»</p>
   <div class="day-headline-actions">
-    <button type="button" class="day-energy-button" data-action="energy" title="Подробная подсказка на выбранный день"><span class="day-energy-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 14.7 9.3 21.5 12l-6.8 2.7L12 21.5l-2.7-6.8L2.5 12l6.8-2.7Z"/><path d="M19 3.7v3.2m-1.6-1.6h3.2"/></svg></span> Энергия дня</button>
+    <button type="button" class="day-energy-button" data-action="energy" title="Энергия дня — подробная подсказка" aria-label="Энергия дня"><span class="day-energy-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 14.7 9.3 21.5 12l-6.8 2.7L12 21.5l-2.7-6.8L2.5 12l6.8-2.7Z"/><path d="M19 3.7v3.2m-1.6-1.6h3.2"/></svg></span> Энергия дня</button>
     <button type="button" class="day-favorite-button" id="energyFavorite" data-action="fav" title="Добавить выбранную дату в избранное" aria-label="Добавить выбранную дату в избранное" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.6a5.4 5.4 0 0 0 0-7.6Z"/></svg></button>
   </div>
 </div><div class="triptych"><div class="feature feature-moon"><h3 id="phaseTitle" class="moon-heading">Луна</h3><div class="imagearea moon-visual"><div class="moon-disc" id="moonDisc"></div></div><div class="moon-description"><p id="phaseHint">Ритм · обновление · равновесие</p></div></div><div class="feature feature-zodiac"><h3 id="signTitle">Луна в знаке</h3><div class="zodiac-glyph" id="zodiacGlyph" aria-hidden="true">♏</div><div class="imagearea zodiac-visual"><div class="zodiac-art" id="zodiacArt"></div></div><button type="button" class="footer zodiac-quality" id="signFooter" data-action="sign" title="Подробнее о знаке Луны">Образ дня</button></div><div class="feature feature-focus"><h3>Фокус дня:</h3><div class="focus-word" id="focusTitle">Намерение</div><div class="focus-scene" aria-hidden="true"></div><button type="button" class="smallbtn focus-practice" data-action="focus">Практика дня →</button></div></div></div></main><div class="below"><div class="cards" id="cards"></div><div class="widgets"><div class="widget"><h4><span class="widget-heading-main"><span class="widget-gold-icon"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="6" y="6" width="20" height="24" rx="3.5" fill="#f9e1a4" fill-opacity=".28" stroke="#c9964b" stroke-width="1.65"/><rect x="11" y="3" width="10" height="6" rx="2" fill="#ffecbf" stroke="#c9964b" stroke-width="1.4"/><path d="m10 18 4 4 8-9" fill="none" stroke="#d19a4a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="m11 18 3 3 8-8" fill="none" stroke="#fff5cf" stroke-width=".8" stroke-linecap="round"/></svg></span><span>Мои планы</span></span><button data-action="plan" aria-label="Добавить: Мои планы">+</button></h4><div id="plans"></div></div><div class="widget"><h4><span class="widget-heading-main"><span class="widget-gold-icon"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M9 23c3-4 3.7-7.5 3.7-13a3.3 3.3 0 0 1 6.6 0c0 5.5.7 9 3.7 13 1 1.2.6 2-1 2H10c-1.6 0-2-1-1-2Z" fill="#f6d99a" fill-opacity=".38" stroke="#c9964b" stroke-width="1.85" stroke-linejoin="round"/><path d="M13 26a3 3 0 0 0 6 0" fill="none" stroke="#c9964b" stroke-width="1.8"/><path d="M16 6V3" fill="none" stroke="#c9964b" stroke-width="1.8" stroke-linecap="round"/><path d="m25 4 1 3 3 1-3 1-1 3-1-3-3-1 3-1Z" fill="#e1ae59"/></svg></span><span>Напоминания</span></span><button data-action="reminder" aria-label="Добавить: Напоминания">+</button></h4><div id="reminders"></div></div><div class="widget"><h4><span class="widget-heading-main"><span class="widget-gold-icon"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="m16 2 4.2 8.8L30 12l-7 7.1 1.7 10-8.7-4.7-8.7 4.7L9 19.1 2 12l9.8-1.2Z" fill="#f9e1a4" fill-opacity=".4" stroke="#ca984c" stroke-width="1.75" stroke-linejoin="round"/><path d="m16 6 3.5 7.2 7.5 1-5.4 5.4 1.2 6.3-6.8-3.5" fill="none" stroke="#fff8d8" stroke-width="1" stroke-linecap="round"/></svg></span><span>Избранное</span></span><button data-action="fav" aria-label="Добавить: Избранное">+</button></h4><div id="favorites"></div></div></div></div><section class="extra extra-full-year" aria-label="Полный календарь на 2027 год">
