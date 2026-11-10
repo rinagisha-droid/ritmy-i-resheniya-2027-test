@@ -1505,22 +1505,22 @@ button.showcase-date.hinted:after{
       <div class="pricing-columns">
         <div class="pricing-ladder" aria-label="Этапы стоимости доступа к 2027 году">
           <div class="pricing-step" data-rate-step="early">
-            <div><strong>Цена открытия</strong><small>до 20 ноября 2026 включительно</small></div>
+            <div><strong>Цена открытия</strong><small>до 30 ноября 2026 включительно</small></div>
             <b>990 ₽</b>
           </div>
           <div class="pricing-step" data-rate-step="mid">
-            <div><strong>Вторая цена</strong><small>с 21 по 30 ноября 2026</small></div>
+            <div><strong>Вторая цена</strong><small>с 1 по 15 декабря 2026</small></div>
             <b>1 590 ₽</b>
           </div>
           <div class="pricing-step" data-rate-step="regular">
-            <div><strong>Постоянная цена</strong><small>с 1 декабря 2026</small></div>
+            <div><strong>Постоянная цена</strong><small>с 16 декабря 2026</small></div>
             <b>1 990 ₽</b>
           </div>
         </div>
         <div class="pricing-purchase">
           <p class="pricing-purchase-label">АКТУАЛЬНАЯ СТОИМОСТЬ</p>
           <div class="pricing-big-price" id="currentPrice">990 ₽</div>
-          <p class="pricing-validity" id="currentPricePeriod">до 20 ноября включительно</p>
+          <p class="pricing-validity" id="currentPricePeriod">до 30 ноября включительно</p>
           <div class="pricing-benefits">
             <span>Все 12 месяцев 2027</span><span>Три раздела</span>
             <span>Планы и напоминания</span><span>Лунные ритмы</span>
@@ -1530,7 +1530,6 @@ button.showcase-date.hinted:after{
           <p class="pricing-access-note">Перед оплатой откроются необходимые согласия. Автоматическая выдача персонального доступа пока настраивается; сохраните чек об оплате.</p>
         </div>
       </div>
-      <p class="pricing-zone-note">Смена цены происходит автоматически по датам, указанным выше, по времени Уфы (UTC+5). Цена в платёжной форме должна совпадать с указанной здесь.</p>
     </div>
     <div class="pricing-free">
       <div><strong>Сначала хочется посмотреть?</strong><p>Откройте бесплатную демоверсию и познакомьтесь с оформлением и функциями календаря.</p></div>
@@ -1552,7 +1551,7 @@ button.showcase-date.hinted:after{
     <details><summary>Подойдёт ли календарь, если я не увлекаюсь астрологией?</summary><p>Да. Вы можете пользоваться планами, напоминаниями и практиками без специальных знаний. Лунные ритмы и знаки зодиака — дополнительные символические ориентиры, а не обязательные правила или точные прогнозы.</p></details>
     <details><summary>Что я могу делать в календаре?</summary><p>Выбирать даты, смотреть лунные ритмы и ежедневные ориентиры, записывать планы, добавлять напоминания и сохранять интересные дни в избранное.</p></details>
     <details><summary>Сохранятся ли мои планы и напоминания?</summary><p>Да, в том браузере, где вы их добавили. При смене устройства или очистке данных браузера записи могут не сохраниться, поэтому важную информацию лучше дублировать у себя.</p></details>
-    <details><summary>Сколько стоит календарь на 2027 год?</summary><p>До 20 ноября 2026 включительно — 990 ₽, с 21 по 30 ноября — 1 590 ₽, с 1 декабря — 1 990 ₽. Это цена доступа на весь 2027 год, а не ежемесячная подписка.</p></details>
+    <details><summary>Сколько стоит календарь на 2027 год?</summary><p>До 30 ноября 2026 включительно — 990 ₽, с 1 по 15 декабря — 1 590 ₽, с 16 декабря — 1 990 ₽. Это цена доступа на весь 2027 год, а не ежемесячная подписка.</p></details>
     <details><summary>Как оплатить календарь?</summary><p>Нажмите «Открыть мой 2027», ознакомьтесь с условиями и подтвердите необходимые согласия. Затем откроется платёжная форма Prodamus. Перед оплатой проверьте стоимость и условия получения доступа.</p></details>
     <details><summary>Подойдёт ли календарь для работы и личных дел?</summary><p>Да. Раздел «Мой день» помогает с планами, «Жизнь и вдохновение» — с заботой о себе и отношениями, а «Дело и возможности» — с рабочими задачами, деньгами и решениями.</p></details>
     <details><summary>Календарь гарантирует, что всё получится?</summary><p>Нет. Это инструмент для наблюдений, планирования и небольших действий. Решения и результаты зависят от вас и реальных обстоятельств.</p></details>
@@ -1596,9 +1595,9 @@ button.showcase-date.hinted:after{
   // Published prices use the seller's Ufa time (Asia/Yekaterinburg, UTC+5).
   // The Prodamus payment links must have matching amounts and expiry rules.
   const rates={
-    early:{amount:990,price:'990 ₽',label:'Весь 2027 год · цена открытия',period:'до 20 ноября 2026 включительно',url:'https://payform.ru/3ncUG4q/'},
-    mid:{amount:1590,price:'1 590 ₽',label:'Весь 2027 год · вторая цена',period:'с 21 по 30 ноября 2026',url:'https://payform.ru/tlcVAdY/'},
-    regular:{amount:1990,price:'1 990 ₽',label:'Весь 2027 год · постоянная цена',period:'с 1 декабря 2026',url:'https://payform.ru/5fcZj1G/'}
+    early:{amount:990,price:'990 ₽',label:'Весь 2027 год · цена открытия',period:'до 30 ноября 2026 включительно',url:'https://payform.ru/3ncUG4q/'},
+    mid:{amount:1590,price:'1 590 ₽',label:'Весь 2027 год · вторая цена',period:'с 1 по 15 декабря 2026',url:'https://payform.ru/tlcVAdY/'},
+    regular:{amount:1990,price:'1 990 ₽',label:'Весь 2027 год · постоянная цена',period:'с 16 декабря 2026',url:'https://payform.ru/5fcZj1G/'}
   };
   const dialog=document.getElementById('payDialog');
   const form=document.getElementById('payForm');
@@ -1614,8 +1613,8 @@ button.showcase-date.hinted:after{
   }
   function activeRateKey(){
     const day=ufaDayKey();
-    if(day<=20261120)return 'early';
-    if(day<=20261130)return 'mid';
+    if(day<=20261130)return 'early';
+    if(day<=20261215)return 'mid';
     return 'regular';
   }
   function reflectRate(){
