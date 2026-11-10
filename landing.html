@@ -925,6 +925,87 @@ button.showcase-date.hinted:after{
   .hero .preview-card.soft img{width:min(88%,210px);height:auto}
   .hero .preview-card.focus img{width:min(96%,260px);height:auto}
 }
+
+/* Hero artwork reconstructed for mobile; original desktop preview is intact. */
+.mobile-preview-art{display:none}
+@media(max-width:680px){
+  .hero .preview-cards .preview-card{
+    position:relative;
+    isolation:isolate;
+    min-height:0;
+    padding:17px 14px 15px;
+    gap:12px;
+    background-size:100% 100%;
+  }
+  .hero .preview-cards .preview-card > img{display:none!important}
+  .hero .preview-cards .mobile-preview-art{
+    position:relative;
+    display:block;
+    margin:0 auto;
+    flex:0 0 auto;
+    max-width:100%;
+    box-sizing:border-box;
+    border:0;
+    background-color:transparent;
+    box-shadow:none;
+    overflow:visible;
+  }
+  .hero .preview-cards .mobile-moon-globe{
+    width:min(88%,276px);
+    height:auto;
+    aspect-ratio:1;
+    filter:drop-shadow(0 0 12px rgba(238,216,174,.38));
+    border-radius:50%;
+  }
+  .hero .preview-cards .mobile-scorpio-art{
+    width:min(87%,272px);
+    aspect-ratio:1;
+    background-image:url("assets/zodiac-atlas-v1.webp");
+    /* Full-body Scorpio is the 4th image in the 2nd atlas row. */
+    background-position:100% 50%;
+    background-size:400% 300%;
+    background-repeat:no-repeat;
+    mix-blend-mode:screen;
+    -webkit-mask-image:radial-gradient(ellipse 67% 67% at 50% 48%,#000 39%,rgba(0,0,0,.96) 55%,rgba(0,0,0,.72) 70%,transparent 91%);
+    mask-image:radial-gradient(ellipse 67% 67% at 50% 48%,#000 39%,rgba(0,0,0,.96) 55%,rgba(0,0,0,.72) 70%,transparent 91%);
+  }
+  .hero .preview-cards .mobile-focus-art{
+    width:min(96%,312px);
+    aspect-ratio:1.55;
+    margin-top:2px;
+    margin-bottom:2px;
+    background-image:url("assets/focus.webp");
+    background-position:50% 50%;
+    background-size:100% auto;
+    background-repeat:no-repeat;
+    mix-blend-mode:screen;
+    /* Feather all four edges: no rectangular picture inside the card. */
+    -webkit-mask-image:radial-gradient(ellipse 71% 73% at 50% 50%,#000 35%,rgba(0,0,0,.97) 52%,rgba(0,0,0,.70) 70%,transparent 95%);
+    mask-image:radial-gradient(ellipse 71% 73% at 50% 50%,#000 35%,rgba(0,0,0,.97) 52%,rgba(0,0,0,.70) 70%,transparent 95%);
+  }
+  .hero .preview-cards .preview-card.soft{
+    min-height:355px;
+  }
+  .hero .preview-cards .preview-card.zodiac{
+    min-height:350px;
+  }
+  .hero .preview-cards .preview-card.focus{
+    min-height:335px;
+  }
+  .hero .preview-cards .preview-card .footer-pill{
+    position:relative;
+    z-index:1;
+  }
+}
+@media(max-width:370px){
+  .hero .preview-cards .mobile-moon-globe{width:min(85%,238px)}
+  .hero .preview-cards .mobile-scorpio-art{width:min(88%,244px)}
+  .hero .preview-cards .mobile-focus-art{width:min(97%,274px)}
+  .hero .preview-cards .preview-card.soft,
+  .hero .preview-cards .preview-card.zodiac{min-height:320px}
+  .hero .preview-cards .preview-card.focus{min-height:305px}
+}
+
 </style>
 </head>
 <body>
@@ -955,9 +1036,9 @@ button.showcase-date.hinted:after{
       <div class="preview-label"><span>Мой день</span><small>Внутри календаря</small></div>
       <div class="preview-topline"><span>Луна</span><span>Знаки зодиака</span><span>Фокус дня</span></div>
       <div class="preview-cards" aria-label="Три карточки календаря">
-        <div class="preview-card soft"><h3>Фазы Луны</h3><img src="assets/moon.webp" alt="Объёмная Луна на звёздном фоне" loading="eager"><span class="footer-pill">Наблюдать · замечать</span></div>
-        <div class="preview-card zodiac"><h3>Луна в Скорпионе</h3><img src="assets/scorpio.webp" alt="Золотистый скорпион на звёздном фоне" loading="eager"><span class="footer-pill">Глубина · честность</span></div>
-        <div class="preview-card focus"><h3>Фокус дня:</h3><span class="focus-keyword">Намерение</span><img src="assets/focus.webp" alt="Уютная чашка со снежинкой среди хвойных веточек и свечей" loading="eager"><span class="footer-pill">Практика дня →</span></div>
+        <div class="preview-card soft"><h3>Фазы Луны</h3><img src="assets/moon.webp" alt="Объёмная Луна на звёздном фоне" loading="eager"><canvas class="mobile-preview-art mobile-moon-globe" width="360" height="360" role="img" aria-label="Целая трёхмерная Луна на звёздном фоне"></canvas><span class="footer-pill">Наблюдать · замечать</span></div>
+        <div class="preview-card zodiac"><h3>Луна в Скорпионе</h3><img src="assets/scorpio.webp" alt="Золотистый скорпион на звёздном фоне" loading="eager"><span class="mobile-preview-art mobile-scorpio-art" role="img" aria-label="Целый объёмный золотисто-синий Скорпион на звёздном фоне"></span><span class="footer-pill">Глубина · честность</span></div>
+        <div class="preview-card focus"><h3>Фокус дня:</h3><span class="focus-keyword">Намерение</span><img src="assets/focus.webp" alt="Уютная чашка со снежинкой среди хвойных веточек и свечей" loading="eager"><span class="mobile-preview-art mobile-focus-art" role="img" aria-label="Чашка среди зимних ветвей, вписанная в звёздный фон"></span><span class="footer-pill">Практика дня →</span></div>
       </div>
       <div class="preview-note"><i aria-hidden="true"></i><span>Выберите дату и откройте свою подсказку</span></div>
     </div>
@@ -1516,5 +1597,70 @@ button.showcase-date.hinted:after{
   draw();
 })();
 </script>
+
+<script>
+/* Render a full lunar globe from the existing NASA lunar texture.
+   The old, intrinsically cropped thumbnail remains available on desktop. */
+(function(){
+  'use strict';
+  const canvas=document.querySelector('.mobile-moon-globe');
+  if(!canvas)return;
+  const media=window.matchMedia('(max-width:680px)');
+  let started=false;
+  function renderMoon(){
+    if(started||!media.matches)return;
+    started=true;
+    const texture=new Image();
+    texture.onload=function(){
+      try{
+        const src=document.createElement('canvas');
+        src.width=texture.naturalWidth;src.height=texture.naturalHeight;
+        const srcCtx=src.getContext('2d',{willReadFrequently:true});
+        srcCtx.drawImage(texture,0,0);
+        const srcData=srcCtx.getImageData(0,0,src.width,src.height).data;
+        const w=canvas.width,h=canvas.height;
+        const ctx=canvas.getContext('2d');
+        const output=ctx.createImageData(w,h),pixels=output.data;
+        const cx=w/2,cy=h/2,radius=w*.456;
+        // Crescent illumination from upper left with faint earthshine.
+        const light=[-.8,.035,-.6];
+        for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+          const nx=((x+.5)-cx)/radius,ny=(cy-(y+.5))/radius;
+          const rr=nx*nx+ny*ny;
+          if(rr>=1)continue;
+          const nz=Math.sqrt(1-rr);
+          const lon=Math.atan2(nx,nz);
+          const lat=Math.asin(Math.max(-1,Math.min(1,ny)));
+          const u=((.5+lon/(2*Math.PI))%1+1)%1;
+          const v=.5-lat/Math.PI;
+          const sx=Math.min(src.width-1,Math.floor(u*src.width));
+          const sy=Math.max(0,Math.min(src.height-1,Math.floor(v*src.height)));
+          const from=4*(sy*src.width+sx);
+          const dot=nx*light[0]+ny*light[1]+nz*light[2];
+          const sun=Math.pow(Math.max(0,dot),.52);
+          const brightness=.14+.98*sun;
+          const edge=Math.max(0,Math.min(1,(1-Math.sqrt(rr))*radius/2.2));
+          const to=4*(y*w+x);
+          for(let k=0;k<3;k++){
+            const base=srcData[from+k];
+            pixels[to+k]=Math.min(255,base*brightness*1.18+sun*5);
+          }
+          pixels[to+3]=Math.round(255*edge);
+        }
+        ctx.putImageData(output,0,0);
+      }catch(e){showFallback();}
+    };
+    texture.onerror=showFallback;
+    texture.src='assets/moon-nasa.jpg';
+  }
+  function showFallback(){
+    // Avoid the source's cropped moon even when Canvas is unavailable.
+    canvas.style.background='radial-gradient(circle at 72% 45%,rgba(0,0,0,.74) 0 50%,transparent 80%), url("assets/moon-nasa.jpg") center / auto 100% no-repeat';
+  }
+  if(media.matches)renderMoon();
+  else if(media.addEventListener)media.addEventListener('change',renderMoon);
+})();
+</script>
+
 </body>
 </html>
