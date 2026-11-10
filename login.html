@@ -36,19 +36,20 @@
   .back:hover{text-decoration:underline}
   .foot{font:12px/1.5 Arial,sans-serif;color:#a2c4b5;text-align:center;margin:20px 4px 0}
   [hidden]{display:none!important}
- </style>
+ .calendar-open .shell{display:none}.calendar-open #paidCalendar{display:block!important}#paidCalendar[hidden]{display:none!important}
+</style>
 </head>
 <body>
 <main class="shell">
  <section class="panel" aria-labelledby="title">
   <div class="eyebrow">✦ Магия каждого дня · 2027</div>
   <h1 id="title">Ваш календарь ждёт вас</h1>
-  <p class="intro">Здесь будет личный вход для покупателей. После проверки оплаты доступ откроется до 31 декабря 2027 года.</p>
+  <p class="intro">Личный вход в календарь. Полная версия откроется после проверки подтверждённой оплаты и действует до 31 декабря 2027 года.</p>
   <form id="loginForm" hidden>
     <label for="email">Электронная почта для входа</label>
     <input id="email" type="email" autocomplete="email" inputmode="email" required placeholder="name@example.com">
     <button class="primary" id="loginButton" type="submit">Получить ссылку для входа</button>
-    <p class="help">Вам придёт одноразовая ссылка. Позже можно настроить и вход по цифровому коду. Оплата сама по себе не происходит на этой странице.</p>
+    <p class="help">Вам придёт одноразовая ссылка. Используйте электронную почту, связанную с покупкой. Если письма нет, проверьте «Спам».</p>
   </form>
   <div id="account" hidden>
     <p id="accountEmail" class="help"></p>
@@ -58,6 +59,7 @@
     </div>
     <div class="exit">
       <button id="recheck" type="button" class="secondary">Проверить снова</button>
+      <button id="openCalendar" type="button" class="primary" hidden>Открыть полный календарь ✨</button>
       <button id="logout" type="button" class="secondary">Выйти</button>
     </div>
   </div>
@@ -66,6 +68,7 @@
  </section>
  <p class="foot">Демо-календарь пока открыт отдельно. Эта страница не выдаёт доступ без подтверждённой покупки.</p>
 </main>
+<iframe id="paidCalendar" title="Полная версия календаря «Магия каждого дня. 2027 г.»" hidden referrerpolicy="no-referrer" style="width:100%;height:100vh;border:0;display:block"></iframe>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="access/config.js"></script>
 <script>
@@ -88,40 +91,61 @@
     if(!client||!currentUser)return;
     $('recheck').disabled=true;
     $('accessTitle').textContent='Проверяем покупку…';
-    $('accessDescription').textContent='Запрашиваем статус оплаченного доступа.';
+    $('accessDescription').textContent='Запрашиваем защищённую проверку оплаченного доступа.';
     try{
-      const res=await client.from('magic_calendar_access')
-        .select('id,expires_at,revoked_at,order_id')
-        .eq('buyer_id',currentUser.id)
-        .is('revoked_at',null).gt('expires_at',new Date().toISOString())
-        .order('expires_at',{ascending:false}).limit(1);
-      if(res.error)throw res.error;
-      const access=res.data&&res.data[0];
-      if(!access){
+      const {data:{session}}=await client.auth.getSession();
+      if(!session)throw Error('Войдите заново для проверки.');
+      const response=await fetch(config.protectedCalendarUrl+'?mode=check',{
+        method:'GET',cache:'no-store',headers:{
+          'apikey':config.publishableKey,
+          'Authorization':'Bearer '+session.access_token
+        }
+      });
+      const result=await response.json();
+      if(response.status===403){
         $('accessTitle').textContent='Доступ пока не активирован';
-        $('accessDescription').textContent='В базе пока нет действующего права доступа для этой почты. После подтверждённой оплаты статус появится здесь. Если вы уже оплатили, свяжитесь с продавцом и сообщите номер заказа.';
-        notify('Вы вошли в личный кабинет. Оплаченный доступ пока не найден.');
+        $('accessDescription').textContent='Оплаченный доступ для этой почты ещё не подтверждён. Если вы уже покупали календарь, обратитесь к продавцу с номером заказа.';
+        $('openCalendar').hidden=true;
+        notify('Пока доступна бесплатная демоверсия.','info');
         return;
       }
-      const order=await client.from('magic_calendar_orders').select('status')
-        .eq('id',access.order_id).eq('buyer_id',currentUser.id).limit(1);
-      if(order.error)throw order.error;
-      if(!order.data||!order.data.length||order.data[0].status!=='paid'){
-        $('accessTitle').textContent='Ожидаем подтверждение оплаты';
-        $('accessDescription').textContent='Право доступа будет подтверждено после проверки статуса заказа на сервере.';
-        notify('Статус заказа пока не «оплачено».');
-        return;
+      if(!response.ok)throw Error(result.error||'Ошибка проверки');
+      if(result.has_access){
+        const ends=new Date(result.expires_at).toLocaleDateString('ru-RU',{timeZone:'Europe/Moscow',day:'numeric',month:'long',year:'numeric'});
+        $('accessTitle').textContent='Ваш календарь готов ✨';
+        $('accessDescription').textContent='Оплата подтверждена. Полная версия доступна до '+ends+' включительно.';
+        $('openCalendar').hidden=false;
+        notify('Доступ подтверждён. Нажмите «Открыть полный календарь».','success');
       }
-      const ends=new Date(access.expires_at).toLocaleDateString('ru-RU',{timeZone:'Asia/Yekaterinburg',day:'numeric',month:'long',year:'numeric'});
-      $('accessTitle').textContent='Покупка подтверждена';
-      $('accessDescription').textContent='Ваш доступ в базе активен до '+ends+'. Защищённая версия самого календаря подключается отдельно; публичный index.html не является платной защитой.';
-      notify('Статус оплаты и срока доступа подтверждён.', 'success');
     }catch(err){
-      $('accessTitle').textContent='Проверка пока недоступна';
-      $('accessDescription').textContent='Сервис проверки доступа ещё настраивается. Это не означает, что ваша покупка потеряна.';
-      notify('Не удалось проверить доступ. '+(err&&err.message?err.message:'Повторите позже.'),'error');
+      $('accessTitle').textContent='Не удалось проверить доступ';
+      $('accessDescription').textContent='Попробуйте повторить проверку. Это не означает, что заказ потерян.';
+      $('openCalendar').hidden=true;
+      notify(err&&err.message?err.message:'Ошибка проверки','error');
     }finally{$('recheck').disabled=false}
   }
+  async function openCalendar(){
+    $('openCalendar').disabled=true;
+    try {
+      const {data:{session}}=await client.auth.getSession();
+      if(!session)throw Error('Войдите заново.');
+      const response=await fetch(config.protectedCalendarUrl+'?mode=html',{
+        method:'GET',cache:'no-store',headers:{
+          'apikey':config.publishableKey,
+          'Authorization':'Bearer '+session.access_token
+        }
+      });
+      const payload=await response.json();
+      if(!response.ok||!payload.has_access||!payload.html)throw Error('Доступ не подтверждён. Выполните проверку снова.');
+      const frame=$('paidCalendar');
+      frame.srcdoc=payload.html;
+      frame.hidden=false;
+      document.body.classList.add('calendar-open');
+      window.scrollTo(0,0);
+    }catch(err){notify(err.message||'Не удалось открыть календарь','error')}
+    finally{$('openCalendar').disabled=false}
+  }
+  $('openCalendar').addEventListener('click',openCalendar);
   async function init(){
     const url=config.projectUrl, key=config.publishableKey;
     if(!url||!/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(url)||!key||!key.startsWith('sb_publishable_')){
