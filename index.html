@@ -1813,6 +1813,19 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
 .hub-retro-status{margin:0 0 14px;padding:9px 12px;border-radius:10px;border:1px solid rgba(220,181,113,.4);font:12px/1.5 Arial,sans-serif;color:#edddb4;background:rgba(255,255,255,.07)}
 .guide-retro-details{font:12px/1.6 Arial,sans-serif;color:#436356;background:#edf3ea;border:1px solid #d2d9c2;border-radius:11px;padding:10px 12px;margin-top:13px}
 
+
+/* PRACTICAL_DAILY_ADVICE_V1 – decisive, useful text and sign-based color swatches. */
+.guide-advice-status{display:inline-block;margin:7px 0 6px;padding:6px 11px;border-radius:99px;background:#e6eedf;border:1px solid #c8d9bb;color:#28513e;font:700 12px/1.3 Arial,sans-serif}
+.guide-color-palette{margin-top:12px;border-top:1px solid #d8d3bd;padding-top:12px;color:#315046}
+.guide-color-palette>strong{font:700 13px/1.35 Arial,sans-serif}
+.guide-color-palette>span{display:block;margin:3px 0 9px;color:#607469;font:12px/1.4 Arial,sans-serif}
+.guide-swatch-row{display:flex;flex-wrap:wrap;gap:7px}
+.guide-swatch-item{display:inline-flex;align-items:center;gap:6px;border:1px solid #d5cbb7;background:#fffdf7;border-radius:90px;padding:5px 9px;color:#344c43;font:11px/1.2 Arial,sans-serif}
+.guide-swatch-item i{display:inline-block;width:17px;height:17px;flex:none;border:1px solid #a69f95;border-radius:50%}
+.guide-advice-origin{font:11px/1.55 Arial,sans-serif!important;color:#6d7b70!important;border-top:1px solid #dcd8c7;padding-top:10px;margin-top:12px!important}
+.hub-result p b{color:#34594b}
+.guide-primary p b{color:#255349}
+@media(max-width:570px){.guide-swatch-row{gap:5px}.guide-swatch-item{font-size:10px;padding:5px 7px}}
 </style></head><body><div class="site"><header class="hero" aria-label="Шапка календаря"><div class="hero-intro"><h1>Магия каждого дня. 2027 г. <span aria-hidden="true">✦</span></h1><p>Маленькое волшебство<br>каждого дня</p></div><div class="hero-right"><div class="hero-quote">Больше,<br>чем календарь —<br>это время для себя ♡</div><div class="hero-controls"><button type="button" class="hero-icon-button hero-search-button" data-action="header-search" title="Поиск по моим записям" aria-label="Поиск по моим записям"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m16.1 16.1 4.7 4.7"/></svg></button><button type="button" class="hero-icon-button hero-bell-button" data-action="header-reminders" title="Мои напоминания" aria-label="Мои напоминания"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 6.5-3 7.8-3 9h18c0-1.2-3-2.5-3-9Z"/><path d="M10 21h4"/></svg><span class="hero-alert-dot" id="heroAlertDot" hidden></span></button><div class="hero-profile-wrap"><button type="button" class="hero-profile-button" data-action="header-menu" aria-label="Открыть меню календаря" title="Меню календаря" aria-expanded="false" aria-controls="heroProfileMenu"><span class="hero-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.3 21c.8-4.4 4.1-7 7.7-7s6.9 2.6 7.7 7"/></svg></span><span class="hero-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="hero-profile-menu" id="heroProfileMenu" role="menu" hidden><button type="button" role="menuitem" data-action="plan">Добавить план</button><button type="button" role="menuitem" data-action="favorites">Избранные даты</button><button type="button" role="menuitem" data-action="settings">Настройки</button><button type="button" role="menuitem" data-action="access">Получить доступ</button></div></div></div></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day" aria-label="Мой день" title="Мой день"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life" aria-label="Жизнь и вдохновение" title="Жизнь и вдохновение"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
@@ -2185,14 +2198,7 @@ function guideEventExplanation(label,area){
 function guideOpenDetailedDate(k){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(k)||k<minDate||k>maxDate||key(parse(k))!==k)return;
  selected=parse(k);shown=new Date(selected.getFullYear(),selected.getMonth(),1);render();
- const area=guideArea(),topic=guideTopicSelection(),cfg=guideTips[topic.item[0]],angle=guideAngle(selected);
- let phase='Фаза уточняется',idx=2;
- if(Number.isFinite(angle)){
-  if(guideDist(angle,0)<11)phase='Новолуние';
-  else if(guideDist(angle,180)<11)phase='Полнолуние';
-  else if(angle<170){phase='Растущая Луна';idx=0}
-  else{phase='Убывающая Луна';idx=1}
- }
+ const area=guideArea(),topic=guideTopicSelection(),rec=guideRecommendation(topic.item[0],k);
  const eventsHere=guideMonthEvents(selected.getFullYear(),selected.getMonth()).filter(v=>v[0]===k).map(v=>v[1]);
  // Only exact astronomical/symbolic events have accordions. The ongoing
  // middle of a retrograde period is a small status, not a repeated event.
@@ -2205,10 +2211,9 @@ function guideOpenDetailedDate(k){
  }).join(''):'';
  const sectionName=area==='work'?'Дело и возможности':area==='day'?'Мой день':'Жизнь и вдохновение';
  const body='<div class="guide-detail-content">'+
-  '<p class="guide-detail-meta">'+esc(sectionName)+' · '+esc(phase)+'</p>'+
-  '<section class="guide-primary"><span class="guide-main-tag">ТЕМА ДНЯ</span><h4>'+esc(topic.item[2])+'</h4><p>'+esc(cfg[idx])+'</p>'+
-  '<h5>Практическая рекомендация</h5><p>'+esc(cfg[3])+'</p>'+
-  (cfg[4]?'<p class="guide-small-note">'+esc(cfg[4])+'</p>':'')+'</section>'+
+  '<p class="guide-detail-meta">'+esc(sectionName)+' · '+esc(rec.context)+'</p>'+
+  '<section class="guide-primary"><span class="guide-main-tag">РЕКОМЕНДАЦИЯ ДНЯ</span><h4>'+esc(rec.title)+'</h4>'+
+  guideAdviceHTML(rec,false)+'</section>'+
   (eventsHere.length?'<p class="guide-detail-intro">Особенная дата <small>Нажмите на стрелку, чтобы раскрыть</small></p><div class="guide-accordions">'+folds+'</div>':'')+
   (retroOngoing.length?'<p class="guide-retro-details">'+retroOngoing.map(esc).join(' · ')+'</p>':'')+
   '<p class="guide-small-note">Астрологические рекомендации — символические. Они не гарантируют результат и не заменяют проверку реальных обстоятельств.</p></div>';
@@ -2218,6 +2223,132 @@ function guideOpenDetailedDate(k){
   ['+ Добавить план',()=>{closeModal();add('plan')}]
  ]);
  const dialogPanel=$('dialog').querySelector('.modal');dialogPanel.classList.add('guide-detail-modal');dialogPanel.scrollTop=0;
+}
+
+
+/* PRACTICAL_DAILY_ADVICE_V1
+   An original editorial lunar-zodiac ruleset; never a medical or financial promise.
+   Sign descriptions + color archetypes reference the user's Moon/Venus learning notes.
+   Beauty selection follows phase + sign, not Friday-the-13th superstition. */
+const guideSignAesthetics=[
+ {name:'Овен',colors:[['коралловый','#e66455'],['красный','#b52d39'],['золотой','#d4a651']],mood:'смелый акцент'},
+ {name:'Телец',colors:[['молочный','#f0eadc'],['шалфейный','#849c7b'],['пудровый','#d9b1a7']],mood:'спокойная роскошь'},
+ {name:'Близнецы',colors:[['лимонный','#e8db72'],['лавандовый','#b8a4d2'],['небесный','#92bbd5']],mood:'лёгкий эксперимент'},
+ {name:'Рак',colors:[['жемчужный','#f0eee8'],['серебряный','#aab9c7'],['молочный','#e9dcca']],mood:'мягкий уход'},
+ {name:'Лев',colors:[['золотой','#d7ad47'],['янтарный','#c98a35'],['алый','#c3463c']],mood:'яркий эффект'},
+ {name:'Дева',colors:[['бежевый','#d0bea9'],['оливковый','#7e8663'],['молочный','#f0e7d7']],mood:'аккуратный минимализм'},
+ {name:'Весы',colors:[['пыльная роза','#c99da6'],['нюд','#d9b99d'],['сиреневый','#b5a4c8']],mood:'нежный баланс'},
+ {name:'Скорпион',colors:[['бордовый','#71313f'],['графит','#51515c'],['сливовый','#654169']],mood:'глубокий драматичный оттенок'},
+ {name:'Стрелец',colors:[['фиолетовый','#714d94'],['синий','#4167a0'],['золотой','#d9ae59']],mood:'яркость и свобода'},
+ {name:'Козерог',colors:[['чёрный','#28282f'],['графит','#515966'],['тауп','#9e8d80']],mood:'сдержанная классика'},
+ {name:'Водолей',colors:[['электрик','#3362c1'],['серебро','#afbcc7'],['бирюза','#51a6a7']],mood:'необычный дизайн'},
+ {name:'Рыбы',colors:[['лавандовый','#aca6ce'],['морская волна','#71aca6'],['перламутр','#dad7e9']],mood:'нежные переливы'}
+];
+const guideSignPractice=[
+ 'Не тяните с первым действием: сделайте короткий пробный шаг.',
+ 'Проверьте цену, качество и удобство перед покупкой или записью.',
+ 'Напишите короткое сообщение и уточните вопросы, чтобы избежать путаницы.',
+ 'Начните с вопроса о потребностях — своих или близких.',
+ 'Покажите результат и разрешите себе быть заметнее.',
+ 'Пройдитесь по чек-листу: мелочи сегодня важнее эффектных обещаний.',
+ 'Сравните два варианта и выберите тот, где больше баланса.',
+ 'Уберите лишнее и проверьте скрытые условия и обязательства.',
+ 'Выберите тему для обучения или новый маршрут.',
+ 'Составьте расписание и определите реальный бюджет.',
+ 'Испытайте нестандартный формат в небольшом масштабе.',
+ 'Оставьте запас времени и восстановите силы перед новым этапом.'
+];
+const guideWeekdays=['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
+function guideSignAt(k){
+ try{
+  if(k===key(selected)){const v=data();if(Number.isInteger(v.z)&&v.z>=0&&v.z<12)return v.z}
+  const lunar=LunarView.state(new Date(k+'T12:00:00+05:00'));
+  return Number.isInteger(lunar.z)&&lunar.z>=0&&lunar.z<12?lunar.z:null;
+ }catch(err){return null}
+}
+function guideRecommendation(topic,k){
+ const d=parse(k),a=guideAngle(d),sign=guideSignAt(k),
+ palette=guideSignAesthetics[sign??5],z=sign??5;
+ const growing=Number.isFinite(a)&&a>10&&a<170;
+ const shrinking=Number.isFinite(a)&&a>190&&a<350;
+ const day=guideWeekdays[d.getDay()];
+ const zodiacHint=sign===null?'Лунный знак уточняется':'Луна в знаке '+palette.name;
+ const context=zodiacHint+' · '+day;
+ const results={title:'План на день',status:'Можно планировать',action:'Выберите одно дело и определите, что для него понадобится.',skip:'Не пытайтесь сделать всё сразу.',why:guideSignPractice[z],colors:[],context};
+ const set=(title,status,action,skip,why)=>Object.assign(results,{title,status,action,skip,why});
+ switch(topic){
+  case 'hair':{
+   const strong=z===4||z===5,delicate=z===3||z===11;
+   set('Стрижка и волосы',
+    strong&&growing?'Подходит для отращивания длины':strong&&shrinking?'Подходит, чтобы сохранить форму':delicate?'Лучше без резкой смены образа':growing?'Можно освежить стрижку':shrinking?'Можно подровнять кончики':'День для ухода',
+    strong&&growing?'Если отращиваете длину, можно записаться на стрижку кончиков.':strong&&shrinking?'Если хотите дольше сохранять форму короткой стрижки, присмотритесь к этой дате.':delicate?'Выберите привычный уход или консультацию; кардинальную смену образа по нашему лунному фильтру лучше перенести.':growing?'Можно обновить форму стрижки или обсудить новый образ с мастером.':shrinking?'Если цель — сохранить короткую форму, рассмотрите небольшую корректировку.':'Подберите референсы и согласуйте с мастером будущую стрижку.',
+    'Не экспериментируйте с осветлением без проверки состояния волос.',
+    'По выбранной лунной схеме для стрижек учитываем фазу и знак: Лев и Дева усиливают выбор, Рак и Рыбы дают более осторожную оценку.');
+   break;
+  }
+  case 'manicure':{
+   const strong=z===9,earth=z===1||z===5;
+   const friday=d.getDay()===5;
+   set('Маникюр и палитра дня',
+     strong?'Хорошее окно для маникюра':earth?'Подходит для аккуратного маникюра':friday?'Можно обновить маникюр':'Можно выбрать цвет и записаться',
+     strong?'Если давно откладывали маникюр, можно записаться. Выбирайте ровную форму и аккуратное покрытие.':earth?'Подойдёт спокойный маникюр: короткая или средняя длина, чистая форма и один красивый оттенок.':friday?'Пятница — день Венеры: можно устроить себе красивый ритуал ухода или обновить покрытие.':'Если запись удобна, делайте маникюр. Для нового образа присмотритесь к оттенкам дня.',
+     'При раздражении или повреждении кожи отложите покрытие и сначала восстановите кожу.',
+     'Палитра подобрана по архетипу лунного знака; пятницу используем как тему Венеры, а не как запрет или обязательную дату.');
+   results.colors=palette.colors;
+   results.style=palette.mood;
+   break;
+  }
+  case 'epilation':{
+   set('Удаление волос',
+     shrinking?'Можно выбрать для воска или шугаринга':growing?'По лунному фильтру лучше другое окно':'Нейтральный день для записи',
+     shrinking?'Если планируете воск, шугаринг или эпилятор, можно рассмотреть эту дату по лунному фильтру.':growing?'Для воска или шугаринга лунный фильтр отдаёт предпочтение убывающей Луне. Если удобнее сегодня — ориентируйтесь на кожу и график.':'Проверьте состояние кожи и доступное время у мастера.',
+     'Не назначайте процедуру на раздражённую кожу; лазер и электроэпиляцию не переносите из-за фазы Луны.',
+     'Убывающая Луна — традиционный критерий для временного удаления волос, а не доказанный способ замедлить рост.');
+   break;
+  }
+  case 'relations':
+   set('Отношения','Подходит для разговора','Напишите близкому конкретный вопрос: «Когда тебе удобно обсудить то, что нас волнует?»','Не пытайтесь выяснить всё одним сообщением.',guideSignPractice[z]);break;
+  case 'care':
+   set('Забота о себе','Выберите свой способ отдыха','Запланируйте 20 минут без обязательных дел: прогулку, тёплый напиток, книгу или музыку.','Не превращайте отдых в ещё одну задачу с оценкой результата.',guideSignPractice[z]);break;
+  case 'home':
+   set('Дом и обновление',shrinking?'Подходит для разбора лишнего':'Подходит для небольшого обновления',shrinking?'Выберите одну полку, шкаф или стопку бумаг и уберите ненужное.':'Обновите одну деталь дома: освещение, текстиль или любимый уголок.','Не начинайте генеральную уборку без времени и сил.',guideSignPractice[z]);break;
+  case 'intent':
+   set('Желания и намерения',growing?'Хорошо начать с малого':shrinking?'Время пересмотреть желания':'Уточните цель',growing?'Запишите желание и сделайте первый шаг за 15 минут.':shrinking?'Выберите одно желание, которое уже потеряло смысл, и освободите место для нового.':'Сформулируйте желание так, чтобы его можно было превратить в действие.','Не ждите, что одна дата исполнит желание сама.',guideSignPractice[z]);break;
+  case 'money':
+   set('Деньги и покупки',shrinking?'Подходит для финансовой ревизии':'Можно заняться денежным планом',shrinking?'Проверьте подписки, обязательные платежи и три самые частые траты.':'Сверьте бюджет на месяц и установите сумму для одной конкретной цели.','Не покупайте вещь только потому, что дата кажется удачной.',guideSignPractice[z]);break;
+  case 'sales':
+   set('Продажи и продвижение',growing?'Можно выйти с предложением':'Хорошо проверить и улучшить оффер',growing?'Опубликуйте одно предложение с ценой, выгодой и понятной кнопкой записи.':'Проверьте, где клиенты перестают отвечать, и перепишите один слабый абзац.', 'Не обещайте результат, который невозможно проверить.',guideSignPractice[z]);break;
+  case 'negotiation':
+   set('Переговоры и договоры','Подходит для подготовки разговора','Выпишите цель встречи, три аргумента и условия, ниже которых не согласитесь.','Не подписывайте документ, не прочитав сроки, сумму и ответственность.',guideSignPractice[z]);break;
+  case 'launch':
+   set('Запуск проекта',growing?'Можно запускать готовый этап':'Лучше проверить готовность',growing?'Если продукт и оплата проверены, запускайте небольшой тест или анонс.':'Протестируйте ссылки, покупку и инструкции для клиента; исправьте найденное.','Не запускайте продажи, пока не проверена оплата.',guideSignPractice[z]);break;
+  case 'learning':
+   set('Обучение и поездки','Подходит для конкретного шага','Забронируйте время на 25 минут обучения или проверьте билеты, маршрут и документы.','Не оплачивайте курс без программы и условий возврата.',guideSignPractice[z]);break;
+  case 'finish':
+   set('Завершение дел',shrinking?'Самое время закрыть хвосты':'Выберите одну незавершённую задачу','Закройте один зависший вопрос: ответьте, оплатите, отправьте или отмените.','Не открывайте пять новых задач вместо одной старой.',guideSignPractice[z]);break;
+  case 'priority':
+   set('Главное дело дня','Один шаг важнее десяти планов','Выберите дело, которое даст заметный результат, и выделите на него 25 минут.','Не начинайте день с бесконечного списка.',guideSignPractice[z]);break;
+  case 'feeling':
+   set('Эмоции и состояние','Проверьте свой ресурс','Назовите чувство одним словом и решите, какая поддержка нужна сейчас.','Не принимайте сильную эмоцию за окончательное решение.',guideSignPractice[z]);break;
+  case 'habits':
+   set('Привычки','Начните с двух минут','Выберите привычку, которую можно выполнить прямо сегодня за две минуты.','Не стройте идеальный режим за один вечер.',guideSignPractice[z]);break;
+  case 'rest':
+   set('Отдых','Можно замедлиться','Оставьте 20 минут без переписки, задач и уведомлений.','Не заменяйте отдых прокруткой рабочих сообщений.',guideSignPractice[z]);break;
+ }
+ return results;
+}
+function guidePaletteHTML(rec){
+ if(!rec.colors||!rec.colors.length)return '';
+ return '<div class="guide-color-palette"><strong>Цвета дня</strong><span>'+esc(rec.style||'Палитра знака')+'</span><div class="guide-swatch-row">'+rec.colors.map(p=>
+  '<span class="guide-swatch-item"><i style="background:'+p[1]+'"></i>'+esc(p[0])+'</span>'
+ ).join('')+'</div></div>';
+}
+function guideAdviceHTML(rec,shortMode){
+ return '<span class="guide-advice-status">'+esc(rec.status)+'</span>'+
+ '<p><b>Что сделать:</b> '+esc(rec.action)+'</p>'+
+ guidePaletteHTML(rec)+
+ (shortMode?'':'<p><b>Лучше избегать:</b> '+esc(rec.skip)+'</p>')+
+ (shortMode?'':'<p class="guide-advice-origin">'+esc(rec.context)+' · '+esc(rec.why)+'</p>');
 }
 
 function renderGuideHub(){
@@ -2232,8 +2363,10 @@ function renderGuideHub(){
  $('hubDate').textContent=selected.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});
  $('hubGroupTitle').textContent=area==='work'?'Дело и возможности':area==='day'?'Мой день':'Жизнь и вдохновение';
  $('hubFilters').innerHTML=rows.map(x=>'<button type="button" class="hub-topic" data-guide-topic="'+x[0]+'" aria-pressed="'+(x[0]===item[0])+'"><span aria-hidden="true">'+x[1]+'</span> '+esc(x[2])+'</button>').join('');
- const tip=cfg[stage==='waxing'?0:stage==='waning'?1:2];
- $('hubResult').innerHTML='<div class="hub-phase">'+phaseName+' · символический ориентир</div><h4>'+esc(item[2])+'</h4><p>'+esc(tip)+'</p><p class="hub-step"><b>Практический шаг:</b> '+esc(cfg[3])+'</p>'+(cfg[4]?'<p class="hub-note">'+esc(cfg[4])+'</p>':'')+'<button type="button" class="hub-open-details" data-guide-details="'+k+'">Подробная карточка дня →</button>';
+ const rec=guideRecommendation(item[0],k);
+ $('hubResult').innerHTML='<div class="hub-phase">'+phaseName+' · '+esc(rec.context)+'</div><h4>'+esc(rec.title)+'</h4>'+
+ guideAdviceHTML(rec,true)+
+ '<button type="button" class="hub-open-details" data-guide-details="'+k+'">Подробная карточка дня →</button>';
  const dates=guideDates(cfg[5]),origin='topic:'+area+':'+item[0];
  $('hubMonthDates').innerHTML=dates.map(d=>{
   const saved=importantEntries(d.k).some(x=>x.origin===origin);
