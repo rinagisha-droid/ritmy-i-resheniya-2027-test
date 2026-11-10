@@ -1130,6 +1130,27 @@ button.showcase-date.hinted:after{
   .hero-buy-mobile-arrow{font-size:19px}
 }
 
+
+/* Price-card CTA: deliberate two-line mobile layout; keep 'за' with the live price. */
+.pricing-purchase .pricing-cta .pricing-cta-title{display:inline-block}
+.pricing-purchase .pricing-cta .pricing-cta-cost{
+ display:inline-flex;align-items:center;justify-content:center;gap:5px;
+ white-space:nowrap;flex:0 0 auto;font-variant-numeric:tabular-nums
+}
+.pricing-purchase .pricing-cta .pricing-cta-spark{font-size:15px;line-height:1}
+@media(max-width:680px){
+ .pricing-purchase .pricing-cta{
+  display:flex;flex-direction:column;flex-wrap:nowrap;
+  align-items:center;justify-content:center;
+  gap:3px;min-height:70px;padding:10px 12px;text-align:center
+ }
+ .pricing-purchase .pricing-cta .pricing-cta-title{
+  white-space:nowrap;font-size:clamp(15px,4vw,18px);line-height:1.24
+ }
+ .pricing-purchase .pricing-cta .pricing-cta-cost{
+  font-size:clamp(15px,4vw,18px);line-height:1.25
+ }
+}
 </style>
 </head>
 <body>
@@ -1505,7 +1526,7 @@ button.showcase-date.hinted:after{
             <span>Планы и напоминания</span><span>Лунные ритмы</span>
             <span>Для телефона и компьютера</span><span>Красивые ежедневные карточки</span>
           </div>
-          <button type="button" class="btn btn-gold pricing-cta" data-plan="year" id="pricingBuy">Открыть мой 2027 за <span data-current-price>990 ₽</span> ✦</button>
+          <button type="button" class="btn btn-gold pricing-cta" data-plan="year" id="pricingBuy"><span class="pricing-cta-title">Открыть мой 2027</span><span class="pricing-cta-cost">за <span data-current-price>990 ₽</span> <span class="pricing-cta-spark" aria-hidden="true">✦</span></span></button>
           <p class="pricing-access-note">Перед оплатой откроются необходимые согласия. Автоматическая выдача персонального доступа пока настраивается; сохраните чек об оплате.</p>
         </div>
       </div>
