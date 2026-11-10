@@ -1739,6 +1739,37 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
  .layout>.content-hub{width:100%;max-width:100%;min-width:0;margin:12px 0}
 }
 
+
+/* IMPORTANT_DATES_2027_V1 – personal dates and thematic saves, responsive layout. */
+.hub-save-row{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-top:12px}
+.hub-save-all,.hub-important-add,.hub-inline-save,.hub-important-remove{cursor:pointer;border:1px solid #cfa765;background:#fff0cb;color:#315046;border-radius:12px;min-height:36px;padding:8px 12px;font:600 12px/1.2 Arial,sans-serif}
+.hub-save-all:hover,.hub-important-add:hover,.hub-inline-save:hover{background:#f1ddae}
+#hubSavedFeedback{font:12px/1.4 Arial,sans-serif;color:#336451}
+.hub-date-pair{display:inline-flex;align-items:center;gap:0;border:1px solid #dac39a;border-radius:100px;background:#faf1de;overflow:hidden;max-width:100%}
+.hub-date-pair .hub-date-button{border:0;border-radius:0;background:transparent;padding:9px 9px 9px 11px;min-height:37px}
+.hub-date-pair .hub-inline-save{background:transparent;border:0;border-left:1px solid #dfcda7;border-radius:0;padding:5px 11px;min-height:37px;color:#85622e;font-size:17px;line-height:1}
+.hub-date-pair .hub-inline-save[data-saved="true"]{color:#16664e}
+.hub-event-pair{display:flex;align-items:stretch;gap:5px;min-width:0}
+.hub-event-pair .hub-event{flex:1;min-width:0}
+.hub-event-pair .hub-inline-save{flex:0 0 38px;min-width:38px;border-color:#d7c48a65;background:#ffffff16;color:#ffdc99;padding:6px;border-radius:10px}
+.hub-event-pair .hub-inline-save[data-saved="true"]{color:#d7f1c8}
+.hub-important{margin-top:14px;padding:18px;border:1px solid #dac396;border-radius:17px;background:#fffdf8;color:#28463c}
+.hub-important-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:13px}
+.hub-important h3{font:normal 24px/1.2 Georgia,serif;color:#24483e;margin:0 0 5px}
+.hub-important-head p{font:12px/1.5 Arial,sans-serif;color:#637469;margin:0}
+.hub-important-add{flex:0 0 auto}
+.hub-important-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.hub-important-item{display:flex;align-items:stretch;gap:7px;background:#f7f4e9;border:1px solid #e5d9bd;border-radius:12px;padding:6px;min-width:0}
+.hub-important-go{display:flex;gap:10px;align-items:center;flex:1;min-width:0;border:0;background:transparent;color:#31574d;padding:4px 6px;text-align:left;cursor:pointer}
+.hub-important-go strong{white-space:nowrap;color:#9a733e;font:700 13px Georgia,serif}
+.hub-important-go span{min-width:0;overflow-wrap:anywhere;font:12px/1.35 Arial,sans-serif}
+.hub-important-remove{background:transparent;flex:0 0 34px;width:34px;min-height:34px;padding:0;border-color:#e1d0af;color:#8a6246;font-size:19px}
+.hub-important-remove:hover{background:#f4e4d2}
+.hub-important-empty{grid-column:1/-1;color:#6c7e72;font:12px/1.45 Arial,sans-serif;padding:6px 0}
+.calendar .legend .legend-important{color:#ab6643;font-size:18px}
+.calendar .cal-mark.cal-important{color:#b26448;font-size:12px;font-weight:700}
+.calendar .legend{flex-wrap:wrap;justify-content:center;column-gap:8px;row-gap:5px}
+@media(max-width:680px){.hub-important-head{flex-direction:column;align-items:stretch}.hub-important-add{align-self:flex-start}.hub-important-list{grid-template-columns:1fr}.hub-important{padding:13px}.hub-date-pair .hub-date-button{font-size:11px;padding-left:9px}.hub-save-all{font-size:11px}}
 </style></head><body><div class="site"><header class="hero" aria-label="Шапка календаря"><div class="hero-intro"><h1>Магия каждого дня. 2027 г. <span aria-hidden="true">✦</span></h1><p>Маленькое волшебство<br>каждого дня</p></div><div class="hero-right"><div class="hero-quote">Больше,<br>чем календарь —<br>это время для себя ♡</div><div class="hero-controls"><button type="button" class="hero-icon-button hero-search-button" data-action="header-search" title="Поиск по моим записям" aria-label="Поиск по моим записям"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m16.1 16.1 4.7 4.7"/></svg></button><button type="button" class="hero-icon-button hero-bell-button" data-action="header-reminders" title="Мои напоминания" aria-label="Мои напоминания"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 6.5-3 7.8-3 9h18c0-1.2-3-2.5-3-9Z"/><path d="M10 21h4"/></svg><span class="hero-alert-dot" id="heroAlertDot" hidden></span></button><div class="hero-profile-wrap"><button type="button" class="hero-profile-button" data-action="header-menu" aria-label="Открыть меню календаря" title="Меню календаря" aria-expanded="false" aria-controls="heroProfileMenu"><span class="hero-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.3 21c.8-4.4 4.1-7 7.7-7s6.9 2.6 7.7 7"/></svg></span><span class="hero-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="hero-profile-menu" id="heroProfileMenu" role="menu" hidden><button type="button" role="menuitem" data-action="plan">Добавить план</button><button type="button" role="menuitem" data-action="favorites">Избранные даты</button><button type="button" role="menuitem" data-action="settings">Настройки</button><button type="button" role="menuitem" data-action="access">Получить доступ</button></div></div></div></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day" aria-label="Мой день" title="Мой день"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life" aria-label="Жизнь и вдохновение" title="Жизнь и вдохновение"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
@@ -1755,7 +1786,7 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
 <button type="button" class="side-btn " data-action="library" title="Библиотека" aria-label="Библиотека"><span class="side-icon side-icon-library" aria-hidden="true"></span><span class="side-label">Библиотека</span></button>
 <button type="button" class="side-btn " data-action="settings" title="Настройки" aria-label="Настройки"><span class="side-icon side-icon-settings" aria-hidden="true"></span><span class="side-label">Настройки</span></button>
 <div class="side-deco"><div class="side-deco-text">Гармония<br>в каждом дне ♡</div></div>
-</aside><section class="calendar"><div class="calhead"><button id="prev" aria-label="Предыдущий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14 5-7 7 7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><h2 id="month">Ноябрь 2026</h2><button id="next" aria-label="Следующий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 5 7 7-7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особые даты</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline day-energy-headline">
+</aside><section class="calendar"><div class="calhead"><button id="prev" aria-label="Предыдущий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14 5-7 7 7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><h2 id="month">Ноябрь 2026</h2><button id="next" aria-label="Следующий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 5 7 7-7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особые даты</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span><span><b class="legend-important">✧</b> Мои важные даты</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline day-energy-headline">
   <div class="day-heading"><h2 id="dateTitle"></h2><small id="weekday"></small></div>
   <p class="day-motto">«Вдохновение живёт в моментах,<br> когда сердце чувствует тепло»</p>
   <div class="day-headline-actions">
@@ -1764,8 +1795,13 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
   </div>
 </div><div class="triptych"><div class="feature feature-moon"><h3 id="phaseTitle" class="moon-heading">Луна</h3><div class="imagearea moon-visual"><div class="moon-disc" id="moonDisc"></div></div><div class="moon-description"><p id="phaseHint">Ритм · обновление · равновесие</p></div></div><div class="feature feature-zodiac"><h3 id="signTitle">Луна в знаке</h3><div class="zodiac-glyph" id="zodiacGlyph" aria-hidden="true">♏</div><div class="imagearea zodiac-visual"><div class="zodiac-art" id="zodiacArt"></div></div><button type="button" class="footer zodiac-quality" id="signFooter" data-action="sign" title="Подробнее о знаке Луны">Образ дня</button></div><div class="feature feature-focus"><h3>Фокус дня:</h3><div class="focus-word" id="focusTitle">Намерение</div><div class="focus-scene" aria-hidden="true"></div><button type="button" class="smallbtn focus-practice" data-action="focus">Практика дня →</button></div></div></div></main><section class="content-hub" aria-labelledby="hubTitle">
 <div class="hub-head"><div><span class="hub-eyebrow">Подсказки на выбранную дату</span><h2 id="hubTitle">Ваши темы и важные даты</h2><p>Выберите раздел «Мой день», «Жизнь и вдохновение» или «Дело и возможности» в верхнем меню. Затем нажмите тему и появятся подсказка для выбранного дня и даты месяца.</p></div><span id="hubDate"></span></div>
-<div class="hub-grid"><div class="hub-topics"><h3 id="hubGroupTitle"></h3><div id="hubFilters" class="hub-filters" role="group" aria-label="Темы календаря"></div><div id="hubResult" class="hub-result" aria-live="polite"></div><h4 class="hub-month-heading">Ориентиры месяца по выбранной теме</h4><div id="hubMonthDates" class="hub-dates"></div></div>
+<div class="hub-grid"><div class="hub-topics"><h3 id="hubGroupTitle"></h3><div id="hubFilters" class="hub-filters" role="group" aria-label="Темы календаря"></div><div id="hubResult" class="hub-result" aria-live="polite"></div><h4 class="hub-month-heading">Ориентиры месяца по выбранной теме</h4><div id="hubMonthDates" class="hub-dates"></div>
+ <div class="hub-save-row"><button type="button" id="hubSaveAll" class="hub-save-all" data-guide-save-all>☆ Сохранить все даты темы</button><span id="hubSavedFeedback" role="status" aria-live="polite"></span></div></div>
 <aside class="hub-special"><h3>✦ Особые даты</h3><p id="hubEventsMonth"></p><p id="hubCurrentEvent" class="hub-current"></p><div id="hubEventsList" class="hub-events"></div></aside></div>
+ <section class="hub-important" aria-labelledby="hubImportantHeading">
+  <div class="hub-important-head"><div><h3 id="hubImportantHeading">Мои важные даты</h3><p>Добавьте личное событие или сохраните дату из подборки. Отметки останутся в этом браузере.</p></div><button type="button" class="hub-important-add" data-important-new>+ Добавить дату</button></div>
+  <div id="hubImportantList" class="hub-important-list"></div>
+ </section>
 <p class="hub-disclaimer">Лунные рекомендации — астрологическая традиция, а не научно доказанный прогноз. Даты не гарантируют результата. В уходе и эпиляции важны безопасность, состояние кожи и рекомендации специалиста.</p></section><div class="below"><div class="cards" id="cards"></div><div class="widgets"><div class="widget"><h4><span class="widget-heading-main"><span class="widget-gold-icon"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="6" y="6" width="20" height="24" rx="3.5" fill="#f9e1a4" fill-opacity=".28" stroke="#c9964b" stroke-width="1.65"/><rect x="11" y="3" width="10" height="6" rx="2" fill="#ffecbf" stroke="#c9964b" stroke-width="1.4"/><path d="m10 18 4 4 8-9" fill="none" stroke="#d19a4a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="m11 18 3 3 8-8" fill="none" stroke="#fff5cf" stroke-width=".8" stroke-linecap="round"/></svg></span><span>Мои планы</span></span><button data-action="plan" aria-label="Добавить: Мои планы">+</button></h4><div id="plans"></div></div><div class="widget"><h4><span class="widget-heading-main"><span class="widget-gold-icon"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M9 23c3-4 3.7-7.5 3.7-13a3.3 3.3 0 0 1 6.6 0c0 5.5.7 9 3.7 13 1 1.2.6 2-1 2H10c-1.6 0-2-1-1-2Z" fill="#f6d99a" fill-opacity=".38" stroke="#c9964b" stroke-width="1.85" stroke-linejoin="round"/><path d="M13 26a3 3 0 0 0 6 0" fill="none" stroke="#c9964b" stroke-width="1.8"/><path d="M16 6V3" fill="none" stroke="#c9964b" stroke-width="1.8" stroke-linecap="round"/><path d="m25 4 1 3 3 1-3 1-1 3-1-3-3-1 3-1Z" fill="#e1ae59"/></svg></span><span>Напоминания</span></span><button data-action="reminder" aria-label="Добавить: Напоминания">+</button></h4><div id="reminders"></div></div><div class="widget"><h4><span class="widget-heading-main"><span class="widget-gold-icon"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="m16 2 4.2 8.8L30 12l-7 7.1 1.7 10-8.7-4.7-8.7 4.7L9 19.1 2 12l9.8-1.2Z" fill="#f9e1a4" fill-opacity=".4" stroke="#ca984c" stroke-width="1.75" stroke-linejoin="round"/><path d="m16 6 3.5 7.2 7.5 1-5.4 5.4 1.2 6.3-6.8-3.5" fill="none" stroke="#fff8d8" stroke-width="1" stroke-linecap="round"/></svg></span><span>Избранное</span></span><button data-action="fav" aria-label="Добавить: Избранное">+</button></h4><div id="favorites"></div></div></div></div><section class="extra extra-full-year" aria-label="Полный календарь на 2027 год">
   <div class="extra-copy">
     <div class="extra-kicker">МАГИЯ КАЖДОГО ДНЯ. 2027 Г.</div>
@@ -1780,12 +1816,12 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
   </div>
 </section></div><div class="footerbar">Луна: Astronomy Engine · вид из Уфы (UTC+5). Поверхность: NASA SVS. Сегодня — текущее время, другие даты — 12:00. Символические рекомендации — не прогноз фактических событий.</div></div><div class="dialog" id="dialog" role="dialog" aria-modal="true"><div class="modal"><h3 id="modalTitle"></h3><div id="modalBody"></div><div class="modal-buttons" id="modalBtns"></div></div></div><script src="vendor/astronomy.browser.min.js"></script><script src="assets/moon-render.js"></script><script>
 const signs=['Овен','Телец','Близнецы','Рак','Лев','Дева','Весы','Скорпион','Стрелец','Козерог','Водолей','Рыбы'],inSigns=['Овне','Тельце','Близнецах','Раке','Льве','Деве','Весах','Скорпионе','Стрельце','Козероге','Водолее','Рыбах'],glyph=['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'],qualities=['Действие · смелость · импульс','Комфорт · устойчивость · забота','Общение · информация · движение','Дом · близость · безопасность','Творчество · радость · проявленность','Порядок · внимание · практичность','Баланс · красота · диалог','Глубина · честность · перемены','Смысл · обучение · горизонты','Структура · ответственность · цели','Свобода · идеи · общение','Тишина · вдохновение · чувствительность'];
-const months=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],week=['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];let sky={},selected=new Date(2026,10,3),shown=new Date(2026,10,1),section='life';const minDate='2026-11-01',maxDate='2027-12-31';const $=id=>document.getElementById(id),key=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');function parse(k){let [y,m,d]=k.split('-').map(Number);return new Date(y,m-1,d)};let store={};try{store=JSON.parse(localStorage.getItem('ritmy-v2'))||{}}catch{}store.plans??={};store.reminders??={};store.favorites??=[];function save(){localStorage.setItem('ritmy-v2',JSON.stringify(store));updateHeaderAlert()}function ufaToday(){return new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Yekaterinburg'})}
+const months=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],week=['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];let sky={},selected=new Date(2026,10,3),shown=new Date(2026,10,1),section='life';const minDate='2026-11-01',maxDate='2027-12-31';const $=id=>document.getElementById(id),key=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');function parse(k){let [y,m,d]=k.split('-').map(Number);return new Date(y,m-1,d)};let store={};try{store=JSON.parse(localStorage.getItem('ritmy-v2'))||{}}catch{}store.plans??={};store.reminders??={};store.favorites??=[];store.importantDates=(store.importantDates&&typeof store.importantDates==='object'&&!Array.isArray(store.importantDates))?store.importantDates:{};function save(){localStorage.setItem('ritmy-v2',JSON.stringify(store));updateHeaderAlert()}function ufaToday(){return new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Yekaterinburg'})}
 function moonMoment(){return key(selected)===ufaToday()?new Date():new Date(key(selected)+'T12:00:00+05:00')}
 function data(){return {...(sky[key(selected)]||{changes:[]}),...LunarView.state(moonMoment())}}
 selected=parse(ufaToday()<minDate?minDate:ufaToday()>maxDate?maxDate:ufaToday());shown=new Date(selected.getFullYear(),selected.getMonth(),1);
 const events={'2026-11-09':'Новолуние','2026-11-24':'Полнолуние','2026-12-21':'Зимнее солнцестояние','2027-03-20':'Весеннее равноденствие','2027-06-21':'Летнее солнцестояние','2027-09-23':'Осеннее равноденствие','2027-12-22':'Зимнее солнцестояние'};
-const retroMerc=[['2026-10-24','2026-11-13'],['2027-02-09','2027-03-03'],['2027-06-10','2027-07-04'],['2027-10-07','2027-10-28']],retroVenus=[['2026-10-03','2026-11-13']];function between(k,r){return r.some(([a,b])=>k>=a&&k<=b)}function specialFor(k){const v=[];if(events[k])v.push(events[k]);if(between(k,retroMerc))v.push('Ретроградный Меркурий');if(between(k,retroVenus))v.push('Ретроградная Венера');return v}
+const retroMerc=[['2026-10-24','2026-11-13'],['2027-02-09','2027-03-03'],['2027-06-10','2027-07-04'],['2027-10-07','2027-10-28']],retroVenus=[['2026-10-03','2026-11-13']];function between(k,r){return r.some(([a,b])=>k>=a&&k<=b)}function isMirrorDate(k){const s=k.split('-');return s.length===3&&Number(s[1])===Number(s[2])&&Number(s[2])>=1&&Number(s[2])<=12}function mirrorLabel(k){return k.slice(8,10)+'.'+k.slice(5,7)}function specialFor(k){const v=[];if(events[k])v.push(events[k]);if(isMirrorDate(k))v.push('Зеркальная дата '+mirrorLabel(k));if(between(k,retroMerc))v.push('Ретроградный Меркурий');if(between(k,retroVenus))v.push('Ретроградная Венера');if(k>='2027-01-10'&&k<='2027-04-01')v.push('Ретроградный Марс');return v}
 const suggestions={day:[['🌿','Забота о себе','emotion.webp','Заметьте, что вы чувствуете сейчас, и выделите себе короткую паузу.','Назовите три чувства. Спросите себя, какая потребность стоит за самым сильным из них.'],['☀️','Маленькая победа','joy.webp','Отметьте результат, который обычно считаете слишком незначительным.','Запишите одно действие, которое вы сделали сегодня для себя.'],['☕','Восстановление','focus.webp','Отдых — это часть устойчивого ритма, а не награда после истощения.','Выберите 15 минут без телефона и дел, отметьте, как меняется состояние.'],['✦','Мой ориентир','lantern.webp','День становится яснее, когда есть один важный приоритет.','Запишите главное дело и его первый выполнимый шаг.']],life:[['♥','Эмоции и состояние','emotion.webp','Прислушайтесь к себе: где сейчас напряжение, а где появляется облегчение?','Выпишите чувства, потребности и один бережный способ поддержать себя.'],['♡','Отношения и тепло','relations.webp','Близость укрепляют небольшие действия и честный диалог.','Спросите близкого человека, что было для него важным сегодня, и выслушайте без советов.'],['✿','Красота и обновление','beauty.webp','Создайте для себя небольшое пространство красоты и заботы.','Выберите одну простую процедуру ухода, ориентируясь на собственный комфорт.'],['✧','Маленькие радости','joy.webp','Замечать хорошее можно без требования быть счастливой постоянно.','Запишите три приятных эпизода дня, даже совсем маленьких.']],work:[['✦','Финансы и ясность','joy.webp','Ясность в цифрах помогает принимать решения без лишней тревоги.','Посмотрите план расходов на неделю и выберите одну реалистичную финансовую задачу.'],['♜','Переговоры','relations.webp','Чёткий запрос и понимание границ делают разговор предметным.','Запишите цель переговоров, аргументы и минимально приемлемый результат.'],['☼','Проявленность','emotion.webp','Не ждите идеальной уверенности, чтобы сделать полезный шаг.','Сформулируйте одно предложение о вашей работе и расскажите о нём аудитории.'],['◎','Планирование','focus.webp','Лучше завершить одно важное дело, чем открыть пять новых.','Определите приоритет на сегодня и ближайшее действие на 20 минут.']]};
 /* Symbolic focus comes from BOTH lunar phase and Moon zodiac sign.
    Zodiac signs are grouped by element, so the chosen word changes as
@@ -1978,6 +2014,7 @@ function guideMonthEvents(year,month){
    if(Number.isFinite(a)&&Number.isFinite(before)&&Number.isFinite(after)&&guideDist(a,p[0])<=guideDist(before,p[0])&&guideDist(a,p[0])<guideDist(after,p[0]))eventsFound.push([k,p[1]]);
   }
   if(events[k]&&!/Новолуние|Полнолуние/.test(events[k]))eventsFound.push([k,'✦ '+events[k]]);
+  if(isMirrorDate(k))eventsFound.push([k,'✧ Зеркальная дата '+mirrorLabel(k)]);
   for(const r of guideRetro){
    if(r[1]===k)eventsFound.push([k,'↺ '+r[0]+' — начало ретроградности']);
    if(r[2]===k)eventsFound.push([k,'↻ '+r[0]+' — окончание ретроградности']);
@@ -1998,6 +2035,82 @@ function guideDates(aim){
  }
  return choices.sort((a,b)=>a.day-b.day);
 }
+
+/* IMPORTANT_DATES_2027_V1 – records are stored only in this browser. */
+let guideFeedbackMessage='';
+function importantEntries(k){
+ const data=store.importantDates[k];
+ return Array.isArray(data)?data:[];
+}
+function importantAdd(k,title,origin){
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(k)||k<minDate||k>maxDate||key(parse(k))!==k)return false;
+ const text=String(title||'').trim().slice(0,110);
+ if(!text)return false;
+ const entries=importantEntries(k);
+ if(entries.some(x=>x&&x.text===text&&x.origin===origin))return false;
+ if(!Array.isArray(store.importantDates[k]))store.importantDates[k]=[];
+ store.importantDates[k].push({text,origin});
+ return true;
+}
+function guideTopicSelection(){
+ const area=guideArea(),topics=guideTopics[area],id=guideChosen[area],item=topics.find(x=>x[0]===id)||topics[0];
+ return {area,item,origin:'topic:'+area+':'+item[0],title:item[2]+' · ориентир месяца'};
+}
+function guideSaveDate(k){
+ const t=guideTopicSelection();
+ const added=importantAdd(k,t.title,t.origin);
+ if(added)save();
+ guideFeedbackMessage=added?'Дата сохранена в «Мои важные даты».':'Эта дата уже сохранена.';
+ render();
+}
+function guideSaveAll(){
+ const t=guideTopicSelection(),cfg=guideTips[t.item[0]],dates=guideDates(cfg[5]);
+ let added=0;
+ for(const d of dates)if(importantAdd(d.k,t.title,t.origin))added++;
+ if(added)save();
+ guideFeedbackMessage=added?'Добавлено '+added+' дат(ы) в «Мои важные даты».':'Все даты этой темы уже сохранены.';
+ render();
+}
+function guideSaveEvent(k,label){
+ const added=importantAdd(k,label,'special:'+label);
+ if(added)save();
+ guideFeedbackMessage=added?'Особая дата сохранена.':'Эта особая дата уже сохранена.';
+ render();
+}
+function guideNewImportant(){
+ modal('Моя важная дата',
+  '<label>Дата<input id="importantDateInput" type="date" min="'+minDate+'" max="'+maxDate+'" value="'+key(selected)+'"></label>'+
+  '<label>Что важно в этот день?<input id="importantTextInput" maxlength="110" placeholder="Например: запись на маникюр, встреча, оплата"></label>'+
+  '<p id="importantInputError" role="alert" style="color:#9d4535;font-size:12px"></p>',
+  [['Отмена',closeModal],['Сохранить',()=>{
+    const k=$('importantDateInput').value,t=$('importantTextInput').value.trim();
+    if(!t||!/^\d{4}-\d{2}-\d{2}$/.test(k)||k<minDate||k>maxDate||key(parse(k))!==k){
+      $('importantInputError').textContent='Укажите дату в пределах календаря и название события.';return;
+    }
+    if(!importantAdd(k,t,'manual')){
+      $('importantInputError').textContent='Такое событие уже сохранено.';return;
+    }
+    save();closeModal();selected=parse(k);shown=new Date(selected.getFullYear(),selected.getMonth(),1);
+    guideFeedbackMessage='Личная дата добавлена.';render();
+  }]]);
+}
+function guideRenderImportant(){
+ const y=shown.getFullYear(),m=String(shown.getMonth()+1).padStart(2,'0'),prefix=y+'-'+m;
+ const items=[];
+ for(const k of Object.keys(store.importantDates).sort()){
+  if(!k.startsWith(prefix))continue;
+  importantEntries(k).forEach((item,index)=>{
+    if(item&&typeof item.text==='string')items.push({k,index,text:item.text});
+  });
+ }
+ $('hubImportantList').innerHTML=items.length?items.map(v=>
+  '<div class="hub-important-item">'+
+  '<button type="button" class="hub-important-go" data-guide-date="'+v.k+'" title="Открыть дату">'+
+  '<strong>'+parse(v.k).getDate()+' '+months[shown.getMonth()].toLowerCase()+'</strong><span>'+esc(v.text)+'</span></button>'+
+  '<button type="button" class="hub-important-remove" data-important-remove="'+v.k+'" data-important-index="'+v.index+'" aria-label="Удалить важную дату" title="Удалить дату">×</button></div>'
+ ).join(''):'<p class="hub-important-empty">В '+months[shown.getMonth()].toLowerCase()+' пока нет сохранённых дат. Вы можете добавить своё событие или нажать ☆ рядом с датой из подборки.</p>';
+}
+
 function renderGuideHub(){
  const area=guideArea(),rows=guideTopics[area],id=guideChosen[area],item=rows.find(x=>x[0]===id)||rows[0],cfg=guideTips[item[0]],k=key(selected),a=guideAngle(selected);
  let stage='pause',phaseName='Фаза уточняется';
@@ -2012,18 +2125,51 @@ function renderGuideHub(){
  $('hubFilters').innerHTML=rows.map(x=>'<button type="button" class="hub-topic" data-guide-topic="'+x[0]+'" aria-pressed="'+(x[0]===item[0])+'"><span aria-hidden="true">'+x[1]+'</span> '+esc(x[2])+'</button>').join('');
  const tip=cfg[stage==='waxing'?0:stage==='waning'?1:2];
  $('hubResult').innerHTML='<div class="hub-phase">'+phaseName+' · символический ориентир</div><h4>'+esc(item[2])+'</h4><p>'+esc(tip)+'</p><p class="hub-step"><b>Практический шаг:</b> '+esc(cfg[3])+'</p>'+(cfg[4]?'<p class="hub-note">'+esc(cfg[4])+'</p>':'');
- const dates=guideDates(cfg[5]);
- $('hubMonthDates').innerHTML=dates.map(d=>'<button type="button" class="hub-date-button" data-guide-date="'+d.k+'">'+d.day+' '+months[shown.getMonth()].toLowerCase()+'</button>').join('')+'<small>Три даты по традиционному лунному ритму, без гарантии результата.</small>';
+ const dates=guideDates(cfg[5]),origin='topic:'+area+':'+item[0];
+ $('hubMonthDates').innerHTML=dates.map(d=>{
+  const saved=importantEntries(d.k).some(x=>x.origin===origin);
+  return '<span class="hub-date-pair"><button type="button" class="hub-date-button" data-guide-date="'+d.k+'">'+d.day+' '+months[shown.getMonth()].toLowerCase()+'</button>'+
+   '<button type="button" class="hub-inline-save" data-guide-save="'+d.k+'" data-saved="'+saved+'" title="'+(saved?'Дата сохранена':'Сохранить дату')+'" aria-label="'+(saved?'Дата сохранена':'Сохранить дату')+'">'+(saved?'★':'☆')+'</button></span>';
+ }).join('')+'<small>Три даты по традиционному лунному ритму, без гарантии результата.</small>';
+ $('hubSavedFeedback').textContent=guideFeedbackMessage;
+ $('hubSaveAll').disabled=dates.length===0;
  const y=shown.getFullYear(),m=shown.getMonth(),thisMonth=guideMonthEvents(y,m).filter(e=>e[0]>=minDate&&e[0]<=maxDate);
  $('hubEventsMonth').textContent=months[m]+' '+y;
  const now=guideMonthEvents(selected.getFullYear(),selected.getMonth()).filter(e=>e[0]===k).map(e=>e[1]);
+ if(isMirrorDate(k))now.push('Практика зеркальной даты: запишите желание, почему оно важно, и первый выполнимый шаг.');
  for(const p of guideRetro)if(k>=p[1]&&k<=p[2])now.push('Ретроградный '+p[0]);
  $('hubCurrentEvent').textContent=now.length?'На выбранную дату: '+[...new Set(now)].join(' · '):'На выбранную дату нет выделенных небесных событий.';
- $('hubEventsList').innerHTML=thisMonth.length?thisMonth.map(e=>'<button type="button" class="hub-event" data-guide-date="'+e[0]+'"><span>'+esc(e[1])+'</span><small>'+parse(e[0]).getDate()+' '+months[m].toLowerCase()+'</small></button>').join(''):'<p>В этом месяце нет отмеченных событий.</p>';
+ $('hubEventsList').innerHTML=thisMonth.length?thisMonth.map((e,i)=>{
+  const saved=importantEntries(e[0]).some(x=>x.origin==='special:'+e[1]);
+  return '<div class="hub-event-pair"><button type="button" class="hub-event" data-guide-date="'+e[0]+'"><span>'+esc(e[1])+'</span><small>'+parse(e[0]).getDate()+' '+months[m].toLowerCase()+'</small></button>'+
+   '<button type="button" class="hub-inline-save" data-special-save-index="'+i+'" data-saved="'+saved+'" aria-label="'+(saved?'Особая дата сохранена':'Сохранить особую дату')+'" title="'+(saved?'Особая дата сохранена':'Сохранить особую дату')+'">'+(saved?'★':'☆')+'</button></div>';
+ }).join(''):'<p>В этом месяце нет отмеченных событий.</p>';
+ guideRenderImportant();
 }
 document.addEventListener('click',e=>{
+ const newBtn=e.target.closest('button[data-important-new]');
+ if(newBtn){guideNewImportant();return}
+ const remove=e.target.closest('button[data-important-remove]');
+ if(remove){
+  const k=remove.dataset.importantRemove,index=Number(remove.dataset.importantIndex);
+  if(Array.isArray(store.importantDates[k])&&Number.isInteger(index)&&index>=0&&index<store.importantDates[k].length){
+   store.importantDates[k].splice(index,1);if(!store.importantDates[k].length)delete store.importantDates[k];
+   save();guideFeedbackMessage='Дата удалена.';render();
+  }
+  return;
+ }
+ const all=e.target.closest('button[data-guide-save-all]');
+ if(all){guideSaveAll();return}
+ const single=e.target.closest('button[data-guide-save]');
+ if(single){guideSaveDate(single.dataset.guideSave);return}
+ const special=e.target.closest('button[data-special-save-index]');
+ if(special){
+  const events=guideMonthEvents(shown.getFullYear(),shown.getMonth()).filter(x=>x[0]>=minDate&&x[0]<=maxDate);
+  const hit=events[Number(special.dataset.specialSaveIndex)];
+  if(hit)guideSaveEvent(hit[0],hit[1]);return;
+ }
  const b=e.target.closest('button[data-guide-topic]');
- if(b){const a=guideArea();if(guideTopics[a].some(x=>x[0]===b.dataset.guideTopic)){guideChosen[a]=b.dataset.guideTopic;renderGuideHub()}return}
+ if(b){const a=guideArea();if(guideTopics[a].some(x=>x[0]===b.dataset.guideTopic)){guideChosen[a]=b.dataset.guideTopic;guideFeedbackMessage='';renderGuideHub()}return}
  const d=e.target.closest('button[data-guide-date]');
  if(d){const k=d.dataset.guideDate;if(/^\d{4}-\d{2}-\d{2}$/.test(k)&&k>=minDate&&k<=maxDate){selected=parse(k);shown=new Date(selected.getFullYear(),selected.getMonth(),1);render()}}
 });
@@ -2067,7 +2213,8 @@ function renderCal(){
         const here=angularDifference(a,p.angle);
         return here<=angularDifference(prev,p.angle)&&here<angularDifference(next,p.angle);
       })||null;
-    const special=!!events[k]&&allowed;
+    const special=(!!events[k]||isMirrorDate(k))&&allowed;
+    const hasImportant=importantEntries(k).length>0&&allowed;
     const hasPlan=(store.plans[k]||[]).length>0&&allowed;
     const hasReminder=(store.reminders[k]||[]).length>0&&allowed;
     const isFavorite=store.favorites.includes(k)&&allowed;
@@ -2075,7 +2222,8 @@ function renderCal(){
       special?'<span class="cal-mark cal-special" title="Особая дата">★</span>':'',
       hasPlan?'<span class="cal-mark cal-plan" title="Есть планы"></span>':'',
       hasReminder?'<span class="cal-mark cal-reminder" title="Есть напоминание">♥</span>':'',
-      isFavorite?'<span class="cal-mark cal-favorite" title="Избранная дата">☆</span>':''
+      isFavorite?'<span class="cal-mark cal-favorite" title="Избранная дата">☆</span>':'',
+      hasImportant?'<span class="cal-mark cal-important" title="Моя важная дата">✧</span>':''
     ].join('');
     const b=document.createElement('button');
     b.type='button';
@@ -2085,10 +2233,11 @@ function renderCal(){
       d.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'}),
       lunarPhase?.label||'',
       selectedDay?'Выбранный день':'',
-      special?events[k]:'',
+      special?(events[k]||(isMirrorDate(k)?'Зеркальная дата '+mirrorLabel(k):'')):'',
       hasPlan?'Есть планы':'',
       hasReminder?'Есть напоминания':'',
-      isFavorite?'Избранная дата':''
+      isFavorite?'Избранная дата':'',
+      hasImportant?'Мои важные даты: '+importantEntries(k).length:''
     ].filter(Boolean).join(' · ');
     b.setAttribute('aria-label',description);
     b.title=description;
@@ -2164,7 +2313,7 @@ function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;',
 function renderWidgets(){const k=key(selected);$('plans').innerHTML=(store.plans[k]||[]).map((v,i)=>`<div class="widgetline"><input type="checkbox" data-check="${i}" ${v.done?'checked':''}><span>${esc(v.text)}</span><button data-delete="plan:${i}">×</button></div>`).join('')||'<div class="widgetline">Планов пока нет. Нажмите +</div>';$('reminders').innerHTML=(store.reminders[k]||[]).map((v,i)=>`<div class="widgetline">♧ <span>${esc(v.time)} ${esc(v.text)}</span><button data-delete="reminder:${i}">×</button></div>`).join('')||'<div class="widgetline">Добавьте напоминание на день</div>';$('favorites').innerHTML=store.favorites.slice(-4).map(v=>`<div class="widgetline">★ <span>${v}</span><button data-unfav="${v}">×</button></div>`).join('')||'<div class="widgetline">Пока нет избранных дат</div>'}
 function modal(title,body,buttons){$('modalTitle').textContent=title;$('modalBody').innerHTML=body;$('modalBtns').replaceChildren();(buttons||[['Закрыть',closeModal]]).forEach(([t,fn])=>{const b=document.createElement('button');b.textContent=t;b.onclick=fn;$('modalBtns').appendChild(b)});$('dialog').classList.add('open')}function closeModal(){$('dialog').classList.remove('open')}
 function add(which){if(which==='fav'){const k=key(selected);if(!store.favorites.includes(k))store.favorites.push(k);else store.favorites=store.favorites.filter(x=>x!==k);save();render();return}modal(which==='plan'?'Новый план':'Новое напоминание',`${which==='reminder'?'<label>Время<input id="entryTime" type="time" value="09:00"></label>':''}<label>Описание<input id="entryText" maxlength="180" placeholder="Что вы планируете?"></label>`,[['Отмена',closeModal],['Сохранить',()=>{const text=$('entryText').value.trim();if(!text)return;const k=key(selected);if(which==='plan')(store.plans[k]??=[]).push({text,done:false});else (store.reminders[k]??=[]).push({text,time:$('entryTime').value});save();closeModal();render()}]])}
-function specialModal(){const k=key(selected),sp=specialFor(k);modal('Особые даты · '+selected.toLocaleDateString('ru-RU'),(sp.length?`<p><b>${sp.join(' · ')}</b></p>`:'<p>В этот день нет выделенного события в кратком перечне.</p>')+'<p>🌑 Новолуние: сформулируйте намерение и один выполнимый шаг. 🌕 Полнолуние: подведите итоги, отметьте важное. Равноденствия и солнцестояния: пересмотрите сезонные цели. Ретроградный Меркурий: проверьте договорённости и информацию. Ретроградная Венера: уделите внимание ценностям, расходам и отношениям.</p><p><small>Астрологические трактовки — символические, не гарантия событий. Время точных переходов планет будет дополнительно сверено перед коммерческим выпуском.</small></p>')}
+function specialModal(){const k=key(selected),sp=specialFor(k);modal('Особые даты · '+selected.toLocaleDateString('ru-RU'),(sp.length?`<p><b>${sp.join(' · ')}</b></p>`:'<p>В этот день нет выделенного события в кратком перечне.</p>')+'<p>🌑 Новолуние: сформулируйте намерение и один выполнимый шаг. 🌕 Полнолуние: подведите итоги, отметьте важное. Равноденствия и солнцестояния: пересмотрите сезонные цели. Ретроградный Меркурий: проверьте договорённости и информацию. Ретроградная Венера: уделите внимание ценностям, расходам и отношениям. Ретроградный Марс: символический повод пересмотреть темп дел.</p>'+(isMirrorDate(k)?'<p><b>Зеркальная дата '+mirrorLabel(k)+'.</b> Запишите одно желание, почему оно важно, и первый реальный шаг к нему.</p>':'')+'<p><small>Астрологические трактовки — символические, не гарантия событий. Время точных переходов планет будет дополнительно сверено перед коммерческим выпуском.</small></p>')}
 document.body.classList.toggle('reduced-motion-ui',localStorage.getItem('ritmy-reduce-motion')==='1');
 
 /* Header controls are local calendar utilities, not an authenticated account. */
