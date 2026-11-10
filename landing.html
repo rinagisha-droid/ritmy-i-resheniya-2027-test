@@ -1213,6 +1213,214 @@ button.showcase-date.hinted:after{
 .navbar .brand{min-width:0}
 .navbar .brand strong{font-size:clamp(20px,2vw,25px);white-space:normal;line-height:1.1}
 @media(max-width:680px){.navbar .brand strong{font-size:clamp(15px,3.7vw,18px);overflow-wrap:normal}}
+
+/* AUTHOR_PALETTE_MAGIC_DAY_2026_11_10
+   Original identity: midnight-blue winter sky, pine-green, champagne gold.
+   Visual palette only. Do not modify the layout, copy, checkout or calendar logic. */
+:root{
+  --forest:#123d3a;
+  --deep:#08242e;
+  --night:#071824;
+  --ink:#1b353b;
+  --muted:#58716f;
+  --paper:#091d29;
+  --ivory:#faf5e9;
+  --gold:#e6bd74;
+  --warm:#f7dfae;
+  --line:#bbab87;
+  --rose:#b9945b;
+}
+html{background:#071824}
+body{
+  color:#f2eadb;
+  background:
+    radial-gradient(ellipse at 11% 16%,rgba(35,92,95,.28),transparent 45%),
+    radial-gradient(ellipse at 94% 60%,rgba(13,70,71,.25),transparent 43%),
+    linear-gradient(160deg,#071824 0%,#0c2a35 47%,#081a26 100%);
+}
+/* Main navigation and the winter hero. */
+.navbar{
+  background:rgba(5,23,34,.96);
+  border-bottom-color:rgba(230,189,116,.43);
+}
+.navbar .brand strong{color:#f9e4b5}
+.navbar .brand span,.navbar .navlinks a{color:#efe1c7}
+.navbar .nav-cta,
+.btn-gold{
+  background:linear-gradient(113deg,#fff1c9,#ddb46d);
+  color:#2a2d2c;
+}
+.btn-gold:hover{background:linear-gradient(113deg,#fff8dc,#edc988)}
+.btn-dark{background:#113a44;border-color:#cda768;color:#fff0d0}
+.btn-clear{
+  background:rgba(8,32,43,.72);
+  border-color:rgba(240,202,130,.76);
+  color:#fff1d5;
+}
+.hero{
+  background-color:#061b28;
+  color:#fff2d9;
+}
+.hero:before{
+  background:linear-gradient(90deg,rgba(4,19,31,.95),rgba(7,36,46,.83) 48%,rgba(5,28,38,.55))!important;
+}
+.hero:after{background:linear-gradient(0deg,#071824,transparent)}
+.hero h1 em,.hero .eyebrow{color:#f7d79b}
+.hero .lead{color:#ebeee7}
+.hero .mini-features span{
+  border-color:rgba(230,189,116,.52);
+  background:rgba(9,38,48,.7);
+  color:#fff1d7;
+}
+.hero .preview{
+  background:radial-gradient(circle at 48% 9%,rgba(27,77,78,.45),transparent 61%),#051b28;
+  border-color:rgba(231,190,119,.9);
+  box-shadow:0 24px 55px rgba(0,8,17,.44),inset 0 0 0 2px rgba(241,211,147,.12);
+}
+.hero .preview-card .footer-pill{
+  background:rgba(5,41,47,.88);
+  border-color:#e1bb73;
+}
+@media(max-width:680px){
+  .hero:before{
+    background:linear-gradient(180deg,rgba(5,22,34,.63),rgba(4,25,37,.75) 58%,rgba(5,20,32,.84))!important;
+  }
+  .hero .preview{
+    background:rgba(4,25,37,.96);
+    box-shadow:0 14px 32px rgba(0,8,17,.46),inset 0 0 0 2px rgba(241,211,147,.12);
+  }
+}
+/* Midnight background behind warm cream feature cards. */
+.stats-grid{
+  background:rgba(10,40,50,.96);
+  border-color:rgba(220,181,111,.68);
+  box-shadow:0 18px 32px rgba(0,9,17,.34);
+}
+.stat{border-right-color:rgba(235,207,151,.24)}
+.stat:nth-child(-n+2){border-bottom-color:rgba(235,207,151,.24)}
+.stat b{color:#f5cf85}
+.stat span{color:#e1e7de}
+.section-kicker{color:#dfbd83}
+.section-title{color:#f6e9cf}
+.section-lead{color:#bed0cd}
+.theme-card,.feature-card,.date-card,.price-card,.faq details{
+  background:#faf4e8;
+  color:#1d343b;
+  border-color:#d4b982;
+  box-shadow:0 8px 24px rgba(1,13,21,.2);
+}
+.theme-card h3,.feature-card h3,.date-card strong,.how-item h3{color:#1a3540}
+.theme-card p,.feature-card p,.date-card p{color:#536665}
+.theme-card.dark{
+  background:linear-gradient(140deg,#103d41,#092b36);
+  color:#fff3d9;
+  border-color:#d8b875;
+}
+.theme-card.dark h3{color:#fff0d0}
+.theme-card.dark p{color:#dae8e1}
+.theme-card.dark .chips span{background:rgba(229,190,122,.14);color:#f4dfb6}
+.theme-icon,.feature-icon,.date-card .date-mark{
+  background:#e9e0cb;
+  color:#315953;
+}
+.chips span{background:#e7e7d9;color:#34524c}
+.feature-card:after{color:#bc9450}
+.how-item{border-top-color:rgba(232,196,130,.55)}
+.how-item b{color:#f0c878}
+.how-item p{color:#cad6d0}
+.banner{
+  border:1px solid rgba(225,182,111,.64);
+  background:
+    radial-gradient(circle at 95% 7%,rgba(67,126,105,.37),transparent 48%),
+    linear-gradient(116deg,#071d2a 3%,#0b3540 60%,#154c43 100%);
+  box-shadow:0 15px 31px rgba(0,8,17,.28);
+}
+.banner p{color:#e1e9e1}
+/* Free preview and monthly planning: night panels, not the previous cream/rose mix. */
+.free-discovery.wrap{
+  color:#fff1d8;
+  background:
+    radial-gradient(ellipse at 95% 7%,rgba(39,106,97,.23),transparent 52%),
+    linear-gradient(133deg,#0a2835,#0c3441 65%,#0e403c);
+  border-color:rgba(226,184,111,.7);
+  box-shadow:0 16px 40px rgba(0,8,18,.25);
+}
+.free-discovery-kicker{background:#143b42;color:#f6dfac;border:1px solid rgba(237,196,121,.43)}
+.free-discovery-copy h2,.free-discovery-copy h3{color:#fff0d3}
+.free-discovery-copy h2 em{color:#e9c17e}
+.free-discovery-lead,
+.free-discovery-list li{color:#dce7e0}
+.free-discovery-list li strong{color:#f7dfaa}
+.free-discovery-outro{color:#d1dcd2}
+.free-discovery-preview{
+  background:radial-gradient(circle at 55% 0%,rgba(47,103,96,.32),transparent 60%),linear-gradient(148deg,#061c2b,#092e39);
+  border-color:#d7b479;
+}
+.monthly-showcase.wrap{
+  background:
+    radial-gradient(ellipse at 90% 5%,rgba(40,103,105,.35),transparent 60%),
+    linear-gradient(120deg,#071d2b,#103b47 65%,#164b45);
+  border-color:rgba(235,191,121,.66);
+  box-shadow:0 20px 45px rgba(0,7,18,.25);
+}
+/* Price offer stays sharply readable against a darker night-sky backdrop. */
+.year-pricing{
+  background:
+    radial-gradient(ellipse at 75% 0%,rgba(52,114,100,.28),transparent 58%),
+    linear-gradient(120deg,#071e2d 0%,#0b3440 56%,#14473e 100%);
+  border-color:rgba(227,184,112,.74);
+  box-shadow:0 17px 38px rgba(0,7,18,.3);
+}
+.pricing-step{
+  background:rgba(228,246,235,.055);
+  border-color:rgba(231,203,155,.3);
+}
+.pricing-step.is-current{
+  background:linear-gradient(115deg,rgba(236,194,108,.2),rgba(244,233,194,.08));
+  border-color:#edcb8a;
+}
+.pricing-purchase,.pricing-free{
+  background:#faf4e8;
+  color:#1d363c;
+  border:1px solid #d9bd89;
+}
+.pricing-big-price,.pricing-free strong{color:#153d42}
+.pricing-purchase-label{color:#8d6438}
+.pricing-benefits span{color:#38514e}
+.price-card.featured{
+  background:linear-gradient(145deg,#0d3943,#0a2938);
+  border-color:#d4b070;
+}
+/* FAQ and closing offer complete the same personal identity. */
+.faq details{
+  background:#f9f2e3;
+  border-color:#d9bd89;
+}
+.faq .faq-list details[open] summary{color:#1b4145}
+.faq .faq-list details[open] p{color:#516660}
+.faq summary:after{color:#a87937}
+.last-banner{
+  border:1px solid rgba(223,185,117,.73);
+  background:
+    radial-gradient(circle at 50% 0%,rgba(40,110,104,.38),transparent 60%),
+    linear-gradient(120deg,#081b2c,#0d3442 66%,#15453f);
+  box-shadow:0 16px 40px rgba(0,8,17,.3);
+}
+.last-banner p{color:#e4ece3}
+footer{
+  border-top-color:rgba(219,186,120,.48);
+  color:#d0dcd5;
+}
+.footer-inner .brand strong{color:#f3d59b}
+.footer-inner .brand span,.footer-note{color:#abbfb6}
+footer a{color:#f1dfba}
+/* Keep checkout dialog light and readable (colors only). */
+dialog{background:#fbf5e9;color:#1c3940;border-color:#d8b97b}
+.dialog .close,.close{background:#e7e6d9;color:#20444a}
+.agreement{background:#fffdf8;border-color:#d6c7a8}
+.agreement input{accent-color:#1a5a59}
+.agreement a{color:#865724}
+
 </style>
 </head>
 <body>
