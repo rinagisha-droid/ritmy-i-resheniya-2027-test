@@ -1041,8 +1041,10 @@ button.showcase-date.hinted:after{
     aspect-ratio:1;
     flex:0 0 auto;
     mix-blend-mode:screen;
-    -webkit-mask-image:radial-gradient(ellipse 52% 52% at center,#000 0 46%,rgba(0,0,0,.85) 59%,rgba(0,0,0,.36) 77%,transparent 96%);
-    mask-image:radial-gradient(ellipse 52% 52% at center,#000 0 46%,rgba(0,0,0,.85) 59%,rgba(0,0,0,.36) 77%,transparent 96%);
+    filter:brightness(1.12) contrast(1.08) saturate(1.07);
+    /* Keep the raised tail sharp; soften only the outer corners. */
+    -webkit-mask-image:radial-gradient(ellipse 66% 70% at 50% 48%,#000 0 68%,rgba(0,0,0,.96) 80%,rgba(0,0,0,.55) 90%,transparent 100%);
+    mask-image:radial-gradient(ellipse 66% 70% at 50% 48%,#000 0 68%,rgba(0,0,0,.96) 80%,rgba(0,0,0,.55) 90%,transparent 100%);
   }
   .hero .preview.mobile-artwork-v2 .preview-card .mobile-focus-art{
     background-image:url("assets/focus.webp");
