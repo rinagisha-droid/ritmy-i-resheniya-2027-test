@@ -1802,6 +1802,17 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
 @media(max-width:570px){.modal.guide-detail-modal{width:100%;max-height:90dvh;padding:16px 12px}.guide-primary{padding:13px}.guide-primary h4{font-size:22px}.guide-accordion summary{padding:11px 9px;flex-wrap:wrap}.guide-event-copy{padding:3px 11px 12px}.modal.guide-detail-modal .modal-buttons button{flex-basis:100%}}
 @media(prefers-reduced-motion:reduce){.guide-arrow{transition:none}}
 
+
+/* SPECIAL_DAY_DYNAMIC_2026_11_10 – only show current-day special section when needed. */
+.hub-special-selected[hidden],.hub-retro-status[hidden]{display:none!important}
+.hub-special-selected{padding-bottom:13px;margin-bottom:14px;border-bottom:1px solid rgba(229,194,131,.4)}
+.hub-special-selected .hub-current{margin:10px 0;background:#fff6df13}
+.hub-today-events{margin-top:9px}
+.hub-month-panel .hub-month-title{font:normal 22px/1.25 Georgia,serif;color:#f5dcac;margin:0 0 7px}
+.hub-month-panel #hubEventsMonth{font:12px/1.4 Arial,sans-serif;color:#d4e5db;margin:0 0 13px}
+.hub-retro-status{margin:0 0 14px;padding:9px 12px;border-radius:10px;border:1px solid rgba(220,181,113,.4);font:12px/1.5 Arial,sans-serif;color:#edddb4;background:rgba(255,255,255,.07)}
+.guide-retro-details{font:12px/1.6 Arial,sans-serif;color:#436356;background:#edf3ea;border:1px solid #d2d9c2;border-radius:11px;padding:10px 12px;margin-top:13px}
+
 </style></head><body><div class="site"><header class="hero" aria-label="Шапка календаря"><div class="hero-intro"><h1>Магия каждого дня. 2027 г. <span aria-hidden="true">✦</span></h1><p>Маленькое волшебство<br>каждого дня</p></div><div class="hero-right"><div class="hero-quote">Больше,<br>чем календарь —<br>это время для себя ♡</div><div class="hero-controls"><button type="button" class="hero-icon-button hero-search-button" data-action="header-search" title="Поиск по моим записям" aria-label="Поиск по моим записям"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m16.1 16.1 4.7 4.7"/></svg></button><button type="button" class="hero-icon-button hero-bell-button" data-action="header-reminders" title="Мои напоминания" aria-label="Мои напоминания"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 6.5-3 7.8-3 9h18c0-1.2-3-2.5-3-9Z"/><path d="M10 21h4"/></svg><span class="hero-alert-dot" id="heroAlertDot" hidden></span></button><div class="hero-profile-wrap"><button type="button" class="hero-profile-button" data-action="header-menu" aria-label="Открыть меню календаря" title="Меню календаря" aria-expanded="false" aria-controls="heroProfileMenu"><span class="hero-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.3 21c.8-4.4 4.1-7 7.7-7s6.9 2.6 7.7 7"/></svg></span><span class="hero-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="hero-profile-menu" id="heroProfileMenu" role="menu" hidden><button type="button" role="menuitem" data-action="plan">Добавить план</button><button type="button" role="menuitem" data-action="favorites">Избранные даты</button><button type="button" role="menuitem" data-action="settings">Настройки</button><button type="button" role="menuitem" data-action="access">Получить доступ</button></div></div></div></div></header><nav class="topnav" aria-label="Основные разделы календаря">
 <button type="button" class="topnav-card topnav-day" data-section="day" aria-label="Мой день" title="Мой день"><span class="topnav-art topnav-art-day" aria-hidden="true"></span><span class="topnav-copy"><b>Мой день</b><small>Забота о себе, настрой,<br>здоровье и гармония</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
 <button type="button" class="topnav-card topnav-life active" data-section="life" aria-label="Жизнь и вдохновение" title="Жизнь и вдохновение"><span class="topnav-art topnav-art-life" aria-hidden="true"></span><span class="topnav-copy"><b>Жизнь и вдохновение</b><small>Эмоции, отношения,<br>красота вокруг и внутри</small></span><span class="topnav-circle" aria-hidden="true">›</span></button>
@@ -1818,7 +1829,7 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
 <button type="button" class="side-btn " data-action="library" title="Библиотека" aria-label="Библиотека"><span class="side-icon side-icon-library" aria-hidden="true"></span><span class="side-label">Библиотека</span></button>
 <button type="button" class="side-btn " data-action="settings" title="Настройки" aria-label="Настройки"><span class="side-icon side-icon-settings" aria-hidden="true"></span><span class="side-label">Настройки</span></button>
 <div class="side-deco"><div class="side-deco-text">Гармония<br>в каждом дне ♡</div></div>
-</aside><section class="calendar"><div class="calhead"><button id="prev" aria-label="Предыдущий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14 5-7 7 7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><h2 id="month">Ноябрь 2026</h2><button id="next" aria-label="Следующий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 5 7 7-7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особые даты</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span><span><b class="legend-important">✧</b> Мои важные даты</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline day-energy-headline">
+</aside><section class="calendar"><div class="calhead"><button id="prev" aria-label="Предыдущий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m14 5-7 7 7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><h2 id="month">Ноябрь 2026</h2><button id="next" aria-label="Следующий месяц"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m10 5 7 7-7 7" fill="none" stroke="#c5964d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="today">Сегодня</button></div><div class="calgrid" id="grid"></div><div class="legend" aria-label="Обозначения календаря"><span><b class="legend-moon">◐</b> Фазы Луны</span><span><b class="legend-star">★</b> Особенная дата</span><span><b class="legend-plan"></b> Мои планы</span><span><b class="legend-heart">♥</b> Напоминания</span><span><b class="legend-important">✧</b> Мои важные даты</span></div></section><main class="dashboard"><div class="astro-panel"><div class="headline day-energy-headline">
   <div class="day-heading"><h2 id="dateTitle"></h2><small id="weekday"></small></div>
   <p class="day-motto">«Вдохновение живёт в моментах,<br> когда сердце чувствует тепло»</p>
   <div class="day-headline-actions">
@@ -1829,7 +1840,19 @@ body:has(#dialog.open) .astro-panel .day-motto{visibility:hidden}
 <div class="hub-head"><div><span class="hub-eyebrow">Подсказки на выбранную дату</span><h2 id="hubTitle">Ваши темы и важные даты</h2><p>Выберите раздел «Мой день», «Жизнь и вдохновение» или «Дело и возможности» в верхнем меню. Затем нажмите тему и появятся подсказка для выбранного дня и даты месяца.</p></div><span id="hubDate"></span></div>
 <div class="hub-grid"><div class="hub-topics"><h3 id="hubGroupTitle"></h3><div id="hubFilters" class="hub-filters" role="group" aria-label="Темы календаря"></div><div id="hubResult" class="hub-result" aria-live="polite"></div><h4 class="hub-month-heading">Ориентиры месяца по выбранной теме</h4><div id="hubMonthDates" class="hub-dates"></div>
  <div class="hub-save-row"><button type="button" id="hubSaveAll" class="hub-save-all" data-guide-save-all>☆ Сохранить все даты темы</button><span id="hubSavedFeedback" role="status" aria-live="polite"></span></div></div>
-<aside class="hub-special"><h3>✦ Особые даты</h3><p id="hubEventsMonth"></p><p id="hubCurrentEvent" class="hub-current"></p><div id="hubEventsList" class="hub-events"></div></aside></div>
+<aside class="hub-special">
+ <div class="hub-special-selected" id="hubSpecialToday" hidden>
+  <h3>✦ Особенная дата</h3>
+  <p id="hubCurrentEvent" class="hub-current"></p>
+  <div class="hub-events hub-today-events" id="hubSelectedEvents"></div>
+ </div>
+ <div id="hubRetroStatus" class="hub-retro-status" hidden></div>
+ <div class="hub-month-panel">
+  <h3 class="hub-month-title">События месяца</h3>
+  <p id="hubEventsMonth"></p>
+  <div id="hubEventsList" class="hub-events"></div>
+ </div>
+</aside></div>
  <section class="hub-important" aria-labelledby="hubImportantHeading">
   <div class="hub-important-head"><div><h3 id="hubImportantHeading">Мои важные даты</h3><p>Добавьте личное событие или сохраните дату из подборки. Отметки останутся в этом браузере.</p></div><button type="button" class="hub-important-add" data-important-new>+ Добавить дату</button></div>
   <div id="hubImportantList" class="hub-important-list"></div>
@@ -2171,22 +2194,23 @@ function guideOpenDetailedDate(k){
   else{phase='Убывающая Луна';idx=1}
  }
  const eventsHere=guideMonthEvents(selected.getFullYear(),selected.getMonth()).filter(v=>v[0]===k).map(v=>v[1]);
- for(const p of guideRetro)if(k>=p[1]&&k<=p[2]&&!eventsHere.some(v=>v.includes(p[0])))eventsHere.push('↺ Ретроградный '+p[0]+' — период продолжается');
+ // Only exact astronomical/symbolic events have accordions. The ongoing
+ // middle of a retrograde period is a small status, not a repeated event.
+ const retroOngoing=guideRetro.filter(p=>k>p[1]&&k<p[2]).map(p=>'↺ Ретроградный '+p[0]+' — период продолжается');
  const folds=eventsHere.length?eventsHere.map(label=>{
   const info=guideEventExplanation(label,area);
   return '<details class="guide-accordion"><summary><span class="guide-event-tag">ОСОБЕННАЯ ДАТА</span><strong>'+esc(label.replace(/^[●○✦✧↺↻]\s*/,''))+'</strong><span class="guide-arrow" aria-hidden="true">⌄</span></summary>'+
   '<div class="guide-event-copy"><h5>Почему дата отмечена</h5><p>'+esc(info.why)+'</p><h5>Что можно сделать</h5><p>'+esc(info.step)+'</p>'+
   (info.idea?'<h5>Идея для работы и контента</h5><p>'+esc(info.idea)+'</p>':'')+'</div></details>';
- }).join(''):
- '<details class="guide-accordion"><summary><span class="guide-event-tag">ОСОБЕННАЯ ДАТА</span><strong>Дополнительные события дня</strong><span class="guide-arrow" aria-hidden="true">⌄</span></summary><div class="guide-event-copy"><p>На эту дату дополнительных событий в календаре не отмечено. При желании добавьте своё событие.</p></div></details>';
+ }).join(''):'';
  const sectionName=area==='work'?'Дело и возможности':area==='day'?'Мой день':'Жизнь и вдохновение';
  const body='<div class="guide-detail-content">'+
   '<p class="guide-detail-meta">'+esc(sectionName)+' · '+esc(phase)+'</p>'+
   '<section class="guide-primary"><span class="guide-main-tag">ТЕМА ДНЯ</span><h4>'+esc(topic.item[2])+'</h4><p>'+esc(cfg[idx])+'</p>'+
   '<h5>Практическая рекомендация</h5><p>'+esc(cfg[3])+'</p>'+
   (cfg[4]?'<p class="guide-small-note">'+esc(cfg[4])+'</p>':'')+'</section>'+
-  '<p class="guide-detail-intro">Дополнительные события <small>Нажмите на стрелку, чтобы раскрыть</small></p>'+
-  '<div class="guide-accordions">'+folds+'</div>'+
+  (eventsHere.length?'<p class="guide-detail-intro">Особенная дата <small>Нажмите на стрелку, чтобы раскрыть</small></p><div class="guide-accordions">'+folds+'</div>':'')+
+  (retroOngoing.length?'<p class="guide-retro-details">'+retroOngoing.map(esc).join(' · ')+'</p>':'')+
   '<p class="guide-small-note">Астрологические рекомендации — символические. Они не гарантируют результат и не заменяют проверку реальных обстоятельств.</p></div>';
  modal(selected.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'}),body,[
   ['Закрыть',closeModal],
@@ -2220,10 +2244,16 @@ function renderGuideHub(){
  $('hubSaveAll').disabled=dates.length===0;
  const y=shown.getFullYear(),m=shown.getMonth(),thisMonth=guideMonthEvents(y,m).filter(e=>e[0]>=minDate&&e[0]<=maxDate);
  $('hubEventsMonth').textContent=months[m]+' '+y;
- const now=guideMonthEvents(selected.getFullYear(),selected.getMonth()).filter(e=>e[0]===k).map(e=>e[1]);
- if(isMirrorDate(k))now.push('Практика зеркальной даты: запишите желание, почему оно важно, и первый выполнимый шаг.');
- for(const p of guideRetro)if(k>=p[1]&&k<=p[2])now.push('Ретроградный '+p[0]);
- $('hubCurrentEvent').textContent=now.length?'На выбранную дату: '+[...new Set(now)].join(' · '):'На выбранную дату нет выделенных небесных событий.';
+ const now=guideMonthEvents(selected.getFullYear(),selected.getMonth()).filter(e=>e[0]===k);
+ const dayHasEvent=now.length>0;
+ $('hubSpecialToday').hidden=!dayHasEvent;
+ $('hubCurrentEvent').textContent=dayHasEvent?selected.toLocaleDateString('ru-RU',{day:'numeric',month:'long'})+' · '+now.length+' событие(я) · нажмите, чтобы открыть':'';
+ $('hubSelectedEvents').innerHTML=dayHasEvent?now.map(e=>
+   '<button type="button" class="hub-event" data-guide-details-date="'+k+'" title="Открыть особенную дату"><span>'+esc(e[1])+'</span><small>Подробнее →</small></button>'
+ ).join(''):'';
+ const retroMiddle=guideRetro.filter(p=>k>p[1]&&k<p[2]).map(p=>'↺ Ретроградный '+p[0]+' · продолжается');
+ $('hubRetroStatus').hidden=retroMiddle.length===0;
+ $('hubRetroStatus').textContent=retroMiddle.join(' · ');
  $('hubEventsList').innerHTML=thisMonth.length?thisMonth.map((e,i)=>{
   const saved=importantEntries(e[0]).some(x=>x.origin==='special:'+e[1]);
   return '<div class="hub-event-pair"><button type="button" class="hub-event" data-guide-details-date="'+e[0]+'" title="Подробная карточка события"><span>'+esc(e[1])+'</span><small>'+parse(e[0]).getDate()+' '+months[m].toLowerCase()+'</small></button>'+
@@ -2400,7 +2430,7 @@ function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;',
 function renderWidgets(){const k=key(selected);$('plans').innerHTML=(store.plans[k]||[]).map((v,i)=>`<div class="widgetline"><input type="checkbox" data-check="${i}" ${v.done?'checked':''}><span>${esc(v.text)}</span><button data-delete="plan:${i}">×</button></div>`).join('')||'<div class="widgetline">Планов пока нет. Нажмите +</div>';$('reminders').innerHTML=(store.reminders[k]||[]).map((v,i)=>`<div class="widgetline">♧ <span>${esc(v.time)} ${esc(v.text)}</span><button data-delete="reminder:${i}">×</button></div>`).join('')||'<div class="widgetline">Добавьте напоминание на день</div>';$('favorites').innerHTML=store.favorites.slice(-4).map(v=>`<div class="widgetline">★ <span>${v}</span><button data-unfav="${v}">×</button></div>`).join('')||'<div class="widgetline">Пока нет избранных дат</div>'}
 function modal(title,body,buttons){$('dialog').querySelector('.modal').classList.remove('guide-detail-modal');$('modalTitle').textContent=title;$('modalBody').innerHTML=body;$('modalBtns').replaceChildren();(buttons||[['Закрыть',closeModal]]).forEach(([t,fn])=>{const b=document.createElement('button');b.textContent=t;b.onclick=fn;$('modalBtns').appendChild(b)});$('dialog').classList.add('open')}function closeModal(){$('dialog').classList.remove('open')}
 function add(which){if(which==='fav'){const k=key(selected);if(!store.favorites.includes(k))store.favorites.push(k);else store.favorites=store.favorites.filter(x=>x!==k);save();render();return}modal(which==='plan'?'Новый план':'Новое напоминание',`${which==='reminder'?'<label>Время<input id="entryTime" type="time" value="09:00"></label>':''}<label>Описание<input id="entryText" maxlength="180" placeholder="Что вы планируете?"></label>`,[['Отмена',closeModal],['Сохранить',()=>{const text=$('entryText').value.trim();if(!text)return;const k=key(selected);if(which==='plan')(store.plans[k]??=[]).push({text,done:false});else (store.reminders[k]??=[]).push({text,time:$('entryTime').value});save();closeModal();render()}]])}
-function specialModal(){const k=key(selected),sp=specialFor(k);modal('Особые даты · '+selected.toLocaleDateString('ru-RU'),(sp.length?`<p><b>${sp.join(' · ')}</b></p>`:'<p>В этот день нет выделенного события в кратком перечне.</p>')+'<p>🌑 Новолуние: сформулируйте намерение и один выполнимый шаг. 🌕 Полнолуние: подведите итоги, отметьте важное. Равноденствия и солнцестояния: пересмотрите сезонные цели. Ретроградный Меркурий: проверьте договорённости и информацию. Ретроградная Венера: уделите внимание ценностям, расходам и отношениям. Ретроградный Марс: символический повод пересмотреть темп дел.</p>'+(isMirrorDate(k)?'<p><b>Зеркальная дата '+mirrorLabel(k)+'.</b> Запишите одно желание, почему оно важно, и первый реальный шаг к нему.</p>':'')+'<p><small>Астрологические трактовки — символические, не гарантия событий. Время точных переходов планет будет дополнительно сверено перед коммерческим выпуском.</small></p>')}
+function specialModal(){guideOpenDetailedDate(key(selected));return;/* kept for backward compatibility */const k=key(selected),sp=specialFor(k);modal('Особенная дата · '+selected.toLocaleDateString('ru-RU'),(sp.length?`<p><b>${sp.join(' · ')}</b></p>`:'<p>В этот день нет выделенного события в кратком перечне.</p>')+'<p>🌑 Новолуние: сформулируйте намерение и один выполнимый шаг. 🌕 Полнолуние: подведите итоги, отметьте важное. Равноденствия и солнцестояния: пересмотрите сезонные цели. Ретроградный Меркурий: проверьте договорённости и информацию. Ретроградная Венера: уделите внимание ценностям, расходам и отношениям. Ретроградный Марс: символический повод пересмотреть темп дел.</p>'+(isMirrorDate(k)?'<p><b>Зеркальная дата '+mirrorLabel(k)+'.</b> Запишите одно желание, почему оно важно, и первый реальный шаг к нему.</p>':'')+'<p><small>Астрологические трактовки — символические, не гарантия событий. Время точных переходов планет будет дополнительно сверено перед коммерческим выпуском.</small></p>')}
 document.body.classList.toggle('reduced-motion-ui',localStorage.getItem('ritmy-reduce-motion')==='1');
 
 /* Header controls are local calendar utilities, not an authenticated account. */
