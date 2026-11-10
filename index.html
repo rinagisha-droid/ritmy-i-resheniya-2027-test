@@ -2090,11 +2090,26 @@ function guideMonthEvents(year,month){
  }
  return eventsFound.sort((a,b)=>a[0].localeCompare(b[0]));
 }
-function guideDates(aim){
+function guideDates(aim,topicId){
  const year=shown.getFullYear(),month=shown.getMonth(),days=new Date(year,month+1,0).getDate(),scored=[];
  for(let i=1;i<=days;i++){
   const d=new Date(year,month,i),k=key(d),a=guideAngle(d);
-  if(k>=minDate&&k<=maxDate&&Number.isFinite(a))scored.push({k,day:i,score:guideDist(a,aim)});
+  if(k<minDate||k>maxDate||!Number.isFinite(a))continue;
+  let score=guideDist(a,aim);
+  if(topicId==='manicure'){
+   const z=guideSignAt(k);
+   score=z===9?0:(z===1||z===5)?25:65;
+   if(d.getDay()===5)score-=5;
+  }else if(topicId==='hair'){
+   const z=guideSignAt(k);
+   if(z===4||z===5)score-=25;
+   if(z===3||z===11)score+=38;
+  }else if(topicId==='epilation'){
+   const z=guideSignAt(k);
+   if(z===9)score-=12;
+   if(z===4)score+=18;
+  }
+  scored.push({k,day:i,score});
  }
  const choices=[];
  for(const item of scored.sort((a,b)=>a.score-b.score)){
@@ -2132,7 +2147,7 @@ function guideSaveDate(k){
  render();
 }
 function guideSaveAll(){
- const t=guideTopicSelection(),cfg=guideTips[t.item[0]],dates=guideDates(cfg[5]);
+ const t=guideTopicSelection(),cfg=guideTips[t.item[0]],dates=guideDates(cfg[5],t.item[0]);
  let added=0;
  for(const d of dates)if(importantAdd(d.k,t.title,t.origin))added++;
  if(added)save();
@@ -2182,18 +2197,44 @@ function guideRenderImportant(){
 
 /* DAY_DETAILS_ACCORDION_V1 – detailed date card with independent expand/collapse panels. */
 function guideEventExplanation(label,area){
- const isWork=area==='work';
- let why='Событие отмечено среди астрономических и символических дат календаря.',
-     step='Выберите для себя один реальный, выполнимый шаг.',idea='';
- if(label.includes('Зеркальная дата')){why='Повторяющейся дате иногда придают символическое значение; это не предсказание.';step='Запишите желание, почему оно важно, и первый конкретный шаг.';idea='Спросите аудиторию о цели на ближайший месяц.';}
- else if(label.includes('Новолуние')){why='Астрономическая фаза Луны, традиционно связанная с началом нового цикла.';step='Сформулируйте намерение и одно небольшое действие.';idea='Покажите старт нового рабочего этапа.';}
- else if(label.includes('Полнолуние')){why='Астрономическая фаза Луны, с которой традиционно связывают подведение итогов.';step='Отметьте достигнутое и следующий приоритет.';idea='Расскажите об итогах и выводах.';}
- else if(label.includes('Меркури')){why='Ретроградность — видимый эффект движения планеты, а не причина сбоев в делах.';step='Проверьте переписку, договорённости и сроки.';idea='Разберите распространённую ошибку.';}
- else if(label.includes('Венер')){why='Видимое ретроградное движение Венеры; символические трактовки связывают его с ценностями.';step='Пересмотрите расходы и приоритеты.';idea='Поговорите о ценности продукта.';}
- else if(label.includes('Марс')){why='Видимое ретроградное движение Марса. Астрологические трактовки символические.';step='Проверьте нагрузку и планы, при необходимости снизьте темп.';idea='Расскажите о полезном изменении процесса.';}
- else if(label.includes('равноденствие')){why='Астрономический сезонный ориентир: день и ночь близки по продолжительности.';step='Подведите итоги сезона и выберите приоритет.';idea='Сделайте обзор сезонных задач.';}
- else if(label.includes('солнцестояние')){why='Одна из ключевых точек солнечного годового цикла.';step='Подведите итоги и составьте план на следующий сезон.';idea='Поделитесь сезонными результатами.';}
- return {why,step,idea:isWork?idea:''};
+ const work=area==='work';
+ let why='День отмечен в календаре как событие или полезный сезонный ориентир.';
+ let step='Выберите одно нужное действие и внесите его в свои планы.';
+ let idea='';
+ if(label.includes('Зеркальная дата')){
+  why='Красивая повторяющаяся дата — отличный повод перезапустить маленькую цель.';
+  step='Запишите желание одним предложением. Рядом — действие, которое реально сделать за 15 минут.';
+  idea='Спросите подписчиков: «Какое дело вы откладываете и какой первый шаг сделаете сегодня?»';
+ }else if(label.includes('Новолуние')){
+  why='Начало лунного цикла: можно задать себе ориентир на ближайшие четыре недели.';
+  step='Выберите одну цель на месяц, срок и первое действие. Запишите в планы.';
+  idea='Опубликуйте короткий анонс нового этапа или пост с планом месяца.';
+ }else if(label.includes('Полнолуние')){
+  why='Середина лунного цикла — удобная точка, чтобы проверить результаты.';
+  step='Сверьте три цели с реальностью: что готово, что переносите, что больше не нужно?';
+  idea='Поделитесь результатом работы, кейсом или полезным выводом.';
+ }else if(label.includes('Меркури')){
+  why='Повод навести порядок в переписке, документах и договорённостях.';
+  step='Перепроверьте даты встреч, платежи, адреса и условия отправленных предложений.';
+  idea='Сделайте чек-лист: пять пунктов, которые стоит проверить перед отправкой договора.';
+ }else if(label.includes('Венер')){
+  why='Тема дня — вкус, ценность и выбор.';
+  step='Проверьте три импульсивные покупки и решите, какие из них вам действительно нужны.';
+  idea='Поговорите с аудиторией о цене, ценности и полезности продукта.';
+ }else if(label.includes('Марс')){
+  why='Подходящий повод оценить темп работы и распределение сил.';
+  step='Проверьте список задач и уберите одну необязательную срочность.';
+  idea='Покажите, как вы пересобрали рабочий процесс.';
+ }else if(label.includes('равноденствие')){
+  why='Сезон меняется — можно обновить привычный ритм.';
+  step='Составьте список из трёх приоритетов на новый сезон и выберите дату первого шага.';
+  idea='Опубликуйте сезонный план или итоги квартала.';
+ }else if(label.includes('солнцестояние')){
+  why='Поворотная точка годового солнечного цикла.';
+  step='Запишите, что получилось за сезон, и что хотите делать иначе.';
+  idea='Подготовьте подборку достижений или планов на следующий сезон.';
+ }
+ return {why,step,idea:work?idea:''};
 }
 function guideOpenDetailedDate(k){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(k)||k<minDate||k>maxDate||key(parse(k))!==k)return;
@@ -2367,12 +2408,12 @@ function renderGuideHub(){
  $('hubResult').innerHTML='<div class="hub-phase">'+phaseName+' · '+esc(rec.context)+'</div><h4>'+esc(rec.title)+'</h4>'+
  guideAdviceHTML(rec,true)+
  '<button type="button" class="hub-open-details" data-guide-details="'+k+'">Подробная карточка дня →</button>';
- const dates=guideDates(cfg[5]),origin='topic:'+area+':'+item[0];
+ const dates=guideDates(cfg[5],item[0]),origin='topic:'+area+':'+item[0];
  $('hubMonthDates').innerHTML=dates.map(d=>{
   const saved=importantEntries(d.k).some(x=>x.origin===origin);
   return '<span class="hub-date-pair"><button type="button" class="hub-date-button" data-guide-details-date="'+d.k+'" title="Подробная карточка даты">'+d.day+' '+months[shown.getMonth()].toLowerCase()+'</button>'+
    '<button type="button" class="hub-inline-save" data-guide-save="'+d.k+'" data-saved="'+saved+'" title="'+(saved?'Дата сохранена':'Сохранить дату')+'" aria-label="'+(saved?'Дата сохранена':'Сохранить дату')+'">'+(saved?'★':'☆')+'</button></span>';
- }).join('')+'<small>Три даты по традиционному лунному ритму, без гарантии результата.</small>';
+ }).join('')+'<small>Три ориентира месяца по нашей лунной системе: фаза и, для процедур красоты, знак. Выбирайте удобную дату.</small>';
  $('hubSavedFeedback').textContent=guideFeedbackMessage;
  $('hubSaveAll').disabled=dates.length===0;
  const y=shown.getFullYear(),m=shown.getMonth(),thisMonth=guideMonthEvents(y,m).filter(e=>e[0]>=minDate&&e[0]<=maxDate);
@@ -2555,7 +2596,11 @@ function renderCards(){
  const lines=cardLists[tab]||cardLists.life;
  const labels=cardButtons[tab]||cardButtons.life;
  $('cards').innerHTML=rows.map((x,i)=>{
-   const tips=(lines[i]||[x[3]]).map((t,j)=>'<li class="card-tip"><span class="card-leaf '+(tab==='life'&&i>1&&j%2===0?'green':'gold')+'">'+cardLeafIcon+'</span><span>'+esc(t)+'</span></li>').join('');
+   const dailyTopicIds={life:['feeling','relations','manicure','care'],day:['care','priority','rest','habits'],work:['money','negotiation','sales','priority']};
+   const topicId=(dailyTopicIds[tab]||dailyTopicIds.life)[i]||'priority';
+   const todayAction=guideRecommendation(topicId,key(selected)).action;
+   const dailyTips=[todayAction,...(lines[i]||[x[3]]).slice(0,3)];
+   const tips=dailyTips.map((t,j)=>'<li class="card-tip"><span class="card-leaf '+(tab==='life'&&i>1&&j%2===0?'green':'gold')+'">'+cardLeafIcon+'</span><span>'+esc(t)+'</span></li>').join('');
    return '<article class="contentcard illustrated-contentcard"><h4 class="card-heading"><span class="card-emblem">'+cardHeaderIcon(tab,i)+'</span><span class="card-heading-text">'+esc(x[1])+'</span><span class="card-corner-star" aria-hidden="true">✳</span></h4><img class="card-photo" src="assets/'+esc(x[2])+'" alt="" loading="lazy"><ul class="card-tips">'+tips+'</ul><button type="button" class="card-practice-button" data-card="'+i+'">'+esc(labels[i]||'Практика дня')+' <span aria-hidden="true">→</span></button></article>';
  }).join('');
 }
