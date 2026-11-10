@@ -1067,6 +1067,66 @@ button.showcase-date.hinted:after{
   .hero .preview.mobile-artwork-v2 .preview-card .mobile-moon-globe{width:min(85%,232px)}
 }
 
+
+/* Mobile main purchase CTA: two deliberate lines and price at center right.
+   Existing desktop typography, button alignment and checkout remain as before. */
+.hero-buy-mobile{display:none}
+@media(max-width:680px){
+  .hero-actions .hero-buy-btn{
+    width:100%;
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:stretch;
+    padding:11px 14px;
+    text-align:left;
+    gap:0;
+  }
+  .hero-buy-btn>.hero-buy-desktop-label,
+  .hero-buy-btn>.hero-buy-desktop-price,
+  .hero-buy-btn>.hero-buy-desktop-arrow{display:none}
+  .hero-buy-btn>.hero-buy-mobile{
+    display:grid;
+    width:100%;
+    min-width:0;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:center;
+    gap:10px;
+  }
+  .hero-buy-mobile-label{
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:2px;
+    font-size:clamp(13px,3.8vw,16px);
+    line-height:1.15;
+    letter-spacing:-.15px;
+    font-weight:800;
+  }
+  .hero-buy-mobile-label>span{display:block;white-space:nowrap}
+  .hero-buy-mobile-side{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:6px;
+    white-space:nowrap;
+    font-size:clamp(12px,3.45vw,15px);
+    font-weight:800;
+    line-height:1.15;
+    font-variant-numeric:tabular-nums;
+  }
+  .hero-buy-mobile-cost{white-space:nowrap}
+  .hero-buy-mobile-arrow{font-size:22px;line-height:1;flex:0 0 auto}
+}
+@media(max-width:350px){
+  .hero-actions .hero-buy-btn{padding:10px 9px}
+  .hero-buy-btn>.hero-buy-mobile{gap:5px}
+  .hero-buy-mobile-label{font-size:12.5px;letter-spacing:-.3px}
+  .hero-buy-mobile-side{font-size:12px;gap:3px}
+  .hero-buy-mobile-arrow{font-size:19px}
+}
+
 </style>
 </head>
 <body>
@@ -1087,7 +1147,15 @@ button.showcase-date.hinted:after{
       <p class="lead">Не просто красивые даты. Это пространство, где можно планировать дела, находить идеи для себя и замечать важные моменты — в собственном ритме.</p>
       <div class="mini-features"><span>Луна и знаки</span><span>Дело и возможности</span><span>Жизнь и вдохновение</span><span>Мои планы</span></div>
       <div class="hero-actions">
-        <button type="button" class="btn btn-gold" data-plan="year">Открыть мой волшебный 2027 за <span data-current-price>990 ₽</span> <span aria-hidden="true">→</span></button>
+        <button type="button" class="btn btn-gold hero-buy-btn" data-plan="year">
+          <span class="hero-buy-desktop-label">Открыть мой волшебный 2027 за</span>
+          <span class="hero-buy-desktop-price" data-current-price>990 ₽</span>
+          <span class="hero-buy-desktop-arrow" aria-hidden="true">→</span>
+          <span class="hero-buy-mobile">
+            <span class="hero-buy-mobile-label"><span>Открыть мой</span><span>волшебный 2027</span></span>
+            <span class="hero-buy-mobile-side"><span class="hero-buy-mobile-cost">за <span data-current-price>990 ₽</span></span><span class="hero-buy-mobile-arrow" aria-hidden="true">→</span></span>
+          </span>
+        </button>
         <a href="index.html" class="btn btn-clear">Забрать бесплатно <svg class="action-sparkle" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#landing-icon-sparkle"></use></svg></a>
       </div>
       <p class="hero-small">В браузере на телефоне и компьютере · без установки приложения</p>
