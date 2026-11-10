@@ -844,36 +844,62 @@ button.showcase-date.hinted:after{
     font:normal clamp(21px,5.9vw,27px)/1.13 Georgia,"Times New Roman",serif;
     color:#fff2d4;text-align:center;text-wrap:balance;
   }
+
+  /* Source illustrations have rectangular backgrounds. Keep their full natural
+     aspect ratios; feather all four edges into the botanical night-sky cards. */
+  .hero .preview-card{
+    min-height:322px;
+    isolation:isolate;
+    overflow:hidden;
+  }
   .hero .preview-card img,
   .hero .preview-card.zodiac img,
+  .hero .preview-card.soft img,
   .hero .preview-card.focus img{
-    display:block;width:100%;max-width:265px;height:220px;max-height:none;
-    flex:0 0 auto;min-height:0;align-self:center;
-    object-fit:contain;object-position:center;
+    display:block;
+    position:relative;
+    width:min(85%,235px);
+    max-width:100%;
+    height:auto;
+    max-height:none;
+    min-height:0;
+    aspect-ratio:auto;
+    flex:0 0 auto;
+    align-self:center;
     border-radius:0;
+    object-fit:contain;
+    object-position:center;
     filter:none;
-    -webkit-mask-image:none;mask-image:none;
-    mix-blend-mode:normal;
+    mix-blend-mode:screen;
+    -webkit-mask-image:radial-gradient(ellipse 67% 70% at center,
+      #000 0%,#000 46%,rgba(0,0,0,.9) 58%,
+      rgba(0,0,0,.5) 73%,transparent 94%);
+    mask-image:radial-gradient(ellipse 67% 70% at center,
+      #000 0%,#000 46%,rgba(0,0,0,.9) 58%,
+      rgba(0,0,0,.5) 73%,transparent 94%);
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
   }
   .hero .preview-card.soft img{
-    width:210px;max-width:100%;height:210px;max-height:none;
-    flex:0 0 auto;border-radius:50%;object-fit:contain;
-    mix-blend-mode:screen;
-    -webkit-mask-image:none;mask-image:none;
+    width:min(87%,235px);
+    /* No circular crop around the already round Moon. */
   }
   .hero .preview-card.zodiac img{
-    /* Blend black edges of the illustration into the starry backdrop. */
-    mix-blend-mode:screen;
-    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 8%,black 92%,transparent 100%);
-    mask-image:linear-gradient(to bottom,transparent 0%,black 8%,black 92%,transparent 100%);
+    width:min(82%,228px);
+  }
+  .hero .preview-card.focus{
+    min-height:300px;
   }
   .hero .preview-card.focus img{
-    height:207px;
-    max-width:265px;
-    object-fit:contain;
-    border-radius:12px;
-    mix-blend-mode:screen;
-    -webkit-mask-image:none;mask-image:none;
+    width:min(96%,280px);
+    max-height:none;
+    /* The wide cup illustration should dissolve, not sit as a picture tile. */
+    -webkit-mask-image:radial-gradient(ellipse 69% 75% at center,
+      #000 0%,#000 45%,rgba(0,0,0,.87) 58%,
+      rgba(0,0,0,.44) 75%,transparent 96%);
+    mask-image:radial-gradient(ellipse 69% 75% at center,
+      #000 0%,#000 45%,rgba(0,0,0,.87) 58%,
+      rgba(0,0,0,.44) 75%,transparent 96%);
   }
   .hero .preview-card .focus-keyword{
     min-height:0;margin:0;
@@ -895,9 +921,9 @@ button.showcase-date.hinted:after{
   .navbar .brand{max-width:calc(100% - 105px)}
   .hero .preview{padding:13px 11px}
   .hero .preview-card{min-height:302px;padding:13px 10px}
-  .hero .preview-card img,.hero .preview-card.zodiac img{height:205px}
-  .hero .preview-card.soft img{width:193px;height:193px}
-  .hero .preview-card.focus img{height:194px}
+  .hero .preview-card img,.hero .preview-card.zodiac img{width:min(84%,210px);height:auto}
+  .hero .preview-card.soft img{width:min(88%,210px);height:auto}
+  .hero .preview-card.focus img{width:min(96%,260px);height:auto}
 }
 </style>
 </head>
