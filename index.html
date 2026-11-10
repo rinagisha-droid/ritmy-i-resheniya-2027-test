@@ -1954,7 +1954,8 @@ rest:['Запланируйте отдых заранее.','Выделите в
 const guideRetro=[['Меркурий','2026-10-24','2026-11-13'],['Венера','2026-10-03','2026-11-13'],['Марс','2027-01-10','2027-04-01'],['Меркурий','2027-02-09','2027-03-03'],['Меркурий','2027-06-10','2027-07-04'],['Меркурий','2027-10-07','2027-10-28']];
 const guideChosen={life:'hair',work:'sales',day:'priority'};
 const guideDist=(a,b)=>Math.abs((a-b+540)%360-180);
-function guideAngle(date){try{return Astronomy.MoonPhase(new Date(key(date)+'T12:00:00+05:00'))}catch(err){return NaN}}
+const guideMoonCache=new Map();
+function guideAngle(date){const k=key(date);if(guideMoonCache.has(k))return guideMoonCache.get(k);let a=NaN;try{a=Astronomy.MoonPhase(new Date(k+'T12:00:00+05:00'))}catch(err){}guideMoonCache.set(k,a);return a}
 function guideArea(){return section==='work'?'work':section==='day'?'day':'life'}
 function guideMonthEvents(year,month){
  const eventsFound=[],days=new Date(year,month+1,0).getDate();
