@@ -955,6 +955,7 @@ button.showcase-date.hinted:after{
     height:auto;
     aspect-ratio:1;
     filter:drop-shadow(0 0 12px rgba(238,216,174,.38));
+    background-color:transparent;
     border-radius:50%;
   }
   .hero .preview-cards .mobile-scorpio-art{
@@ -1006,6 +1007,66 @@ button.showcase-date.hinted:after{
   .hero .preview-cards .preview-card.focus{min-height:305px}
 }
 
+
+/* v2 mobile illustrations: remove source-image rectangles, fade edges completely.
+   Keep desktop images and desktop card sizing untouched. */
+@media(max-width:680px) {
+  .hero .preview.mobile-artwork-v2 .preview-card > img{
+    display:none!important;
+    visibility:hidden!important;
+    max-height:0!important;
+  }
+  .hero .preview.mobile-artwork-v2 .mobile-preview-art{
+    display:block!important;
+    position:relative;
+    border:0!important;
+    box-shadow:none!important;
+    background-color:transparent!important;
+    overflow:visible;
+  }
+  .hero .preview.mobile-artwork-v2 .preview-card{
+    overflow:hidden;
+    background-image:url("assets/zodiac-botanical-starry.webp");
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:cover;
+  }
+  .hero .preview.mobile-artwork-v2 .preview-card .mobile-scorpio-art{
+    background-image:url("assets/zodiac-atlas-v1.webp");
+    background-size:400% 300%;
+    background-position:100% 50%;
+    background-repeat:no-repeat;
+    width:min(78%,250px);
+    aspect-ratio:1;
+    flex:0 0 auto;
+    mix-blend-mode:screen;
+    -webkit-mask-image:radial-gradient(ellipse 52% 52% at center,#000 0 46%,rgba(0,0,0,.85) 59%,rgba(0,0,0,.36) 77%,transparent 96%);
+    mask-image:radial-gradient(ellipse 52% 52% at center,#000 0 46%,rgba(0,0,0,.85) 59%,rgba(0,0,0,.36) 77%,transparent 96%);
+  }
+  .hero .preview.mobile-artwork-v2 .preview-card .mobile-focus-art{
+    background-image:url("assets/focus.webp");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:contain;
+    width:min(94%,290px);
+    aspect-ratio:1.55;
+    mix-blend-mode:screen;
+    -webkit-mask-image:radial-gradient(ellipse 52% 54% at center,#000 0 46%,rgba(0,0,0,.83) 61%,rgba(0,0,0,.3) 80%,transparent 96%);
+    mask-image:radial-gradient(ellipse 52% 54% at center,#000 0 46%,rgba(0,0,0,.83) 61%,rgba(0,0,0,.3) 80%,transparent 96%);
+  }
+  .hero .preview.mobile-artwork-v2 .preview-card .mobile-moon-globe{
+    background-image:none!important;
+    width:min(88%,270px);
+    aspect-ratio:1;
+    display:block!important;
+  }
+}
+@media(max-width:370px) {
+  .hero .preview.mobile-artwork-v2 .preview-card .mobile-scorpio-art{width:min(77%,225px)}
+  .hero .preview.mobile-artwork-v2 .preview-card .mobile-focus-art{width:min(93%,255px)}
+  .hero .preview.mobile-artwork-v2 .preview-card .mobile-moon-globe{width:min(85%,232px)}
+}
+
 </style>
 </head>
 <body>
@@ -1031,7 +1092,7 @@ button.showcase-date.hinted:after{
       </div>
       <p class="hero-small">В браузере на телефоне и компьютере · без установки приложения</p>
     </div>
-    <div class="preview" aria-label="Визуальное знакомство с календарём">
+    <div class="preview mobile-artwork-v2" aria-label="Визуальное знакомство с календарём">
       <span class="rivet" aria-hidden="true"></span>
       <div class="preview-label"><span>Мой день</span><small>Внутри календаря</small></div>
       <div class="preview-topline"><span>Луна</span><span>Знаки зодиака</span><span>Фокус дня</span></div>
