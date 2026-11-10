@@ -1421,6 +1421,110 @@ dialog{background:#fbf5e9;color:#1c3940;border-color:#d8b97b}
 .agreement input{accent-color:#1a5a59}
 .agreement a{color:#865724}
 
+
+/* LANDING_LIGHT_RHYTHM_2026_11_10
+   The calendar's winter palette in alternating daylight and evening.
+   Only presentation: light spaces between darker, illustration-rich accent sections. */
+:root{
+  --paper:#f6f1e7;
+  --ink:#243b3b;
+  --muted:#5b7270;
+}
+html{background:#f6f1e7}
+body{
+  color:#263e3e;
+  background:
+    radial-gradient(ellipse at 88% 16%,rgba(218,199,146,.20),transparent 35%),
+    radial-gradient(ellipse at 12% 44%,rgba(149,195,186,.17),transparent 40%),
+    linear-gradient(180deg,#f8f3e9 0%,#f4f5ee 35%,#f6f0e4 72%,#f8f5ee 100%);
+}
+/* Let the winter photograph blend naturally into a bright, snowy page. */
+.hero:after{
+  background:linear-gradient(0deg,rgba(248,243,233,.96) 0%,rgba(248,243,233,0) 100%)!important;
+}
+.stats-grid{
+  background:#fbf6ec;
+  border:1px solid #dbc69c;
+  box-shadow:0 15px 29px rgba(29,60,56,.12);
+}
+.stat{border-right-color:#e5d8bf}
+.stat:nth-child(-n+2){border-bottom-color:#e5d8bf}
+.stat b{color:#24514d}
+.stat span{color:#60726b}
+/* Alternating bands: cream, frosted sage, champagne and winter mist. */
+section.section#about{
+  background:linear-gradient(135deg,rgba(251,247,237,.98),rgba(246,239,224,.70));
+  border-top:1px solid rgba(215,192,149,.34);
+}
+section.section#features{
+  background:linear-gradient(132deg,#eaf1ed 0%,#f5f7f1 48%,#edf4ee 100%);
+  border-top:1px solid #dce8e0;
+}
+section.section#days{
+  background:linear-gradient(120deg,#f9f2e2 0%,#fdf9ef 48%,#f3eddb 100%);
+  border-top:1px solid #eadcc1;
+}
+section.section#how{
+  background:linear-gradient(125deg,#eaf1ef 0%,#f7f8f3 56%,#e9f0eb 100%);
+  border-top:1px solid #d9e6df;
+}
+section.section#prices{
+  background:linear-gradient(140deg,#f8f3e8 0%,#eaf0eb 100%);
+  border-top:1px solid #e5e1d0;
+}
+section.section#faq{
+  background:linear-gradient(135deg,#f5f7f1,#f9f1e5);
+  border-top:1px solid #e2e7de;
+}
+.section-kicker{color:#976e35}
+.section-title{color:#25453f}
+.section-lead{color:#596f6a}
+.how-item{border-top-color:#c9b78b}
+.how-item b{color:#a17432}
+.how-item h3{color:#253e3b}
+.how-item p{color:#60716a}
+/* The introductory demonstration is a bright pause between dark showcase panels. */
+.free-discovery.wrap{
+  color:#243c39;
+  background:
+    radial-gradient(ellipse at 93% 6%,rgba(234,211,160,.35),transparent 48%),
+    linear-gradient(125deg,#fffaf0 0%,#f5f5ec 57%,#eaf2ed 100%);
+  border-color:#dcc596;
+  box-shadow:0 15px 34px rgba(32,64,57,.13);
+}
+.free-discovery-kicker{
+  background:#174640;
+  color:#f8e5bc;
+  border-color:#d2b475;
+}
+.free-discovery-copy h2,.free-discovery-copy h3{color:#21433f}
+.free-discovery-copy h2 em{color:#ab7d3d}
+.free-discovery-lead,.free-discovery-list li{color:#526963}
+.free-discovery-list li strong{color:#24544b}
+.free-discovery-outro{color:#687d72}
+/* Restrained gold and forest details keep the original identity. */
+.theme-card,.feature-card,.date-card,.price-card,.faq details{
+  background:#fffaf0;
+  box-shadow:0 8px 23px rgba(33,65,59,.10);
+}
+.theme-card.dark{
+  background:linear-gradient(137deg,#123c43,#0b2d39);
+}
+.last-banner{margin-top:0}
+footer{
+  background:#e9eee8;
+  color:#4f6561;
+  border-top:1px solid #d5c5a6;
+}
+.footer-inner .brand strong{color:#2a524d}
+.footer-inner .brand span,.footer-note{color:#62766f}
+footer a{color:#28554c}
+@media(max-width:680px){
+  .hero:after{
+    background:linear-gradient(0deg,rgba(248,243,233,.94),transparent 100%)!important;
+  }
+}
+
 </style>
 </head>
 <body>
