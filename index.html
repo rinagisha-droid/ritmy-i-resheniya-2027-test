@@ -2211,11 +2211,22 @@ function guideRenderImportant(){
 
 
 /* DAY_DETAILS_ACCORDION_V1 – detailed date card with independent expand/collapse panels. */
+
+/* RETRO_PLANET_PRACTICAL_2026_11_10
+ * Content advice for transiting retrograde periods, not natal R placements.
+ * Astrology-inspired planning prompts, never a requirement to postpone
+ * time-critical medical, legal, safety, or financial decisions. */
+function guideRetroShort(name){
+ if(name==='Венера')return '↺ Венера: не спешите с резкой сменой имиджа и дорогими покупками';
+ if(name==='Меркурий')return '↺ Меркурий: перепроверьте договоры, билеты и покупки техники';
+ if(name==='Марс')return '↺ Марс: оценивайте нагрузку и не втягивайтесь в споры сгоряча';
+ return '↺ '+name+': период продолжается';
+}
 function guideEventExplanation(label,area){
  const work=area==='work';
  let why='День отмечен в календаре как событие или полезный сезонный ориентир.';
  let step='Выберите одно нужное действие и внесите его в свои планы.';
- let idea='';
+ let idea='',avoid='';
  if(label.includes('Зеркальная дата')){
   why='Красивая повторяющаяся дата — отличный повод перезапустить маленькую цель.';
   step='Запишите желание одним предложением. Рядом — действие, которое реально сделать за 15 минут.';
@@ -2229,13 +2240,27 @@ function guideEventExplanation(label,area){
   step='Сверьте три цели с реальностью: что готово, что переносите, что больше не нужно?';
   idea='Поделитесь результатом работы, кейсом или полезным выводом.';
  }else if(label.includes('Меркури')){
-  why='Повод навести порядок в переписке, документах и договорённостях.';
-  step='Перепроверьте даты встреч, платежи, адреса и условия отправленных предложений.';
-  idea='Сделайте чек-лист: пять пунктов, которые стоит проверить перед отправкой договора.';
+  if(label.includes('окончание ретроградности')){
+   why='Ретроградный период Меркурия завершён. Полезно проверить, что вы успели исправить.';
+   step='Закройте оставшиеся вопросы: подтвердите встречи, сохраните финальные версии документов и вернитесь к отложенным решениям.';
+   idea='Поделитесь тремя находками, которые помогли вам работать внимательнее.';
+  }else{
+   why='В астрологическом календаре Меркурий отвечает за переписку, документы, технику, поездки и переговоры.';
+   step='Перед отправкой договора проверьте суммы и сроки. Перед поездкой сверьте билеты и адрес. Сделайте резервную копию важных файлов.';
+   avoid='Если есть выбор, не спешите подписывать непроверенные договоры, покупать дорогую технику без тестирования и начинать запуск с неисправными ссылками или оплатой. Важные дела не запрещены — просто проверьте детали дважды.';
+   idea='Сделайте пост-чек-лист: договор, сроки, ссылки, платежи и резервные копии.';
+  }
  }else if(label.includes('Венер')){
-  why='Тема дня — вкус, ценность и выбор.';
-  step='Проверьте три импульсивные покупки и решите, какие из них вам действительно нужны.';
-  idea='Поговорите с аудиторией о цене, ценности и полезности продукта.';
+  if(label.includes('окончание ретроградности')){
+   why='Ретроградный период Венеры завершён. Можно оценить, что изменилось в ваших вкусах, желаниях и отношениях.';
+   step='Пересмотрите отложенные покупки и решения об имидже. Если они по-прежнему нужны, составьте бюджет и план.';
+   idea='Расскажите, от какой ненужной покупки или услуги вы решили отказаться.';
+  }else{
+   why='В астрологическом календаре Венера связана с отношениями, вкусом, красотой, ценностями и деньгами.';
+   step='Проверьте корзину покупок и бюджет на красоту. В отношениях обсудите повторяющуюся проблему, а в образе попробуйте временное изменение прежде, чем решаться на постоянное.';
+   avoid='Если можно не торопиться, отложите радикальную смену имиджа, дорогостоящий эстетический эксперимент и импульсивную покупку украшений. Не принимайте решение о свадьбе, расставании или возвращении к бывшему только на волне эмоций.';
+   idea='Поднимите тему разумных покупок, стоимости услуг или того, как меняются вкусы и предпочтения.';
+  }
  }else if(label.includes('Марс')){
   why='Подходящий повод оценить темп работы и распределение сил.';
   step='Проверьте список задач и уберите одну необязательную срочность.';
@@ -2249,7 +2274,7 @@ function guideEventExplanation(label,area){
   step='Запишите, что получилось за сезон, и что хотите делать иначе.';
   idea='Подготовьте подборку достижений или планов на следующий сезон.';
  }
- return {why,step,idea:work?idea:''};
+ return {why,step,avoid,idea:work?idea:''};
 }
 function guideOpenDetailedDate(k){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(k)||k<minDate||k>maxDate||key(parse(k))!==k)return;
@@ -2258,11 +2283,12 @@ function guideOpenDetailedDate(k){
  const eventsHere=guideMonthEvents(selected.getFullYear(),selected.getMonth()).filter(v=>v[0]===k).map(v=>v[1]);
  // Only exact astronomical/symbolic events have accordions. The ongoing
  // middle of a retrograde period is a small status, not a repeated event.
- const retroOngoing=guideRetro.filter(p=>k>p[1]&&k<p[2]).map(p=>'↺ Ретроградный '+p[0]+' — период продолжается');
+ const retroOngoing=guideRetro.filter(p=>k>p[1]&&k<p[2]).map(p=>guideRetroShort(p[0]));
  const folds=eventsHere.length?eventsHere.map(label=>{
   const info=guideEventExplanation(label,area);
   return '<details class="guide-accordion"><summary><span class="guide-event-tag">ОСОБЕННАЯ ДАТА</span><strong>'+esc(label.replace(/^[●○✦✧↺↻]\s*/,''))+'</strong><span class="guide-arrow" aria-hidden="true">⌄</span></summary>'+
-  '<div class="guide-event-copy"><h5>Почему дата отмечена</h5><p>'+esc(info.why)+'</p><h5>Что можно сделать</h5><p>'+esc(info.step)+'</p>'+
+  '<div class="guide-event-copy"><h5>На что обратить внимание</h5><p>'+esc(info.why)+'</p><h5>Что полезно сделать</h5><p>'+esc(info.step)+'</p>'+
+  (info.avoid?'<h5>Чего лучше не делать</h5><p>'+esc(info.avoid)+'</p>':'')+
   (info.idea?'<h5>Идея для работы и контента</h5><p>'+esc(info.idea)+'</p>':'')+'</div></details>';
  }).join(''):'';
  const sectionName=area==='work'?'Дело и возможности':area==='day'?'Мой день':'Жизнь и вдохновение';
@@ -2444,7 +2470,7 @@ function renderGuideHub(){
  $('hubSelectedEvents').innerHTML=dayHasEvent?now.map(e=>
    '<button type="button" class="hub-event" data-guide-details-date="'+k+'" title="Открыть особенную дату"><span>'+esc(e[1])+'</span><small>Подробнее →</small></button>'
  ).join(''):'';
- const retroMiddle=guideRetro.filter(p=>k>p[1]&&k<p[2]).map(p=>'↺ Ретроградный '+p[0]+' · продолжается');
+ const retroMiddle=guideRetro.filter(p=>k>p[1]&&k<p[2]).map(p=>guideRetroShort(p[0]));
  $('hubRetroStatus').hidden=retroMiddle.length===0;
  $('hubRetroStatus').textContent=retroMiddle.join(' · ');
  $('hubEventsList').innerHTML=thisMonth.length?thisMonth.map((e,i)=>{
