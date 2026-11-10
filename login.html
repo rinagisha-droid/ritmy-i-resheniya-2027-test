@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ru">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="robots" content="noindex,nofollow">
+ <meta name="theme-color" content="#092b2b">
+ <title>Мой доступ — Магия каждого дня. 2027 г.</title>
+ <style>
+  :root{color-scheme:dark;font-family:Arial,Helvetica,sans-serif;background:#061e23;color:#f7eedc}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 15% 0,#27624b66,transparent 50%),radial-gradient(ellipse at 90% 90%,#7b4c2466,transparent 50%),linear-gradient(140deg,#071e29,#0d3430 65%,#09272c);display:grid;place-items:center;padding:24px}
+  .shell{max-width:540px;width:100%}
+  .eyebrow{letter-spacing:.17em;color:#ead094;font-size:11px;font-weight:700;text-transform:uppercase}
+  .panel{border:1px solid #d1b371a6;background:linear-gradient(145deg,#0b3233e8,#102d2cea);box-shadow:0 18px 80px #0008;border-radius:24px;padding:clamp(24px,5vw,38px);position:relative;overflow:hidden}
+  .panel::before{content:"✦";position:absolute;right:20px;top:12px;color:#c49b4f;font-size:44px;opacity:.7}
+  h1{font:normal clamp(28px,6vw,41px)/1.12 Georgia,serif;color:#fff1c7;margin:14px 0 12px;max-width:400px}
+  .intro{font:15px/1.6 Arial,sans-serif;color:#e9e2d5;margin:0 0 24px}
+  label{font-size:12px;font-weight:700;display:block;margin:0 0 8px;color:#f6e1b4}
+  input{width:100%;background:#fefcf4;color:#193c37;border:1px solid #ebdcbf;padding:14px 15px;border-radius:12px;font-size:16px;outline-offset:3px}
+  button{border-radius:12px;font:700 14px/1.35 Arial,sans-serif;min-height:48px;cursor:pointer}
+  button:focus-visible,a:focus-visible{outline:3px solid #f3d283;outline-offset:3px}
+  button.primary{background:#f6d17b;color:#2a3328;border:1px solid #ffe39b;padding:13px 17px;width:100%;margin-top:13px}
+  button.primary:hover{background:#ffe2a0}
+  button.secondary{background:#ffffff13;color:#f8e9c4;border:1px solid #d1b37175;padding:10px 14px}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .help{font-size:12px;line-height:1.6;color:#c9dcd1;margin:13px 0 0}
+  .status{font:13px/1.55 Arial,sans-serif;padding:12px 14px;border-radius:12px;background:#eff9ed16;border:1px solid #b4d9b555;color:#f5ebd3;margin:20px 0 0;white-space:normal;overflow-wrap:anywhere}
+  .status[data-tone="error"]{border-color:#ecb0a3;background:#a7504930}
+  .status[data-tone="success"]{border-color:#aaddbc;background:#4c866836}
+  .access-card{border-top:1px solid #d2b57469;padding-top:16px;margin-top:20px}
+  .access-card strong{font:700 20px/1.3 Georgia,serif;color:#f5dba0;display:block}
+  .access-card p{font-size:13px;color:#eee5d4;line-height:1.6}
+  .exit{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:18px}
+  .back{color:#f7dd9b;display:inline-block;margin-top:20px;text-decoration:none;font-size:13px}
+  .back:hover{text-decoration:underline}
+  .foot{font:12px/1.5 Arial,sans-serif;color:#a2c4b5;text-align:center;margin:20px 4px 0}
+  [hidden]{display:none!important}
+ </style>
+</head>
+<body>
+<main class="shell">
+ <section class="panel" aria-labelledby="title">
+  <div class="eyebrow">✦ Магия каждого дня · 2027</div>
+  <h1 id="title">Ваш календарь ждёт вас</h1>
+  <p class="intro">Здесь будет личный вход для покупателей. После проверки оплаты доступ откроется до 31 декабря 2027 года.</p>
+  <form id="loginForm" hidden>
+    <label for="email">Электронная почта для входа</label>
+    <input id="email" type="email" autocomplete="email" inputmode="email" required placeholder="name@example.com">
+    <button class="primary" id="loginButton" type="submit">Получить ссылку для входа</button>
+    <p class="help">Вам придёт одноразовая ссылка. Позже можно настроить и вход по цифровому коду. Оплата сама по себе не происходит на этой странице.</p>
+  </form>
+  <div id="account" hidden>
+    <p id="accountEmail" class="help"></p>
+    <div class="access-card">
+      <strong id="accessTitle">Проверяем доступ…</strong>
+      <p id="accessDescription">Проверяем наличие оплаченного заказа и дату окончания доступа.</p>
+    </div>
+    <div class="exit">
+      <button id="recheck" type="button" class="secondary">Проверить снова</button>
+      <button id="logout" type="button" class="secondary">Выйти</button>
+    </div>
+  </div>
+  <p id="message" class="status" role="status" aria-live="polite">Подготовка системы входа…</p>
+  <a class="back" href="landing.html">← Вернуться на страницу календаря</a>
+ </section>
+ <p class="foot">Демо-календарь пока открыт отдельно. Эта страница не выдаёт доступ без подтверждённой покупки.</p>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="access/config.js"></script>
+<script>
+(function(){
+  "use strict";
+  const $=(id)=>document.getElementById(id);
+  const config=window.MAGIC_ACCESS_CONFIG||{};
+  let client=null;
+  let currentUser=null;
+  function notify(text,tone){
+    $('message').textContent=text;
+    $('message').dataset.tone=tone||'info';
+  }
+  function setLoggedIn(isLoggedIn){
+    $('loginForm').hidden=isLoggedIn;
+    $('account').hidden=!isLoggedIn;
+    if(!isLoggedIn){$('accessTitle').textContent='Проверяем доступ…'}
+  }
+  async function checkAccess(){
+    if(!client||!currentUser)return;
+    $('recheck').disabled=true;
+    $('accessTitle').textContent='Проверяем покупку…';
+    $('accessDescription').textContent='Запрашиваем статус оплаченного доступа.';
+    try{
+      const res=await client.from('magic_calendar_access')
+        .select('id,expires_at,revoked_at,order_id')
+        .eq('buyer_id',currentUser.id)
+        .is('revoked_at',null).gt('expires_at',new Date().toISOString())
+        .order('expires_at',{ascending:false}).limit(1);
+      if(res.error)throw res.error;
+      const access=res.data&&res.data[0];
+      if(!access){
+        $('accessTitle').textContent='Доступ пока не активирован';
+        $('accessDescription').textContent='В базе пока нет действующего права доступа для этой почты. После подтверждённой оплаты статус появится здесь. Если вы уже оплатили, свяжитесь с продавцом и сообщите номер заказа.';
+        notify('Вы вошли в личный кабинет. Оплаченный доступ пока не найден.');
+        return;
+      }
+      const order=await client.from('magic_calendar_orders').select('status')
+        .eq('id',access.order_id).eq('buyer_id',currentUser.id).limit(1);
+      if(order.error)throw order.error;
+      if(!order.data||!order.data.length||order.data[0].status!=='paid'){
+        $('accessTitle').textContent='Ожидаем подтверждение оплаты';
+        $('accessDescription').textContent='Право доступа будет подтверждено после проверки статуса заказа на сервере.';
+        notify('Статус заказа пока не «оплачено».');
+        return;
+      }
+      const ends=new Date(access.expires_at).toLocaleDateString('ru-RU',{timeZone:'Asia/Yekaterinburg',day:'numeric',month:'long',year:'numeric'});
+      $('accessTitle').textContent='Покупка подтверждена';
+      $('accessDescription').textContent='Ваш доступ в базе активен до '+ends+'. Защищённая версия самого календаря подключается отдельно; публичный index.html не является платной защитой.';
+      notify('Статус оплаты и срока доступа подтверждён.', 'success');
+    }catch(err){
+      $('accessTitle').textContent='Проверка пока недоступна';
+      $('accessDescription').textContent='Сервис проверки доступа ещё настраивается. Это не означает, что ваша покупка потеряна.';
+      notify('Не удалось проверить доступ. '+(err&&err.message?err.message:'Повторите позже.'),'error');
+    }finally{$('recheck').disabled=false}
+  }
+  async function init(){
+    const url=config.projectUrl, key=config.publishableKey;
+    if(!url||!/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(url)||!key||!key.startsWith('sb_publishable_')){
+      notify('Личный вход пока не подключён: ожидается публичный ключ проекта Supabase. Оплаты и доступ этой страницей пока не обрабатываются.');
+      return;
+    }
+    if(!window.supabase||!window.supabase.createClient){
+      notify('Не удалось загрузить систему входа. Проверьте соединение и повторите попытку.','error');return;
+    }
+    try{
+      client=window.supabase.createClient(url,key);
+      client.auth.onAuthStateChange(function(event,session){
+        if(event==='SIGNED_OUT'){currentUser=null;setLoggedIn(false);notify('Вы вышли из личного кабинета.');}
+        if(event==='SIGNED_IN'&&session&&session.user){
+          currentUser=session.user;setLoggedIn(true);
+          $('accountEmail').textContent='Аккаунт: '+(currentUser.email||'email не указан');
+          Promise.resolve().then(checkAccess);
+        }
+      });
+      const sessionRes=await client.auth.getSession();
+      if(sessionRes.error)throw sessionRes.error;
+      if(sessionRes.data.session&&sessionRes.data.session.user){
+        currentUser=sessionRes.data.session.user;
+        setLoggedIn(true);
+        $('accountEmail').textContent='Аккаунт: '+(currentUser.email||'email не указан');
+        await checkAccess();
+      }else{
+        setLoggedIn(false);
+        notify('Введите электронную почту, чтобы получить одноразовую ссылку для входа.');
+      }
+    }catch(err){notify('Ошибка подключения: '+(err.message||'попробуйте позже'),'error')}
+  }
+  $('loginForm').addEventListener('submit',async function(e){
+    e.preventDefault();
+    if(!client)return;
+    const email=$('email').value.trim();
+    if(!email)return;
+    $('loginButton').disabled=true;
+    try{
+      const redirect=window.location.origin+window.location.pathname;
+      const resp=await client.auth.signInWithOtp({email:email,options:{emailRedirectTo:redirect,shouldCreateUser:true}});
+      if(resp.error)throw resp.error;
+      notify('Проверьте почту. Если отправка письма настроена для этого адреса, вам придёт одноразовая ссылка для входа.','success');
+    }catch(err){notify('Не удалось отправить письмо: '+(err.message||'ошибка сервиса'),'error')}
+    finally{$('loginButton').disabled=false}
+  });
+  $('recheck').addEventListener('click',checkAccess);
+  $('logout').addEventListener('click',async function(){
+    if(!client)return;
+    const resp=await client.auth.signOut();
+    if(resp.error)notify('Не получилось выйти: '+resp.error.message,'error');
+  });
+  init();
+})();
+</script>
+</body>
+</html>
