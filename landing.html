@@ -1151,6 +1151,63 @@ button.showcase-date.hinted:after{
   font-size:clamp(15px,4vw,18px);line-height:1.25
  }
 }
+
+/* DESKTOP_PREVIEW_ART_20261110 — hero card illustrations for wide screens only.
+   All existing phone artwork and media rules <=680px remain unchanged. */
+.desktop-preview-art{display:none}
+@media (min-width:681px) {
+  .hero .preview.mobile-artwork-v2 .preview-card{
+    position:relative;isolation:isolate;overflow:hidden;
+  }
+  .hero .preview.mobile-artwork-v2 .preview-card > img{
+    display:none!important;
+  }
+  .hero .preview.mobile-artwork-v2 .preview-card .desktop-preview-art{
+    display:block!important;
+    position:relative;
+    flex:0 1 auto;
+    align-self:center;
+    max-width:100%;
+    margin:0 auto;
+    background-color:transparent;
+    border:0;
+    box-shadow:none;
+  }
+  .hero .preview.mobile-artwork-v2 .preview-card .desktop-moon-globe{
+    width:min(100%,174px);
+    height:auto;aspect-ratio:1;
+    border-radius:50%;
+    filter:drop-shadow(0 0 11px rgba(233,214,163,.38));
+  }
+  .hero .preview.mobile-artwork-v2 .preview-card .desktop-scorpio-art{
+    width:min(100%,178px);
+    aspect-ratio:1;
+    background-image:url("assets/zodiac-atlas-v1.webp");
+    background-size:400% 300%;
+    background-position:100% 50%;
+    background-repeat:no-repeat;
+    mix-blend-mode:screen;
+    filter:brightness(1.16) saturate(1.10) contrast(1.05);
+    -webkit-mask-image:radial-gradient(ellipse 65% 66% at center,#000 0 62%,rgba(0,0,0,.9) 75%,rgba(0,0,0,.5) 88%,transparent 100%);
+    mask-image:radial-gradient(ellipse 65% 66% at center,#000 0 62%,rgba(0,0,0,.9) 75%,rgba(0,0,0,.5) 88%,transparent 100%);
+  }
+  .hero .preview.mobile-artwork-v2 .preview-card .desktop-focus-art{
+    width:min(100%,180px);
+    aspect-ratio:1;
+    background-image:url("assets/focus.webp");
+    background-position:center center;
+    background-size:auto 100%;
+    background-repeat:no-repeat;
+    mix-blend-mode:screen;
+    -webkit-mask-image:radial-gradient(ellipse 66% 61% at center,#000 0 39%,rgba(0,0,0,.94) 53%,rgba(0,0,0,.57) 73%,transparent 99%);
+    mask-image:radial-gradient(ellipse 66% 61% at center,#000 0 39%,rgba(0,0,0,.94) 53%,rgba(0,0,0,.57) 73%,transparent 99%);
+  }
+  .hero .preview.mobile-artwork-v2 .preview-card .footer-pill{
+    position:relative;
+    z-index:2;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1189,9 +1246,9 @@ button.showcase-date.hinted:after{
       <div class="preview-label"><span>Мой день</span><small>Внутри календаря</small></div>
       <div class="preview-topline"><span>Луна</span><span>Знаки зодиака</span><span>Фокус дня</span></div>
       <div class="preview-cards" aria-label="Три карточки календаря">
-        <div class="preview-card soft"><h3>Фазы Луны</h3><img src="assets/moon.webp" alt="Объёмная Луна на звёздном фоне" loading="eager"><canvas class="mobile-preview-art mobile-moon-globe" width="360" height="360" role="img" aria-label="Целая трёхмерная Луна на звёздном фоне"></canvas><span class="footer-pill">Наблюдать · замечать</span></div>
-        <div class="preview-card zodiac"><h3>Луна в Скорпионе</h3><img src="assets/scorpio.webp" alt="Золотистый скорпион на звёздном фоне" loading="eager"><span class="mobile-preview-art mobile-scorpio-art" role="img" aria-label="Целый объёмный золотисто-синий Скорпион на звёздном фоне"></span><span class="footer-pill">Глубина · честность</span></div>
-        <div class="preview-card focus"><h3>Фокус дня:</h3><span class="focus-keyword">Намерение</span><img src="assets/focus.webp" alt="Уютная чашка со снежинкой среди хвойных веточек и свечей" loading="eager"><span class="mobile-preview-art mobile-focus-art" role="img" aria-label="Чашка среди зимних ветвей, вписанная в звёздный фон"></span><span class="footer-pill">Практика дня →</span></div>
+        <div class="preview-card soft"><h3>Фазы Луны</h3><img src="assets/moon.webp" alt="Объёмная Луна на звёздном фоне" loading="eager"><canvas class="desktop-preview-art desktop-moon-globe" width="320" height="320" role="img" aria-label="Объёмная целая Луна на звёздном фоне"></canvas><canvas class="mobile-preview-art mobile-moon-globe" width="360" height="360" role="img" aria-label="Целая трёхмерная Луна на звёздном фоне"></canvas><span class="footer-pill">Наблюдать · замечать</span></div>
+        <div class="preview-card zodiac"><h3>Луна в Скорпионе</h3><img src="assets/scorpio.webp" alt="Золотистый скорпион на звёздном фоне" loading="eager"><span class="desktop-preview-art desktop-scorpio-art" role="img" aria-label="Полный золотисто-синий Скорпион на звёздном фоне"></span><span class="mobile-preview-art mobile-scorpio-art" role="img" aria-label="Целый объёмный золотисто-синий Скорпион на звёздном фоне"></span><span class="footer-pill">Глубина · честность</span></div>
+        <div class="preview-card focus"><h3>Фокус дня:</h3><span class="focus-keyword">Намерение</span><img src="assets/focus.webp" alt="Уютная чашка со снежинкой среди хвойных веточек и свечей" loading="eager"><span class="desktop-preview-art desktop-focus-art" role="img" aria-label="Зимняя чашка среди хвойных ветвей на звёздном фоне"></span><span class="mobile-preview-art mobile-focus-art" role="img" aria-label="Чашка среди зимних ветвей, вписанная в звёздный фон"></span><span class="footer-pill">Практика дня →</span></div>
       </div>
       <div class="preview-note"><i aria-hidden="true"></i><span>Выберите дату и откройте свою подсказку</span></div>
     </div>
@@ -1811,6 +1868,68 @@ button.showcase-date.hinted:after{
   }
   if(media.matches)renderMoon();
   else if(media.addEventListener)media.addEventListener('change',renderMoon);
+})();
+</script>
+
+
+<script>
+/* Desktop-only spherical lunar texture, independent of the mobile Moon renderer.
+   Renders once on desktop, without replacing or changing the phone canvas. */
+(function(){
+  'use strict';
+  const canvas=document.querySelector('.desktop-moon-globe');
+  if(!canvas)return;
+  const media=window.matchMedia('(min-width:681px)');
+  let started=false;
+  function paintDesktopMoon(){
+    if(started||!media.matches)return;
+    started=true;
+    const source=new Image();
+    source.onload=function(){
+      try{
+        const tmp=document.createElement('canvas');
+        tmp.width=source.naturalWidth;tmp.height=source.naturalHeight;
+        const tmpCtx=tmp.getContext('2d',{willReadFrequently:true});
+        tmpCtx.drawImage(source,0,0);
+        const texture=tmpCtx.getImageData(0,0,tmp.width,tmp.height).data;
+        const width=canvas.width,height=canvas.height;
+        const ctx=canvas.getContext('2d');
+        const output=ctx.createImageData(width,height),pixels=output.data;
+        const radius=width*.467,cx=width/2,cy=height/2;
+        const light=[-.86,.10,.51];
+        for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+          const nx=(x+.5-cx)/radius,ny=(cy-y-.5)/radius;
+          const rr=nx*nx+ny*ny;
+          if(rr>=1)continue;
+          const nz=Math.sqrt(1-rr);
+          const longitude=Math.atan2(nx,nz);
+          const latitude=Math.asin(Math.max(-1,Math.min(1,ny)));
+          const u=((.5+longitude/(2*Math.PI))%1+1)%1;
+          const v=.5-latitude/Math.PI;
+          const sx=Math.min(tmp.width-1,Math.floor(u*tmp.width));
+          const sy=Math.min(tmp.height-1,Math.max(0,Math.floor(v*tmp.height)));
+          const from=4*(sy*tmp.width+sx);
+          const diffuse=Math.max(0,nx*light[0]+ny*light[1]+nz*light[2]);
+          const sun=Math.pow(diffuse,.72);
+          const brightness=.22+1.08*sun;
+          const edge=Math.min(1,Math.max(0,(1-Math.sqrt(rr))*radius/2));
+          const to=4*(y*width+x);
+          pixels[to]=Math.min(255,texture[from]*brightness*1.16+sun*10);
+          pixels[to+1]=Math.min(255,texture[from+1]*brightness*1.1+sun*8);
+          pixels[to+2]=Math.min(255,texture[from+2]*brightness*1.05+sun*5);
+          pixels[to+3]=Math.round(255*edge);
+        }
+        ctx.putImageData(output,0,0);
+      }catch(e){fallback();}
+    };
+    source.onerror=fallback;
+    source.src='assets/moon-nasa.jpg';
+  }
+  function fallback(){
+    canvas.style.background='radial-gradient(circle at 68% 40%,rgba(0,0,0,.46),transparent 66%),url("assets/moon-nasa.jpg") center/auto 100% no-repeat';
+  }
+  if(media.matches)paintDesktopMoon();
+  else if(media.addEventListener)media.addEventListener('change',paintDesktopMoon);
 })();
 </script>
 
