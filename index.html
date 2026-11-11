@@ -2345,7 +2345,7 @@ fetch('data/sky.json').then(r=>r.ok?r.json():null).then(o=>{if(o){sky=o;render()
   const src=(params.get('utm_source')||'').toLowerCase().trim();
   const med=(params.get('utm_medium')||'').toLowerCase().trim();
   let source='direct';
-  if(['telegram','vk','instagram','whatsapp','ok','max'].includes(src))source=src;
+  if(['telegram','vk','instagram','whatsapp','ok','max','taplink'].includes(src))source=src;
   else if(src==='odnoklassniki')source='ok';
   else if(src)source='other';
   else if(document.referrer){
@@ -2356,6 +2356,7 @@ fetch('data/sky.json').then(r=>r.ok?r.json():null).then(o=>{if(o){sky=o;render()
    else if(host==='wa.me'||host==='whatsapp.com'||host.endsWith('.whatsapp.com'))source='whatsapp';
    else if(host==='ok.ru'||host.endsWith('.ok.ru'))source='ok';
    else if(host==='max.ru'||host.endsWith('.max.ru'))source='max';
+   else if(host==='taplink.cc'||host.endsWith('.taplink.cc')||host==='taplink.ru'||host.endsWith('.taplink.ru'))source='taplink';
   }
   const placement=['story','post','bio','link'].includes(med)?med:'unknown';
   const sent='magic-calendar-visit-source-v2:'+source+':'+placement;
