@@ -111,11 +111,17 @@
       }
       if(!response.ok)throw Error(result.error||'Ошибка проверки');
       if(result.has_access){
-        const ends=new Date(result.expires_at).toLocaleDateString('ru-RU',{timeZone:'Europe/Moscow',day:'numeric',month:'long',year:'numeric'});
-        $('accessTitle').textContent='Ваш календарь готов ✨';
-        $('accessDescription').textContent='Оплата подтверждена. Полная версия доступна до '+ends+' включительно.';
+        const isTest=result.access_type==='test';
+        const until=new Date(result.expires_at);
+        const ends=isTest
+          ? until.toLocaleString('ru-RU',{timeZone:'Europe/Moscow',day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'})
+          : new Date(until.getTime()-1).toLocaleDateString('ru-RU',{timeZone:'Europe/Moscow',day:'numeric',month:'long',year:'numeric'});
+        $('accessTitle').textContent=isTest?'Тестовый доступ активен ✨':'Ваш календарь готов ✨';
+        $('accessDescription').textContent=isTest
+          ? 'Полная версия открыта для проверки до '+ends+' по МСК. Это временный тест, а не покупка.'
+          : 'Оплата подтверждена. Полная версия доступна до '+ends+' включительно.';
         $('openCalendar').hidden=false;
-        notify('Доступ подтверждён. Нажмите «Открыть полный календарь».','success');
+        notify(isTest?'Тестовый доступ активен. Откройте полный календарь для проверки.':'Доступ подтверждён. Нажмите «Открыть полный календарь».','success');
       }
     }catch(err){
       $('accessTitle').textContent='Не удалось проверить доступ';
