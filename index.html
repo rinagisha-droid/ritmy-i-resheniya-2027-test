@@ -2285,4 +2285,30 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDialog()});
 render();
 fetch('data/sky.json').then(r=>r.ok?r.json():null).then(o=>{if(o){sky=o;render()}}).catch(()=>{});
 
+</script><script>
+/* Anonymous source tracking for free demo. No visitor identifiers or personal data are sent. */
+(function(){
+ try {
+  const params=new URLSearchParams(location.search);
+  const src=(params.get('utm_source')||'').toLowerCase().trim();
+  const med=(params.get('utm_medium')||'').toLowerCase().trim();
+  let source='direct';
+  if(['telegram','vk','instagram'].includes(src))source=src;
+  else if(src)source='other';
+  else if(document.referrer){
+   const host=new URL(document.referrer).hostname.toLowerCase();
+   if(host==='t.me'||host.endsWith('.t.me')||host.includes('telegram'))source='telegram';
+   else if(host==='vk.com'||host.endsWith('.vk.com'))source='vk';
+   else if(host==='instagram.com'||host.endsWith('.instagram.com'))source='instagram';
+  }
+  const placement=['story','post','bio','link'].includes(med)?med:'unknown';
+  const sent='magic-calendar-visit-source-v1';
+  if(sessionStorage.getItem(sent))return;
+  fetch('https://efvwlunhpmazfgwyqsiv.supabase.co/functions/v1/calendar-visit-source',{
+   method:'POST',mode:'cors',keepalive:true,
+   headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({source,placement})
+  }).then(function(res){if(res.ok)sessionStorage.setItem(sent,'1')}).catch(function(){});
+ }catch(e){}
+})();
 </script></body></html>
